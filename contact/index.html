@@ -1,47 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<base href="/">
-<title>Contact — Vaxonyx AI</title>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/VaxonyxAI/">
+  <title>Contact — Vaxonyx AI</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-<header class="site-header" role="banner">
-<div class="container header-inner">
-<a class="brand" href="/"><img src="/assets/logo.svg" alt="Vaxonyx AI" class="brand-logo" /><span class="brand-text">Vaxonyx AI</span></a>
-<button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
-<nav id="primary-nav" class="nav" role="navigation">
-<ul class="nav-list">
-<li><a href="/about/">About</a></li>
-<li><a href="/innovation/">Innovation</a></li>
-<li><a href="/pipeline/">Pipeline</a></li>
-<li><a href="/products/">Products</a></li>
-<li><a href="/investors/">Investors</a></li>
-<li><a href="/careers/">Careers</a></li>
-<li><a href="/contact/" class="active">Contact</a></li>
-</ul>
-</nav>
-</div>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" class="brand-logo" alt="Vaxonyx AI">
+        <span class="brand-text">Vaxonyx AI</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="about/">About</a></li>
+          <li><a href="innovation/">Innovation</a></li>
+          <li><a href="pipeline/">Pipeline</a></li>
+          <li><a href="products/">Products</a></li>
+          <li><a href="investors/">Investors</a></li>
+          <li><a href="careers/">Careers</a></li>
+          <li><a href="contact/" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <main class="page container">
+    <h1>Contact</h1>
+    <ul class="contact-list">
+      <li><strong>General:</strong> <a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
+      <li><strong>Investor Relations:</strong> <a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
+      <li><strong>Business Development:</strong> <a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
+    </ul>
+    <address class="hq">Headquarters: Add official address here</address>
+  </main>
 
-<main class="page container">
-<h1>Contact</h1>
-<ul class="contact-list">
-<li><strong>General:</strong> <a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
-<li><strong>Investor Relations:</strong> <a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
-<li><strong>Business Development:</strong> <a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
-</ul>
-<address class="hq">Headquarters: <span data-edit>Add official address here</span></address>
-</main>
-
-
-<footer class="site-footer">${FOOTER}</footer>
-<script src="/assets/osx_qa.js" defer></script>
-<script src="/assets/osx_widget.js" defer></script>
-<script src="/js/main.js" defer></script>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section>
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
+          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
+          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
+        </ul>
+        <address class="hq">Headquarters: Add official address here</address>
+      </section>
+      <section>
+        <h3>Quick Access</h3>
+        <ul class="footer-links">
+          <li><a href="about/">About</a></li>
+          <li><a href="innovation/">Innovation</a></li>
+          <li><a href="pipeline/">Pipeline</a></li>
+          <li><a href="products/">Products</a></li>
+          <li><a href="investors/">Investors</a></li>
+          <li><a href="careers/">Careers</a></li>
+          <li><a href="contact/">Contact</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Follow</h3>
+        <div class="socials">
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">X</a>
+          <a href="#" class="social-icon">▶</a>
+        </div>
+      </section>
+    </div>
+    <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
 </html>
