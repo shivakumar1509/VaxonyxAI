@@ -3,193 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- IMPORTANT for your project URL -->
-  <base href="/VaxonyxAI/">
+  <title>VaxonyxAI — Sanity Check</title>
 
-  <title>Vaxonyx AI — Home</title>
-  <meta name="description" content="Vaxonyx AI — Precision immuno-informatics." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- INLINE CSS so the page looks styled even if external links are wrong -->
   <style>
-    :root{--vx-blue:#1B427A;--vx-orange:#F26B3B;--vx-line:rgba(20,39,63,.15);--vx-muted:#6b7a90;--radius:16px}
-    *{box-sizing:border-box}html,body{height:100%}
-    body{margin:0;font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--vx-blue);background:#fff}
-    .container{width:min(1200px,92vw);margin-inline:auto}
-    .site-header{position:fixed;top:0;left:0;right:0;height:96px;background:#fff;border-bottom:1px solid var(--vx-line);z-index:1000}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;gap:1rem}
-    .brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--vx-blue);font-weight:700}
-    .brand-logo{width:36px;height:36px}
-    .brand-text{letter-spacing:.2px}
-    .nav-toggle{display:none;background:transparent;border:0;font-size:1.5rem;cursor:pointer}
-    .nav{display:block}
-    .nav-list{list-style:none;display:flex;align-items:center;gap:1.1rem;margin:0;padding:0}
-    .nav-list a{text-decoration:none;color:var(--vx-blue);font-weight:600}
-    .site-main{padding-top:112px}
-    .video-hero{margin-top:1.25rem}
-    .video-wrap{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.08)}
-    .hero-video{width:100%;aspect-ratio:16/9;display:block;background:#000}
-    .ask-floater{position:absolute;bottom:12px;right:12px;padding:.65rem 1rem;border-radius:999px;border:0;background:var(--vx-orange);color:#fff;font-weight:700;box-shadow:0 6px 24px rgba(242,107,59,.35)}
-    .thin-separator{border:0;border-top:1px solid var(--vx-line);margin:1.25rem auto;width:min(1200px,92vw)}
-    .home-section{padding:1.25rem 0 2rem}
-    .home-section h2{margin:0 0 .5rem}
-    .cta{display:inline-block;padding:.55rem .9rem;border-radius:999px;background:rgba(27,66,122,.08);color:var(--vx-blue);font-weight:700;text-decoration:none}
-    .site-footer{border-top:1px solid var(--vx-line);margin-top:2rem;padding:1.5rem 0 2rem;color:#333}
-    .footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-    .contact-list,.footer-links{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
-    .hq{margin-top:.75rem;font-style:normal;color:var(--vx-muted)}
-    .socials{display:flex;gap:.75rem}
-    .social-icon{display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px}
-    .copyright{text-align:center;color:var(--vx-muted);margin-top:1rem}
-    @media (max-width:720px){
-      .nav-toggle{display:inline-block}
-      .nav{display:none;position:absolute;top:100%;right:0;left:0;background:#fff;border-bottom:1px solid var(--vx-line)}
-      .nav.open{display:block}
-      .nav-list{flex-direction:column;align-items:flex-start;padding:.75rem 1rem 1rem;gap:.85rem}
-      .footer-grid{grid-template-columns:1fr}
-      .ask-floater{bottom:12px;right:12px}
+    :root { --ok:#10b981; --ink:#0f172a; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:#f5fff9; color:var(--ink); display:flex; align-items:center; justify-content:center;
     }
+    .card{
+      width:min(900px,92vw); border:2px dashed var(--ok); border-radius:16px; padding:28px;
+      background:#fff;
+    }
+    h1{margin:0 0 12px; color:var(--ok); font-size:clamp(28px,5vw,44px)}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+    .row{margin:.35rem 0}
+    a{color:#0f4fd8; text-decoration:none}
   </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img id="brandLogo" src="assets/logo.svg" alt="Vaxonyx AI" class="brand-logo">
-        <span class="brand-text">Vaxonyx AI</span>
-      </a>
+  <div class="card">
+    <h1>✅ STYLES ARE LOADING</h1>
+    <div class="row mono">Build time (client): <span id="ts"></span></div>
+    <div class="row mono">URL: <span id="url"></span></div>
+    <div class="row mono">Tip: add <code>?v=123</code> to the page URL to defeat caches.</div>
+    <hr>
+    <p>If you don’t see the green headline, GitHub Pages is serving an older file or a different branch/path.</p>
+    <p>
+      Next step when this works:
+      <a href="#next">switch back to the full site index</a>.
+    </p>
+  </div>
 
-      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
-      <nav id="primary-nav" class="nav" role="navigation">
-        <ul class="nav-list">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
-          <li><a href="contact/">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN -->
-  <main class="site-main" role="main">
-    <section class="video-hero container">
-      <div class="video-wrap">
-        <video id="heroVideo" class="hero-video" controls preload="metadata" poster="assets/video-poster.jpg">
-          <source id="heroMp4" src="assets/intro.mp4" type="video/mp4">
-        </video>
-        <button id="askVxBtn" class="ask-floater">Ask Vaxonyx AI</button>
-      </div>
-    </section>
-
-    <hr class="thin-separator">
-
-    <section class="home-section container">
-      <h2>About Us</h2>
-      <p>We design future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
-      <p><a class="cta" href="about/">Learn more</a></p>
-    </section>
-
-    <section class="home-section container">
-      <h2>Products</h2>
-      <p>Lightweight, fast-loading web tools for immuno-informatics and data review.</p>
-      <p><a class="cta" href="products/">Explore products</a></p>
-    </section>
-
-    <section class="home-section container">
-      <h2>Innovation & Pipeline</h2>
-      <p>R&D on MHC Class I/II prediction, immunogenicity ranking, and translational benchmarks.</p>
-      <p><a class="cta" href="innovation/">See innovation</a></p>
-    </section>
-
-    <section class="home-section container">
-      <h2>Investor Relations</h2>
-      <p>Governance, scientific advisory, and updates.</p>
-      <p><a class="cta" href="investors/">Investor hub</a></p>
-    </section>
-
-    <section class="home-section container">
-      <h2>Careers & Business Development</h2>
-      <p>We’re building in India and the USA. Partner with us or join the team.</p>
-      <p><a class="cta" href="careers/">Open roles & BD</a></p>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-grid">
-      <section>
-        <h3>Contact</h3>
-        <ul class="contact-list" id="emails">
-          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
-          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
-          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
-        </ul>
-        <address class="hq">Headquarters: Add official address here</address>
-      </section>
-
-      <section>
-        <h3>Quick Access</h3>
-        <ul class="footer-links">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
-          <li><a href="contact/">Contact</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>Follow</h3>
-        <div class="socials">
-          <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
-          <a href="#" class="social-icon" aria-label="Twitter/X">X</a>
-          <a href="#" class="social-icon" aria-label="YouTube">▶</a>
-        </div>
-      </section>
-    </div>
-    <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
-  </footer>
-
-  <!-- Optional widget scripts -->
-  <script src="assets/osx_qa.js" defer></script>
-  <script src="assets/osx_widget.js" defer></script>
-
-  <!-- Tiny inline JS -->
   <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile nav
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('primary-nav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(open));
-      });
-    }
-
-    // Ask button
-    const askBtn = document.getElementById('askVxBtn');
-    function openAskWidget() {
-      try {
-        if (window.OSX_WIDGET && typeof window.OSX_WIDGET.open === 'function') return window.OSX_WIDGET.open();
-        if (window.OsxWidget && typeof window.OsxWidget.open === 'function') return window.OsxWidget.open();
-        if (window.AskVX && typeof window.AskVX.open === 'function') return window.AskVX.open();
-      } catch (e) { console.warn('Ask widget open errored', e); }
-      alert("Ask Vaxonyx AI is loading. If it doesn't open, verify assets/osx_widget.js.");
-    }
-    if (askBtn) askBtn.addEventListener('click', openAskWidget);
+    document.getElementById('ts').textContent = new Date().toISOString();
+    document.getElementById('url').textContent = window.location.href;
   </script>
 </body>
 </html>
