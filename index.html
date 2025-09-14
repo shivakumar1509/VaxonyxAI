@@ -4,29 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- This fixes the missing CSS issue on GitHub Pages -->
-  <base href="/YOUR_REPO_NAME/">
+  <!-- IMPORTANT: project site base -->
+  <base href="/VaxonyxAI/">
 
-  <title>Vaxonyx AI</title>
+  <title>Vaxonyx AI — Home</title>
   <meta name="description" content="Vaxonyx AI — Precision immuno-informatics" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Make sure the FILE is named styles.css (with the s) and lives at /css/styles.css -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-
 <body>
-  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
         <img src="assets/logo.svg" class="brand-logo" alt="Vaxonyx AI" />
         <span class="brand-text">Vaxonyx AI</span>
       </a>
-
-      <button class="nav-toggle" aria-label="Menu">☰</button>
-      <nav id="primary-nav" class="nav">
+      <nav class="nav">
         <ul class="nav-list">
           <li><a href="about/">About</a></li>
           <li><a href="innovation/">Innovation</a></li>
@@ -40,14 +38,16 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="site-main">
     <section class="video-hero container">
       <div class="video-wrap">
-        <video id="heroVideo" class="hero-video" poster="assets/video-poster.jpg" controls>
+        <video class="hero-video" controls poster="assets/video-poster.jpg">
           <source src="assets/intro.mp4" type="video/mp4">
         </video>
-        <button id="askVxBtn" class="ask-floater">Ask Vaxonyx AI</button>
+        <button class="ask-floater"
+          onclick="(window.OSX_WIDGET?.open||window.OsxWidget?.open||window.AskVX?.open||function(){alert('Ask widget not found');})()">
+          Ask Vaxonyx AI
+        </button>
       </div>
     </section>
 
@@ -56,23 +56,22 @@
     <section class="home-section container">
       <h2>Innovation & Pipeline</h2>
       <p>Research on MHC Class I/II prediction, immunogenicity ranking (XGBoost), and translational benchmarks.</p>
-      <p><a href="innovation/" class="cta">See innovation</a></p>
+      <p><a class="cta" href="innovation/">See innovation</a></p>
     </section>
 
     <section class="home-section container">
       <h2>Investor Relations</h2>
       <p>Governance, scientific advisory, and financial updates.</p>
-      <p><a href="investors/" class="cta">Investor hub</a></p>
+      <p><a class="cta" href="investors/">Investor hub</a></p>
     </section>
 
     <section class="home-section container">
       <h2>Careers & Business Development</h2>
       <p>We’re building in India and the USA. Partner with us or join the team.</p>
-      <p><a href="careers/" class="cta">Open roles & BD</a></p>
+      <p><a class="cta" href="careers/">Open roles & BD</a></p>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <section>
@@ -82,9 +81,8 @@
           <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
           <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
         </ul>
-        <address class="hq">Headquarters: Add official address here</address>
+        <p class="hq"><em>Headquarters:</em> Add official address here</p>
       </section>
-
       <section>
         <h3>Quick Access</h3>
         <ul class="footer-links">
@@ -97,7 +95,6 @@
           <li><a href="contact/">Contact</a></li>
         </ul>
       </section>
-
       <section>
         <h3>Follow</h3>
         <div class="socials">
@@ -108,6 +105,7 @@
       </section>
     </div>
     <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+    <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
   </footer>
 
   <script src="assets/osx_qa.js" defer></script>
