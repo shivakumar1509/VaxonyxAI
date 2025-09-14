@@ -4,28 +4,43 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- IMPORTANT: Your project base on GitHub Pages -->
+  <!-- IMPORTANT for GitHub Pages project sites -->
   <base href="/VaxonyxAI/">
 
   <title>Vaxonyx AI — Home</title>
   <meta name="description" content="Vaxonyx AI — Precision immuno-informatics." />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Cache-busting token generated as early as possible -->
+  <script>
+    // Create a unique version token per page load (forces fresh fetches)
+    window.__ASSET_VERSION__ = Date.now().toString();
+    function bust(u){ return u + (u.includes('?') ? '&' : '?') + 'v=' + window.__ASSET_VERSION__; }
+    // Write CSS link during head parsing to avoid FOUC
+    document.write('<link rel="stylesheet" href="' + bust('css/styles.css') + '">');
+  </script>
+  <noscript>
+    <!-- Fallback (no cache-busting if JS is disabled) -->
+    <link rel="stylesheet" href="css/styles.css">
+  </noscript>
+
+  <!-- Optional favicon (also cache-busted) -->
+  <link id="fav" rel="icon" href="assets/logo.svg">
 </head>
 <body>
   <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="assets/logo.svg" alt="Vaxonyx AI" class="brand-logo">
+        <img id="brandLogo" src="assets/logo.svg" alt="Vaxonyx AI" class="brand-logo">
         <span class="brand-text">Vaxonyx AI</span>
       </a>
 
       <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
-
       <nav id="primary-nav" class="nav" role="navigation">
         <ul class="nav-list">
           <li><a href="about/">About</a></li>
@@ -46,15 +61,12 @@
     <section class="video-hero container">
       <div class="video-wrap">
         <video id="heroVideo" class="hero-video" controls preload="metadata" poster="assets/video-poster.jpg">
-          <source src="assets/intro.mp4" type="video/mp4">
+          <source id="heroMp4" src="assets/intro.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
 
         <!-- Orange floater -->
-        <button id="askVxBtn" class="ask-floater"
-          onclick="(window.OSX_WIDGET?.open||window.OsxWidget?.open||window.AskVX?.open||function(){alert('Ask widget not found. Ensure assets/osx_widget.js is present.');})()">
-          Ask Vaxonyx AI
-        </button>
+        <button id="askVxBtn" class="ask-floater">Ask Vaxonyx AI</button>
       </div>
     </section>
 
@@ -130,11 +142,11 @@
     <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
   </footer>
 
-  <!-- Your widget scripts (optional if not ready yet) -->
-  <script src="assets/osx_qa.js" defer></script>
-  <script src="assets/osx_widget.js" defer></script>
+  <!-- OPTIONAL: your widget scripts; we’ll also cache-bust them -->
+  <script id="osxQA" src="assets/osx_qa.js" defer></script>
+  <script id="osxWidget" src="assets/osx_widget.js" defer></script>
 
-  <!-- Tiny inline JS for year & mobile nav -->
+  <!-- Inline JS: year, mobile nav, cache-bust for all assets, and Ask button handler -->
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -148,6 +160,48 @@
         toggle.setAttribute('aria-expanded', String(open));
       });
     }
+
+    // Cache-bust non-CSS assets after DOM is ready
+    (function(){
+      const V = window.__ASSET_VERSION__;
+      const addV = u => u + (u.includes('?') ? '&' : '?') + 'v=' + V;
+
+      // Brand logo
+      const logo = document.getElementById('brandLogo');
+      if (logo && logo.src) logo.src = addV(logo.getAttribute('src'));
+
+      // Favicon
+      const fav = document.getElementById('fav');
+      if (fav && fav.href) fav.href = addV(fav.getAttribute('href'));
+
+      // Video poster + source
+      const video = document.getElementById('heroVideo');
+      if (video) {
+        if (video.poster) video.poster = addV(video.getAttribute('poster') || 'assets/video-poster.jpg');
+        const mp4 = document.getElementById('heroMp4');
+        if (mp4 && mp4.src) mp4.src = addV(mp4.getAttribute('src'));
+        // Reload sources if we changed URLs
+        if (video.load) video.load();
+      }
+
+      // Widget scripts (if present)
+      const qa = document.getElementById('osxQA');
+      if (qa && qa.src) qa.src = addV(qa.getAttribute('src'));
+      const wid = document.getElementById('osxWidget');
+      if (wid && wid.src) wid.src = addV(wid.getAttribute('src'));
+    })();
+
+    // Ask Vaxonyx AI button behavior (works if your widget exposes an open() function)
+    const askBtn = document.getElementById('askVxBtn');
+    function openAskWidget() {
+      try {
+        if (window.OSX_WIDGET && typeof window.OSX_WIDGET.open === 'function') return window.OSX_WIDGET.open();
+        if (window.OsxWidget && typeof window.OsxWidget.open === 'function') return window.OsxWidget.open();
+        if (window.AskVX && typeof window.AskVX.open === 'function') return window.AskVX.open();
+      } catch (e) { console.warn('Ask widget open errored', e); }
+      alert("Ask Vaxonyx AI is loading. If it doesn't open, verify assets/osx_widget.js.");
+    }
+    if (askBtn) askBtn.addEventListener('click', openAskWidget);
   </script>
 </body>
 </html>
