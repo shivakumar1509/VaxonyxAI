@@ -4,27 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- IMPORTANT: project site base -->
+  <!-- IMPORTANT: Your project base on GitHub Pages -->
   <base href="/VaxonyxAI/">
 
   <title>Vaxonyx AI — Home</title>
-  <meta name="description" content="Vaxonyx AI — Precision immuno-informatics" />
+  <meta name="description" content="Vaxonyx AI — Precision immuno-informatics." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Make sure the FILE is named styles.css (with the s) and lives at /css/styles.css -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="site-header">
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="assets/logo.svg" class="brand-logo" alt="Vaxonyx AI" />
+        <img src="assets/logo.svg" alt="Vaxonyx AI" class="brand-logo">
         <span class="brand-text">Vaxonyx AI</span>
       </a>
-      <nav class="nav">
+
+      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
+
+      <nav id="primary-nav" class="nav" role="navigation">
         <ul class="nav-list">
           <li><a href="about/">About</a></li>
           <li><a href="innovation/">Innovation</a></li>
@@ -38,30 +40,48 @@
     </div>
   </header>
 
-  <main class="site-main">
+  <!-- MAIN -->
+  <main class="site-main" role="main">
+    <!-- HERO VIDEO -->
     <section class="video-hero container">
       <div class="video-wrap">
-        <video class="hero-video" controls poster="assets/video-poster.jpg">
+        <video id="heroVideo" class="hero-video" controls preload="metadata" poster="assets/video-poster.jpg">
           <source src="assets/intro.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
-        <button class="ask-floater"
-          onclick="(window.OSX_WIDGET?.open||window.OsxWidget?.open||window.AskVX?.open||function(){alert('Ask widget not found');})()">
+
+        <!-- Orange floater -->
+        <button id="askVxBtn" class="ask-floater"
+          onclick="(window.OSX_WIDGET?.open||window.OsxWidget?.open||window.AskVX?.open||function(){alert('Ask widget not found. Ensure assets/osx_widget.js is present.');})()">
           Ask Vaxonyx AI
         </button>
       </div>
     </section>
 
-    <hr class="thin-separator" />
+    <hr class="thin-separator">
+
+    <!-- BELOW-VIDEO SECTIONS -->
+    <section class="home-section container">
+      <h2>About Us</h2>
+      <p>We design future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+      <p><a class="cta" href="about/">Learn more</a></p>
+    </section>
+
+    <section class="home-section container">
+      <h2>Products</h2>
+      <p>Lightweight, fast-loading web tools for immuno-informatics and data review.</p>
+      <p><a class="cta" href="products/">Explore products</a></p>
+    </section>
 
     <section class="home-section container">
       <h2>Innovation & Pipeline</h2>
-      <p>Research on MHC Class I/II prediction, immunogenicity ranking (XGBoost), and translational benchmarks.</p>
+      <p>R&D on MHC Class I/II prediction, immunogenicity ranking, and translational benchmarks.</p>
       <p><a class="cta" href="innovation/">See innovation</a></p>
     </section>
 
     <section class="home-section container">
       <h2>Investor Relations</h2>
-      <p>Governance, scientific advisory, and financial updates.</p>
+      <p>Governance, scientific advisory, and updates.</p>
       <p><a class="cta" href="investors/">Investor hub</a></p>
     </section>
 
@@ -72,17 +92,19 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
       <section>
         <h3>Contact</h3>
-        <ul class="contact-list">
+        <ul class="contact-list" id="emails">
           <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
           <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
           <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
         </ul>
-        <p class="hq"><em>Headquarters:</em> Add official address here</p>
+        <address class="hq">Headquarters: Add official address here</address>
       </section>
+
       <section>
         <h3>Quick Access</h3>
         <ul class="footer-links">
@@ -95,20 +117,37 @@
           <li><a href="contact/">Contact</a></li>
         </ul>
       </section>
+
       <section>
         <h3>Follow</h3>
         <div class="socials">
-          <a href="#" class="social-icon">in</a>
-          <a href="#" class="social-icon">X</a>
-          <a href="#" class="social-icon">▶</a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-icon" aria-label="Twitter/X">X</a>
+          <a href="#" class="social-icon" aria-label="YouTube">▶</a>
         </div>
       </section>
     </div>
     <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
-    <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
   </footer>
 
+  <!-- Your widget scripts (optional if not ready yet) -->
   <script src="assets/osx_qa.js" defer></script>
   <script src="assets/osx_widget.js" defer></script>
+
+  <!-- Tiny inline JS for year & mobile nav -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+  </script>
 </body>
 </html>
