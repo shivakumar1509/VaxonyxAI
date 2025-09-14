@@ -3,33 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- IMPORTANT for GitHub Pages project sites -->
+  <!-- IMPORTANT for your project URL -->
   <base href="/VaxonyxAI/">
 
   <title>Vaxonyx AI — Home</title>
   <meta name="description" content="Vaxonyx AI — Precision immuno-informatics." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Cache-busting token generated as early as possible -->
-  <script>
-    // Create a unique version token per page load (forces fresh fetches)
-    window.__ASSET_VERSION__ = Date.now().toString();
-    function bust(u){ return u + (u.includes('?') ? '&' : '?') + 'v=' + window.__ASSET_VERSION__; }
-    // Write CSS link during head parsing to avoid FOUC
-    document.write('<link rel="stylesheet" href="' + bust('css/styles.css') + '">');
-  </script>
-  <noscript>
-    <!-- Fallback (no cache-busting if JS is disabled) -->
-    <link rel="stylesheet" href="css/styles.css">
-  </noscript>
-
-  <!-- Optional favicon (also cache-busted) -->
-  <link id="fav" rel="icon" href="assets/logo.svg">
+  <!-- INLINE CSS so the page looks styled even if external links are wrong -->
+  <style>
+    :root{--vx-blue:#1B427A;--vx-orange:#F26B3B;--vx-line:rgba(20,39,63,.15);--vx-muted:#6b7a90;--radius:16px}
+    *{box-sizing:border-box}html,body{height:100%}
+    body{margin:0;font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--vx-blue);background:#fff}
+    .container{width:min(1200px,92vw);margin-inline:auto}
+    .site-header{position:fixed;top:0;left:0;right:0;height:96px;background:#fff;border-bottom:1px solid var(--vx-line);z-index:1000}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;gap:1rem}
+    .brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--vx-blue);font-weight:700}
+    .brand-logo{width:36px;height:36px}
+    .brand-text{letter-spacing:.2px}
+    .nav-toggle{display:none;background:transparent;border:0;font-size:1.5rem;cursor:pointer}
+    .nav{display:block}
+    .nav-list{list-style:none;display:flex;align-items:center;gap:1.1rem;margin:0;padding:0}
+    .nav-list a{text-decoration:none;color:var(--vx-blue);font-weight:600}
+    .site-main{padding-top:112px}
+    .video-hero{margin-top:1.25rem}
+    .video-wrap{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.08)}
+    .hero-video{width:100%;aspect-ratio:16/9;display:block;background:#000}
+    .ask-floater{position:absolute;bottom:12px;right:12px;padding:.65rem 1rem;border-radius:999px;border:0;background:var(--vx-orange);color:#fff;font-weight:700;box-shadow:0 6px 24px rgba(242,107,59,.35)}
+    .thin-separator{border:0;border-top:1px solid var(--vx-line);margin:1.25rem auto;width:min(1200px,92vw)}
+    .home-section{padding:1.25rem 0 2rem}
+    .home-section h2{margin:0 0 .5rem}
+    .cta{display:inline-block;padding:.55rem .9rem;border-radius:999px;background:rgba(27,66,122,.08);color:var(--vx-blue);font-weight:700;text-decoration:none}
+    .site-footer{border-top:1px solid var(--vx-line);margin-top:2rem;padding:1.5rem 0 2rem;color:#333}
+    .footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .contact-list,.footer-links{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
+    .hq{margin-top:.75rem;font-style:normal;color:var(--vx-muted)}
+    .socials{display:flex;gap:.75rem}
+    .social-icon{display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px}
+    .copyright{text-align:center;color:var(--vx-muted);margin-top:1rem}
+    @media (max-width:720px){
+      .nav-toggle{display:inline-block}
+      .nav{display:none;position:absolute;top:100%;right:0;left:0;background:#fff;border-bottom:1px solid var(--vx-line)}
+      .nav.open{display:block}
+      .nav-list{flex-direction:column;align-items:flex-start;padding:.75rem 1rem 1rem;gap:.85rem}
+      .footer-grid{grid-template-columns:1fr}
+      .ask-floater{bottom:12px;right:12px}
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER -->
@@ -57,22 +80,17 @@
 
   <!-- MAIN -->
   <main class="site-main" role="main">
-    <!-- HERO VIDEO -->
     <section class="video-hero container">
       <div class="video-wrap">
         <video id="heroVideo" class="hero-video" controls preload="metadata" poster="assets/video-poster.jpg">
           <source id="heroMp4" src="assets/intro.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
-
-        <!-- Orange floater -->
         <button id="askVxBtn" class="ask-floater">Ask Vaxonyx AI</button>
       </div>
     </section>
 
     <hr class="thin-separator">
 
-    <!-- BELOW-VIDEO SECTIONS -->
     <section class="home-section container">
       <h2>About Us</h2>
       <p>We design future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
@@ -142,11 +160,11 @@
     <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
   </footer>
 
-  <!-- OPTIONAL: your widget scripts; we’ll also cache-bust them -->
-  <script id="osxQA" src="assets/osx_qa.js" defer></script>
-  <script id="osxWidget" src="assets/osx_widget.js" defer></script>
+  <!-- Optional widget scripts -->
+  <script src="assets/osx_qa.js" defer></script>
+  <script src="assets/osx_widget.js" defer></script>
 
-  <!-- Inline JS: year, mobile nav, cache-bust for all assets, and Ask button handler -->
+  <!-- Tiny inline JS -->
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -161,37 +179,7 @@
       });
     }
 
-    // Cache-bust non-CSS assets after DOM is ready
-    (function(){
-      const V = window.__ASSET_VERSION__;
-      const addV = u => u + (u.includes('?') ? '&' : '?') + 'v=' + V;
-
-      // Brand logo
-      const logo = document.getElementById('brandLogo');
-      if (logo && logo.src) logo.src = addV(logo.getAttribute('src'));
-
-      // Favicon
-      const fav = document.getElementById('fav');
-      if (fav && fav.href) fav.href = addV(fav.getAttribute('href'));
-
-      // Video poster + source
-      const video = document.getElementById('heroVideo');
-      if (video) {
-        if (video.poster) video.poster = addV(video.getAttribute('poster') || 'assets/video-poster.jpg');
-        const mp4 = document.getElementById('heroMp4');
-        if (mp4 && mp4.src) mp4.src = addV(mp4.getAttribute('src'));
-        // Reload sources if we changed URLs
-        if (video.load) video.load();
-      }
-
-      // Widget scripts (if present)
-      const qa = document.getElementById('osxQA');
-      if (qa && qa.src) qa.src = addV(qa.getAttribute('src'));
-      const wid = document.getElementById('osxWidget');
-      if (wid && wid.src) wid.src = addV(wid.getAttribute('src'));
-    })();
-
-    // Ask Vaxonyx AI button behavior (works if your widget exposes an open() function)
+    // Ask button
     const askBtn = document.getElementById('askVxBtn');
     function openAskWidget() {
       try {
