@@ -7,7 +7,10 @@
   --line:rgba(20,39,63,.15);
   --max:1200px;
   --edge:20px;
-  --header-h:56px;            /* tight header */
+
+  --logo-h: 40px;        /* header + footer logo height (same) */
+  --header-h: 64px;      /* keep the header tight but comfortable */
+  --sky: #3FA9F5;        /* requested sky blue */
 }
 
 /* ============ Base ============ */
@@ -38,7 +41,7 @@ a{color:var(--vx-blue)}
   gap:1rem; padding: 8px var(--edge);
 }
 .brand{ display:inline-flex; align-items:center; text-decoration:none }
-.brand-logo{ height:30px; width:auto; display:block } /* 30px logo as requested */
+.brand-logo{ height:var(--logo-h); width:auto; display:block }
 
 .site-nav{ display:flex; gap:24px; align-items:center }
 .site-nav a{ text-decoration:none; font-weight:800; letter-spacing:.1px }
@@ -48,14 +51,20 @@ a{color:var(--vx-blue)}
 main{ margin-top: var(--header-h) }
 
 /* ============ Hero ============ */
-.hero{ position:relative; width:100%; height: clamp(60vh, 78vh, 92vh); overflow:hidden; background:#000 }
+.hero{
+  position:relative; width:100%; height: clamp(60vh, 78vh, 92vh); overflow:hidden;
+  background: var(--sky); /* visible instantly + behind video */
+}
 .hero-video{
   position:absolute; inset:0; width:100%; height:100%;
   object-fit:cover; object-position:center;
+  /* in case video is dark, blend a bit with the sky blue */
+  mix-blend-mode:normal;
 }
 .hero-shade{
   position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(10,20,38,.35), rgba(10,20,38,.70));
+  /* subtle blue-tinted gradient over video */
+  background: linear-gradient(180deg, rgba(63,169,245,.35), rgba(10,20,38,.70));
   pointer-events:none;
 }
 .hero-copy{
@@ -64,25 +73,21 @@ main{ margin-top: var(--header-h) }
   color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.35);
 }
 .hero-copy h1{
-  margin:0 0 .85rem;
+  margin:0;
   font-size: clamp(1.6rem, 3vw + 1rem, 3.2rem);
   line-height:1.08; font-weight:800;
 }
-.hero-cta{
-  display:inline-block; padding:.7rem 1.05rem; border-radius:999px;
-  background: rgba(255,255,255,.2); color:#fff; text-decoration:none; font-weight:800;
-  border:1px solid rgba(255,255,255,.5); backdrop-filter: blur(2px);
-}
-.hero-cta:hover{ background: rgba(255,255,255,.3) }
 
 /* ============ FAB (Ask Vaxonyx AI) ============ */
+/* Now floats at the top-right INSIDE the hero */
 .vx-fab{
-  position:absolute; right:16px; bottom:16px;
+  position:absolute; right:16px; top:16px;
   padding:.8rem 1.2rem; border:0; border-radius:999px;
   background: linear-gradient(180deg, #ff956f, var(--vx-orange));
   color:#fff; font-weight:900; letter-spacing:.2px;
   box-shadow: 0 10px 24px rgba(242,107,59,.45), 0 2px 0 rgba(0,0,0,.08) inset;
   cursor:pointer; transition: transform .12s ease, filter .12s ease;
+  z-index: 3;
 }
 .vx-fab:hover{ transform:translateY(-1px); filter:brightness(1.04) }
 .vx-fab:active{ transform:translateY(0); filter:brightness(.98) }
@@ -93,7 +98,7 @@ main{ margin-top: var(--header-h) }
   display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:2rem;
   padding: 28px var(--edge) 12px;
 }
-.footer-logo{ width:220px; height:auto; display:block; margin-bottom:.5rem }
+.footer-logo{ height:var(--logo-h); width:auto; display:block; margin-bottom:.5rem }
 .footer-blurb{ margin:0; color:var(--ink) }
 
 .links{ list-style:none; margin:0; padding:0; display:grid; gap:.35rem }
@@ -107,8 +112,7 @@ main{ margin-top: var(--header-h) }
 
 /* ============ Responsive ============ */
 @media (max-width: 960px){
-  :root{ --header-h: 52px }
-  .brand-logo{ height:26px }
+  :root{ --header-h: 58px; --logo-h: 34px }
   .site-nav{ gap:14px; font-size:.95rem }
   .footer-grid{ grid-template-columns: 1fr }
 }

@@ -1,4 +1,4 @@
-<!-- deploy-bump: 2025-09-14T22:05:00Z -->
+<!-- deploy-bump: 2025-09-14T22:20:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,9 +10,7 @@
   <base href="/VaxonyxAI/">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=build-1"/>
-
-  <!-- Meta -->
+  <link rel="stylesheet" href="css/styles.css?v=build-2"/>
   <meta name="color-scheme" content="light only"/>
 </head>
 <body>
@@ -40,19 +38,17 @@
   <main>
     <section class="hero">
       <video class="hero-video" autoplay loop muted playsinline poster="assets/video-poster.jpg">
-        <!-- Update this filename to your actual asset -->
         <source src="assets/intro.mp4" type="video/mp4"/>
       </video>
       <div class="hero-shade"></div>
 
-      <!-- Optional headline (remove if you want pure video) -->
+      <!-- Headline -->
       <div class="hero-copy">
-        <h1>Designing bioinformatics platforms that work in harmony with the immune system</h1>
-        <a class="hero-cta" href="innovation/">See innovation</a>
+        <h1>DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
       </div>
 
-      <!-- FAB host; the CSS styles the button below -->
-      <button id="vx-fab" class="vx-fab" type="button">Ask Vaxonyx AI</button>
+      <!-- FAB (top-right, floating within hero) -->
+      <button id="vx-fab" class="vx-fab" type="button" aria-label="Ask Vaxonyx AI">Ask Vaxonyx AI</button>
     </section>
   </main>
 
@@ -99,15 +95,12 @@
     </div>
   </footer>
 
-  <!-- (Optional) your widget script – if it exposes window.VX_WIDGET.open(), the FAB will call it -->
-  <script src="assets/osx_widget.js?v=build-1" defer></script>
+  <!-- Widget script (optional) -->
+  <script src="assets/osx_widget.js?v=build-2" defer></script>
   <script>
-    // Year stamp
+    // Year + FAB wiring
     document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
-
-      // FAB: call widget if present; otherwise no-op
+      const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
       const fab = document.getElementById('vx-fab');
       if (fab) fab.addEventListener('click', () => {
         if (window.VX_WIDGET && typeof window.VX_WIDGET.open === 'function') {
