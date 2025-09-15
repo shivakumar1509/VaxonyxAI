@@ -1,84 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vaxonyx AI</title>
-  <link rel="stylesheet" href="css/styles.css?v=build-18">
-</head>
-<body>
+:root {
+  --vx-blue: #1B427A;
+  --vx-orange: #F26B3B;
+}
 
-  <header>
-    <img src="assets/Vaxonyx AI.svg" alt="Vaxonyx AI" class="brand-logo">
-    <nav class="site-nav">
-      <div class="dropdown">
-        <a href="#">About</a>
-        <div class="dropdown-menu">
-          <a href="#">Mission & Vision</a>
-          <a href="#">Team</a>
-          <a href="#">Careers</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">Services</a>
-        <div class="dropdown-menu">
-          <a href="#">Cell Line Services</a>
-          <a href="#">Protein Production</a>
-          <a href="#">Assays</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">Platforms</a>
-        <div class="dropdown-menu">
-          <a href="#">AI Platforms</a>
-          <a href="#">DNA Platforms</a>
-          <a href="#">DNA Delivery Platforms</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">Innovation</a>
-        <div class="dropdown-menu">
-          <a href="#">Pipeline</a>
-          <a href="#">Products</a>
-        </div>
-      </div>
-      <a href="#">News & Investors</a>
-      <a href="#">Contact</a>
-      <button class="vx-fab">Ask Vaxonyx AI</button>
-    </nav>
-  </header>
+/* ===== Header ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #e6ebf4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 60px; /* space on left/right */
+}
+header img.brand-logo {
+  height: 40px; /* Reduced to match footer logo size */
+}
 
-  <section class="hero">
-    <h1>DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
-  </section>
+/* ===== Nav ===== */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.site-nav a {
+  color: var(--vx-blue);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+}
+.site-nav .dropdown::after {
+  content: "▼";
+  font-size: 14px; /* Bigger dropdown arrows */
+  margin-left: 4px;
+}
+.site-nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #e6ebf4;
+  border-radius: 6px;
+  padding: 8px 0;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.site-nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+.site-nav .dropdown-menu a {
+  display: block;
+  padding: 8px 16px;
+  color: #1B427A;
+}
+.site-nav .dropdown-menu a:hover {
+  background: #f3f6fb;
+}
 
-  <footer>
-    <div class="column">
-      <img src="assets/Vaxonyx AI.svg" alt="Vaxonyx AI" class="brand-logo">
-      <p>Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
-    </div>
-    <div class="column">
-      <h4>Quick Access</h4>
-      <a href="#">About</a>
-      <a href="#">Innovation</a>
-      <a href="#">Pipeline</a>
-      <a href="#">Products</a>
-      <a href="#">News & Investors</a>
-      <a href="#">Careers</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="column">
-      <h4>General Information</h4>
-      <a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a>
-      <h4>Investor Relations</h4>
-      <a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a>
-      <h4>Business Development</h4>
-      <a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a>
-    </div>
-    <div class="legal">
-      © 2025 Vaxonyx AI. All rights reserved.
-    </div>
-  </footer>
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(180deg, #3FA9F5 0%, #1B427A 100%);
+  padding: 140px 20px; /* doubled the space */
+}
 
-</body>
-</html>
+/* ===== Footer ===== */
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  padding: 40px 80px 20px; /* reduced bottom padding */
+  background: #f6f8fc;
+  border-top: 1px solid #e6ebf4;
+}
+footer img.brand-logo {
+  height: 40px; /* same as header */
+}
+footer .column h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #1B427A;
+}
+footer .column a {
+  display: block;
+  margin-bottom: 6px;
+  color: #1B427A;
+  text-decoration: none;
+  font-size: 14px;
+}
+footer .column a:hover {
+  text-decoration: underline;
+}
+
+footer .legal {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 10px;
+  color: #999;
+  font-size: 13px;
+}
