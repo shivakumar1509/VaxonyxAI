@@ -1,100 +1,113 @@
-:root{
-  --vx-blue:#1B427A;
-  --vx-ink:#0b1b3a;
-  --vx-line:#e6ebf4;
-  --vx-orange:#F26B3B;
-  --max:1180px;
-  --edge:16px;
+:root {
+  --vx-blue: #1B427A;
+  --vx-orange: #F26B3B;
+  --vx-bg: #f6f9ff;
 }
 
-/* Base */
-*{box-sizing:border-box}
-html,body{margin:0}
-body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--vx-ink)}
-.container{width:min(var(--max),calc(100% - 2*var(--edge)));margin:0 auto}
-
-/* ===== Header ===== */
-.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--vx-line)}
-.header-inner{display:flex;align-items:center;gap:18px;height:74px}
-
-/* Brand */
-.brand-logo{display:flex;align-items:center;min-width:0;flex:0 0 auto}
-.brand-logo img{display:block;height:40px}
-.brand-fallback{display:none;font-weight:800;color:var(--vx-blue);letter-spacing:.6px}
-
-/* Nav (right-aligned; moved a bit LEFT from the Ask button) */
-.site-nav{
-  display:flex;justify-content:flex-end;flex:1 1 auto;
-  padding-right: 190px; /* << more left space so Contact never kisses the Ask button */
-}
-.menu{display:flex;gap:28px;align-items:center;margin:0;padding:0;list-style:none}
-.menu-item{position:relative}
-.menu-item>a{
-  text-decoration:none;color:var(--vx-blue);font-weight:700;
-  display:flex;align-items:center;gap:6px
-}
-/* Big caret */
-.menu-item.has-dd>a::after{content:"▾"; font-size:18px; line-height:1}
-
-/* Dropdown */
-.dropdown{
-  position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
-  background:#fff;border:1px solid var(--vx-line);border-radius:10px;
-  display:none;min-width:220px;padding:8px;box-shadow:0 10px 24px rgba(0,0,0,.12);z-index:1001
-}
-.menu-item:hover .dropdown{display:block}
-.dropdown a{
-  display:block;padding:9px 12px;border-radius:8px;color:var(--vx-blue);
-  text-decoration:none;white-space:nowrap
-}
-.dropdown a:hover{background:#f4f7fc}
-
-/* ===== Ask Vaxonyx AI (fixed on the right, slightly inset) ===== */
-.vx-fab{
-  position:fixed; top:14px;
-  right: calc( max(16px, (100vw - var(--max))/2 ) + 6px ); /* “a little left”, aligned to container edge */
-  border:0; border-radius:999px; padding:10px 16px;
-  background:var(--vx-orange); color:#fff; font-weight:800; cursor:pointer;
-  box-shadow:0 10px 22px rgba(242,107,59,.36); z-index:1100;
-}
-.vx-fab:hover{filter:brightness(1.03)}
-
-/* ===== Hero (large video space area) ===== */
-.hero{
-  background:linear-gradient(180deg,#3FA9F5 0%, #0a79cf 60%, #000 100%);
-  color:#fff; padding:140px 0 260px;
-}
-.hero-title{
-  margin:0; max-width:970px;
-  font-size:clamp(30px,6.2vw,56px); line-height:1.12; font-weight:800;
-  text-shadow:0 2px 0 rgba(0,0,0,.08);
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
-/* ===== Footer ===== */
-.site-footer{border-top:1px solid var(--vx-line); background:#f7f9ff; color:#1f2f49}
-.footer-grid{
-  display:grid; grid-template-columns:1.2fr .9fr 1fr; gap:40px; padding:36px 0;
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #0b1b3a;
+  background: #fff;
 }
-.footer_col h4{margin:10px 0; color:#0b1b3a; font-weight:800}
-.footer_col p{margin:10px 0 0}
-.brand-fallback--footer{display:none; font-weight:800; color:#0b1b3a; margin-right:8px}
-.links{list-style:none; margin:0; padding:0}
-.links a{color:var(--vx-blue); text-decoration:none}
-.links a:hover{text-decoration:underline}
-.footer_col a{display:block; color:var(--vx-blue); text-decoration:none; margin:2px 0}
-.footer_bottom{padding:14px 0 24px; text-align:center; color:#6b7a90; font-size:.95rem}
 
-/* Small screens */
-@media (max-width: 940px){
-  .site-nav{padding-right:150px}
-  .menu{gap:22px}
-  .hero{padding:110px 0 220px}
+/* ====== Header ====== */
+.site-header {
+  position: sticky; top: 0; z-index: 1000;
+  background: #fff; border-bottom: 1px solid #e6ebf4;
 }
-@media (max-width: 720px){
-  .header-inner{height:68px}
-  .brand-logo img{height:34px}
-  .site-nav{display:none} /* optional collapse for very small screens */
-  .hero{padding:90px 0 200px}
-  .hero-title{font-size:clamp(24px,7vw,40px)}
-  .footer-grid{grid-template-columns:1fr; gap:26px}
+
+.site-header .container {
+  max-width: 1200px; margin: 0 auto;
+  padding: 10px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.brand-logo {
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.brand-logo img {
+  height: 40px; display: block;
+}
+.brand-fallback {
+  display: none; font-weight: 800; color: var(--vx-blue); letter-spacing: .5px;
+}
+
+.site-nav ul {
+  display: flex; gap: 36px; list-style: none; align-items: center;
+}
+
+.site-nav a {
+  color: var(--vx-blue); text-decoration: none; font-weight: 600; font-size: 15px;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  background: #fff; border: 1px solid #ddd; border-radius: 6px;
+  display: none; flex-direction: column; min-width: 200px;
+  padding: 8px 0; box-shadow: 0 8px 16px rgba(0,0,0,.08);
+}
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+.dropdown-menu a {
+  padding: 8px 14px; color: var(--vx-blue); white-space: nowrap;
+}
+.dropdown-menu a:hover {
+  background: #f6f9ff;
+}
+
+/* Ask Vaxonyx AI */
+.vx-fab {
+  border: none; border-radius: 999px; padding: 10px 16px;
+  background: var(--vx-orange); color: #fff; font-weight: 700;
+  box-shadow: 0 6px 16px rgba(242,107,59,.4); cursor: pointer;
+  position: sticky; right: 24px; top: 16px;
+}
+.vx-fab:hover {
+  filter: brightness(1.05);
+}
+
+/* ====== Hero ====== */
+.hero {
+  background: linear-gradient(180deg, #3FA9F5 0%, #1B427A 100%);
+  color: #fff; padding: 140px 20px; text-align: center;
+}
+.hero h1 {
+  font-size: 2.6rem; font-weight: 800; max-width: 800px; margin: 0 auto;
+}
+
+/* ====== Footer ====== */
+.footer {
+  background: #f6f9ff; border-top: 1px solid #e6ebf4; padding-top: 50px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 48px;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px 40px;
+}
+.footer-logo {
+  height: 36px; margin-bottom: 14px;
+}
+.footer-col h4 {
+  margin-top: 10px; margin-bottom: 4px; font-size: 15px; font-weight: 700;
+  color: #0b1b3a;
+}
+.footer-col ul {
+  list-style: none; display: grid; gap: 4px; margin-top: 10px;
+}
+.footer-col a {
+  text-decoration: none; color: var(--vx-blue); font-size: 14px;
+}
+.footer-col a:hover {
+  text-decoration: underline;
+}
+.footer-bottom {
+  border-top: 1px solid #e6ebf4; padding: 12px; text-align: center;
+  color: #6b7a90; font-size: 13px;
 }

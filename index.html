@@ -1,25 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vaxonyx AI</title>
   <link rel="stylesheet" href="css/styles.css?v=build-15" />
+  <script src="assets/osx_widget.js?v=build-15" defer></script>
 </head>
 <body>
 
   <!-- ===== Header ===== -->
   <header class="site-header">
-    <div class="container header-inner">
-
-      <!-- Brand (tries multiple logo filenames; shows text fallback if none found) -->
+    <div class="container">
       <a class="brand-logo" href="./" aria-label="Vaxonyx AI home">
         <picture>
-          <!-- prefer SVG, then PNG; include common alternate names just in case -->
-          <source srcset="assets/vaxonyx-logo.svg?v=build-15" type="image/svg+xml" />
-          <source srcset="assets/logo.svg?v=build-15" type="image/svg+xml" />
+          <source srcset="assets/vaxonyx-ai.svg?v=build-15" type="image/svg+xml" />
           <img
-            src="assets/vaxonyx-logo.png?v=build-15"
+            src="assets/vaxonyx-ai.svg?v=build-15"
             alt="VAXONYX AI"
             height="40"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
@@ -28,106 +25,79 @@
         <span class="brand-fallback">VAXONYX AI</span>
       </a>
 
-      <!-- Primary nav -->
-      <nav class="site-nav" aria-label="Primary">
-        <ul class="menu">
-          <li class="menu-item has-dd">
-            <a href="#">About</a>
-            <ul class="dropdown">
-              <li><a href="#">Mission</a></li>
-              <li><a href="#">Vision</a></li>
-              <li><a href="#">Team</a></li>
-            </ul>
-          </li>
-
-          <li class="menu-item has-dd">
-            <a href="#">Services</a>
-            <ul class="dropdown">
-              <li><a href="#">Cell line services</a></li>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li class="dropdown">
+            <a href="#">Services ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Cell Line Services</a></li>
               <li><a href="#">Protein Production</a></li>
               <li><a href="#">Assays</a></li>
             </ul>
           </li>
-
-          <li class="menu-item has-dd">
-            <a href="#">Platforms</a>
-            <ul class="dropdown">
-              <li><a href="#">AI platforms</a></li>
-              <li><a href="#">DNA platforms</a></li>
-              <li><a href="#">DNA delivery platforms</a></li>
+          <li class="dropdown">
+            <a href="#">Platforms ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">AI Platforms</a></li>
+              <li><a href="#">DNA Platforms</a></li>
+              <li><a href="#">DNA Delivery Platforms</a></li>
             </ul>
           </li>
-
-          <li class="menu-item has-dd">
-            <a href="#">Innovation</a>
-            <ul class="dropdown">
+          <li class="dropdown">
+            <a href="#">Innovation ▾</a>
+            <ul class="dropdown-menu">
               <li><a href="#">Pipeline</a></li>
               <li><a href="#">Products</a></li>
             </ul>
           </li>
-
-          <li class="menu-item"><a href="#">News &amp; Investors</a></li>
-          <li class="menu-item"><a href="#">Contact</a></li>
+          <li><a href="#">News & Investors</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
 
-      <!-- Ask button (fixed; offset to sit nicely on the right) -->
-      <button class="vx-fab" type="button" onclick="window.VX_WIDGET?.open()">Ask Vaxonyx AI</button>
+      <button class="vx-fab" onclick="window.VX_WIDGET?.open()">Ask Vaxonyx AI</button>
     </div>
   </header>
 
-  <!-- ===== Hero (big video space area) ===== -->
+  <!-- ===== Hero ===== -->
   <section class="hero">
-    <div class="container">
-      <h1 class="hero-title">
-        DesigningAI tools to unlock next-generation vaccine design and delivery.
-      </h1>
+    <div class="hero-content">
+      <h1>DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
     </div>
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="container footer-grid">
-      <div class="footer_col">
-        <img src="assets/vaxonyx-logo.svg?v=build-15" alt="VAXONYX AI" height="28"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
-        <span class="brand-fallback brand-fallback--footer">VAXONYX AI</span>
-        <p>
-          Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery,
-          vaccine design, and translational immunology.
-        </p>
+      <div class="footer-col">
+        <img src="assets/vaxonyx-ai.svg?v=build-15" alt="VAXONYX AI" class="footer-logo" />
+        <p>Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
       </div>
 
-      <div class="footer_col">
+      <div class="footer-col">
         <h4>Quick Access</h4>
-        <ul class="links">
+        <ul>
           <li><a href="#">About</a></li>
           <li><a href="#">Innovation</a></li>
           <li><a href="#">Pipeline</a></li>
           <li><a href="#">Products</a></li>
-          <li><a href="#">News &amp; Investors</a></li>
+          <li><a href="#">News & Investors</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
 
-      <div class="footer_col">
+      <div class="footer-col">
         <h4>General Information</h4>
-        <a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a>
-
+        <p><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></p>
         <h4>Investor Relations</h4>
-        <a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a>
-
+        <p><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></p>
         <h4>Business Development</h4>
-        <a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a>
+        <p><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></p>
       </div>
     </div>
-
-    <div class="container footer_bottom">
-      © 2025 Vaxonyx AI. All rights reserved.
-    </div>
+    <div class="footer-bottom">© 2025 Vaxonyx AI. All rights reserved.</div>
   </footer>
 
-  <!-- Widget script (unchanged) -->
-  <script src="assets/osx_widget.js?v=build-15" defer></script>
 </body>
 </html>
