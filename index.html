@@ -1,126 +1,139 @@
-<!-- deploy-bump: 2025-09-15T03:10:00Z -->
+<!-- deploy-bump: 2025-09-15T09:48:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaxonyx AI</title>
-  <base href="/VaxonyxAI/">
-  <link rel="stylesheet" href="css/styles.css?v=build-11">
-  <meta name="color-scheme" content="light only" />
+  <link rel="icon" href="assets/vx-favicon.svg" />
+  <link rel="stylesheet" href="css/styles.css?v=build-11" />
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="./">
-        <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI">
+  <!-- ===== Header ===== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand-logo" href="/">
+        <img src="assets/vaxonyx-logo.svg" alt="VAXONYX AI" height="36" />
       </a>
 
       <nav class="site-nav" aria-label="Primary">
-        <div class="menu">
-          <a href="about/">About</a>
-          <ul class="dropdown">
-            <li><a href="about/mission/">Mission</a></li>
-            <li><a href="about/vision/">Vision</a></li>
-            <li><a href="about/team/">Team</a></li>
-          </ul>
-        </div>
+        <ul class="menu">
+          <!-- About -->
+          <li class="menu-item has-dd">
+            <a href="/about/">About</a>
+            <ul class="dropdown">
+              <li><a href="/about/#mission">Mission</a></li>
+              <li><a href="/about/#vision">Vision</a></li>
+              <li><a href="/about/#team">Team</a></li>
+            </ul>
+          </li>
 
-        <div class="menu">
-          <a href="services/">Services</a>
-          <ul class="dropdown">
-            <li><a href="services/cell-line/">Cell line services</a></li>
-            <li><a href="services/protein-production/">Protein Production</a></li>
-            <li><a href="services/assays/">Assays</a></li>
-          </ul>
-        </div>
+          <!-- Services -->
+          <li class="menu-item has-dd">
+            <a href="/services/">Services</a>
+            <ul class="dropdown">
+              <li><a href="/services/#cell-lines">Cell line services</a></li>
+              <li><a href="/services/#protein">Protein Production</a></li>
+              <li><a href="/services/#assays">Assays</a></li>
+            </ul>
+          </li>
 
-        <div class="menu">
-          <a href="platforms/">Platforms</a>
-          <ul class="dropdown">
-            <li><a href="platforms/ai/">AI platforms</a></li>
-            <li><a href="platforms/dna/">DNA platforms</a></li>
-            <li><a href="platforms/dna-delivery/">DNA delivery platforms</a></li>
-          </ul>
-        </div>
+          <!-- Platforms -->
+          <li class="menu-item has-dd">
+            <a href="/platforms/">Platforms</a>
+            <ul class="dropdown">
+              <li><a href="/platforms/#ai">AI platforms</a></li>
+              <li><a href="/platforms/#dna">DNA platforms</a></li>
+              <li><a href="/platforms/#delivery">DNA delivery platforms</a></li>
+            </ul>
+          </li>
 
-        <div class="menu">
-          <a href="innovation/">Innovation</a>
-          <ul class="dropdown">
-            <li><a href="innovation/">Overview</a></li>
-            <li><a href="pipeline/">Pipeline</a></li>
-            <li><a href="products/">Products</a></li>
-          </ul>
-        </div>
+          <!-- Innovation -->
+          <li class="menu-item has-dd">
+            <a href="/innovation/">Innovation</a>
+            <ul class="dropdown">
+              <li><a href="/pipeline/">Pipeline</a></li>
+              <li><a href="/products/">Products</a></li>
+            </ul>
+          </li>
 
-        <a href="investors/">News &amp; Investors</a>
-        <a href="contact/">Contact</a>
+          <!-- News & Investors -->
+          <li class="menu-item">
+            <a href="/investors/">News &amp; Investors</a>
+          </li>
+
+          <!-- Contact -->
+          <li class="menu-item">
+            <a href="/contact/">Contact</a>
+          </li>
+        </ul>
       </nav>
 
-      <button id="vx-fab" class="vx-fab" type="button">Ask Vaxonyx AI</button>
+      <!-- Fixed Ask button (stays put on scroll) -->
+      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && window.VX_WIDGET.open()">
+        Ask Vaxonyx AI
+      </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg"></div>
-      <div class="hero-shade"></div>
-
-      <div class="hero-copy">
-        <h1 id="hero-title">DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <section>
-        <img class="footer-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
-        <p class="footer-blurb">
-          Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery,
-          vaccine design, and translational immunology.
-        </p>
-      </section>
-
-      <section>
-        <h3>Quick Access</h3>
-        <ul class="links">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">News &amp; Investors</a></li>
-          <li><a href="contact/">Contact</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>Contact</h3>
-        <ul class="links">
-          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
-          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
-          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
-        </ul>
-        <address class="hq">Headquarters: Add official address here</address>
-      </section>
+  <!-- ===== Hero (video area color matched) ===== -->
+  <section class="hero" role="region" aria-label="Intro">
+    <div class="container">
+      <h1 class="hero-title">
+        DesigningAI tools to unlock next-generation vaccine design and delivery.
+      </h1>
     </div>
-    <div class="container footer-bottom">
-      <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <!-- Left: logo + blurb -->
+      <div class="footer_col footer_brand">
+        <img src="assets/vaxonyx-logo.svg" alt="VAXONYX AI" height="28" />
+        <p class="hq">
+          Vaxonyx AI builds future-ready bioinformatics platforms for
+          neoantigen discovery, vaccine design, and translational immunology.
+        </p>
+      </div>
+
+      <!-- Middle: quick links -->
+      <div class="footer_col">
+        <h4>Quick Access</h4>
+        <ul class="links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/innovation/">Innovation</a></li>
+          <li><a href="/pipeline/">Pipeline</a></li>
+          <li><a href="/products/">Products</a></li>
+          <li><a href="/investors/">News &amp; Investors</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Right: contact columns like the example -->
+      <div class="footer_col footer_contacts">
+        <div class="contact_block">
+          <h4>General Information</h4>
+          <a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a>
+        </div>
+        <div class="contact_block">
+          <h4>Investor Relations</h4>
+          <a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a>
+        </div>
+        <div class="contact_block">
+          <h4>Business Development</h4>
+          <a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer_bottom">
+      <small>© 2025 Vaxonyx AI. All rights reserved.</small>
     </div>
   </footer>
 
+  <!-- Widget JS (kept as-is) -->
   <script src="assets/osx_widget.js?v=build-11" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('year').textContent = new Date().getFullYear();
-      document.getElementById('vx-fab').addEventListener('click', () => {
-        if (window.VX_WIDGET?.open) window.VX_WIDGET.open();
-      });
-    });
-  </script>
 </body>
 </html>

@@ -1,84 +1,152 @@
 :root{
   --vx-blue:#1B427A;
   --vx-ink:#0b1b3a;
+  --vx-line:#e6ebf4;
+  --vx-bg:#f7f9fc;
   --vx-orange:#F26B3B;
-  --vx-line:rgba(20,39,63,.15);
-  --edge:16px;
   --max:1180px;
-  --header-h:84px;
+  --edge:16px;
 }
 
+/* reset-ish */
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Helvetica Neue",Arial,sans-serif;color:var(--vx-ink)}
-img{max-width:100%;display:block}
-.container{width:min(var(--max), 100% - 2*var(--edge)); margin-inline:auto}
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
+  color:var(--vx-ink);
+  line-height:1.45;
+}
+
+/* container */
+.container{
+  width:min(var(--max), calc(100% - 2*var(--edge)));
+  margin:0 auto;
+}
 
 /* ===== Header ===== */
 .site-header{
   position:sticky; top:0; z-index:1000;
-  background:#fff; border-bottom:1px solid var(--vx-line);
-  height:var(--header-h);
+  background:#fff;
+  border-bottom:1px solid var(--vx-line);
+  height:64px;
 }
-.header-row{
-  display:flex; align-items:center; justify-content:space-between;
-  height:var(--header-h); gap:42px;
+.site-header .container{
+  height:64px;
+  display:flex; align-items:center;
+  gap:18px;
 }
-.brand-logo{height:36px}
 
-/* nav floats right and stretches evenly until Ask button */
-.site-nav{
-  flex:1; display:flex; justify-content:flex-end; gap:38px;
-  align-items:center; margin-right:20px;
+/* logo */
+.brand-logo img{ display:block; height:36px }
+
+/* nav — tighter spacing */
+.site-nav{ flex:1; display:flex; align-items:center }
+.site-nav .menu{
+  display:flex; align-items:center;
+  justify-content:flex-start;
+  gap:18px;              /* ← tighter than before */
+  margin-left:12px;
+  padding:0;
+  list-style:none;
 }
-.site-nav > a,
-.site-nav .menu > a{
-  color:var(--vx-blue); text-decoration:none; font-weight:700;
+.menu-item > a{
+  color:var(--vx-blue);
+  text-decoration:none;
+  font-weight:700;
   display:inline-flex; align-items:center; gap:6px;
+  padding:4px 0;
 }
-.site-nav .menu > a::after{content:"▾"; font-size:16px}
+
+/* down-arrow (nice and visible) */
+.menu-item.has-dd > a::after{
+  content:"▾";
+  font-size:16px; line-height:1;
+  transform:translateY(-1px);
+  color:currentColor;
+}
 
 /* dropdown */
-.menu{position:relative}
+.menu-item{ position:relative }
 .dropdown{
-  position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%);
-  background:#fff; border:1px solid var(--vx-line); border-radius:12px;
-  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  position:absolute; top:calc(100% + 10px); left:50%;
+  transform:translateX(-50%);
+  background:#fff; border:1px solid var(--vx-line);
+  border-radius:10px; box-shadow:0 10px 22px rgba(0,0,0,.12);
   display:none; min-width:220px; padding:8px; z-index:1001;
 }
-.menu:hover .dropdown{display:block}
-.dropdown li{list-style:none}
+.menu-item:hover .dropdown{ display:block }
 .dropdown a{
-  display:block; padding:9px 12px; border-radius:10px;
+  display:block; padding:9px 12px; border-radius:8px;
   color:var(--vx-blue); text-decoration:none; white-space:nowrap;
 }
-.dropdown a:hover{background:rgba(27,66,122,.08)}
+.dropdown a:hover{ background:rgba(27,66,122,.08) }
 
-/* ===== Hero ===== */
-.hero{position:relative; min-height:58vh; display:grid; align-items:end; overflow:hidden}
-.hero-bg{position:absolute; inset:0; background:linear-gradient(180deg,#3FA9F5 0%, #0d2038 75%, #000 100%)}
-.hero-shade{position:absolute; inset:0; background:linear-gradient(180deg,transparent 0%, rgba(0,0,0,.25) 100%)}
-.hero-copy{position:relative; z-index:2; padding:42px 0 28px}
-.hero-copy h1{margin:0; color:#fff; font-weight:800; letter-spacing:.2px; font-size:clamp(28px,4.2vw,52px); line-height:1.1}
-
-/* ===== Footer ===== */
-.site-footer{border-top:1px solid var(--vx-line); background:#f7f9fc}
-.footer-grid{
-  display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:32px;
-  padding:28px 0;
-}
-.footer-logo{height:28px; margin-bottom:10px}
-.links{list-style:none; padding:0; margin:0; display:grid; gap:8px}
-.links a{color:var(--vx-blue); text-decoration:none}
-.links a:hover{text-decoration:underline}
-.hq{margin-top:10px; color:#6b7a90; font-style:normal}
-.footer-bottom{padding:10px 0 24px; text-align:center; color:#6b7a90}
-
-/* ===== Ask Vaxonyx AI button ===== */
+/* Keep the Ask button on the far right, fixed on scroll */
 .vx-fab{
-  border:0; border-radius:999px; padding:10px 14px;
-  background:var(--vx-orange); color:#fff; font-weight:800;
-  box-shadow:0 10px 22px rgba(242,107,59,.36);
+  position:fixed; top:12px;
+  right: max(16px, calc((100vw - min(var(--max), 100% - 2*var(--edge)))/2));
+  border:0; border-radius:999px;
+  padding:10px 16px;
+  background:var(--vx-orange); color:#fff;
+  font-weight:800; box-shadow:0 10px 22px rgba(242,107,59,.36);
   cursor:pointer;
 }
-.vx-fab:hover{filter:brightness(1.03)}
+.vx-fab:hover{ filter:brightness(1.05) }
+
+/* ===== Hero (sky blue gradient like you wanted) ===== */
+.hero{
+  position:relative;
+  background:linear-gradient(180deg,#3FA9F5 0%, #0d82da 55%, #000 100%);
+  color:#fff;
+  padding:42px 0 120px;
+}
+.hero-title{
+  margin:0;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight:800;
+  letter-spacing:.2px;
+  max-width: 1100px;
+  text-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+
+/* ===== Footer ===== */
+.site-footer{
+  border-top:1px solid var(--vx-line);
+  background:#f7f9ff;
+  color:#1f2f49;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr;
+  gap:32px;
+  padding:28px 0;
+}
+.footer_col h4{
+  margin:0 0 10px; color:#0b1b3a; font-weight:800;
+}
+.footer_brand img{ display:block; margin:0 0 12px }
+.footer_brand .hq{ margin:0; color:#64729a }
+
+.links{
+  list-style:none; padding:0; margin:0;
+}
+.links li{ margin:6px 0 }
+.links a{
+  color:var(--vx-blue); text-decoration:none;
+}
+.links a:hover{ text-decoration:underline }
+
+.footer_contacts{
+  display:grid; gap:8px;
+}
+.contact_block a{
+  color:var(--vx-blue); text-decoration:none; font-weight:600;
+}
+.contact_block a:hover{ text-decoration:underline }
+
+.footer_bottom{
+  padding:10px 0 24px;
+  text-align:center;
+  color:#6b7a90;
+  font-size:.95rem;
+}
