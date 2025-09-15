@@ -8,8 +8,11 @@
   --max:1200px;
   --edge:20px;
 
-  --logo-h: 40px;        /* header + footer logo height (same) */
+  /* Same logo size in header + footer */
+  --logo-h: 40px;
   --header-h: 64px;
+
+  /* Hero overlay base */
   --sky: #3FA9F5;
 }
 
@@ -45,26 +48,25 @@ a{color:var(--vx-blue)}
 .site-nav{ display:flex; gap:24px; align-items:center; position:relative }
 .site-nav > a,
 .site-nav .menu > a{
-  text-decoration:none; font-weight:800; letter-spacing:.1px; position:relative;
-  padding-right:14px; /* room for caret if dropdown */
+  text-decoration:none; font-weight:800; letter-spacing:.1px;
+  position:relative; padding-right:18px; /* space for caret when dropdown */
 }
 .site-nav > a:hover,
 .site-nav .menu > a:hover{ color:var(--vx-orange) }
 
-/* ▼ Carets only for dropdown menus */
 /* ▼ Bigger, bolder dropdown carets */
-.menu > a::after{
+.site-nav .menu > a::after{
   content:"▾";
   position:absolute;
   right:0; top:50%;
   transform:translateY(-48%);
-  font-size:1.3em;            /* was .8em */
+  font-size:1.6em;            /* clearly visible */
+  line-height:0;
   font-weight:700;
   color:var(--vx-blue);
   opacity:.9;
   pointer-events:none;
 }
-
 
 /* Dropdowns */
 .menu{ position:relative }
@@ -83,7 +85,7 @@ a{color:var(--vx-blue)}
 }
 .menu .dropdown a:hover{ background:rgba(27,66,122,.08) }
 
-/* Offset page content under fixed header */
+/* Offset content under fixed header */
 main{ margin-top: var(--header-h) }
 
 /* ============ Hero ============ */
@@ -111,7 +113,7 @@ main{ margin-top: var(--header-h) }
   line-height:1.08; font-weight:800;
 }
 
-/* ============ FAB ============ */
+/* ============ FAB (top-right of hero) ============ */
 .vx-fab{
   position:absolute; right:16px; top:16px;
   padding:.8rem 1.2rem; border:0; border-radius:999px;
@@ -152,17 +154,4 @@ main{ margin-top: var(--header-h) }
 @media (max-width: 640px){
   .hero-copy{ right: 10%; bottom: 16% }
   .hero-copy h1{ font-size: clamp(1.4rem, 4vw + .8rem, 2.2rem) }
-}
-/* Force large dropdown caret */
-.menu > a::after {
-  content: "▾";
-  position: absolute;
-  right: -10px;             /* adds space from text */
-  top: 48%;
-  transform: translateY(-50%);
-  font-size: 1.6em !important;  /* much bigger */
-  font-weight: 700;
-  color: var(--vx-blue, #1B427A);
-  opacity: 0.9;
-  pointer-events: none;
 }

@@ -1,4 +1,4 @@
-<!-- deploy-bump: 2025-09-14T23:07:00Z -->
+<!-- deploy-bump: 2025-09-14T23:25:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,8 +9,8 @@
   <!-- IMPORTANT for GitHub Pages project sites -->
   <base href="/VaxonyxAI/">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=caret-big1">
+  <!-- CSS (cache-busted) -->
+  <link rel="stylesheet" href="css/styles.css?v=build-6"/>
   <meta name="color-scheme" content="light only"/>
 </head>
 <body>
@@ -63,7 +63,6 @@
           </ul>
         </div>
 
-        <!-- Renamed Investors -->
         <a href="investors/">News &amp; Investors</a>
         <a href="careers/">Careers</a>
         <a href="contact/">Contact</a>
@@ -71,7 +70,7 @@
     </div>
   </header>
 
-  <!-- ===== HERO VIDEO ===== -->
+  <!-- ===== HERO ===== -->
   <main>
     <section class="hero">
       <video class="hero-video" autoplay loop muted playsinline poster="assets/video-poster.jpg">
@@ -79,12 +78,11 @@
       </video>
       <div class="hero-shade"></div>
 
-      <!-- Headline -->
       <div class="hero-copy">
         <h1>DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
       </div>
 
-      <!-- FAB (top-right, floating within hero) -->
+      <!-- Floating FAB (top-right of hero) -->
       <button id="vx-fab" class="vx-fab" type="button" aria-label="Ask Vaxonyx AI">Ask Vaxonyx AI</button>
     </section>
   </main>
@@ -129,8 +127,8 @@
     </div>
   </footer>
 
-  <!-- Widget script (optional) -->
-  <script src="assets/osx_widget.js?v=build-5" defer></script>
+  <!-- Widget script -->
+  <script src="assets/osx_widget.js?v=build-6" defer></script>
   <script>
     // Year + FAB wiring
     document.addEventListener('DOMContentLoaded', () => {
