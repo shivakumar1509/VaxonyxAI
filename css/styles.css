@@ -52,11 +52,19 @@ a{color:var(--vx-blue)}
 .site-nav .menu > a:hover{ color:var(--vx-orange) }
 
 /* ▼ Carets only for dropdown menus */
+/* ▼ Bigger, bolder dropdown carets */
 .menu > a::after{
   content:"▾";
-  position:absolute; right:0; top:50%; transform:translateY(-52%);
-  font-size:.8em; opacity:.85; pointer-events:none;
+  position:absolute;
+  right:0; top:50%;
+  transform:translateY(-48%);
+  font-size:1.3em;            /* was .8em */
+  font-weight:700;
+  color:var(--vx-blue);
+  opacity:.9;
+  pointer-events:none;
 }
+
 
 /* Dropdowns */
 .menu{ position:relative }
