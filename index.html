@@ -1,4 +1,4 @@
-<!-- deploy-bump: 2025-09-15T00:05:00Z -->
+<!-- deploy-bump: 2025-09-15T00:45:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaxonyx AI</title>
   <base href="/VaxonyxAI/">
-  <link rel="stylesheet" href="css/styles.css?v=build-9" />
+  <link rel="stylesheet" href="css/styles.css?v=build-10">
   <meta name="color-scheme" content="light only" />
 </head>
 <body>
@@ -14,9 +14,12 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-row">
-      <a class="brand" href="./"><img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI"></a>
+      <a class="brand" href="./">
+        <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI">
+      </a>
 
-      <nav class="site-nav">
+      <!-- NAV: About … Contact (spaced evenly), arrows snug to words -->
+      <nav class="site-nav" aria-label="Primary">
         <div class="menu">
           <a href="about/">About</a>
           <ul class="dropdown">
@@ -57,20 +60,22 @@
         <a href="contact/">Contact</a>
       </nav>
 
+      <!-- spacer to keep Ask button off the links line -->
       <div class="fab-reserve"></div>
     </div>
   </header>
 
   <!-- HERO -->
   <main>
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero-bg"></div>
       <div class="hero-shade"></div>
 
       <div class="hero-copy">
-        <h1>DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
+        <h1 id="hero-title">DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
       </div>
 
+      <!-- floating Ask button -->
       <button id="vx-fab" class="vx-fab" type="button">Ask Vaxonyx AI</button>
     </section>
   </main>
@@ -80,7 +85,10 @@
     <div class="container footer-grid">
       <section>
         <img class="footer-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
-        <p class="footer-blurb">Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+        <p class="footer-blurb">
+          Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery,
+          vaccine design, and translational immunology.
+        </p>
       </section>
 
       <section>
@@ -110,11 +118,13 @@
     </div>
   </footer>
 
-  <script src="assets/osx_widget.js?v=build-9" defer></script>
+  <!-- Widget -->
+  <script src="assets/osx_widget.js?v=build-10" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('year').textContent = new Date().getFullYear();
-      document.getElementById('vx-fab').addEventListener('click', () => {
+      const fab = document.getElementById('vx-fab');
+      fab.addEventListener('click', () => {
         if (window.VX_WIDGET?.open) window.VX_WIDGET.open();
       });
     });
