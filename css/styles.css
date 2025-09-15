@@ -1,113 +1,115 @@
-:root {
-  --vx-blue: #1B427A;
-  --vx-orange: #F26B3B;
-  --vx-bg: #f6f9ff;
+:root{
+  --vx-blue:#1B427A;
+  --vx-blue-ink:#0b1b3a;
+  --vx-orange:#F26B3B;
+  --vx-bg:#f6f9ff;
+  --max:1180px;
+  --pad:22px;
 }
 
-* {
-  margin: 0; padding: 0; box-sizing: border-box;
+/* Reset & base */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color:var(--vx-blue-ink);
+  background:#fff;
 }
 
-body {
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: #0b1b3a;
-  background: #fff;
+/* ===== Header ===== */
+.site-header{
+  position:sticky; top:0; z-index:1000;
+  background:#fff; border-bottom:1px solid #e6ebf4;
+}
+.header-inner{
+  max-width:var(--max); margin:0 auto; padding:10px var(--pad);
+  display:flex; align-items:center; gap:18px;
 }
 
-/* ====== Header ====== */
-.site-header {
-  position: sticky; top: 0; z-index: 1000;
-  background: #fff; border-bottom: 1px solid #e6ebf4;
+/* Brand (left) */
+.brand{
+  display:flex; align-items:center; gap:10px; text-decoration:none;
+  min-width:160px; /* keeps space for logo */
+}
+.brand-img{height:44px; display:block}
+.brand-fallback{display:none; font-weight:800; color:var(--vx-blue)}
+
+/* Nav (center-right) */
+.main-nav{flex:1}
+.nav-list{
+  list-style:none; margin:0; padding:0;
+  display:flex; align-items:center; justify-content:flex-end;
+  gap:28px;  /* << controls distance between items */
+}
+.nav-item>a{
+  color:var(--vx-blue); text-decoration:none; font-weight:700; font-size:15px;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.nav-item>a:hover{text-decoration:underline}
+
+/* Dropdowns */
+.has-dd{position:relative}
+.dd{
+  position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%);
+  background:#fff; border:1px solid #e6ebf4; border-radius:8px; min-width:210px;
+  padding:8px; display:none; box-shadow:0 10px 24px rgba(0,0,0,.12);
+}
+.dd a{
+  display:block; padding:8px 10px; color:var(--vx-blue); text-decoration:none; white-space:nowrap; border-radius:6px;
+}
+.dd a:hover{background:#f6f9ff}
+.has-dd:hover .dd{display:block}
+.dd-caret{font-size:.85em}
+
+/* Ask Vaxonyx AI (rightmost, sticky within header height) */
+.vx-fab{
+  border:0; border-radius:999px; padding:10px 16px;
+  background:var(--vx-orange); color:#fff; font-weight:800; cursor:pointer;
+  box-shadow:0 8px 20px rgba(242,107,59,.35);
+}
+.vx-fab:hover{filter:brightness(1.05)}
+
+/* ===== Hero (more space + requested color) ===== */
+.hero{
+  background:linear-gradient(180deg, #3FA9F5 0%, #1B427A 100%);
+  color:#fff; padding:120px 0 80px; /* larger top space for the “video” look */
+}
+.hero-content{
+  max-width:var(--max); margin:0 auto; padding:0 var(--pad);
+}
+.hero h1{
+  margin:0; font-size:48px; line-height:1.15; font-weight:800;
+  max-width:1000px;
+  text-shadow:0 2px 0 rgba(0,0,0,.12);
 }
 
-.site-header .container {
-  max-width: 1200px; margin: 0 auto;
-  padding: 10px 24px;
-  display: flex; justify-content: space-between; align-items: center;
+/* ===== Footer ===== */
+.footer{background:var(--vx-bg); border-top:1px solid #e6ebf4; margin-top:0}
+.footer-grid{
+  max-width:var(--max); margin:0 auto; padding:38px var(--pad) 26px;
+  display:grid; grid-template-columns:1.2fr .9fr .9fr; gap:40px;
+}
+.footer-logo{height:34px; margin-bottom:12px}
+.foot-links{list-style:none; margin:8px 0 0; padding:0; display:grid; gap:6px}
+.foot-links a{color:var(--vx-blue); text-decoration:none}
+.foot-links a:hover{text-decoration:underline}
+.footer h4{margin:10px 0 4px; font-size:15px; color:#243553}
+.footer-bottom{
+  border-top:1px solid #e6ebf4; text-align:center; color:#6b7a90;
+  font-size:13px; padding:12px var(--pad) 16px;
 }
 
-.brand-logo {
-  display: flex; align-items: center; gap: 8px; text-decoration: none;
-}
-.brand-logo img {
-  height: 40px; display: block;
-}
-.brand-fallback {
-  display: none; font-weight: 800; color: var(--vx-blue); letter-spacing: .5px;
+/* Small screens: keep everything readable */
+@media (max-width:940px){
+  .nav-list{gap:18px}
+  .hero{padding:90px 0 64px}
+  .hero h1{font-size:40px}
+  .footer-grid{grid-template-columns:1fr; gap:28px}
 }
 
-.site-nav ul {
-  display: flex; gap: 36px; list-style: none; align-items: center;
-}
-
-.site-nav a {
-  color: var(--vx-blue); text-decoration: none; font-weight: 600; font-size: 15px;
-}
-
-.dropdown {
-  position: relative;
-}
-.dropdown-menu {
-  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-  background: #fff; border: 1px solid #ddd; border-radius: 6px;
-  display: none; flex-direction: column; min-width: 200px;
-  padding: 8px 0; box-shadow: 0 8px 16px rgba(0,0,0,.08);
-}
-.dropdown:hover .dropdown-menu {
-  display: flex;
-}
-.dropdown-menu a {
-  padding: 8px 14px; color: var(--vx-blue); white-space: nowrap;
-}
-.dropdown-menu a:hover {
-  background: #f6f9ff;
-}
-
-/* Ask Vaxonyx AI */
-.vx-fab {
-  border: none; border-radius: 999px; padding: 10px 16px;
-  background: var(--vx-orange); color: #fff; font-weight: 700;
-  box-shadow: 0 6px 16px rgba(242,107,59,.4); cursor: pointer;
-  position: sticky; right: 24px; top: 16px;
-}
-.vx-fab:hover {
-  filter: brightness(1.05);
-}
-
-/* ====== Hero ====== */
-.hero {
-  background: linear-gradient(180deg, #3FA9F5 0%, #1B427A 100%);
-  color: #fff; padding: 140px 20px; text-align: center;
-}
-.hero h1 {
-  font-size: 2.6rem; font-weight: 800; max-width: 800px; margin: 0 auto;
-}
-
-/* ====== Footer ====== */
-.footer {
-  background: #f6f9ff; border-top: 1px solid #e6ebf4; padding-top: 50px;
-}
-.footer-grid {
-  display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 48px;
-  max-width: 1200px; margin: 0 auto; padding: 0 24px 40px;
-}
-.footer-logo {
-  height: 36px; margin-bottom: 14px;
-}
-.footer-col h4 {
-  margin-top: 10px; margin-bottom: 4px; font-size: 15px; font-weight: 700;
-  color: #0b1b3a;
-}
-.footer-col ul {
-  list-style: none; display: grid; gap: 4px; margin-top: 10px;
-}
-.footer-col a {
-  text-decoration: none; color: var(--vx-blue); font-size: 14px;
-}
-.footer-col a:hover {
-  text-decoration: underline;
-}
-.footer-bottom {
-  border-top: 1px solid #e6ebf4; padding: 12px; text-align: center;
-  color: #6b7a90; font-size: 13px;
+/* Ultra-narrow: allow wrapping but keep order */
+@media (max-width:720px){
+  .header-inner{flex-wrap:wrap; row-gap:12px}
+  .main-nav{order:3; width:100%}
+  .nav-list{justify-content:center; flex-wrap:wrap}
 }
