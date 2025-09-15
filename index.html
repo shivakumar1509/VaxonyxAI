@@ -1,4 +1,4 @@
-<!-- deploy-bump: 2025-09-14T21:15:00Z -->
+<!-- deploy-bump: 2025-09-14T21:55:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,134 +6,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaxonyx AI</title>
 
-  <!-- IMPORTANT for GitHub Pages project sites -->
+  <!-- Important: needed for GitHub Pages project sites -->
   <base href="/VaxonyxAI/">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Your stylesheet (cache-busted) -->
-  <link rel="stylesheet" href="css/styles.css?v=rev10" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=rev13" />
 </head>
-
 <body>
-  <!-- ===== HEADER ===== -->
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a href="./" class="brand" aria-label="Vaxonyx AI — home">
-        <!-- Use your real SVG filename here -->
-        <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="brand-logo" />
-      </a>
 
-      <nav class="nav" role="navigation" aria-label="Primary">
-        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
-        <ul id="primary-nav" class="nav-list">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
-          <li><a href="contact/">Contact</a></li>
-        </ul>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="header-inner">
+      <a href="./" class="brand" aria-label="Vaxonyx AI — home">
+        <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
+      </a>
+      <nav aria-label="Primary">
+        <a href="about/">About</a>
+        <a href="innovation/">Innovation</a>
+        <a href="pipeline/">Pipeline</a>
+        <a href="products/">Products</a>
+        <a href="investors/">Investors</a>
+        <a href="careers/">Careers</a>
+        <a href="contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- ===== HERO (video like IMUNON) ===== -->
+  <!-- ===== Hero section ===== -->
   <main>
     <section class="hero">
-      <div class="hero-media">
-        <!-- Full-bleed, no controls -->
-        <video class="hero-video" autoplay loop muted playsinline poster="assets/video-poster.jpg">
-          <source src="assets/intro.mp4" type="video/mp4">
-        </video>
+      <video autoplay loop muted playsinline poster="assets/video-poster.jpg">
+        <source src="assets/intro.mp4" type="video/mp4" />
+      </video>
 
-        <!-- Dark/blue overlay to match brand -->
-        <div class="hero-overlay"></div>
-
-        <!-- (Optional) Headline block like IMUNON; edit/remove if you don’t want text -->
-        <div class="hero-copy">
-          <h1>Designing bioinformatics platforms<br/> that work in harmony with the immune system</h1>
-          <a class="hero-cta" href="innovation/">See innovation</a>
-        </div>
-
-        <!-- Glossy orange Ask button (single) -->
-        <button class="ask-floater" type="button" onclick="window.VX_WIDGET?.open()">Ask Vaxonyx AI</button>
+      <div class="hero-overlay">
+        <h1>Designing bioinformatics platforms that work in harmony with the immune system</h1>
+        <a class="cta" href="innovation/">See innovation</a>
       </div>
+
+      <div id="osx-widget"></div>
     </section>
   </main>
 
-  <!-- ===== FOOTER (3 columns) ===== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-grid">
-      <!-- Left: Logo + blurb -->
-      <section class="footer-col">
-        <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="footer-logo">
-        <p class="footer-blurb">
-          Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery,
-          vaccine design, and translational immunology.
-        </p>
-      </section>
-
-      <!-- Center: Quick Access -->
-      <section class="footer-col">
-        <h3>Quick Access</h3>
-        <ul class="footer-links">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
-          <li><a href="contact/">Contact</a></li>
-        </ul>
-      </section>
-
-      <!-- Right: Contact -->
-      <section class="footer-col">
-        <h3>Contact</h3>
-        <ul class="contact-list">
-          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
-          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
-          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
-        </ul>
-        <address class="hq">Headquarters: Add official address here</address>
-      </section>
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="footer-logo">
+      <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
+      <p>
+        Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen
+        discovery, vaccine design, and translational immunology.
+      </p>
     </div>
 
-    <div class="container footer-bottom">
-      <div class="socials">
-        <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
-        <a href="#" class="social-icon" aria-label="X">X</a>
-        <a href="#" class="social-icon" aria-label="YouTube">▶</a>
-      </div>
-      <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+    <div>
+      <h4>Quick Access</h4>
+      <ul>
+        <li><a href="about/">About</a></li>
+        <li><a href="innovation/">Innovation</a></li>
+        <li><a href="pipeline/">Pipeline</a></li>
+        <li><a href="products/">Products</a></li>
+        <li><a href="investors/">Investors</a></li>
+        <li><a href="careers/">Careers</a></li>
+        <li><a href="contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h4>Contact</h4>
+      <p><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></p>
+      <p><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></p>
+      <p><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></p>
+      <p>Headquarters: Add official address here</p>
+    </div>
+
+    <div class="copyright">
+      © <span id="y"></span> Vaxonyx AI. All rights reserved.
     </div>
   </footer>
 
-  <!-- ===== WIDGET (panel only; your JS should expose window.VX_WIDGET.open) ===== -->
-  <script src="assets/osx_widget.js?v=rev10" defer></script>
-
-  <!-- Small helpers -->
+  <!-- ===== Scripts ===== -->
+  <script src="assets/osx_widget.js?v=rev13" defer></script>
   <script>
-    // year
     document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+      const y = document.getElementById('y');
+      if (y) y.textContent = new Date().getFullYear();
     });
-
-    // mobile nav
-    (function(){
-      const btn = document.querySelector('.nav-toggle');
-      const list = document.getElementById('primary-nav');
-      if (!btn || !list) return;
-      btn.addEventListener('click', () => {
-        const open = list.classList.toggle('open');
-        btn.setAttribute('aria-expanded', String(open));
-      });
-    })();
   </script>
+
 </body>
 </html>
