@@ -1,26 +1,30 @@
-<!-- deploy-bump: 2025-09-14T21:55:00Z -->
+<!-- deploy-bump: 2025-09-14T22:05:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Vaxonyx AI</title>
 
-  <!-- Important: needed for GitHub Pages project sites -->
+  <!-- IMPORTANT for GitHub Pages project sites -->
   <base href="/VaxonyxAI/">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=rev13" />
+  <link rel="stylesheet" href="css/styles.css?v=build-1"/>
+
+  <!-- Meta -->
+  <meta name="color-scheme" content="light only"/>
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
-  <header>
-    <div class="header-inner">
-      <a href="./" class="brand" aria-label="Vaxonyx AI — home">
-        <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <a class="brand" href="./" aria-label="Vaxonyx AI – Home">
+        <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI"/>
       </a>
-      <nav aria-label="Primary">
+
+      <nav class="site-nav" aria-label="Primary">
         <a href="about/">About</a>
         <a href="innovation/">Innovation</a>
         <a href="pipeline/">Pipeline</a>
@@ -32,66 +36,85 @@
     </div>
   </header>
 
-  <!-- ===== Hero section ===== -->
+  <!-- ===== HERO VIDEO ===== -->
   <main>
     <section class="hero">
-      <video autoplay loop muted playsinline poster="assets/video-poster.jpg">
-        <source src="assets/intro.mp4" type="video/mp4" />
+      <video class="hero-video" autoplay loop muted playsinline poster="assets/video-poster.jpg">
+        <!-- Update this filename to your actual asset -->
+        <source src="assets/intro.mp4" type="video/mp4"/>
       </video>
+      <div class="hero-shade"></div>
 
-      <div class="hero-overlay">
+      <!-- Optional headline (remove if you want pure video) -->
+      <div class="hero-copy">
         <h1>Designing bioinformatics platforms that work in harmony with the immune system</h1>
-        <a class="cta" href="innovation/">See innovation</a>
+        <a class="hero-cta" href="innovation/">See innovation</a>
       </div>
 
-      <div id="osx-widget"></div>
+      <!-- FAB host; the CSS styles the button below -->
+      <button id="vx-fab" class="vx-fab" type="button">Ask Vaxonyx AI</button>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    <div class="footer-logo">
-      <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
-      <p>
-        Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen
-        discovery, vaccine design, and translational immunology.
-      </p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <!-- Left: logo + blurb -->
+      <section>
+        <img class="footer-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI"/>
+        <p class="footer-blurb">
+          Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery,
+          vaccine design, and translational immunology.
+        </p>
+      </section>
+
+      <!-- Center: quick links -->
+      <section>
+        <h3>Quick Access</h3>
+        <ul class="links">
+          <li><a href="about/">About</a></li>
+          <li><a href="innovation/">Innovation</a></li>
+          <li><a href="pipeline/">Pipeline</a></li>
+          <li><a href="products/">Products</a></li>
+          <li><a href="investors/">Investors</a></li>
+          <li><a href="careers/">Careers</a></li>
+          <li><a href="contact/">Contact</a></li>
+        </ul>
+      </section>
+
+      <!-- Right: contact -->
+      <section>
+        <h3>Contact</h3>
+        <ul class="links">
+          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
+          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
+          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
+        </ul>
+        <address class="hq">Headquarters: Add official address here</address>
+      </section>
     </div>
 
-    <div>
-      <h4>Quick Access</h4>
-      <ul>
-        <li><a href="about/">About</a></li>
-        <li><a href="innovation/">Innovation</a></li>
-        <li><a href="pipeline/">Pipeline</a></li>
-        <li><a href="products/">Products</a></li>
-        <li><a href="investors/">Investors</a></li>
-        <li><a href="careers/">Careers</a></li>
-        <li><a href="contact/">Contact</a></li>
-      </ul>
-    </div>
-
-    <div class="contact">
-      <h4>Contact</h4>
-      <p><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></p>
-      <p><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></p>
-      <p><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></p>
-      <p>Headquarters: Add official address here</p>
-    </div>
-
-    <div class="copyright">
-      © <span id="y"></span> Vaxonyx AI. All rights reserved.
+    <div class="container footer-bottom">
+      <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ===== Scripts ===== -->
-  <script src="assets/osx_widget.js?v=rev13" defer></script>
+  <!-- (Optional) your widget script – if it exposes window.VX_WIDGET.open(), the FAB will call it -->
+  <script src="assets/osx_widget.js?v=build-1" defer></script>
   <script>
+    // Year stamp
     document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('y');
+      const y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
+
+      // FAB: call widget if present; otherwise no-op
+      const fab = document.getElementById('vx-fab');
+      if (fab) fab.addEventListener('click', () => {
+        if (window.VX_WIDGET && typeof window.VX_WIDGET.open === 'function') {
+          window.VX_WIDGET.open();
+        }
+      });
     });
   </script>
-
 </body>
 </html>
