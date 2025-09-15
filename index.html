@@ -1,60 +1,80 @@
-<!-- deploy-bump: 2025-09-14T18:58:00Z -->
-<!doctype html>
+<!-- deploy-bump: 2025-09-14T21:20:00Z -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- GitHub Pages project base (project site) -->
-  <base href="/VaxonyxAI/">
-
-  <title>Vaxonyx AI — Home</title>
-  <meta name="description" content="Vaxonyx AI — Precision immuno-informatics." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- External stylesheet (bump v= to bust cache) -->
-  <link rel="stylesheet" href="css/styles.css?v=gloss5">
-
-  <!-- Minimal overrides so this page looks right even if old CSS is cached -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vaxonyx AI</title>
+  <link rel="stylesheet" href="css/styles.css?v=logo-big">
   <style>
-    :root{--vx-blue:#1B427A;--vx-orange:#F26B3B;--vx-line:rgba(20,39,63,.15)}
-    /* Header: tight, no giant white band */
-    .site-header{position:fixed;top:0;left:0;right:0;background:#fff;border-bottom:1px solid var(--vx-line);z-index:1000}
-    .header-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 0;min-height:90px}
-    .brand{display:inline-block}
-    .brand-logo{display:block;height:90px;width:auto}        /* big SVG logo only */
-    .nav-list{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}
-    .nav-list a{text-decoration:none;color:var(--vx-blue);font-weight:800}
-    /* Hero sits directly under the header */
-    .hero-full{margin-top:90px}
-    .hero-video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border:0}
-    .hero-video::-webkit-media-controls{display:none !important}
-    /* Glossy orange Ask button */
-    .ask-floater{
-      position:absolute;right:16px;bottom:16px;padding:.75rem 1.15rem;border:0;border-radius:999px;
-      background:linear-gradient(180deg,#FF8A5C,#F26B3B);color:#fff;font-weight:900;letter-spacing:.2px;
-      box-shadow:0 10px 24px rgba(242,107,59,.45),0 2px 0 rgba(0,0,0,.08) inset;
-      transition:transform .12s ease,filter .12s ease
+    /* Header layout override */
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid #e5e8ef;
     }
-    .ask-floater:hover{transform:translateY(-1px);filter:brightness(1.03)}
-    .ask-floater:active{transform:translateY(0);filter:brightness(.98)}
-    /* Footer quick layout safety */
-    .footer-grid-3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem}
-    @media (max-width:960px){.footer-grid-3{grid-template-columns:1fr}}
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      min-height: 140px;
+    }
+    .brand-logo {
+      height: 140px;
+      width: auto;
+      display: block;
+    }
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      font-size: 1.05rem;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-list a {
+      text-decoration: none;
+      color: #1b427a;
+      font-weight: 600;
+    }
+    .nav-list a:hover { color: #f26b3b; }
+
+    /* Hero full-width video */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      overflow: hidden;
+      background: linear-gradient(#0a1a33, #000);
+    }
+    .hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Ask button */
+    #osx-widget .osx-fab {
+      background: linear-gradient(135deg, #f26b3b, #ff8c5a);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(242, 107, 59, 0.45);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(242,107,59,0.4);}
+      70% { box-shadow: 0 0 0 20px rgba(242,107,59,0);}
+      100% { box-shadow: 0 0 0 0 rgba(242,107,59,0);}
+    }
   </style>
 </head>
 <body>
-  <!-- HEADER (SVG logo only; no extra text) -->
+
+  <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container header-row">
       <a href="./" class="brand" aria-label="Vaxonyx AI home">
-        <!-- Update filename if your SVG is named differently -->
         <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="brand-logo">
       </a>
-
       <nav id="primary-nav" class="nav" role="navigation">
         <ul class="nav-list">
           <li><a href="about/">About</a></li>
@@ -69,39 +89,30 @@
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main role="main">
-    <!-- FULL-BLEED HERO VIDEO (autoplay/loop/muted; no controls) -->
-    <section class="hero-full">
-      <div class="hero-media" style="position:relative;width:100%">
-        <video class="hero-video" autoplay muted loop playsinline poster="assets/video-poster.jpg">
-          <source src="assets/intro.mp4" type="video/mp4">
-        </video>
-        <!-- Subtle on-brand blue overlay -->
-        <div class="hero-overlay" style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(27,66,122,.35),rgba(27,66,122,.12));pointer-events:none"></div>
-
-        <!-- Single glossy orange button that opens the panel -->
-        <button class="ask-floater" onclick="window.VX_WIDGET?.open()">Ask Vaxonyx AI</button>
-      </div>
-    </section>
-  </main>
+  <!-- HERO VIDEO -->
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="assets/hero.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
 
   <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo" style="margin-top:0;padding:24px 0;color:#333;border-top:1px solid var(--vx-line)">
-    <div class="container footer-grid-3">
-      <!-- LEFT: Logo + blurb -->
-      <section class="footer-brand" style="display:grid;gap:.75rem">
-        <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" style="width:220px;height:auto;display:block">
-        <p style="margin:0;color:#14273f">
-          Vaxonyx AI is developing bioinformatics platforms that harness the building blocks of life
-          to work in harmony with the body’s immune system.
-        </p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section>
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
+          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
+          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
+        </ul>
+        <address>Headquarters: <span>Add official address here</span></address>
       </section>
 
-      <!-- CENTER: Quick Access -->
       <section>
         <h3>Quick Access</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.35rem">
+        <ul class="footer-links">
           <li><a href="about/">About</a></li>
           <li><a href="innovation/">Innovation</a></li>
           <li><a href="pipeline/">Pipeline</a></li>
@@ -112,44 +123,20 @@
         </ul>
       </section>
 
-      <!-- RIGHT: Contacts -->
       <section>
-        <h3>Contact</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.35rem">
-          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
-          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
-          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
-        </ul>
-        <address style="margin-top:.75rem;color:#6b7a90">Headquarters: Add official address here</address>
+        <h3>Follow</h3>
+        <div class="socials">
+          <a class="social-icon" href="#">in</a>
+          <a class="social-icon" href="#">X</a>
+          <a class="social-icon" href="#">▶</a>
+        </div>
       </section>
     </div>
-
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--vx-line)">
-      <div style="display:flex;gap:.75rem">
-        <a href="#" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">in</a>
-        <a href="#" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">X</a>
-        <a href="#" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">▶</a>
-      </div>
-      <p style="color:#6b7a90;margin:0">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
-    </div>
+    <p class="copyright">© 2025 Vaxonyx AI. All rights reserved.</p>
   </footer>
 
-  <!-- Load ONLY the Vaxonyx widget (panel only; no blue FAB). Bump v= to bust cache -->
-  <script src="assets/osx_widget.js?v=gloss5" defer></script>
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Remove any legacy OncoSyNex widget if still present
-    (function nukeLegacy(){
-      const old = document.getElementById('osx-widget'); if (old) old.remove();
-      [...document.querySelectorAll('button')].forEach(b=>{
-        const t=(b.textContent||'').trim().toLowerCase();
-        if (t.includes('oncosynex')) b.remove();
-      });
-      if (window.OSX_WIDGET) try { delete window.OSX_WIDGET; } catch {}
-    })();
-  </script>
+  <!-- Ask Vaxonyx AI widget -->
+  <script src="assets/osx_qa.js"></script>
+  <script src="assets/osx_widget.js"></script>
 </body>
 </html>
