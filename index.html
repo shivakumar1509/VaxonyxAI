@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Project path for GitHub Pages -->
+  <!-- GitHub Pages project path -->
   <base href="/VaxonyxAI/">
 
   <title>Vaxonyx AI — Home</title>
@@ -14,17 +14,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- External stylesheet (cache-busted on change) -->
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <!-- External stylesheet (bump v= when you change CSS) -->
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
 <body>
   <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Vaxonyx AI home">
-        <!-- If your file is named exactly "Vaxonyx AI.svg" this encoded path will load it -->
+        <!-- If your file is named differently, update this path -->
         <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="brand-logo">
-        <span class="brand-text">Vaxonyx AI</span>
       </a>
 
       <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
@@ -44,32 +43,38 @@
 
   <!-- MAIN -->
   <main role="main">
-    <!-- FULL-BLEED HERO VIDEO (like IMUNON; no box or shadow) -->
+    <!-- FULL-BLEED HERO VIDEO (no controls; auto-play/loop/muted/inline) -->
     <section class="hero-full">
-      <video class="hero-video" controls preload="metadata" poster="assets/video-poster.jpg">
-        <source src="assets/intro.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <div class="hero-media">
+        <video class="hero-video"
+               autoplay
+               muted
+               loop
+               playsinline
+               poster="assets/video-poster.jpg">
+          <source src="assets/intro.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <!-- (optional headline could go here if you ever want one) -->
+      </div>
 
       <!-- Orange floating button over video -->
       <button class="ask-floater"
-        onclick="(window.OSX_WIDGET?.open||window.OsxWidget?.open||window.AskVX?.open||function(){alert('Ask widget not found.');})()">
+        onclick="(window.VX_WIDGET?.open||function(){alert('Ask widget not found.');})()">
         Ask Vaxonyx AI
       </button>
     </section>
-
-    <!-- (You asked to remove all content below the video on the homepage) -->
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid-3">
-      <!-- LEFT: Logo + one-paragraph company blurb -->
+      <!-- LEFT: Logo + one-paragraph blurb -->
       <section class="footer-brand">
         <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="footer-logo">
         <p class="footer-blurb">
-          Vaxonyx AI is developing bioinformatics platforms that harness the building blocks of life
-          to work in harmony with the body’s immune system.
+          Vaxonyx AI is developing bioinformatics platforms that harness the
+          building blocks of life to work in harmony with the body’s immune system.
         </p>
       </section>
 
@@ -109,8 +114,7 @@
     </div>
   </footer>
 
-  <!-- Optional widget scripts -->
-  <script src="assets/osx_qa.js" defer></script>
+  <!-- ONLY include the Vaxonyx widget. Remove any OncoSyNex widget includes. -->
   <script src="assets/osx_widget.js" defer></script>
 
   <script>
