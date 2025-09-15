@@ -1,84 +1,126 @@
-:root{
-  --vx-blue:#1B427A;
-  --vx-ink:#0b1b3a;
-  --vx-orange:#F26B3B;
-  --vx-line:rgba(20,39,63,.15);
-  --edge:16px;
-  --max:1180px;
-  --header-h:84px;
-}
+<!-- deploy-bump: 2025-09-15T03:10:00Z -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vaxonyx AI</title>
+  <base href="/VaxonyxAI/">
+  <link rel="stylesheet" href="css/styles.css?v=build-11">
+  <meta name="color-scheme" content="light only" />
+</head>
+<body>
 
-*{box-sizing:border-box}
-html,body{margin:0}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Helvetica Neue",Arial,sans-serif;color:var(--vx-ink)}
-img{max-width:100%;display:block}
-.container{width:min(var(--max), 100% - 2*var(--edge)); margin-inline:auto}
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="./">
+        <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI">
+      </a>
 
-/* ===== Header ===== */
-.site-header{
-  position:sticky; top:0; z-index:1000;
-  background:#fff; border-bottom:1px solid var(--vx-line);
-  height:var(--header-h);
-}
-.header-row{
-  display:flex; align-items:center; justify-content:space-between;
-  height:var(--header-h); gap:42px;
-}
-.brand-logo{height:36px}
+      <nav class="site-nav" aria-label="Primary">
+        <div class="menu">
+          <a href="about/">About</a>
+          <ul class="dropdown">
+            <li><a href="about/mission/">Mission</a></li>
+            <li><a href="about/vision/">Vision</a></li>
+            <li><a href="about/team/">Team</a></li>
+          </ul>
+        </div>
 
-/* nav floats right and stretches evenly until Ask button */
-.site-nav{
-  flex:1; display:flex; justify-content:flex-end; gap:38px;
-  align-items:center; margin-right:20px;
-}
-.site-nav > a,
-.site-nav .menu > a{
-  color:var(--vx-blue); text-decoration:none; font-weight:700;
-  display:inline-flex; align-items:center; gap:6px;
-}
-.site-nav .menu > a::after{content:"▾"; font-size:16px}
+        <div class="menu">
+          <a href="services/">Services</a>
+          <ul class="dropdown">
+            <li><a href="services/cell-line/">Cell line services</a></li>
+            <li><a href="services/protein-production/">Protein Production</a></li>
+            <li><a href="services/assays/">Assays</a></li>
+          </ul>
+        </div>
 
-/* dropdown */
-.menu{position:relative}
-.dropdown{
-  position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%);
-  background:#fff; border:1px solid var(--vx-line); border-radius:12px;
-  box-shadow:0 12px 28px rgba(0,0,0,.12);
-  display:none; min-width:220px; padding:8px; z-index:1001;
-}
-.menu:hover .dropdown{display:block}
-.dropdown li{list-style:none}
-.dropdown a{
-  display:block; padding:9px 12px; border-radius:10px;
-  color:var(--vx-blue); text-decoration:none; white-space:nowrap;
-}
-.dropdown a:hover{background:rgba(27,66,122,.08)}
+        <div class="menu">
+          <a href="platforms/">Platforms</a>
+          <ul class="dropdown">
+            <li><a href="platforms/ai/">AI platforms</a></li>
+            <li><a href="platforms/dna/">DNA platforms</a></li>
+            <li><a href="platforms/dna-delivery/">DNA delivery platforms</a></li>
+          </ul>
+        </div>
 
-/* ===== Hero ===== */
-.hero{position:relative; min-height:58vh; display:grid; align-items:end; overflow:hidden}
-.hero-bg{position:absolute; inset:0; background:linear-gradient(180deg,#3FA9F5 0%, #0d2038 75%, #000 100%)}
-.hero-shade{position:absolute; inset:0; background:linear-gradient(180deg,transparent 0%, rgba(0,0,0,.25) 100%)}
-.hero-copy{position:relative; z-index:2; padding:42px 0 28px}
-.hero-copy h1{margin:0; color:#fff; font-weight:800; letter-spacing:.2px; font-size:clamp(28px,4.2vw,52px); line-height:1.1}
+        <div class="menu">
+          <a href="innovation/">Innovation</a>
+          <ul class="dropdown">
+            <li><a href="innovation/">Overview</a></li>
+            <li><a href="pipeline/">Pipeline</a></li>
+            <li><a href="products/">Products</a></li>
+          </ul>
+        </div>
 
-/* ===== Footer ===== */
-.site-footer{border-top:1px solid var(--vx-line); background:#f7f9fc}
-.footer-grid{
-  display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:32px;
-  padding:28px 0;
-}
-.footer-logo{height:28px; margin-bottom:10px}
-.links{list-style:none; padding:0; margin:0; display:grid; gap:8px}
-.links a{color:var(--vx-blue); text-decoration:none}
-.links a:hover{text-decoration:underline}
-.hq{margin-top:10px; color:#6b7a90; font-style:normal}
-.footer-bottom{padding:10px 0 24px; text-align:center; color:#6b7a90}
+        <a href="investors/">News &amp; Investors</a>
+        <a href="contact/">Contact</a>
+      </nav>
 
-/* ===== Ask Vaxonyx AI button ===== */
-.vx-fab{
-  border:0; border-radius:999px; padding:10px 14px;
-  background:var(--vx-orange); color:#fff; font-weight:800;
-  box-shadow:0 10px 22px rgba(242,107,59,.36);
-  cursor:pointer;
-}
-.vx-fab:hover{filter:brightness(1.03)}
+      <button id="vx-fab" class="vx-fab" type="button">Ask Vaxonyx AI</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg"></div>
+      <div class="hero-shade"></div>
+
+      <div class="hero-copy">
+        <h1 id="hero-title">DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section>
+        <img class="footer-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
+        <p class="footer-blurb">
+          Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery,
+          vaccine design, and translational immunology.
+        </p>
+      </section>
+
+      <section>
+        <h3>Quick Access</h3>
+        <ul class="links">
+          <li><a href="about/">About</a></li>
+          <li><a href="innovation/">Innovation</a></li>
+          <li><a href="pipeline/">Pipeline</a></li>
+          <li><a href="products/">Products</a></li>
+          <li><a href="investors/">News &amp; Investors</a></li>
+          <li><a href="contact/">Contact</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Contact</h3>
+        <ul class="links">
+          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
+          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
+          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
+        </ul>
+        <address class="hq">Headquarters: Add official address here</address>
+      </section>
+    </div>
+    <div class="container footer-bottom">
+      <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/osx_widget.js?v=build-11" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('vx-fab').addEventListener('click', () => {
+        if (window.VX_WIDGET?.open) window.VX_WIDGET.open();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -21,36 +21,24 @@ img{max-width:100%;display:block}
   height:var(--header-h);
 }
 .header-row{
-  display:flex; align-items:center; gap:28px;
-  height:var(--header-h);
-  padding-right:160px;   /* room for the FAB on the right */
+  display:flex; align-items:center; justify-content:space-between;
+  height:var(--header-h); gap:42px;
 }
 .brand-logo{height:36px}
 
-/* NAV spreads *evenly*; arrows sit right after words */
+/* nav floats right and stretches evenly until Ask button */
 .site-nav{
-  flex:1;
-  display:flex; align-items:center;
-  justify-content: space-evenly;   /* even spacing from About … Contact */
-  min-width: 620px;
+  flex:1; display:flex; justify-content:flex-end; gap:38px;
+  align-items:center; margin-right:20px;
 }
 .site-nav > a,
 .site-nav .menu > a{
-  color:var(--vx-blue);
-  text-decoration:none;
-  font-weight:700;
-  line-height:1;
-  display:inline-flex; align-items:center; gap:6px; /* keeps arrow snug */
+  color:var(--vx-blue); text-decoration:none; font-weight:700;
+  display:inline-flex; align-items:center; gap:6px;
 }
+.site-nav .menu > a::after{content:"▾"; font-size:16px}
 
-/* Dropdown arrow placed *next to* the word */
-.site-nav .menu > a::after{
-  content:"▾";
-  font-size:16px;
-  transform:translateY(1px);
-}
-
-/* Dropdown */
+/* dropdown */
 .menu{position:relative}
 .dropdown{
   position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%);
@@ -65,9 +53,6 @@ img{max-width:100%;display:block}
   color:var(--vx-blue); text-decoration:none; white-space:nowrap;
 }
 .dropdown a:hover{background:rgba(27,66,122,.08)}
-
-/* reserve space so the Ask button doesn’t collide */
-.fab-reserve{width:160px; flex:0 0 160px}
 
 /* ===== Hero ===== */
 .hero{position:relative; min-height:58vh; display:grid; align-items:end; overflow:hidden}
@@ -89,9 +74,8 @@ img{max-width:100%;display:block}
 .hq{margin-top:10px; color:#6b7a90; font-style:normal}
 .footer-bottom{padding:10px 0 24px; text-align:center; color:#6b7a90}
 
-/* ===== Floating “Ask Vaxonyx AI” Button ===== */
+/* ===== Ask Vaxonyx AI button ===== */
 .vx-fab{
-  position:fixed; top:12px; right:16px; z-index:1100;
   border:0; border-radius:999px; padding:10px 14px;
   background:var(--vx-orange); color:#fff; font-weight:800;
   box-shadow:0 10px 22px rgba(242,107,59,.36);
