@@ -71,3 +71,27 @@
   .nav-list{flex-direction:column;align-items:flex-start;padding:.75rem 1rem 1rem;gap:.85rem;margin:0}
   .ask-floater{right:12px;bottom:12px}
 }
+/* Header tightened to the logo height */
+.site-header{position:fixed;top:0;left:0;right:0;height:auto;background:#fff;border-bottom:1px solid var(--vx-line);z-index:1000}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:12px 0}
+.brand-logo{height:96px;display:block}   /* keep your big logo but remove huge white gap */
+
+/* Pull the hero right under the header */
+.hero-full{margin-top:calc(12px + 96px + 12px)} /* top padding + logo + bottom padding */
+
+/* Make nav links bold & blue */
+.nav-list a{color:var(--vx-blue);font-weight:800}
+
+/* Glossy orange Ask button */
+.ask-floater{
+  position:absolute;right:16px;bottom:16px;padding:.75rem 1.15rem;border:0;border-radius:999px;
+  background: linear-gradient(180deg, #FF8A5C, #F26B3B);
+  color:#fff;font-weight:900;letter-spacing:.2px;
+  box-shadow: 0 10px 24px rgba(242,107,59,.45), 0 2px 0 rgba(0,0,0,.08) inset;
+  transition: transform .12s ease, filter .12s ease;
+}
+.ask-floater:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+.ask-floater:active{ transform: translateY(0); filter: brightness(.98); }
+
+/* Hide any legacy blue FAB if some CSS lingered somewhere */
+#vx-widget .vx-fab{ display:none !important; }

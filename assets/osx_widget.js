@@ -1,16 +1,11 @@
-// /assets/osx_widget.js  — Vaxonyx-only chat widget
+// /assets/osx_widget.js  — Vaxonyx-only widget, NO floating FAB
 (function () {
   const PANEL_W = 420, PANEL_H = 520, LOG_MAX = 300, TYPE_MS = 15;
   const CSS = `
-    #vx-widget { position: fixed; bottom: 16px;
-      right: max(16px, calc((100vw - min(1180px, 100% - 32px))/2)); z-index: 9999; }
-    .vx-fab { border:0; border-radius:999px; padding:10px 14px;
-      background:#1B427A; color:#fff; box-shadow:0 6px 16px rgba(0,0,0,.25);
-      font-weight:800; cursor:pointer; font-size:.95rem; }
     .vx-panel { position: fixed; bottom: 70px; right: 16px;
       width:${PANEL_W}px; height:${PANEL_H}px; max-width:calc(100vw - 32px); max-height:calc(100vh - 120px);
       background:#fff; color:#0b1b3a; border:1px solid #e6ebf4; border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.35);
-      display:none; overflow:hidden; }
+      display:none; overflow:hidden; z-index: 9999; }
     .vx-panel.open { display:block; }
     .vx-head { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#1B427A; color:#fff; }
     .vx-close { background:transparent; border:0; color:#fff; font-size:20px; cursor:pointer; }
@@ -30,50 +25,53 @@
 
   const QA = window.VX_QA || [
     {id:'hello',  q:'What does Vaxonyx AI do?', a:'We build bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.'},
-    {id:'contact',q:'How do I contact you?', a:'Email info@vaxonyxai.com (general), investorrelations@vaxonyxai.com (IR), bd@vaxonyxai.com (BD).'},
-    {id:'pilot',  q:'Do you support pilots?', a:'Yes — short pilots are available to evaluate pipelines and UI.'}
+    {id:'contact',q:'How do I contact you?', a:'info@vaxonyxai.com (general) • investorrelations@vaxonyxai.com (IR) • bd@vaxonyxai.com (BD).'}
   ];
 
   function ready(fn){ document.readyState==='loading' ? document.addEventListener('DOMContentLoaded',fn) : fn(); }
   ready(() => {
+    // inject CSS
     if (!document.getElementById('vx-widget-css')) {
       const s=document.createElement('style'); s.id='vx-widget-css'; s.textContent=CSS; document.head.appendChild(s);
     }
-    let host=document.getElementById('vx-widget'); if(!host){ host=document.createElement('div'); host.id='vx-widget'; document.body.appendChild(host); }
 
-    const btn=document.createElement('button'); btn.className='vx-fab'; btn.type='button'; btn.textContent='Ask Vaxonyx AI';
-    const panel=document.createElement('div'); panel.className='vx-panel'; panel.innerHTML=`
-      <div class="vx-head"><strong>Vaxonyx AI</strong><button class="vx-close" aria-label="Close">×</button></div>
-      <div class="vx-hero"><div class="vx-illus" aria-hidden="true"></div>
-        <div><div class="vx-w1">Hi! How can I help you?</div><div class="vx-w2">Ask about our platform, pipelines, or partnerships.</div></div>
-      </div>
-      <div class="vx-body"><div class="vx-log"></div>
-        <div class="vx-bottom">
-          <div class="vx-pop">Popular questions</div><div class="vx-buttons"></div>
-          <div class="vx-row"><input class="vx-input" placeholder="Type your question…" aria-label="Type your question">
-            <button class="vx-send" type="button">Send</button></div>
+    // create panel once
+    let panel=document.querySelector('.vx-panel');
+    if (!panel) {
+      panel=document.createElement('div');
+      panel.className='vx-panel';
+      panel.innerHTML=`
+        <div class="vx-head"><strong>Vaxonyx AI</strong><button class="vx-close" aria-label="Close">×</button></div>
+        <div class="vx-hero"><div class="vx-illus" aria-hidden="true"></div>
+          <div><div class="vx-w1">Hi! How can I help you?</div><div class="vx-w2">Ask about our platform, pipelines, or partnerships.</div></div>
         </div>
-      </div>`;
-    host.appendChild(btn); host.appendChild(panel);
+        <div class="vx-body"><div class="vx-log"></div>
+          <div class="vx-bottom">
+            <div class="vx-pop">Popular questions</div><div class="vx-buttons"></div>
+            <div class="vx-row"><input class="vx-input" placeholder="Type your question…" aria-label="Type your question">
+              <button class="vx-send" type="button">Send</button></div>
+          </div>
+        </div>`;
+      document.body.appendChild(panel);
 
-    const closeBtn=panel.querySelector('.vx-close'), input=panel.querySelector('.vx-input'),
-          send=panel.querySelector('.vx-send'), log=panel.querySelector('.vx-log'),
-          suggs=panel.querySelector('.vx-buttons');
+      const closeBtn=panel.querySelector('.vx-close'), input=panel.querySelector('.vx-input'),
+            send=panel.querySelector('.vx-send'), log=panel.querySelector('.vx-log'),
+            suggs=panel.querySelector('.vx-buttons');
 
-    suggs.innerHTML = QA.slice(0,3).map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
+      suggs.innerHTML = QA.slice(0,3).map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
 
-    btn.addEventListener('click', ()=>{ panel.classList.add('open'); input.focus(); });
-    closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
-    panel.addEventListener('click', e => { const b=e.target.closest('.vx-sugg'); if(!b) return; input.value=b.getAttribute('data-q'); answer(input.value); });
-    input.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); answer(input.value.trim()); }});
-    send.addEventListener('click', ()=> answer(input.value.trim()));
+      closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
+      panel.addEventListener('click', e => { const b=e.target.closest('.vx-sugg'); if(!b) return; input.value=b.getAttribute('data-q'); answer(input.value); });
+      input.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); answer(input.value.trim()); }});
+      send.addEventListener('click', ()=> answer(input.value.trim()));
 
-    function answer(q){
-      if(!q) return;
-      const wrap=document.createElement('div'); wrap.className='vx-x';
-      wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a"></div>`; log.appendChild(wrap); log.scrollTop=log.scrollHeight;
-      const found = QA.find(x => (x.q||'').toLowerCase()===q.toLowerCase()) || null;
-      type(wrap.querySelector('.vx-a'), found ? String(found.a) : 'Thanks! A specialist will follow up soon.');
+      function answer(q){
+        if(!q) return;
+        const wrap=document.createElement('div'); wrap.className='vx-x';
+        wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a"></div>`; log.appendChild(wrap); log.scrollTop=log.scrollHeight;
+        const found = QA.find(x => (x.q||'').toLowerCase()===q.toLowerCase()) || null;
+        type(wrap.querySelector('.vx-a'), found ? String(found.a) : 'Thanks! A specialist will follow up soon.');
+      }
     }
   });
 
@@ -81,9 +79,19 @@
   const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
   const escAttr = s => esc(s).replace(/'/g,'&#39;');
 
-  // Public API used by the orange button on the page
+  // Public API used by the **orange** page button
   window.VX_WIDGET = {
     open(){ const p=document.querySelector('.vx-panel'); if(p) p.classList.add('open'); },
     close(){ const p=document.querySelector('.vx-panel'); if(p) p.classList.remove('open'); }
   };
+
+  // Hard-remove any leftover OncoSyNex FAB/panel if present
+  ready(() => {
+    const old = document.getElementById('osx-widget'); if (old) old.remove();
+    [...document.querySelectorAll('button')].forEach(b=>{
+      const t=(b.textContent||'').trim().toLowerCase();
+      if (t.includes('oncosynex')) b.remove();
+    });
+    if (window.OSX_WIDGET) try { delete window.OSX_WIDGET; } catch {}
+  });
 })();
