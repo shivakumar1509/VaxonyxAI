@@ -1,11 +1,11 @@
-<!-- deploy-bump: 2025-09-14T18:47:00Z -->
+<!-- deploy-bump: 2025-09-14T18:58:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- GitHub Pages project base -->
+  <!-- GitHub Pages project base (project site) -->
   <base href="/VaxonyxAI/">
 
   <title>Vaxonyx AI — Home</title>
@@ -16,38 +16,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- External stylesheet (bump v= to bust cache) -->
-  <link rel="stylesheet" href="css/styles.css?v=gloss4">
+  <link rel="stylesheet" href="css/styles.css?v=gloss5">
 
-  <!-- Small, safe overrides to: make the logo bigger, tighten header, and align the hero flush under it -->
+  <!-- Minimal overrides so this page looks right even if old CSS is cached -->
   <style>
-    :root { --vx-blue:#1B427A; --vx-orange:#F26B3B; --vx-line:rgba(20,39,63,.15); }
+    :root{--vx-blue:#1B427A;--vx-orange:#F26B3B;--vx-line:rgba(20,39,63,.15)}
+    /* Header: tight, no giant white band */
     .site-header{position:fixed;top:0;left:0;right:0;background:#fff;border-bottom:1px solid var(--vx-line);z-index:1000}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:10px 0}
-    .brand-logo{height:140px;display:block}               /* <<< bigger logo */
-    .nav-list a{color:var(--vx-blue);font-weight:800}
-    .hero-full{margin-top:calc(10px + 140px + 10px)}      /* match header padding + logo height */
-    /* glossy orange ask button */
+    .header-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 0;min-height:90px}
+    .brand{display:inline-block}
+    .brand-logo{display:block;height:90px;width:auto}        /* big SVG logo only */
+    .nav-list{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}
+    .nav-list a{text-decoration:none;color:var(--vx-blue);font-weight:800}
+    /* Hero sits directly under the header */
+    .hero-full{margin-top:90px}
+    .hero-video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border:0}
+    .hero-video::-webkit-media-controls{display:none !important}
+    /* Glossy orange Ask button */
     .ask-floater{
       position:absolute;right:16px;bottom:16px;padding:.75rem 1.15rem;border:0;border-radius:999px;
       background:linear-gradient(180deg,#FF8A5C,#F26B3B);color:#fff;font-weight:900;letter-spacing:.2px;
       box-shadow:0 10px 24px rgba(242,107,59,.45),0 2px 0 rgba(0,0,0,.08) inset;
-      transition:transform .12s ease,filter .12s ease;
+      transition:transform .12s ease,filter .12s ease
     }
     .ask-floater:hover{transform:translateY(-1px);filter:brightness(1.03)}
     .ask-floater:active{transform:translateY(0);filter:brightness(.98)}
+    /* Footer quick layout safety */
+    .footer-grid-3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem}
+    @media (max-width:960px){.footer-grid-3{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- HEADER (SVG logo only; no extra text) -->
   <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <!-- Use ./ so it always goes to this index page -->
-      <a class="brand" href="./" aria-label="Vaxonyx AI home">
-        <!-- If your SVG is named differently, change the src below -->
+    <div class="container header-row">
+      <a href="./" class="brand" aria-label="Vaxonyx AI home">
+        <!-- Update filename if your SVG is named differently -->
         <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="brand-logo">
       </a>
 
-      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">☰</button>
       <nav id="primary-nav" class="nav" role="navigation">
         <ul class="nav-list">
           <li><a href="about/">About</a></li>
@@ -64,43 +71,37 @@
 
   <!-- MAIN -->
   <main role="main">
-    <!-- FULL-BLEED HERO VIDEO (autoplay/loop/muted/inline; NO controls) -->
+    <!-- FULL-BLEED HERO VIDEO (autoplay/loop/muted; no controls) -->
     <section class="hero-full">
       <div class="hero-media" style="position:relative;width:100%">
-        <video class="hero-video"
-               autoplay
-               muted
-               loop
-               playsinline
-               poster="assets/video-poster.jpg"
-               style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border:0;border-radius:0;box-shadow:none">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/video-poster.jpg">
           <source src="assets/intro.mp4" type="video/mp4">
         </video>
-        <!-- On-brand blue wash -->
-        <div class="hero-overlay" style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(27,66,122,0.35), rgba(27,66,122,0.12));pointer-events:none"></div>
+        <!-- Subtle on-brand blue overlay -->
+        <div class="hero-overlay" style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(27,66,122,.35),rgba(27,66,122,.12));pointer-events:none"></div>
 
-        <!-- Orange floating button over video -->
+        <!-- Single glossy orange button that opens the panel -->
         <button class="ask-floater" onclick="window.VX_WIDGET?.open()">Ask Vaxonyx AI</button>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer" role="contentinfo" style="margin-top:0;padding:24px 0;color:#333;border-top:1px solid var(--vx-line)">
     <div class="container footer-grid-3">
       <!-- LEFT: Logo + blurb -->
-      <section class="footer-brand">
-        <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="footer-logo" style="width:220px;height:auto;display:block">
-        <p class="footer-blurb" style="margin:0;color:#14273f">
+      <section class="footer-brand" style="display:grid;gap:.75rem">
+        <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" style="width:220px;height:auto;display:block">
+        <p style="margin:0;color:#14273f">
           Vaxonyx AI is developing bioinformatics platforms that harness the building blocks of life
           to work in harmony with the body’s immune system.
         </p>
       </section>
 
-      <!-- CENTER: Quick access -->
+      <!-- CENTER: Quick Access -->
       <section>
         <h3>Quick Access</h3>
-        <ul class="footer-links" style="list-style:none;padding:0;margin:0;display:grid;gap:.35rem">
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.35rem">
           <li><a href="about/">About</a></li>
           <li><a href="innovation/">Innovation</a></li>
           <li><a href="pipeline/">Pipeline</a></li>
@@ -114,41 +115,31 @@
       <!-- RIGHT: Contacts -->
       <section>
         <h3>Contact</h3>
-        <ul class="contact-list" style="list-style:none;padding:0;margin:0;display:grid;gap:.35rem">
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.35rem">
           <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
           <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
           <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
         </ul>
-        <address class="hq" style="margin-top:.75rem;color:#6b7a90">Headquarters: Add official address here</address>
+        <address style="margin-top:.75rem;color:#6b7a90">Headquarters: Add official address here</address>
       </section>
     </div>
 
-    <div class="container footer-bottom" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--vx-line)">
-      <div class="socials" style="display:flex;gap:.75rem">
-        <a href="#" class="social-icon" aria-label="LinkedIn" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">in</a>
-        <a href="#" class="social-icon" aria-label="Twitter/X" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">X</a>
-        <a href="#" class="social-icon" aria-label="YouTube" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">▶</a>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--vx-line)">
+      <div style="display:flex;gap:.75rem">
+        <a href="#" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">in</a>
+        <a href="#" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">X</a>
+        <a href="#" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">▶</a>
       </div>
-      <p class="copyright" style="color:#6b7a90;margin:0">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+      <p style="color:#6b7a90;margin:0">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Load ONLY the Vaxonyx widget (panel only; no blue FAB). Bump v= to bust cache -->
-  <script src="assets/osx_widget.js?v=gloss4" defer></script>
+  <script src="assets/osx_widget.js?v=gloss5" defer></script>
 
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile nav toggle (works if you add the CSS media behavior later)
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('primary-nav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(open));
-      });
-    }
 
     // Remove any legacy OncoSyNex widget if still present
     (function nukeLegacy(){
