@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- GitHub Pages project path -->
+  <!-- GitHub Pages project base -->
   <base href="/VaxonyxAI/">
 
   <title>Vaxonyx AI — Home</title>
@@ -14,15 +14,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- External stylesheet (bump v= when you change CSS) -->
-  <link rel="stylesheet" href="css/styles.css?v=6">
+  <!-- External stylesheet (bump v= if you change CSS) -->
+  <link rel="stylesheet" href="css/styles.css?v=7">
 </head>
 <body>
   <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Vaxonyx AI home">
-        <!-- If your file is named differently, update this path -->
+      <!-- Use ./ so it always goes to the site root index without case/path issues -->
+      <a class="brand" href="./" aria-label="Vaxonyx AI home">
+        <!-- If your SVG is named differently, change the src to match -->
         <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="brand-logo">
       </a>
 
@@ -43,7 +44,7 @@
 
   <!-- MAIN -->
   <main role="main">
-    <!-- FULL-BLEED HERO VIDEO (no controls; auto-play/loop/muted/inline) -->
+    <!-- FULL-BLEED HERO VIDEO (autoplay/loop/muted/inline; no controls) -->
     <section class="hero-full">
       <div class="hero-media">
         <video class="hero-video"
@@ -54,8 +55,8 @@
                poster="assets/video-poster.jpg">
           <source src="assets/intro.mp4" type="video/mp4">
         </video>
+        <!-- On-brand blue wash -->
         <div class="hero-overlay"></div>
-        <!-- (optional headline could go here if you ever want one) -->
       </div>
 
       <!-- Orange floating button over video -->
@@ -69,16 +70,16 @@
   <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid-3">
-      <!-- LEFT: Logo + one-paragraph blurb -->
+      <!-- LEFT: Large logo + blurb -->
       <section class="footer-brand">
         <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="footer-logo">
         <p class="footer-blurb">
-          Vaxonyx AI is developing bioinformatics platforms that harness the
-          building blocks of life to work in harmony with the body’s immune system.
+          Vaxonyx AI is developing bioinformatics platforms that harness the building blocks of life
+          to work in harmony with the body’s immune system.
         </p>
       </section>
 
-      <!-- CENTER: Quick Access -->
+      <!-- CENTER: Quick access -->
       <section>
         <h3>Quick Access</h3>
         <ul class="footer-links">
@@ -114,7 +115,7 @@
     </div>
   </footer>
 
-  <!-- ONLY include the Vaxonyx widget. Remove any OncoSyNex widget includes. -->
+  <!-- Load ONLY the Vaxonyx widget -->
   <script src="assets/osx_widget.js" defer></script>
 
   <script>
@@ -130,6 +131,20 @@
         toggle.setAttribute('aria-expanded', String(open));
       });
     }
+
+    // --- HARD KILL any legacy OncoSyNex widget if it's still bundled somewhere ---
+    (function removeOncoSyNex(){
+      // common container id used in your previous script
+      const old = document.getElementById('osx-widget');
+      if (old) old.remove();
+      // remove any stray FAB by text
+      [...document.querySelectorAll('button')].forEach(b=>{
+        const t=(b.textContent||'').trim().toLowerCase();
+        if (t.includes('oncosynex')) b.remove();
+      });
+      // nuke their global if present so it can't re-mount
+      if (window.OSX_WIDGET) try { delete window.OSX_WIDGET; } catch {}
+    })();
   </script>
 </body>
 </html>

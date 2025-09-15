@@ -1,4 +1,4 @@
-// /assets/osx_widget.js  (Vaxonyx AI widget)
+// /assets/osx_widget.js  — Vaxonyx-only chat widget
 (function () {
   const PANEL_W = 420, PANEL_H = 520, LOG_MAX = 300, TYPE_MS = 15;
   const CSS = `
@@ -29,9 +29,9 @@
   `;
 
   const QA = window.VX_QA || [
-    {id:'hello', q:'What does Vaxonyx AI do?', a:'We build bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.'},
-    {id:'contact', q:'How do I contact you?', a:'Email info@vaxonyxai.com for general inquiries, investorrelations@vaxonyxai.com for IR, and bd@vaxonyxai.com for partnerships.'},
-    {id:'pricing', q:'Do you support pilots?', a:'Yes — short pilots are available to evaluate our pipelines and UI.'}
+    {id:'hello',  q:'What does Vaxonyx AI do?', a:'We build bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.'},
+    {id:'contact',q:'How do I contact you?', a:'Email info@vaxonyxai.com (general), investorrelations@vaxonyxai.com (IR), bd@vaxonyxai.com (BD).'},
+    {id:'pilot',  q:'Do you support pilots?', a:'Yes — short pilots are available to evaluate pipelines and UI.'}
   ];
 
   function ready(fn){ document.readyState==='loading' ? document.addEventListener('DOMContentLoaded',fn) : fn(); }
@@ -60,8 +60,7 @@
           send=panel.querySelector('.vx-send'), log=panel.querySelector('.vx-log'),
           suggs=panel.querySelector('.vx-buttons');
 
-    const popular = QA.slice(0,3);
-    suggs.innerHTML = popular.map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
+    suggs.innerHTML = QA.slice(0,3).map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
 
     btn.addEventListener('click', ()=>{ panel.classList.add('open'); input.focus(); });
     closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
@@ -78,11 +77,11 @@
     }
   });
 
-  function type(el, text){ el.textContent=''; let i=0; const t=setInterval(()=>{ el.textContent+=text.charAt(i++); if(i>=text.length) clearInterval(t); el.closest('.vx-log').scrollTop=el.closest('.vx-log').scrollHeight; }, TYPE_MS); }
+  function type(el, text){ el.textContent=''; let i=0; const t=setInterval(()=>{ el.textContent+=text.charAt(i++); if(i>=text.length) clearInterval(t); const sc=el.closest('.vx-log'); if(sc) sc.scrollTop=sc.scrollHeight; }, TYPE_MS); }
   const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
   const escAttr = s => esc(s).replace(/'/g,'&#39;');
 
-  // Public API for the page button
+  // Public API used by the orange button on the page
   window.VX_WIDGET = {
     open(){ const p=document.querySelector('.vx-panel'); if(p) p.classList.add('open'); },
     close(){ const p=document.querySelector('.vx-panel'); if(p) p.classList.remove('open'); }
