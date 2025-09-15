@@ -153,3 +153,16 @@ main{ margin-top: var(--header-h) }
   .hero-copy{ right: 10%; bottom: 16% }
   .hero-copy h1{ font-size: clamp(1.4rem, 4vw + .8rem, 2.2rem) }
 }
+/* Force large dropdown caret */
+.menu > a::after {
+  content: "▾";
+  position: absolute;
+  right: -10px;             /* adds space from text */
+  top: 48%;
+  transform: translateY(-50%);
+  font-size: 1.6em !important;  /* much bigger */
+  font-weight: 700;
+  color: var(--vx-blue, #1B427A);
+  opacity: 0.9;
+  pointer-events: none;
+}
