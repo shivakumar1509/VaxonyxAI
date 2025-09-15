@@ -1,3 +1,4 @@
+<!-- deploy-bump: 2025-09-14T18:47:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,16 +15,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- External stylesheet (bump v= if you change CSS) -->
-  <link rel="stylesheet" href="css/styles.css?v=7">
+  <!-- External stylesheet (bump v= to bust cache) -->
+  <link rel="stylesheet" href="css/styles.css?v=gloss4">
+
+  <!-- Small, safe overrides to: make the logo bigger, tighten header, and align the hero flush under it -->
+  <style>
+    :root { --vx-blue:#1B427A; --vx-orange:#F26B3B; --vx-line:rgba(20,39,63,.15); }
+    .site-header{position:fixed;top:0;left:0;right:0;background:#fff;border-bottom:1px solid var(--vx-line);z-index:1000}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:10px 0}
+    .brand-logo{height:140px;display:block}               /* <<< bigger logo */
+    .nav-list a{color:var(--vx-blue);font-weight:800}
+    .hero-full{margin-top:calc(10px + 140px + 10px)}      /* match header padding + logo height */
+    /* glossy orange ask button */
+    .ask-floater{
+      position:absolute;right:16px;bottom:16px;padding:.75rem 1.15rem;border:0;border-radius:999px;
+      background:linear-gradient(180deg,#FF8A5C,#F26B3B);color:#fff;font-weight:900;letter-spacing:.2px;
+      box-shadow:0 10px 24px rgba(242,107,59,.45),0 2px 0 rgba(0,0,0,.08) inset;
+      transition:transform .12s ease,filter .12s ease;
+    }
+    .ask-floater:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    .ask-floater:active{transform:translateY(0);filter:brightness(.98)}
+  </style>
 </head>
 <body>
   <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <!-- Use ./ so it always goes to the site root index without case/path issues -->
+      <!-- Use ./ so it always goes to this index page -->
       <a class="brand" href="./" aria-label="Vaxonyx AI home">
-        <!-- If your SVG is named differently, change the src to match -->
+        <!-- If your SVG is named differently, change the src below -->
         <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="brand-logo">
       </a>
 
@@ -44,36 +64,34 @@
 
   <!-- MAIN -->
   <main role="main">
-    <!-- FULL-BLEED HERO VIDEO (autoplay/loop/muted/inline; no controls) -->
+    <!-- FULL-BLEED HERO VIDEO (autoplay/loop/muted/inline; NO controls) -->
     <section class="hero-full">
-      <div class="hero-media">
+      <div class="hero-media" style="position:relative;width:100%">
         <video class="hero-video"
                autoplay
                muted
                loop
                playsinline
-               poster="assets/video-poster.jpg">
+               poster="assets/video-poster.jpg"
+               style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border:0;border-radius:0;box-shadow:none">
           <source src="assets/intro.mp4" type="video/mp4">
         </video>
         <!-- On-brand blue wash -->
-        <div class="hero-overlay"></div>
-      </div>
+        <div class="hero-overlay" style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(27,66,122,0.35), rgba(27,66,122,0.12));pointer-events:none"></div>
 
-      <!-- Orange floating button over video -->
-      <button class="ask-floater"
-        onclick="(window.VX_WIDGET?.open||function(){alert('Ask widget not found.');})()">
-        Ask Vaxonyx AI
-      </button>
+        <!-- Orange floating button over video -->
+        <button class="ask-floater" onclick="window.VX_WIDGET?.open()">Ask Vaxonyx AI</button>
+      </div>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid-3">
-      <!-- LEFT: Large logo + blurb -->
+      <!-- LEFT: Logo + blurb -->
       <section class="footer-brand">
-        <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="footer-logo">
-        <p class="footer-blurb">
+        <img src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" class="footer-logo" style="width:220px;height:auto;display:block">
+        <p class="footer-blurb" style="margin:0;color:#14273f">
           Vaxonyx AI is developing bioinformatics platforms that harness the building blocks of life
           to work in harmony with the body’s immune system.
         </p>
@@ -82,7 +100,7 @@
       <!-- CENTER: Quick access -->
       <section>
         <h3>Quick Access</h3>
-        <ul class="footer-links">
+        <ul class="footer-links" style="list-style:none;padding:0;margin:0;display:grid;gap:.35rem">
           <li><a href="about/">About</a></li>
           <li><a href="innovation/">Innovation</a></li>
           <li><a href="pipeline/">Pipeline</a></li>
@@ -96,33 +114,33 @@
       <!-- RIGHT: Contacts -->
       <section>
         <h3>Contact</h3>
-        <ul class="contact-list">
+        <ul class="contact-list" style="list-style:none;padding:0;margin:0;display:grid;gap:.35rem">
           <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
           <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
           <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
         </ul>
-        <address class="hq">Headquarters: Add official address here</address>
+        <address class="hq" style="margin-top:.75rem;color:#6b7a90">Headquarters: Add official address here</address>
       </section>
     </div>
 
-    <div class="container footer-bottom">
-      <div class="socials">
-        <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
-        <a href="#" class="social-icon" aria-label="Twitter/X">X</a>
-        <a href="#" class="social-icon" aria-label="YouTube">▶</a>
+    <div class="container footer-bottom" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--vx-line)">
+      <div class="socials" style="display:flex;gap:.75rem">
+        <a href="#" class="social-icon" aria-label="LinkedIn" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">in</a>
+        <a href="#" class="social-icon" aria-label="Twitter/X" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">X</a>
+        <a href="#" class="social-icon" aria-label="YouTube" style="display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800">▶</a>
       </div>
-      <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+      <p class="copyright" style="color:#6b7a90;margin:0">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Load ONLY the Vaxonyx widget -->
-  <script src="assets/osx_widget.js" defer></script>
+  <!-- Load ONLY the Vaxonyx widget (panel only; no blue FAB). Bump v= to bust cache -->
+  <script src="assets/osx_widget.js?v=gloss4" defer></script>
 
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile nav toggle
+    // Mobile nav toggle (works if you add the CSS media behavior later)
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.getElementById('primary-nav');
     if (toggle && nav) {
@@ -132,17 +150,13 @@
       });
     }
 
-    // --- HARD KILL any legacy OncoSyNex widget if it's still bundled somewhere ---
-    (function removeOncoSyNex(){
-      // common container id used in your previous script
-      const old = document.getElementById('osx-widget');
-      if (old) old.remove();
-      // remove any stray FAB by text
+    // Remove any legacy OncoSyNex widget if still present
+    (function nukeLegacy(){
+      const old = document.getElementById('osx-widget'); if (old) old.remove();
       [...document.querySelectorAll('button')].forEach(b=>{
         const t=(b.textContent||'').trim().toLowerCase();
         if (t.includes('oncosynex')) b.remove();
       });
-      // nuke their global if present so it can't re-mount
       if (window.OSX_WIDGET) try { delete window.OSX_WIDGET; } catch {}
     })();
   </script>
