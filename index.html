@@ -1,4 +1,4 @@
-<!-- deploy-bump: 2025-09-14T22:20:00Z -->
+<!-- deploy-bump: 2025-09-14T22:40:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
   <base href="/VaxonyxAI/">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=build-2"/>
+  <link rel="stylesheet" href="css/styles.css?v=build-3"/>
   <meta name="color-scheme" content="light only"/>
 </head>
 <body>
@@ -23,13 +23,51 @@
       </a>
 
       <nav class="site-nav" aria-label="Primary">
-        <a href="about/">About</a>
-        <a href="innovation/">Innovation</a>
-        <a href="pipeline/">Pipeline</a>
-        <a href="products/">Products</a>
+        <!-- Assets dropdown -->
+        <div class="menu">
+          <a href="assets/">Assets</a>
+          <ul class="dropdown" aria-label="Assets submenu">
+            <li><a href="assets/mission/">Mission</a></li>
+            <li><a href="assets/vision/">Vision</a></li>
+            <li><a href="assets/team/">Team</a></li>
+          </ul>
+        </div>
+
+        <!-- Services dropdown -->
+        <div class="menu">
+          <a href="services/">Services</a>
+          <ul class="dropdown" aria-label="Services submenu">
+            <li><a href="services/cell-line/">Cell line services</a></li>
+            <li><a href="services/protein-production/">Protein Production</a></li>
+            <li><a href="services/assays/">Assays</a></li>
+          </ul>
+        </div>
+
+        <!-- Platforms dropdown -->
+        <div class="menu">
+          <a href="platforms/">Platforms</a>
+          <ul class="dropdown" aria-label="Platforms submenu">
+            <li><a href="platforms/ai/">AI platforms</a></li>
+            <li><a href="platforms/dna/">DNA platforms</a></li>
+            <li><a href="platforms/dna-delivery/">DNA delivery platforms</a></li>
+          </ul>
+        </div>
+
+        <!-- Innovation dropdown (includes Pipeline + Products) -->
+        <div class="menu">
+          <a href="innovation/">Innovation</a>
+          <ul class="dropdown" aria-label="Innovation submenu">
+            <li><a href="innovation/">Overview</a></li>
+            <li><a href="pipeline/">Pipeline</a></li>
+            <li><a href="products/">Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Keep single links -->
         <a href="investors/">Investors</a>
         <a href="careers/">Careers</a>
         <a href="contact/">Contact</a>
+        <a href="about/">About</a>
       </nav>
     </div>
   </header>
@@ -55,7 +93,6 @@
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
-      <!-- Left: logo + blurb -->
       <section>
         <img class="footer-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI"/>
         <p class="footer-blurb">
@@ -64,7 +101,6 @@
         </p>
       </section>
 
-      <!-- Center: quick links -->
       <section>
         <h3>Quick Access</h3>
         <ul class="links">
@@ -78,7 +114,6 @@
         </ul>
       </section>
 
-      <!-- Right: contact -->
       <section>
         <h3>Contact</h3>
         <ul class="links">
@@ -96,7 +131,7 @@
   </footer>
 
   <!-- Widget script (optional) -->
-  <script src="assets/osx_widget.js?v=build-2" defer></script>
+  <script src="assets/osx_widget.js?v=build-3" defer></script>
   <script>
     // Year + FAB wiring
     document.addEventListener('DOMContentLoaded', () => {

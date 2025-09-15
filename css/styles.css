@@ -9,8 +9,8 @@
   --edge:20px;
 
   --logo-h: 40px;        /* header + footer logo height (same) */
-  --header-h: 64px;      /* keep the header tight but comfortable */
-  --sky: #3FA9F5;        /* requested sky blue */
+  --header-h: 64px;
+  --sky: #3FA9F5;
 }
 
 /* ============ Base ============ */
@@ -25,8 +25,6 @@ body{
   text-rendering:optimizeLegibility;
 }
 a{color:var(--vx-blue)}
-
-/* Container */
 .container{ width:min(var(--max), 100% - 2*var(--edge)); margin-inline:auto }
 
 /* ============ Header ============ */
@@ -43,9 +41,31 @@ a{color:var(--vx-blue)}
 .brand{ display:inline-flex; align-items:center; text-decoration:none }
 .brand-logo{ height:var(--logo-h); width:auto; display:block }
 
-.site-nav{ display:flex; gap:24px; align-items:center }
-.site-nav a{ text-decoration:none; font-weight:800; letter-spacing:.1px }
-.site-nav a:hover{ color:var(--vx-orange) }
+/* Primary nav */
+.site-nav{ display:flex; gap:24px; align-items:center; position:relative }
+.site-nav > a,
+.site-nav .menu > a{
+  text-decoration:none; font-weight:800; letter-spacing:.1px; position:relative;
+}
+.site-nav > a:hover,
+.site-nav .menu > a:hover{ color:var(--vx-orange) }
+
+/* Dropdowns */
+.menu{ position:relative }
+.menu .dropdown{
+  position:absolute; top:calc(100% + 8px); right:0;
+  background:#fff; border:1px solid var(--line); border-radius:12px;
+  box-shadow:0 10px 28px rgba(0,0,0,.12);
+  padding:8px; list-style:none; margin:0; min-width:220px; display:none;
+}
+.menu:hover .dropdown,
+.menu:focus-within .dropdown{ display:block }
+.menu .dropdown li{ margin:0 }
+.menu .dropdown a{
+  display:block; padding:8px 10px; border-radius:10px; text-decoration:none; color:var(--vx-blue);
+  font-weight:700;
+}
+.menu .dropdown a:hover{ background:rgba(27,66,122,.08) }
 
 /* Offset page content under fixed header */
 main{ margin-top: var(--header-h) }
@@ -53,17 +73,14 @@ main{ margin-top: var(--header-h) }
 /* ============ Hero ============ */
 .hero{
   position:relative; width:100%; height: clamp(60vh, 78vh, 92vh); overflow:hidden;
-  background: var(--sky); /* visible instantly + behind video */
+  background: var(--sky);
 }
 .hero-video{
   position:absolute; inset:0; width:100%; height:100%;
   object-fit:cover; object-position:center;
-  /* in case video is dark, blend a bit with the sky blue */
-  mix-blend-mode:normal;
 }
 .hero-shade{
   position:absolute; inset:0;
-  /* subtle blue-tinted gradient over video */
   background: linear-gradient(180deg, rgba(63,169,245,.35), rgba(10,20,38,.70));
   pointer-events:none;
 }
@@ -78,8 +95,7 @@ main{ margin-top: var(--header-h) }
   line-height:1.08; font-weight:800;
 }
 
-/* ============ FAB (Ask Vaxonyx AI) ============ */
-/* Now floats at the top-right INSIDE the hero */
+/* ============ FAB ============ */
 .vx-fab{
   position:absolute; right:16px; top:16px;
   padding:.8rem 1.2rem; border:0; border-radius:999px;
@@ -115,6 +131,7 @@ main{ margin-top: var(--header-h) }
   :root{ --header-h: 58px; --logo-h: 34px }
   .site-nav{ gap:14px; font-size:.95rem }
   .footer-grid{ grid-template-columns: 1fr }
+  .menu .dropdown{ right:auto; left:0 } /* easier on small screens */
 }
 @media (max-width: 640px){
   .hero-copy{ right: 10%; bottom: 16% }
