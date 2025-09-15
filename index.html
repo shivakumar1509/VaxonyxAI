@@ -1,29 +1,29 @@
-<!-- deploy-bump: 2025-09-14T23:52:00Z -->
+<!-- deploy-bump: 2025-09-14T23:59:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaxonyx AI</title>
 
-  <!-- IMPORTANT for GitHub Pages project sites -->
+  <!-- project site base -->
   <base href="/VaxonyxAI/">
 
   <!-- CSS (cache-busted) -->
-  <link rel="stylesheet" href="css/styles.css?v=build-7">
-  <meta name="color-scheme" content="light only"/>
+  <link rel="stylesheet" href="css/styles.css?v=build-8" />
+  <meta name="color-scheme" content="light only" />
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!-- ========== HEADER ========== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
       <a class="brand" href="./" aria-label="Vaxonyx AI – Home">
-        <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI"/>
+        <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
       </a>
 
       <nav class="site-nav" aria-label="Primary">
-        <!-- About dropdown FIRST -->
+        <!-- About (with dropdown) -->
         <div class="menu">
           <a href="about/" aria-haspopup="true">About</a>
           <ul class="dropdown" aria-label="About submenu">
@@ -33,7 +33,7 @@
           </ul>
         </div>
 
-        <!-- Services dropdown -->
+        <!-- Services -->
         <div class="menu">
           <a href="services/" aria-haspopup="true">Services</a>
           <ul class="dropdown" aria-label="Services submenu">
@@ -43,7 +43,7 @@
           </ul>
         </div>
 
-        <!-- Platforms dropdown -->
+        <!-- Platforms -->
         <div class="menu">
           <a href="platforms/" aria-haspopup="true">Platforms</a>
           <ul class="dropdown" aria-label="Platforms submenu">
@@ -53,7 +53,7 @@
           </ul>
         </div>
 
-        <!-- Innovation dropdown (includes Pipeline + Products) -->
+        <!-- Innovation (includes Pipeline + Products) -->
         <div class="menu">
           <a href="innovation/" aria-haspopup="true">Innovation</a>
           <ul class="dropdown" aria-label="Innovation submenu">
@@ -64,34 +64,35 @@
         </div>
 
         <a href="investors/">News &amp; Investors</a>
-        <a href="careers/">Careers</a>
         <a href="contact/">Contact</a>
       </nav>
+
+      <!-- reserved spacer so the FAB never overlaps the nav -->
+      <div class="fab-reserve" aria-hidden="true"></div>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
+  <!-- ========== HERO ========== -->
   <main>
     <section class="hero">
-      <video class="hero-video" autoplay loop muted playsinline poster="assets/video-poster.jpg">
-        <source src="assets/intro.mp4" type="video/mp4"/>
-      </video>
+      <!-- Sky blue gradient “video” background -->
+      <div class="hero-bg"></div>
       <div class="hero-shade"></div>
 
       <div class="hero-copy">
         <h1>DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
       </div>
 
-      <!-- Floating FAB (fixed via CSS; stays visible) -->
+      <!-- Floating FAB (fixed; always visible) -->
       <button id="vx-fab" class="vx-fab" type="button" aria-label="Ask Vaxonyx AI">Ask Vaxonyx AI</button>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ========== FOOTER ========== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
       <section>
-        <img class="footer-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI"/>
+        <img class="footer-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI" />
         <p class="footer-blurb">
           Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery,
           vaccine design, and translational immunology.
@@ -106,7 +107,6 @@
           <li><a href="pipeline/">Pipeline</a></li>
           <li><a href="products/">Products</a></li>
           <li><a href="investors/">News &amp; Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
           <li><a href="contact/">Contact</a></li>
         </ul>
       </section>
@@ -128,9 +128,9 @@
   </footer>
 
   <!-- Widget JS (cache-busted) -->
-  <script src="assets/osx_widget.js?v=build-7" defer></script>
+  <script src="assets/osx_widget.js?v=build-8" defer></script>
   <script>
-    // Year + FAB fallback
+    // Year + FAB opener
     document.addEventListener('DOMContentLoaded', () => {
       const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
       const fab = document.getElementById('vx-fab');
