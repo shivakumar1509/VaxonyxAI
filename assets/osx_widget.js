@@ -1,4 +1,4 @@
-// /assets/osx_widget.js  — Vaxonyx-only widget, NO floating FAB
+// /assets/osx_widget.js — Vaxonyx-only widget, fixed & FAB-bound
 (function () {
   const PANEL_W = 420, PANEL_H = 520, LOG_MAX = 300, TYPE_MS = 15;
   const CSS = `
@@ -28,64 +28,91 @@
     {id:'contact',q:'How do I contact you?', a:'info@vaxonyxai.com (general) • investorrelations@vaxonyxai.com (IR) • bd@vaxonyxai.com (BD).'}
   ];
 
-  function ready(fn){ document.readyState==='loading' ? document.addEventListener('DOMContentLoaded',fn) : fn(); }
-  ready(() => {
-    // inject CSS
+  const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+  const escAttr = s => esc(s).replace(/'/g,'&#39;');
+  const ready = fn => (document.readyState==='loading') ? document.addEventListener('DOMContentLoaded',fn) : fn();
+
+  function ensureCSS() {
     if (!document.getElementById('vx-widget-css')) {
       const s=document.createElement('style'); s.id='vx-widget-css'; s.textContent=CSS; document.head.appendChild(s);
     }
+  }
 
-    // create panel once
+  function buildPanel() {
+    ensureCSS();
     let panel=document.querySelector('.vx-panel');
-    if (!panel) {
-      panel=document.createElement('div');
-      panel.className='vx-panel';
-      panel.innerHTML=`
-        <div class="vx-head"><strong>Vaxonyx AI</strong><button class="vx-close" aria-label="Close">×</button></div>
-        <div class="vx-hero"><div class="vx-illus" aria-hidden="true"></div>
-          <div><div class="vx-w1">Hi! How can I help you?</div><div class="vx-w2">Ask about our platform, pipelines, or partnerships.</div></div>
+    if (panel) return panel;
+
+    panel=document.createElement('div');
+    panel.className='vx-panel';
+    panel.innerHTML=`
+      <div class="vx-head"><strong>Vaxonyx AI</strong><button class="vx-close" aria-label="Close">×</button></div>
+      <div class="vx-hero"><div class="vx-illus" aria-hidden="true"></div>
+        <div><div class="vx-w1">Hi! How can I help you?</div><div class="vx-w2">Ask about our platform, pipelines, or partnerships.</div></div>
+      </div>
+      <div class="vx-body"><div class="vx-log"></div>
+        <div class="vx-bottom">
+          <div class="vx-pop">Popular questions</div><div class="vx-buttons"></div>
+          <div class="vx-row"><input class="vx-input" placeholder="Type your question…" aria-label="Type your question">
+            <button class="vx-send" type="button">Send</button></div>
         </div>
-        <div class="vx-body"><div class="vx-log"></div>
-          <div class="vx-bottom">
-            <div class="vx-pop">Popular questions</div><div class="vx-buttons"></div>
-            <div class="vx-row"><input class="vx-input" placeholder="Type your question…" aria-label="Type your question">
-              <button class="vx-send" type="button">Send</button></div>
-          </div>
-        </div>`;
-      document.body.appendChild(panel);
+      </div>`;
+    document.body.appendChild(panel);
 
-      const closeBtn=panel.querySelector('.vx-close'), input=panel.querySelector('.vx-input'),
-            send=panel.querySelector('.vx-send'), log=panel.querySelector('.vx-log'),
-            suggs=panel.querySelector('.vx-buttons');
+    const closeBtn=panel.querySelector('.vx-close'), input=panel.querySelector('.vx-input'),
+          send=panel.querySelector('.vx-send'), log=panel.querySelector('.vx-log'),
+          suggs=panel.querySelector('.vx-buttons');
 
-      suggs.innerHTML = QA.slice(0,3).map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
+    suggs.innerHTML = QA.slice(0,3).map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
 
-      closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
-      panel.addEventListener('click', e => { const b=e.target.closest('.vx-sugg'); if(!b) return; input.value=b.getAttribute('data-q'); answer(input.value); });
-      input.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); answer(input.value.trim()); }});
-      send.addEventListener('click', ()=> answer(input.value.trim()));
+    closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
+    panel.addEventListener('click', e => {
+      const b=e.target.closest('.vx-sugg'); if(!b) return;
+      input.value=b.getAttribute('data-q'); answer(input.value);
+    });
+    input.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); answer(input.value.trim()); }});
+    send.addEventListener('click', ()=> answer(input.value.trim()));
 
-      function answer(q){
-        if(!q) return;
-        const wrap=document.createElement('div'); wrap.className='vx-x';
-        wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a"></div>`; log.appendChild(wrap); log.scrollTop=log.scrollHeight;
-        const found = QA.find(x => (x.q||'').toLowerCase()===q.toLowerCase()) || null;
-        type(wrap.querySelector('.vx-a'), found ? String(found.a) : 'Thanks! A specialist will follow up soon.');
-      }
+    function answer(q){
+      if(!q) return;
+      const wrap=document.createElement('div'); wrap.className='vx-x';
+      wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a"></div>`; log.appendChild(wrap); log.scrollTop=log.scrollHeight;
+      const found = QA.find(x => (x.q||'').toLowerCase()===q.toLowerCase()) || null;
+      type(wrap.querySelector('.vx-a'), found ? String(found.a) : 'Thanks! A specialist will follow up soon.');
     }
-  });
 
-  function type(el, text){ el.textContent=''; let i=0; const t=setInterval(()=>{ el.textContent+=text.charAt(i++); if(i>=text.length) clearInterval(t); const sc=el.closest('.vx-log'); if(sc) sc.scrollTop=sc.scrollHeight; }, TYPE_MS); }
-  const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-  const escAttr = s => esc(s).replace(/'/g,'&#39;');
+    return panel;
+  }
 
-  // Public API used by the **orange** page button
+  function type(el, text){
+    el.textContent=''; let i=0;
+    const t=setInterval(()=>{ el.textContent+=text.charAt(i++); if(i>=text.length) clearInterval(t);
+      const sc=el.closest('.vx-log'); if(sc) sc.scrollTop=sc.scrollHeight;
+    }, TYPE_MS);
+  }
+
+  // Public API that *creates* if missing
   window.VX_WIDGET = {
-    open(){ const p=document.querySelector('.vx-panel'); if(p) p.classList.add('open'); },
+    open(){ const p = buildPanel(); p.classList.add('open'); },
     close(){ const p=document.querySelector('.vx-panel'); if(p) p.classList.remove('open'); }
   };
 
-  // Hard-remove any leftover OncoSyNex FAB/panel if present
+  // Bind to the page FAB (works even if FAB appears later)
+  ready(() => {
+    const hook = () => {
+      const fab = document.getElementById('vx-fab');
+      if (fab && !fab.dataset.vxBound) {
+        fab.dataset.vxBound = '1';
+        fab.addEventListener('click', () => window.VX_WIDGET.open());
+      }
+    };
+    hook();
+    // In case the FAB is injected after load
+    const obs = new MutationObserver(hook);
+    obs.observe(document.documentElement, {childList:true, subtree:true});
+  });
+
+  // Clean up any legacy OncoSyNex widget remnants
   ready(() => {
     const old = document.getElementById('osx-widget'); if (old) old.remove();
     [...document.querySelectorAll('button')].forEach(b=>{

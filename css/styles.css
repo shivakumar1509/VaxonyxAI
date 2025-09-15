@@ -113,15 +113,16 @@ main{ margin-top: var(--header-h) }
   line-height:1.08; font-weight:800;
 }
 
-/* ============ FAB (top-right of hero) ============ */
+/* ============ FAB (top-right, always visible) ============ */
 .vx-fab{
-  position:absolute; right:16px; top:16px;
+  position: fixed;                 /* was absolute */
+  right:16px; top:16px;            /* stays top-right of viewport */
   padding:.8rem 1.2rem; border:0; border-radius:999px;
   background: linear-gradient(180deg, #ff956f, var(--vx-orange));
   color:#fff; font-weight:900; letter-spacing:.2px;
   box-shadow: 0 10px 24px rgba(242,107,59,.45), 0 2px 0 rgba(0,0,0,.08) inset;
   cursor:pointer; transition: transform .12s ease, filter .12s ease;
-  z-index: 3;
+  z-index: 10000;                  /* above everything */
 }
 .vx-fab:hover{ transform:translateY(-1px); filter:brightness(1.04) }
 .vx-fab:active{ transform:translateY(0); filter:brightness(.98) }
