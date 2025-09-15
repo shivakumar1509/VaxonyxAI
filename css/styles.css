@@ -46,9 +46,17 @@ a{color:var(--vx-blue)}
 .site-nav > a,
 .site-nav .menu > a{
   text-decoration:none; font-weight:800; letter-spacing:.1px; position:relative;
+  padding-right:14px; /* room for caret if dropdown */
 }
 .site-nav > a:hover,
 .site-nav .menu > a:hover{ color:var(--vx-orange) }
+
+/* ▼ Carets only for dropdown menus */
+.menu > a::after{
+  content:"▾";
+  position:absolute; right:0; top:50%; transform:translateY(-52%);
+  font-size:.8em; opacity:.85; pointer-events:none;
+}
 
 /* Dropdowns */
 .menu{ position:relative }

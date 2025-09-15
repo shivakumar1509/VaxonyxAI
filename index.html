@@ -1,4 +1,4 @@
-<!-- deploy-bump: 2025-09-14T22:40:00Z -->
+<!-- deploy-bump: 2025-09-14T23:07:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
   <base href="/VaxonyxAI/">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=build-3"/>
+  <link rel="stylesheet" href="css/styles.css?v=build-5"/>
   <meta name="color-scheme" content="light only"/>
 </head>
 <body>
@@ -23,19 +23,19 @@
       </a>
 
       <nav class="site-nav" aria-label="Primary">
-        <!-- Assets dropdown -->
+        <!-- About dropdown FIRST -->
         <div class="menu">
-          <a href="assets/">Assets</a>
-          <ul class="dropdown" aria-label="Assets submenu">
-            <li><a href="assets/mission/">Mission</a></li>
-            <li><a href="assets/vision/">Vision</a></li>
-            <li><a href="assets/team/">Team</a></li>
+          <a href="about/" aria-haspopup="true">About</a>
+          <ul class="dropdown" aria-label="About submenu">
+            <li><a href="about/mission/">Mission</a></li>
+            <li><a href="about/vision/">Vision</a></li>
+            <li><a href="about/team/">Team</a></li>
           </ul>
         </div>
 
         <!-- Services dropdown -->
         <div class="menu">
-          <a href="services/">Services</a>
+          <a href="services/" aria-haspopup="true">Services</a>
           <ul class="dropdown" aria-label="Services submenu">
             <li><a href="services/cell-line/">Cell line services</a></li>
             <li><a href="services/protein-production/">Protein Production</a></li>
@@ -45,7 +45,7 @@
 
         <!-- Platforms dropdown -->
         <div class="menu">
-          <a href="platforms/">Platforms</a>
+          <a href="platforms/" aria-haspopup="true">Platforms</a>
           <ul class="dropdown" aria-label="Platforms submenu">
             <li><a href="platforms/ai/">AI platforms</a></li>
             <li><a href="platforms/dna/">DNA platforms</a></li>
@@ -55,7 +55,7 @@
 
         <!-- Innovation dropdown (includes Pipeline + Products) -->
         <div class="menu">
-          <a href="innovation/">Innovation</a>
+          <a href="innovation/" aria-haspopup="true">Innovation</a>
           <ul class="dropdown" aria-label="Innovation submenu">
             <li><a href="innovation/">Overview</a></li>
             <li><a href="pipeline/">Pipeline</a></li>
@@ -63,11 +63,10 @@
           </ul>
         </div>
 
-        <!-- Keep single links -->
-        <a href="investors/">Investors</a>
+        <!-- Renamed Investors -->
+        <a href="investors/">News &amp; Investors</a>
         <a href="careers/">Careers</a>
         <a href="contact/">Contact</a>
-        <a href="about/">About</a>
       </nav>
     </div>
   </header>
@@ -108,7 +107,7 @@
           <li><a href="innovation/">Innovation</a></li>
           <li><a href="pipeline/">Pipeline</a></li>
           <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
+          <li><a href="investors/">News &amp; Investors</a></li>
           <li><a href="careers/">Careers</a></li>
           <li><a href="contact/">Contact</a></li>
         </ul>
@@ -131,7 +130,7 @@
   </footer>
 
   <!-- Widget script (optional) -->
-  <script src="assets/osx_widget.js?v=build-3" defer></script>
+  <script src="assets/osx_widget.js?v=build-5" defer></script>
   <script>
     // Year + FAB wiring
     document.addEventListener('DOMContentLoaded', () => {
