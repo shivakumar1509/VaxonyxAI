@@ -1,4 +1,4 @@
-<!-- deploy-bump: 2025-09-14T23:25:00Z -->
+<!-- deploy-bump: 2025-09-14T23:40:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
   <base href="/VaxonyxAI/">
 
   <!-- CSS (cache-busted) -->
-  <link rel="stylesheet" href="css/styles.css?v=build-6"/>
+  <link rel="stylesheet" href="css/styles.css?v=build-6">
   <meta name="color-scheme" content="light only"/>
 </head>
 <body>
@@ -82,7 +82,7 @@
         <h1>DesigningAI tools to unlock next-generation vaccine design and delivery.</h1>
       </div>
 
-      <!-- Floating FAB (top-right of hero) -->
+      <!-- Floating FAB (fixed via CSS; stays visible) -->
       <button id="vx-fab" class="vx-fab" type="button" aria-label="Ask Vaxonyx AI">Ask Vaxonyx AI</button>
     </section>
   </main>
@@ -127,10 +127,10 @@
     </div>
   </footer>
 
-  <!-- Widget script -->
+  <!-- Widget JS (cache-busted) -->
   <script src="assets/osx_widget.js?v=build-6" defer></script>
   <script>
-    // Year + FAB wiring
+    // Year + FAB fallback (kept from earlier)
     document.addEventListener('DOMContentLoaded', () => {
       const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
       const fab = document.getElementById('vx-fab');
