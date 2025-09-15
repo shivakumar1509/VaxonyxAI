@@ -4,25 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Vaxonyx AI</title>
-  <link rel="stylesheet" href="css/styles.css?v=build-14" />
+  <link rel="stylesheet" href="css/styles.css?v=build-15" />
 </head>
 <body>
 
-  <!-- ====== Header ====== -->
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Brand -->
+
+      <!-- Brand (tries multiple logo filenames; shows text fallback if none found) -->
       <a class="brand-logo" href="./" aria-label="Vaxonyx AI home">
-        <!-- Try SVG first; if it fails, show text fallback -->
-        <img
-          src="assets/vaxonyx-logo.svg"
-          alt="VAXONYX AI"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
-        />
+        <picture>
+          <!-- prefer SVG, then PNG; include common alternate names just in case -->
+          <source srcset="assets/vaxonyx-logo.svg?v=build-15" type="image/svg+xml" />
+          <source srcset="assets/logo.svg?v=build-15" type="image/svg+xml" />
+          <img
+            src="assets/vaxonyx-logo.png?v=build-15"
+            alt="VAXONYX AI"
+            height="40"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+          />
+        </picture>
         <span class="brand-fallback">VAXONYX AI</span>
       </a>
 
-      <!-- Nav -->
+      <!-- Primary nav -->
       <nav class="site-nav" aria-label="Primary">
         <ul class="menu">
           <li class="menu-item has-dd">
@@ -65,12 +71,12 @@
         </ul>
       </nav>
 
-      <!-- Ask button (fixed; offset to sit nicely) -->
+      <!-- Ask button (fixed; offset to sit nicely on the right) -->
       <button class="vx-fab" type="button" onclick="window.VX_WIDGET?.open()">Ask Vaxonyx AI</button>
     </div>
   </header>
 
-  <!-- ====== Hero (room for video later) ====== -->
+  <!-- ===== Hero (big video space area) ===== -->
   <section class="hero">
     <div class="container">
       <h1 class="hero-title">
@@ -79,12 +85,11 @@
     </div>
   </section>
 
-  <!-- ====== Footer ====== -->
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
-
       <div class="footer_col">
-        <img src="assets/vaxonyx-logo.svg" alt="VAXONYX AI" height="28"
+        <img src="assets/vaxonyx-logo.svg?v=build-15" alt="VAXONYX AI" height="28"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
         <span class="brand-fallback brand-fallback--footer">VAXONYX AI</span>
         <p>
@@ -115,7 +120,6 @@
         <h4>Business Development</h4>
         <a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a>
       </div>
-
     </div>
 
     <div class="container footer_bottom">
@@ -123,7 +127,7 @@
     </div>
   </footer>
 
-  <!-- Your widget (keep) -->
-  <script src="assets/osx_widget.js?v=build-14" defer></script>
+  <!-- Widget script (unchanged) -->
+  <script src="assets/osx_widget.js?v=build-15" defer></script>
 </body>
 </html>

@@ -7,11 +7,10 @@
   --edge:16px;
 }
 
+/* Base */
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--vx-ink)}
-
-/* Container */
 .container{width:min(var(--max),calc(100% - 2*var(--edge)));margin:0 auto}
 
 /* ===== Header ===== */
@@ -23,8 +22,11 @@ body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue
 .brand-logo img{display:block;height:40px}
 .brand-fallback{display:none;font-weight:800;color:var(--vx-blue);letter-spacing:.6px}
 
-/* Nav (right-aligned) */
-.site-nav{display:flex;justify-content:flex-end;flex:1 1 auto; /* leave room so it never hits the Ask button */ padding-right:136px}
+/* Nav (right-aligned; moved a bit LEFT from the Ask button) */
+.site-nav{
+  display:flex;justify-content:flex-end;flex:1 1 auto;
+  padding-right: 190px; /* << more left space so Contact never kisses the Ask button */
+}
 .menu{display:flex;gap:28px;align-items:center;margin:0;padding:0;list-style:none}
 .menu-item{position:relative}
 .menu-item>a{
@@ -47,21 +49,20 @@ body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue
 }
 .dropdown a:hover{background:#f4f7fc}
 
-/* ===== Ask Vaxonyx AI (fixed, slightly inset so it lines with container) ===== */
+/* ===== Ask Vaxonyx AI (fixed on the right, slightly inset) ===== */
 .vx-fab{
   position:fixed; top:14px;
-  right: calc( max(16px, (100vw - var(--max))/2 ) + 6px ); /* “a little left”, aligned to container */
+  right: calc( max(16px, (100vw - var(--max))/2 ) + 6px ); /* “a little left”, aligned to container edge */
   border:0; border-radius:999px; padding:10px 16px;
   background:var(--vx-orange); color:#fff; font-weight:800; cursor:pointer;
   box-shadow:0 10px 22px rgba(242,107,59,.36); z-index:1100;
 }
 .vx-fab:hover{filter:brightness(1.03)}
 
-/* ===== Hero (much taller now) ===== */
+/* ===== Hero (large video space area) ===== */
 .hero{
-  /* replace this with a <video> background later */
   background:linear-gradient(180deg,#3FA9F5 0%, #0a79cf 60%, #000 100%);
-  color:#fff; padding:140px 0 260px; /* more room for the “video zone” */
+  color:#fff; padding:140px 0 260px;
 }
 .hero-title{
   margin:0; max-width:970px;
@@ -85,14 +86,14 @@ body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue
 
 /* Small screens */
 @media (max-width: 940px){
-  .site-nav{padding-right:110px}
-  .menu{gap:20px}
+  .site-nav{padding-right:150px}
+  .menu{gap:22px}
   .hero{padding:110px 0 220px}
 }
 @media (max-width: 720px){
   .header-inner{height:68px}
   .brand-logo img{height:34px}
-  .site-nav{display:none} /* (optional) collapse nav on small screens */
+  .site-nav{display:none} /* optional collapse for very small screens */
   .hero{padding:90px 0 200px}
   .hero-title{font-size:clamp(24px,7vw,40px)}
   .footer-grid{grid-template-columns:1fr; gap:26px}
