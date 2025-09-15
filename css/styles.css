@@ -1,97 +1,137 @@
 :root{
-  --vx-blue:#1B427A;     /* brand blue (nav + overlay) */
-  --vx-orange:#F26B3B;
+  --vx-blue:#1B427A;
+  --vx-ink:#14273f;
+  --vx-muted:#6b7a90;
   --vx-line:rgba(20,39,63,.15);
+  --vx-orange:#F26B3B;
+  --edge:20px;
+  --max:1200px;
+  --radius:16px;
+  --header-h: 120px; /* header height we’ll use for hero offset */
 }
 
-/* Layout + header */
-.container{width:min(1200px,92vw);margin-inline:auto}
-.site-header{position:fixed;top:0;left:0;right:0;height:360px; /* taller to fit big logo */
-  background:#fff;border-bottom:1px solid var(--vx-line);z-index:1000}
-.header-inner{display:flex;align-items:flex-end;justify-content:space-between;height:100%;gap:1rem;padding-top:16px}
-.brand{display:inline-flex;align-items:flex-end;text-decoration:none}
-.brand-logo{
-  height:320px; /* ~10x bigger than before */
-  display:block;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--vx-blue);
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
-/* Nav */
-.nav-toggle{display:none;background:transparent;border:0;font-size:1.5rem;cursor:pointer}
-.nav{display:block}
-.nav-list{list-style:none;display:flex;align-items:center;gap:1.25rem;margin:0 0 14px 0;padding:0}
-.nav-list a{text-decoration:none;color:var(--vx-blue);font-weight:800}
+/* Layout helpers */
+.container{ width: min(var(--max), 100% - 2*var(--edge)); margin-inline:auto; }
 
-/* Full-bleed hero video (starts right under the big header) */
-.hero-full{margin-top:360px}
-.hero-media{position:relative;width:100%}
+/* ===== Header ===== */
+.site-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--vx-line);
+  z-index: 1000;
+}
+.header-inner{
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: var(--header-h);
+  gap: 1rem;
+  padding: 0 .25rem;
+}
+.brand{ display:inline-flex; align-items:center; text-decoration:none }
+.brand-logo{ height: 120px; width:auto; display:block }  /* BIG logo — adjust if you want even bigger */
+
+.nav-toggle{ display:none; background:transparent; border:0; font-size:1.5rem; cursor:pointer }
+.nav-list{
+  list-style:none; margin:0; padding:0;
+  display:flex; gap:2rem; align-items:center;
+}
+.nav-list a{ text-decoration:none; color:var(--vx-blue); font-weight:800 }
+.nav-list a:hover{ color:var(--vx-orange) }
+
+/* ===== Hero (IMUNON-style) ===== */
+.hero{ margin-top: var(--header-h); }
+.hero-media{ position:relative; width:100%; height: clamp(60vh, 78vh, 90vh); overflow:hidden; }
 .hero-video{
-  display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border:0;border-radius:0;box-shadow:none;
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit: cover; object-position:center;
+  display:block; background:#000;
 }
-/* Hide controls if any UA tries to display them */
-.hero-video::-webkit-media-controls { display:none !important; }
-
-/* On-brand blue wash over the video */
+/* subtle dark/blue overlay to match brand */
 .hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom, rgba(27,66,122,0.35), rgba(27,66,122,0.12));
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(10,20,38,.35), rgba(10,20,38,.65));
   pointer-events:none;
 }
 
-/* Ask button */
+/* Headline like IMUNON (left-aligned) */
+.hero-copy{
+  position:absolute; left:min(var(--edge), 6vw); right:15%;
+  bottom: 18%;
+  color:#fff; text-shadow: 0 2px 14px rgba(0,0,0,.35);
+}
+.hero-copy h1{
+  margin:0 0 .85rem 0;
+  font-weight:800;
+  line-height:1.05;
+  font-size: clamp(2rem, 4vw + 1rem, 4rem);
+}
+.hero-cta{
+  display:inline-block; padding:.7rem 1.05rem; border-radius:999px;
+  background: rgba(255,255,255,.2);
+  color:#fff; text-decoration:none; font-weight:800; backdrop-filter: blur(2px);
+  border:1px solid rgba(255,255,255,.5);
+}
+.hero-cta:hover{ background: rgba(255,255,255,.3) }
+
+/* Single glossy orange Ask button */
 .ask-floater{
-  position:absolute;right:16px;bottom:16px;padding:.7rem 1rem;border:0;border-radius:999px;
-  background:var(--vx-orange);color:#fff;font-weight:800;box-shadow:0 6px 24px rgba(242,107,59,.35);
-}
-
-/* Footer grid: left logo+blurb / center quick access / right contacts */
-.site-footer{margin-top:0;padding:24px 0;color:#333;border-top:1px solid var(--vx-line)}
-.footer-grid-3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem;align-items:start}
-.footer-brand{display:grid;gap:.75rem}
-.footer-logo{width:220px;height:auto;display:block}
-.footer-blurb{margin:0;color:#14273f}
-.footer-links,.contact-list{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
-.hq{margin-top:.75rem;color:#6b7a90}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--vx-line)}
-.socials{display:flex;gap:.75rem}
-.social-icon{display:inline-flex;padding:.5rem;border:1px solid var(--vx-line);border-radius:10px;text-decoration:none;color:var(--vx-blue);font-weight:800}
-.copyright{color:#6b7a90;margin:0}
-
-/* Responsive */
-@media (max-width:960px){
-  .brand-logo{height:200px}
-  .site-header{height:240px}
-  .hero-full{margin-top:240px}
-  .footer-grid-3{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;align-items:flex-start}
-}
-@media (max-width:720px){
-  .nav-toggle{display:inline-block}
-  .nav{display:none;position:absolute;top:100%;right:0;left:0;background:#fff;border-bottom:1px solid var(--vx-line)}
-  .nav.open{display:block}
-  .nav-list{flex-direction:column;align-items:flex-start;padding:.75rem 1rem 1rem;gap:.85rem;margin:0}
-  .ask-floater{right:12px;bottom:12px}
-}
-/* Header tightened to the logo height */
-.site-header{position:fixed;top:0;left:0;right:0;height:auto;background:#fff;border-bottom:1px solid var(--vx-line);z-index:1000}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:12px 0}
-.brand-logo{height:96px;display:block}   /* keep your big logo but remove huge white gap */
-
-/* Pull the hero right under the header */
-.hero-full{margin-top:calc(12px + 96px + 12px)} /* top padding + logo + bottom padding */
-
-/* Make nav links bold & blue */
-.nav-list a{color:var(--vx-blue);font-weight:800}
-
-/* Glossy orange Ask button */
-.ask-floater{
-  position:absolute;right:16px;bottom:16px;padding:.75rem 1.15rem;border:0;border-radius:999px;
-  background: linear-gradient(180deg, #FF8A5C, #F26B3B);
-  color:#fff;font-weight:900;letter-spacing:.2px;
+  position:absolute; right:16px; bottom:16px;
+  padding:.8rem 1.2rem; border:0; border-radius:999px;
+  background: linear-gradient(180deg, #FF8A5C, var(--vx-orange));
+  color:#fff; font-weight:900; letter-spacing:.2px;
   box-shadow: 0 10px 24px rgba(242,107,59,.45), 0 2px 0 rgba(0,0,0,.08) inset;
-  transition: transform .12s ease, filter .12s ease;
+  cursor:pointer; transition: transform .12s ease, filter .12s ease;
 }
-.ask-floater:hover{ transform: translateY(-1px); filter: brightness(1.03); }
-.ask-floater:active{ transform: translateY(0); filter: brightness(.98); }
+.ask-floater:hover{ transform:translateY(-1px); filter:brightness(1.04) }
+.ask-floater:active{ transform:translateY(0); filter:brightness(.98) }
 
-/* Hide any legacy blue FAB if some CSS lingered somewhere */
-#vx-widget .vx-fab{ display:none !important; }
+/* ===== Footer ===== */
+.site-footer{ border-top:1px solid var(--vx-line); margin-top:0; padding: 28px 0 }
+.footer-grid{
+  display:grid; grid-template-columns: 1.1fr 1fr 1fr; gap:2rem;
+}
+.footer-col h3{ margin:.25rem 0 .65rem 0; color:var(--vx-ink) }
+.footer-logo{ width:220px; height:auto; display:block; margin-bottom:.5rem }
+.footer-blurb{ margin:0; color:var(--vx-ink) }
+
+.footer-links, .contact-list{
+  list-style:none; margin:0; padding:0; display:grid; gap:.35rem;
+}
+.hq{ margin-top:.75rem; color:var(--vx-muted); font-style:normal }
+
+.footer-bottom{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; margin-top:1rem; padding-top:1rem; border-top:1px solid var(--vx-line);
+}
+.socials{ display:flex; gap:.75rem }
+.social-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border:1px solid var(--vx-line); border-radius:10px;
+  text-decoration:none; color:var(--vx-blue); font-weight:800;
+}
+.copyright{ margin:0; color:var(--vx-muted) }
+
+/* ===== Responsive ===== */
+@media (max-width: 960px){
+  :root{ --header-h: 96px }
+  .brand-logo{ height: 80px }
+  .nav-toggle{ display:block }
+  .nav-list{
+    position:absolute; top:100%; right:0; left:0; display:none;
+    background:#fff; border-bottom:1px solid var(--vx-line);
+    padding: .75rem var(--edge) 1rem; gap:.85rem; flex-direction:column; align-items:flex-start;
+  }
+  .nav-list.open{ display:flex }
+  .footer-grid{ grid-template-columns:1fr }
+}
