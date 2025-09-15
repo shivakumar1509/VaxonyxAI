@@ -86,3 +86,75 @@ body{
   .footer-grid{grid-template-columns:1fr}
   .ask-floater{bottom:12px; right:12px}
 }
+/* --- Full-bleed hero video (no box, under fixed header) --- */
+.hero-full {
+  margin-top: 96px;           /* same as header height */
+  position: relative;
+}
+.hero-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background: #000;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.ask-floater {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: .65rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--vx-orange);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 6px 24px rgba(242,107,59,.35);
+}
+
+/* --- Footer: left logo+blurb, center quick links, right contacts --- */
+.footer-grid-3 {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.footer-brand {
+  display: grid;
+  gap: .75rem;
+}
+.footer-logo {
+  width: 160px;
+  height: auto;
+  display: block;
+}
+.footer-blurb {
+  margin: 0;
+  color: var(--vx-ink, #14273f);
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--vx-line);
+}
+
+/* Improve link look in footer */
+.footer-links, .contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .35rem;
+}
+
+/* Responsive footer */
+@media (max-width: 960px) {
+  .footer-grid-3 { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
