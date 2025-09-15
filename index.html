@@ -1,4 +1,4 @@
-<!-- deploy-bump: 2025-09-15T09:48:00Z -->
+<!-- deploy-bump: 2025-09-15T09:55:00Z -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,22 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaxonyx AI</title>
   <link rel="icon" href="assets/vx-favicon.svg" />
-  <link rel="stylesheet" href="css/styles.css?v=build-11" />
+  <!-- IMPORTANT: keep this version in sync with styles.css below -->
+  <link rel="stylesheet" href="css/styles.css?v=build-12" />
 </head>
 <body>
 
   <!-- ===== Header ===== -->
   <header class="site-header" role="banner">
-    <div class="container">
-      <a class="brand-logo" href="/">
+    <div class="container header-inner">
+      <a class="brand-logo" href="./" aria-label="Vaxonyx AI — Home">
+        <!-- If your file name differs, update the src below -->
         <img src="assets/vaxonyx-logo.svg" alt="VAXONYX AI" height="36" />
       </a>
 
       <nav class="site-nav" aria-label="Primary">
-        <ul class="menu">
-          <!-- About -->
-          <li class="menu-item has-dd">
-            <a href="/about/">About</a>
+        <ul class="menu" role="menubar">
+          <li class="menu-item has-dd" role="none">
+            <a role="menuitem" href="/about/">About</a>
             <ul class="dropdown">
               <li><a href="/about/#mission">Mission</a></li>
               <li><a href="/about/#vision">Vision</a></li>
@@ -29,9 +30,8 @@
             </ul>
           </li>
 
-          <!-- Services -->
-          <li class="menu-item has-dd">
-            <a href="/services/">Services</a>
+          <li class="menu-item has-dd" role="none">
+            <a role="menuitem" href="/services/">Services</a>
             <ul class="dropdown">
               <li><a href="/services/#cell-lines">Cell line services</a></li>
               <li><a href="/services/#protein">Protein Production</a></li>
@@ -39,9 +39,8 @@
             </ul>
           </li>
 
-          <!-- Platforms -->
-          <li class="menu-item has-dd">
-            <a href="/platforms/">Platforms</a>
+          <li class="menu-item has-dd" role="none">
+            <a role="menuitem" href="/platforms/">Platforms</a>
             <ul class="dropdown">
               <li><a href="/platforms/#ai">AI platforms</a></li>
               <li><a href="/platforms/#dna">DNA platforms</a></li>
@@ -49,35 +48,33 @@
             </ul>
           </li>
 
-          <!-- Innovation -->
-          <li class="menu-item has-dd">
-            <a href="/innovation/">Innovation</a>
+          <li class="menu-item has-dd" role="none">
+            <a role="menuitem" href="/innovation/">Innovation</a>
             <ul class="dropdown">
               <li><a href="/pipeline/">Pipeline</a></li>
               <li><a href="/products/">Products</a></li>
             </ul>
           </li>
 
-          <!-- News & Investors -->
-          <li class="menu-item">
-            <a href="/investors/">News &amp; Investors</a>
+          <li class="menu-item" role="none">
+            <a role="menuitem" href="/investors/">News &amp; Investors</a>
           </li>
 
-          <!-- Contact -->
-          <li class="menu-item">
-            <a href="/contact/">Contact</a>
+          <li class="menu-item" role="none">
+            <a role="menuitem" href="/contact/">Contact</a>
           </li>
         </ul>
       </nav>
 
-      <!-- Fixed Ask button (stays put on scroll) -->
-      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && window.VX_WIDGET.open()">
+      <!-- Fixed Ask button -->
+      <button class="vx-fab" type="button"
+              onclick="window.VX_WIDGET && window.VX_WIDGET.open()">
         Ask Vaxonyx AI
       </button>
     </div>
   </header>
 
-  <!-- ===== Hero (video area color matched) ===== -->
+  <!-- ===== Hero ===== -->
   <section class="hero" role="region" aria-label="Intro">
     <div class="container">
       <h1 class="hero-title">
@@ -89,7 +86,7 @@
   <!-- ===== Footer ===== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
-      <!-- Left: logo + blurb -->
+
       <div class="footer_col footer_brand">
         <img src="assets/vaxonyx-logo.svg" alt="VAXONYX AI" height="28" />
         <p class="hq">
@@ -98,7 +95,6 @@
         </p>
       </div>
 
-      <!-- Middle: quick links -->
       <div class="footer_col">
         <h4>Quick Access</h4>
         <ul class="links">
@@ -111,7 +107,6 @@
         </ul>
       </div>
 
-      <!-- Right: contact columns like the example -->
       <div class="footer_col footer_contacts">
         <div class="contact_block">
           <h4>General Information</h4>
@@ -126,6 +121,7 @@
           <a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a>
         </div>
       </div>
+
     </div>
 
     <div class="container footer_bottom">
@@ -133,7 +129,7 @@
     </div>
   </footer>
 
-  <!-- Widget JS (kept as-is) -->
-  <script src="assets/osx_widget.js?v=build-11" defer></script>
+  <!-- Widget JS (unchanged) -->
+  <script src="assets/osx_widget.js?v=build-12" defer></script>
 </body>
 </html>
