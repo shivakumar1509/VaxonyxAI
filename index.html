@@ -4,16 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaxonyx AI</title>
-
-  <!-- Preload the SVG with the space in its filename -->
   <link rel="preload" href="assets/Vaxonyx%20AI.svg" as="image" type="image/svg+xml">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=build-19">
+  <link rel="stylesheet" href="css/styles.css?v=build-20">
 </head>
 <body>
   <!-- ===== Header ===== -->
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="/">
         <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI">
@@ -68,20 +64,17 @@
         </ul>
       </nav>
 
-      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
-        Ask Vaxonyx AI
-      </button>
+      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
     </div>
   </header>
 
-  <!-- ===== Hero (video/gradient area) ===== -->
+  <!-- ===== Hero (video background) ===== -->
   <section class="hero">
     <div class="hero-inner container">
       <h1 class="hero-title">
         DesigningAI tools to unlock next-generation vaccine design and delivery.
       </h1>
     </div>
-    <!-- If/when you add an actual <video>, absolutely-position it inside .hero -->
   </section>
 
   <!-- ===== Footer ===== -->
@@ -89,7 +82,8 @@
     <div class="container footer-grid">
       <div class="foot-brand">
         <img class="brand-logo" src="assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI">
-        <p>Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+        <p>Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery,
+           vaccine design, and translational immunology.</p>
       </div>
 
       <div class="foot-links">
@@ -117,10 +111,11 @@
       </div>
     </div>
 
-    <div class="footer-bottom">© 2025 Vaxonyx AI. All rights reserved.</div>
+    <div class="footer-bottom">
+      © 2025 Vaxonyx AI. All rights reserved.
+    </div>
   </footer>
 
-  <!-- AI widget JS -->
-  <script src="assets/osx_widget.js?v=build-19" defer></script>
+  <script src="assets/osx_widget.js?v=build-20" defer></script>
 </body>
 </html>
