@@ -30,23 +30,29 @@
     .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1 system-ui;background:var(--bg);color:var(--fg)}
     .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
 
-    /* Feature Cards */
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
-    @media (max-width: 960px){.cards{grid-template-columns:repeat(2,1fr)}}
+    /* Headings + theme resets */
+    .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink);text-align:center}
+    .page-services .svc-h2{border:0 !important;box-shadow:none !important}
+    .page-services .svc-h2::after{content:none !important} /* in case theme adds an underline */
+
+    /* Centered 3-up cards */
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1040px;margin:28px auto}
+    @media (max-width: 960px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media (max-width: 560px){.cards{grid-template-columns:1fr}}
     .card{background:#fff;border:1px solid var(--vx-line);border-radius:16px;padding:18px 16px;transition:transform .2s ease, box-shadow .2s ease}
     .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
     .card h3{font:700 16px/1.3 system-ui;margin:.2rem 0 .35rem;color:#0f1a2a}
     .card p{font:400 14px/1.6 system-ui;color:#2a3040;margin:0}
 
-    /* Section headings */
-    .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink);text-align:center}
+    /* Process overview (centered, boxed) */
+    .process{max-width:1040px;margin:0 auto}
+    .process .process-box{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px;margin:0 auto 18px;max-width:1040px}
 
     /* Platform grid — centered */
-    .plat-wrap{max-width:1040px;margin-inline:auto}              /* centers the whole grid block */
+    .plat-wrap{max-width:1040px;margin-inline:auto}
     .plat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    @media (max-width: 900px){.plat-grid{grid-template-columns:1fr;max-width:680px}}
-    .plat{background:#fff;border:1px dashed var(--vx-line);border-radius:14px;padding:16px;display:grid;grid-template-columns:auto 1fr;gap:12px}
+    @media (max-width: 900px){.plat-grid{grid-template-columns:1fr;max-width:700px;margin-inline:auto}}
+    .plat{background:#fff;border:1px dashed var(--vx-line);border-radius:14px;padding:16px;display:grid;grid-template-columns:auto 1fr;gap:12px;height:100%}
     .plat .ico{font-size:24px}
     .plat h3{font:600 16px/1.3 system-ui;margin:0}
     .plat p{margin:6px 0 0;color:#2a3040;font:400 14px/1.55 system-ui}
@@ -59,11 +65,7 @@
     .kpi .num{font:800 28px/1.1 system-ui;color:#0a1626}
     .kpi .lab{font:500 12px/1.3 system-ui;color:#55607a}
 
-    /* Process overview */
-    .overview{margin:8px 0 0}
-    .overview p{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px}
-
-    /* Timeline */
+    /* Timeline (centered list) */
     .flow{margin-top:12px}
     .steps{list-style:none;margin:0;padding:0;border-left:2px solid var(--vx-line);position:relative;max-width:820px;margin-inline:auto}
     .steps li{padding:14px 14px 14px 24px;position:relative}
@@ -167,9 +169,9 @@
     </section>
 
     <!-- Process overview -->
-    <section class="container overview" aria-labelledby="overview">
+    <section class="container process" aria-labelledby="overview">
       <h2 id="overview" class="svc-h2">Process of Protein Production</h2>
-      <p>Protein production—including expression and purification—is a recombinant DNA–enabled workflow that generates large quantities of a specific protein for research, diagnostics, therapeutics, and industrial use.</p>
+      <p class="process-box">Protein production—including expression and purification—is a recombinant DNA–enabled workflow that generates large quantities of a specific protein for research, diagnostics, therapeutics, and industrial use.</p>
     </section>
 
     <!-- Platforms (centered grid) -->
@@ -231,16 +233,6 @@
         <div class="kpi"><span class="num" data-target="90">0</span><span class="lab">% purity or higher</span></div>
         <div class="kpi"><span class="num" data-target="6">0</span><span class="lab">weeks typical delivery</span></div>
         <div class="kpi"><span class="num" data-target="40">0</span><span class="lab">L bioreactor scale</span></div>
-      </div>
-    </section>
-
-    <!-- Purification -->
-    <section class="container" aria-labelledby="purif">
-      <h2 id="purif" class="svc-h2">Protein Purification</h2>
-      <div class="cards">
-        <article class="card"><h3>Sample Preparation</h3><p>Buffer screening, lysis mode selection, protease control.</p></article>
-        <article class="card"><h3>Chromatography</h3><p>Affinity (His, GST, Protein A/G), IEC, HIC, SEC; multi-step polishing.</p></article>
-        <article class="card"><h3>Analytics & QC</h3><p>SDS-PAGE, Western, SEC-MALS, mass spec, endotoxin, activity assays.</p></article>
       </div>
     </section>
 
