@@ -6,7 +6,7 @@
   <title>Vaxonyx AI</title>
 
   <link rel="preload" href="assets/Vaxonyx%20AI.svg" as="image" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=build-23">
+  <link rel="stylesheet" href="css/styles.css?v=build-24">
 </head>
 <body>
   <!-- ===== Header ===== -->
@@ -31,16 +31,18 @@
             <a href="services/">Services <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
               <li><a href="services/cell-lines/">Cell line services</a></li>
+
+              <!-- Protein Production is a normal link -->
               <li><a href="services/protein-production/">Protein Production</a></li>
 
-              <!-- Antibody Production with fly-out submenu -->
+              <!-- Antibody Production (owner of fly-out) -->
               <li class="has-sub">
                 <a href="services/protein-production/antibody-production/" aria-haspopup="true" aria-expanded="false">
                   Antibody Production <span class="caret right" aria-hidden="true">▸</span>
                 </a>
                 <ul class="submenu" role="menu" aria-label="Antibody submenu">
                   <li><a href="services/protein-production/antibody-production/">Antibody production</a></li>
-                  <li><a href="services/antigen/">Antigen production</a></li>
+                  <li><a href="services/protein-production/antigen/">Antigen production</a></li>
                 </ul>
               </li>
 
@@ -128,7 +130,6 @@
     <div class="footer-bottom">© 2025 Vaxonyx AI. All rights reserved.</div>
   </footer>
 
-  <!-- AI widget JS -->
   <script src="assets/osx_widget.js?v=build-19" defer></script>
 </body>
 </html>

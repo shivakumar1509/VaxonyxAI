@@ -64,30 +64,30 @@ body{
 }
 .menu > li > a:hover{ text-decoration:underline; }
 
-/* bigger carets (REQ #1) */
+/* bigger carets */
 .caret{ font-size:20px; line-height:1; }
 
-/* dropdown */
+/* ===== 1st-level dropdown ===== */
 .dropdown-menu{
   position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%);
   background:#fff; border:1px solid var(--vx-line); border-radius:12px;
   box-shadow:0 12px 28px rgba(0,0,0,.12);
   display:none; min-width:240px; padding:10px;
-  z-index:1000; /* keep above content (REQ #3 helper) */
+  z-index:1000;
 }
 .dropdown:hover .dropdown-menu{ display:block; }
 .dropdown-menu li{ list-style:none; }
 
-/* submenu links match top-nav color/weight (REQ #2) */
+/* submenu links match top-nav color/weight */
 .dropdown-menu a{
   display:block; padding:8px 12px; border-radius:8px;
-  color:var(--vx-blue);                 /* changed from var(--vx-ink) */
-  font-weight:700;                      /* match top nav */
+  color:var(--vx-blue);
+  font-weight:700;
   text-decoration:none; white-space:nowrap;
 }
 .dropdown-menu a:hover{ background:rgba(27,66,122,.08); }
 
-/* keep menu open when cursor travels downward (REQ #3) */
+/* keep menu open when cursor travels downward */
 .dropdown:hover .dropdown-menu,
 .dropdown:focus-within .dropdown-menu{
   display:block;
@@ -97,7 +97,45 @@ body{
   position:absolute;
   left:0; right:0;
   top:100%;
-  height:10px; /* invisible hover bridge so you don’t “fall off” */
+  height:10px; /* invisible hover bridge */
+}
+
+/* ===== 2nd-level fly-out (Services → Antibody Production) ===== */
+.dropdown-menu > li.has-sub{ position:relative; }
+.dropdown-menu > li.has-sub > a .caret.right{ margin-left:.4ch; }
+
+/* the fly-out panel */
+.submenu{
+  position:absolute;
+  top:0;
+  left:calc(100% + 6px); /* slight offset from the first menu */
+  min-width:240px;
+  background:#fff;
+  border:1px solid var(--vx-line);
+  border-radius:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  padding:10px;
+  display:none;
+  z-index:1001; /* above the first menu */
+}
+
+/* reveal fly-out when hovering its parent li */
+.dropdown-menu > li.has-sub:hover > .submenu{
+  display:block;
+}
+
+/* Mobile: collapse nested lists inline */
+@media (max-width: 900px){
+  .dropdown-menu{ left:0; transform:none; }
+  .submenu{
+    position:static;
+    display:block;
+    border:none;
+    box-shadow:none;
+    padding:6px 0 0 0;
+    margin:0;
+  }
+  .dropdown-menu > li.has-sub > a .caret.right{ transform:rotate(90deg); }
 }
 
 /* Ask Vaxonyx AI btn (top-right) */
@@ -111,10 +149,8 @@ body{
 /* ===== Hero / “video” area ===== */
 .hero{
   position:relative; overflow:hidden;
-  /* gradient placeholder; replace with video if desired */
   background: linear-gradient(180deg, #3FA9F5 0%, #0d2a56 70%, #000 100%);
-  /* make the section much taller */
-  min-height: 64vh;            /* ~double the previous visual height */
+  min-height: 64vh;
   display:flex; align-items:center;
 }
 .hero-inner{ position:relative; padding: var(--hero-pad-y) 0; width:100%; }
@@ -148,45 +184,3 @@ body{
 /* ===== Helpers ===== */
 img{ max-width:100%; height:auto; display:block; }
 a{ color:var(--vx-blue); }
-
-/* ===== 2nd-level fly-out under Services -> Antibody Production ===== */
-.menu > li { position: relative; } /* already present; safe if duplicated */
-
-/* A list item inside the first dropdown that owns a fly-out */
-.dropdown-menu > li.has-sub { position: relative; }
-
-/* Right-pointing caret for items with a fly-out */
-.dropdown-menu > li.has-sub > a .caret.right { margin-left: .4ch; }
-
-/* The fly-out panel itself */
-.submenu{
-  position: absolute;
-  top: 0;
-  left: calc(100% + 6px);          /* offset so borders don’t overlap */
-  min-width: 240px;
-  background: #fff;
-  border: 1px solid var(--vx-line);
-  border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.12);
-  padding: 10px;
-  display: none;
-  z-index: 1001;                    /* above first menu (which is 1000) */
-}
-
-/* Reveal the fly-out when hovering the parent item */
-.dropdown-menu > li.has-sub:hover > .submenu{
-  display: block;
-}
-
-/* Mobile: show nested lists inline */
-@media (max-width: 900px){
-  .submenu{
-    position: static;
-    display: block;
-    border: none;
-    box-shadow: none;
-    padding: 6px 0 0 0;
-    margin: 0;
-  }
-  .dropdown-menu > li.has-sub > a .caret.right { transform: rotate(90deg); }
-}
