@@ -148,3 +148,45 @@ body{
 /* ===== Helpers ===== */
 img{ max-width:100%; height:auto; display:block; }
 a{ color:var(--vx-blue); }
+
+/* ===== 2nd-level fly-out under Services -> Antibody Production ===== */
+.menu > li { position: relative; } /* already present; safe if duplicated */
+
+/* A list item inside the first dropdown that owns a fly-out */
+.dropdown-menu > li.has-sub { position: relative; }
+
+/* Right-pointing caret for items with a fly-out */
+.dropdown-menu > li.has-sub > a .caret.right { margin-left: .4ch; }
+
+/* The fly-out panel itself */
+.submenu{
+  position: absolute;
+  top: 0;
+  left: calc(100% + 6px);          /* offset so borders don’t overlap */
+  min-width: 240px;
+  background: #fff;
+  border: 1px solid var(--vx-line);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  padding: 10px;
+  display: none;
+  z-index: 1001;                    /* above first menu (which is 1000) */
+}
+
+/* Reveal the fly-out when hovering the parent item */
+.dropdown-menu > li.has-sub:hover > .submenu{
+  display: block;
+}
+
+/* Mobile: show nested lists inline */
+@media (max-width: 900px){
+  .submenu{
+    position: static;
+    display: block;
+    border: none;
+    box-shadow: none;
+    padding: 6px 0 0 0;
+    margin: 0;
+  }
+  .dropdown-menu > li.has-sub > a .caret.right { transform: rotate(90deg); }
+}
