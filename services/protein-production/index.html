@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Protein Production – Vaxonyx AI</title>
-  <meta name="description" content="High-titer protein expression & purification across mammalian, insect, yeast, and E. coli platforms. Rapid turnaround, economical solutions, >90% purity." />
+  <meta name="description" content="Protein production services with antibody and antigen options.">
 
-  <!-- Correct relative paths from /services/protein-production/ -->
   <link rel="preload" href="../../assets/Vaxonyx%20AI.svg" as="image" type="image/svg+xml">
-  <link rel="stylesheet" href="../../css/styles.css?v=build-24">
+  <link rel="stylesheet" href="../../css/styles.css?v=build-25">
 </head>
 <body>
   <!-- Header -->
@@ -34,15 +33,12 @@
             <ul class="dropdown-menu">
               <li><a href="../cell-lines/">Cell line services</a></li>
 
-              <!-- Current section -->
-              <li><a aria-current="page" href="./">Protein Production</a></li>
-
-              <!-- Antibody Production (fly-out owner) -->
+              <!-- SINGLE owner with fly-out (current section parent) -->
               <li class="has-sub">
-                <a href="./antibody-production/" aria-haspopup="true" aria-expanded="false">
-                  Antibody Production <span class="caret right" aria-hidden="true">▸</span>
+                <a href="./" aria-current="page" aria-haspopup="true" aria-expanded="false">
+                  Protein Production <span class="caret right" aria-hidden="true">▸</span>
                 </a>
-                <ul class="submenu" role="menu" aria-label="Antibody submenu">
+                <ul class="submenu" role="menu" aria-label="Protein production submenu">
                   <li><a href="./antibody-production/">Antibody production</a></li>
                   <li><a href="./antigen/">Antigen production</a></li>
                 </ul>
@@ -86,115 +82,17 @@
   </header>
 
   <main id="main" class="page-services">
-    <!-- Hero -->
-    <section class="svc-hero">
-      <div class="container">
-        <h1>Protein Production</h1>
-        <p>Excelling in expression and purification, we deliver tailored protein production across mammalian, insect, yeast, and E. coli platforms—built for speed, yield, and value.</p>
-        <div class="svc-badges">
-          <span class="svc-badge">High-titer</span>
-          <span class="svc-badge">4–6 week delivery</span>
-          <span class="svc-badge">&gt;90% purity</span>
+    <!-- Simple landing content -->
+    <section class="hero">
+      <div class="hero-inner container">
+        <h1 class="hero-title">Protein Production</h1>
+        <p style="color:#fff; max-width:60ch; font-weight:600;">
+          Choose a service below to get started.
+        </p>
+        <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="vx-fab" style="text-decoration:none;" href="./antibody-production/">Antibody production</a>
+          <a class="vx-fab" style="text-decoration:none; background:#1B427A; box-shadow:0 10px 22px rgba(27,66,122,.36);" href="./antigen/">Antigen production</a>
         </div>
-        <div class="svc-ctas">
-          <a class="btn primary" href="../../contact/">Get a Quote</a>
-          <a class="btn" href="#workflow">View Workflow</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key features -->
-    <section class="container" aria-labelledby="features">
-      <h2 id="features" class="svc-h2">Key Features</h2>
-      <div class="cards">
-        <article class="card"><h3>High-Titer Expression</h3><p>Optimized systems and fed-batch strategies for robust yields that cut cost per mg.</p></article>
-        <article class="card"><h3>Rapid Turnaround</h3><p>Streamlined operations and ready-to-run platforms deliver in 4–6 weeks.</p></article>
-        <article class="card"><h3>Economical Solutions</h3><p>Efficient titer reduces culture volume/time for budget-friendly outcomes.</p></article>
-      </div>
-    </section>
-
-    <!-- Process overview -->
-    <section class="container process" aria-labelledby="overview">
-      <h2 id="overview" class="svc-h2">Process of Protein Production</h2>
-      <p class="process-box">Protein production—including expression and purification—is a recombinant DNA–enabled workflow that generates large quantities of a specific protein for research, diagnostics, therapeutics, and industrial use.</p>
-    </section>
-
-    <!-- Platforms -->
-    <section class="container platforms" aria-labelledby="platforms">
-      <h2 id="platforms" class="svc-h2">Expression Platforms</h2>
-      <div class="plat-wrap">
-        <div class="plat-grid">
-          <article class="plat">
-            <div class="ico" aria-hidden="true">🧬</div>
-            <div>
-              <h3>Mammalian (HEK293, CHO)</h3>
-              <p>Suspension cultures for large-scale recombinant proteins and antibodies (intracellular, secreted, or membrane).</p>
-              <ul>
-                <li>Transient transfection, BacMam transduction</li>
-                <li>Stable cell line development for reproducibility</li>
-              </ul>
-            </div>
-          </article>
-          <article class="plat">
-            <div class="ico" aria-hidden="true">🪲</div>
-            <div>
-              <h3>Insect (Baculovirus)</h3>
-              <p>High yields and fast turnaround with near-mammalian PTMs once virus stocks are prepared.</p>
-              <ul>
-                <li>sf9/sf21 or High-Five® cells</li>
-                <li>Scale-up ready after P2/P3 amplification</li>
-              </ul>
-            </div>
-          </article>
-          <article class="plat">
-            <div class="ico" aria-hidden="true">🧫</div>
-            <div>
-              <h3>Bacterial (E. coli)</h3>
-              <p>Reliable, reproducible production using diverse strains at bioreactor scale.</p>
-              <ul>
-                <li>Up to ~40 L per batch</li>
-                <li>Periplasmic & inclusion-body strategies</li>
-              </ul>
-            </div>
-          </article>
-          <article class="plat">
-            <div class="ico" aria-hidden="true">🍞</div>
-            <div>
-              <h3>Yeast (e.g., Pichia)</h3>
-              <p>High-yield expression with mammalian-like modifications; strong secretory system and easy genetics.</p>
-              <ul>
-                <li>Methanol-induced and constitutive promoters</li>
-                <li>Excellent for glycoproteins difficult in bacteria</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- KPIs -->
-    <section class="container" aria-label="Key performance indicators">
-      <div class="kpis">
-        <div class="kpi"><span class="num" data-target="90">0</span><span class="lab">% purity or higher</span></div>
-        <div class="kpi"><span class="num" data-target="6">0</span><span class="lab">weeks typical delivery</span></div>
-        <div class="kpi"><span class="num" data-target="40">0</span><span class="lab">L bioreactor scale</span></div>
-      </div>
-    </section>
-
-    <!-- Workflow timeline -->
-    <section id="workflow" class="container flow" aria-labelledby="flow">
-      <h2 id="flow" class="svc-h2">Illustrative Workflow & Timelines</h2>
-      <ol class="steps">
-        <li><span class="dot"></span><h3>Gene design & cloning</h3><p class="time">1–2 weeks</p></li>
-        <li><span class="dot"></span><h3>Expression set-up</h3><p class="time">1–2 weeks</p></li>
-        <li><span class="dot"></span><h3>Scale-up & production</h3><p class="time">2–3 weeks</p></li>
-        <li><span class="dot"></span><h3>Purification & polishing</h3><p class="time">1–2 weeks</p></li>
-        <li><span class="dot"></span><h3>QC & delivery</h3><p class="time">~1 week</p></li>
-      </ol>
-      <div class="final-cta" style="margin-top:14px">
-        <h2>Ready to express?</h2>
-        <p>Send sequence, desired yield, host preference, and timeline. We’ll scope options and a quote fast.</p>
-        <a class="btn primary" href="../../contact/">Start a Project</a>
       </div>
     </section>
   </main>
@@ -234,22 +132,6 @@
 
     <div class="footer-bottom">© 2025 Vaxonyx AI. All rights reserved.</div>
   </footer>
-
-  <!-- KPI counters -->
-  <script>
-    (function(){
-      const els=[...document.querySelectorAll('.kpi .num')];
-      const obs=new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(!e.isIntersecting) return;
-          const el=e.target; const target=+el.dataset.target; let cur=0; const inc=Math.max(1,Math.round(target/40));
-          const t=setInterval(()=>{cur+=inc; if(cur>=target){cur=target; clearInterval(t);} el.textContent=cur;},24);
-          obs.unobserve(el);
-        });
-      },{threshold:.3});
-      els.forEach(el=>obs.observe(el));
-    })();
-  </script>
 
   <script src="../../assets/osx_widget.js?v=build-19" defer></script>
 </body>

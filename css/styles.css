@@ -100,7 +100,7 @@ body{
   height:10px; /* invisible hover bridge */
 }
 
-/* ===== 2nd-level fly-out (Services → Antibody Production) ===== */
+/* ===== 2nd-level fly-out (Services → Protein Production) ===== */
 .dropdown-menu > li.has-sub{ position:relative; }
 .dropdown-menu > li.has-sub > a .caret.right{ margin-left:.4ch; }
 
