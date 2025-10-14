@@ -3,62 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Antibody Production – Vaxonyx</title>
-  <meta name="description" content="Custom antibody production with high-yield expression, scalable purification, and rigorous QC across mammalian, insect, and bacterial platforms." />
+  <title>Antibody & Protein Production – Vaxonyx</title>
+  <meta name="description" content="Custom protein and antibody production services using mammalian, insect, yeast, and E. coli systems — optimized for yield, quality, and turnaround time.">
 
-  <!-- Brand assets & global styles -->
   <link rel="preload" href="../../../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="../../../css/styles.css?v=build-25">
 
-  <!-- Page-scoped styles (mirrors Cell Line Development) -->
   <style>
     :root{
       --vx-primary:#007C91;
       --vx-accent:#3FA9F5;
-      --vx-ink:#0b1220;--vx-muted:#5b6375;--vx-line:rgba(12,18,32,.12);
+      --vx-ink:#0b1220;
+      --vx-line:rgba(12,18,32,.12);
       --vx-ring:rgba(63,169,245,.45);
       --vx-bg:conic-gradient(from 210deg at 30% -10%,rgba(0,124,145,.10),rgba(63,169,245,.12),transparent 50%);
     }
     .container{width:min(1120px,92%);margin-inline:auto}
-    .svc-hero{position:relative;padding:88px 0 42px;background:var(--vx-bg)}
-    .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--vx-ink);margin:0 0 10px}
+    .svc-hero{padding:88px 0 42px;background:var(--vx-bg)}
+    .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.1 system-ui;color:var(--vx-ink);margin:0 0 10px}
     .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
-    .svc-badges{display:flex;gap:.5rem;align-items:center;margin:14px 0 0;flex-wrap:wrap}
-    .svc-badge{display:inline-flex;align-items:center;gap:.5ch;padding:.4rem .7rem;border:1px solid var(--vx-line);border-radius:999px;font:600 12px/1.1 system-ui;color:var(--vx-primary);background:#fff}
-    .svc-ctas{display:flex;gap:.75rem;align-items:center;margin:18px 0 0;flex-wrap:wrap}
-    .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1 system-ui;background:var(--bg);color:var(--fg)}
+    h2.svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
+    p,li{font:400 15px/1.6 system-ui;color:#2a3040}
+    ul{margin:8px 0 0 18px;padding:0}
+    .svc-ctas{display:flex;gap:.75rem;margin:18px 0 0;flex-wrap:wrap}
+    .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px system-ui;background:var(--bg);color:var(--fg)}
     .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
-    .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
-    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
-    @media(max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.cards{grid-template-columns:1fr}}
-    .card{background:#fff;border:1px solid var(--vx-line);border-radius:16px;padding:18px 16px;transition:transform .2s ease,box-shadow .2s ease}
-    .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
-    .card h3{font:700 16px/1.3 system-ui;margin:.2rem 0 .35rem;color:#0f1a2a}
-    .card p{font:400 14px/1.6 system-ui;color:#2a3040;margin:0}
-    .cap{margin:6px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    @media(max-width:720px){.cap{grid-template-columns:1fr}}
-    .cap-item{display:flex;gap:12px;background:#fff;border:1px dashed var(--vx-line);border-radius:14px;padding:14px}
-    .cap-item h3{font:600 15px/1.3 system-ui;margin:0 0 4px}
-    .cap-item ul{margin:0;padding-left:18px;font:400 14px/1.55 system-ui;color:#333}
-    .pills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:6px 0 0}
-    .pills li{border:1px solid var(--vx-line);background:#fff;border-radius:999px;padding:.45rem .75rem;font:600 13px/1.1 system-ui;color:#243045}
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0}
-    @media(max-width:720px){.kpis{grid-template-columns:1fr 1fr}}
-    .kpi{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;align-items:center}
-    .kpi .num{font:800 28px/1.1 system-ui;color:#0a1626}
-    .kpi .lab{font:500 12px/1.3 system-ui;color:#55607a}
-    .quality p{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px;margin:10px 0}
-    .steps{list-style:none;margin:0;padding:0;border-left:2px solid var(--vx-line);position:relative}
-    .steps li{padding:14px 14px 14px 24px;position:relative}
-    .steps .dot{position:absolute;left:-7px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--vx-accent);box-shadow:0 0 0 6px rgba(63,169,245,.15)}
-    .steps h3{font:600 15px/1.3 system-ui;margin:0;color:#0f1a2a}
-    .steps .time{margin:.2rem 0 0;font:600 13px/1.2 system-ui;color:var(--vx-primary)}
-    .callout{display:flex;gap:10px;align-items:center;border:1px solid var(--vx-line);background:linear-gradient(180deg,#fff,rgba(255,255,255,.7));border-radius:12px;padding:12px 14px;margin-top:14px}
-    .faq details{background:#fff;border:1px solid var(--vx-line);border-radius:12px;padding:12px 14px;margin:10px 0}
-    .faq summary{cursor:pointer;font:600 14px/1.3 system-ui;color:#0f1a2a}
-    .faq div{padding-top:8px;color:#2a3040;font:400 14px/1.55 system-ui}
-    .final-cta{margin:28px 0 40px;border:1px solid var(--vx-line);background:radial-gradient(1200px 1200px at 0% 100%,rgba(63,169,245,.12),transparent),#fff;padding:22px;border-radius:16px;display:grid;gap:6px;justify-items:start}
   </style>
 </head>
 <body>
@@ -70,56 +39,76 @@
       <nav class="site-nav">
         <ul class="menu">
           <li class="dropdown">
-            <a href="../../../about/">About ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="../../../about/#mission">Mission & Vision</a></li>
-              <li><a href="../../../about/#team">Team</a></li>
-              <li><a href="../../../careers/">Careers</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
             <a href="../../../services/">Services ▾</a>
             <ul class="dropdown-menu">
-              <li><a href="../../cell-lines/">Cell line services</a></li>
               <li class="has-sub">
                 <a href="../">Protein Production ▸</a>
                 <ul class="submenu">
-                  <li><a aria-current="page" href="../antibody-production/">Antibody production</a></li>
-                  <li><a href="../antigen/">Antigen production</a></li>
+                  <li><a aria-current="page" href="../antibody-production/">Antibody Production</a></li>
+                  <li><a href="../antigen/">Antigen Production</a></li>
                 </ul>
               </li>
-              <li><a href="../../assays/">Assays</a></li>
             </ul>
           </li>
-          <li><a href="../../../platforms/">Platforms</a></li>
-          <li><a href="../../../innovation/">Innovation</a></li>
-          <li><a href="../../../news/">News & Investors</a></li>
-          <li><a href="../../../contact/">Contact</a></li>
         </ul>
       </nav>
-      <button class="vx-fab" onclick="window.VX_WIDGET&&VX_WIDGET.open()">Ask Vaxonyx AI</button>
+      <button class="vx-fab" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
     </div>
   </header>
 
   <main class="page-services">
     <section class="svc-hero">
       <div class="container">
-        <h1>Antibody Production</h1>
-        <p>Custom monoclonal and recombinant antibody production with optimized expression systems, scalable purification, and rigorous QC—built for assay performance and translational readiness.</p>
-        <div class="svc-badges">
-          <span class="svc-badge">Mammalian / Insect / E. coli</span>
-          <span class="svc-badge">Affinity & polishing</span>
-          <span class="svc-badge">CoA / QC docs</span>
-        </div>
+        <h1>Protein & Antibody Production Services</h1>
+        <p>Excelling in both protein expression and purification, we offer tailored solutions for protein production by using our mammalian, insect, and <i>E. coli</i> expression platforms, which are designed to meet the diverse and constantly evolving needs of our clients.</p>
         <div class="svc-ctas">
-          <a class="btn primary" href="../../../contact/">Get a Quote</a>
-          <a class="btn" href="#workflow">View Workflow</a>
+          <a class="btn primary" href="../../../contact/">Request Quote</a>
         </div>
       </div>
     </section>
 
-    <!-- all your original cards/cap/kpis/workflow/final cta intact -->
-    <!-- (truncated for brevity, same as your paste) -->
+    <section class="container">
+      <h2 class="svc-h2">Key Features</h2>
+      <ul>
+        <li><strong>High-Titer Expression:</strong> Harnessing the latest advancements in biotechnology, our protein production processes ensure high expression levels.</li>
+        <li><strong>Rapid Turnaround:</strong> Using our high-titer expression platforms and streamlined operational processes, we can produce proteins within a rapid delivery timeframe of just 4–6 weeks.</li>
+        <li><strong>Economical Solutions:</strong> Our high-titer expression platforms produce a substantial number of proteins from a smaller culture volume in a shorter timeframe, resulting in cost-effective solutions for our customers.</li>
+      </ul>
+    </section>
+
+    <section class="container">
+      <h2 class="svc-h2">Process of Protein Production</h2>
+      <p>Protein production, including protein expression services and protein purification, is a biotechnical process of generating large quantities of a specific protein of interest using recombinant DNA technology. Protein production occurs through the transcription and translation of genetic information encoded in DNA, allowing for the use of these proteins in a variety of applications such as research, diagnostics, therapeutics, and industrial processes.</p>
+    </section>
+
+    <section class="container">
+      <h2 class="svc-h2">Protein Expression</h2>
+      <p>We offer a wide range of protein expression services that utilize distinct expression systems, which are tailored to meet your specific project requirements. Our expertise extends to mammalian, insect, bacterial, and yeast expression systems, each offering unique advantages and capabilities.</p>
+
+      <h3>Mammalian Expression</h3>
+      <p>Utilizing HEK293 and CHO suspension cultures allows for the production of recombinant proteins and antibodies at large scale. Our optimized system, utilizing either transfection with plasmid DNA, transduction BacMam viruses produced in insect cells, or stable cell line development, allows for high-yielding and reproducible expression of intracellular, secreted and membrane proteins.</p>
+
+      <h3>Insect Expression</h3>
+      <p>Large scale production of intracellular, secreted, or membrane proteins using our baculovirus-mediated expression in insect cells. This allows for most of the post-translational modifications that occur in mammalian cells and results in high yields and fast turnaround times once baculovirus stocks have been generated.</p>
+
+      <h3>Bacterial Expression</h3>
+      <p>Using a variety of <i>E. coli</i> strains, our bacterial expression systems offer reliable and reproducible production of recombinant proteins at bioreactor scale, up to 40 L per batch.</p>
+
+      <h3>Yeast Expression</h3>
+      <p>Protein expression in yeast provides a system that can produce high yield and potential capacity for scale up of proteins that are hard to express in bacteria. The similarity of the secretory system in yeast to that in mammalian provides a means to produce proteins with near-native post-translational modifications. In addition, yeast cells can be genetically manipulated to produce functional versions of therapeutically important proteins.</p>
+    </section>
+
+    <section class="container">
+      <h2 class="svc-h2">Protein Purification</h2>
+      <p>Protein purification refers to the isolation of a target protein from a complex mixture of other biological materials utilizing various bulk physicochemical properties such as size, charge and hydrophobicity. Isolating a protein to a purity of &gt;90% is essential for their functional and structural characterization.</p>
+      <p>The process of protein purification consists of the following steps:</p>
+      <ul>
+        <li>Sample Preparation</li>
+        <li>Protein Extraction</li>
+        <li>Optimization and Purification</li>
+        <li>Analysis and Quality Control</li>
+      </ul>
+    </section>
   </main>
 
   <footer class="site-footer">
