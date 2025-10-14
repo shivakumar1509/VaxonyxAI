@@ -66,8 +66,9 @@ body{
 
 /* bigger carets */
 .caret{ font-size:20px; line-height:1; }
+.caret.right{ transform: translateY(-1px); }
 
-/* ===== 1st-level dropdown ===== */
+/* primary dropdown */
 .dropdown-menu{
   position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%);
   background:#fff; border:1px solid var(--vx-line); border-radius:12px;
@@ -75,10 +76,9 @@ body{
   display:none; min-width:240px; padding:10px;
   z-index:1000;
 }
-.dropdown:hover .dropdown-menu{ display:block; }
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu{ display:block; }
 .dropdown-menu li{ list-style:none; }
-
-/* submenu links match top-nav color/weight */
 .dropdown-menu a{
   display:block; padding:8px 12px; border-radius:8px;
   color:var(--vx-blue);
@@ -87,58 +87,33 @@ body{
 }
 .dropdown-menu a:hover{ background:rgba(27,66,122,.08); }
 
-/* keep menu open when cursor travels downward */
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu{
-  display:block;
-}
-.dropdown::after{
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  top:100%;
-  height:10px; /* invisible hover bridge */
-}
-
-/* ===== 2nd-level fly-out (Services → Protein Production) ===== */
-.dropdown-menu > li.has-sub{ position:relative; }
-.dropdown-menu > li.has-sub > a .caret.right{ margin-left:.4ch; }
-
-/* the fly-out panel */
+/* fly-out submenu (Services ▸ Protein Production) */
+.has-sub{ position:relative; }
+.has-sub > a{ display:flex; align-items:center; justify-content:space-between; }
 .submenu{
-  position:absolute;
-  top:0;
-  left:calc(100% + 6px); /* slight offset from the first menu */
-  min-width:240px;
-  background:#fff;
-  border:1px solid var(--vx-line);
-  border-radius:12px;
+  position:absolute; top:-10px; left:100%;
+  background:#fff; border:1px solid var(--vx-line); border-radius:12px;
   box-shadow:0 12px 28px rgba(0,0,0,.12);
-  padding:10px;
-  display:none;
-  z-index:1001; /* above the first menu */
+  display:none; min-width:240px; padding:10px;
+}
+.has-sub:hover > .submenu,
+.has-sub:focus-within > .submenu{ display:block; }
+
+/* keep menus open on cursor travel (hover bridge) */
+.dropdown::after{
+  content:""; position:absolute; left:0; right:0; top:100%; height:10px;
 }
 
-/* reveal fly-out when hovering its parent li */
-.dropdown-menu > li.has-sub:hover > .submenu{
-  display:block;
+/* Neutralize orange “current page” inside dropdowns */
+.dropdown-menu a[aria-current="page"]{
+  color: var(--vx-blue) !important;
+  background: rgba(27,66,122,.08);
+}
+.dropdown-menu a[aria-current="page"]:hover{
+  background: rgba(27,66,122,.12);
 }
 
-/* Mobile: collapse nested lists inline */
-@media (max-width: 900px){
-  .dropdown-menu{ left:0; transform:none; }
-  .submenu{
-    position:static;
-    display:block;
-    border:none;
-    box-shadow:none;
-    padding:6px 0 0 0;
-    margin:0;
-  }
-  .dropdown-menu > li.has-sub > a .caret.right{ transform:rotate(90deg); }
-}
-
-/* Ask Vaxonyx AI btn (top-right) */
+/* Ask Vaxonyx AI button (top-right) */
 .vx-fab{
   border:0; border-radius:999px; padding:10px 14px;
   background:var(--vx-orange); color:#fff; font-weight:800;
@@ -184,3 +159,25 @@ body{
 /* ===== Helpers ===== */
 img{ max-width:100%; height:auto; display:block; }
 a{ color:var(--vx-blue); }
+
+/* ===== Service page shared bits (cards/buttons/headings) ===== */
+/* (kept here so all service pages look consistent) */
+.svc-hero{position:relative;padding:88px 0 42px;background: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%)}
+.svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--vx-ink);margin:0 0 10px}
+.svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
+.svc-badges{display:flex;gap:.5rem;align-items:center;margin:14px 0 0;flex-wrap:wrap}
+.svc-badge{display:inline-flex;align-items:center;gap:.5ch;padding:.4rem .7rem;border:1px solid var(--vx-line);border-radius:999px;font:600 12px/1.1 system-ui;color:#007C91;background:#fff}
+
+.svc-ctas{display:flex;gap:.75rem;align-items:center;margin:18px 0 0;flex-wrap:wrap}
+.btn{--bg:transparent;--fg:#007C91;display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1 system-ui;background:var(--bg);color:var(--fg)}
+.btn.primary{--bg:linear-gradient(180deg,#3FA9F5,#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px rgba(63,169,245,.45)}
+
+.svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
+.cards{display:grid;gap:16px;margin:22px 0}
+.cards.two{grid-template-columns:repeat(2,1fr)}
+@media (max-width: 720px){.cards.two{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--vx-line);border-radius:16px;padding:18px 16px;transition:transform .2s ease, box-shadow .2s ease;display:grid;gap:8px;align-content:start}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
+.card h3{font:700 16px/1.3 system-ui;margin:.2rem 0 .35rem;color:#0f1a2a}
+.card p{font:400 14px/1.6 system-ui;color:#2a3040;margin:0}
+.card .actions{margin-top:6px;display:flex;gap:10px;flex-wrap:wrap}
