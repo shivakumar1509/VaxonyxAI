@@ -4,10 +4,78 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Antibody Production – Vaxonyx AI</title>
-  <meta name="description" content="Custom antibody production with high-yield expression, purification, and QC.">
+  <meta name="description" content="Custom antibody production with high-yield expression, scalable purification, and rigorous QC across mammalian, insect, and bacterial platforms." />
 
+  <!-- Brand assets & global styles -->
   <link rel="preload" href="../../../assets/Vaxonyx%20AI.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="../../../css/styles.css?v=build-25">
+
+  <!-- Page-scoped styles (mirrors Cell Line Development) -->
+  <style>
+    :root{
+      --vx-primary:#007C91; /* Teal */
+      --vx-accent:#3FA9F5;  /* Sky */
+      --vx-ink:#0b1220; --vx-muted:#5b6375; --vx-line:rgba(12,18,32,.12);
+      --vx-ring:rgba(63,169,245,.45);
+      --vx-bg: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%);
+    }
+    .container{width:min(1120px,92%);margin-inline:auto}
+    .sr-only{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+
+    /* Hero */
+    .svc-hero{position:relative;padding:88px 0 42px;background:var(--vx-bg)}
+    .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--vx-ink);margin:0 0 10px}
+    .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
+    .svc-badges{display:flex;gap:.5rem;align-items:center;margin:14px 0 0;flex-wrap:wrap}
+    .svc-badge{display:inline-flex;align-items:center;gap:.5ch;padding:.4rem .7rem;border:1px solid var(--vx-line);border-radius:999px;font:600 12px/1.1 system-ui;color:var(--vx-primary);background:#fff}
+    .svc-ctas{display:flex;gap:.75rem;align-items:center;margin:18px 0 0;flex-wrap:wrap}
+    .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1 system-ui;background:var(--bg);color:var(--fg)}
+    .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
+
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
+    @media (max-width: 960px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 560px){.cards{grid-template-columns:1fr}}
+    .card{background:#fff;border:1px solid var(--vx-line);border-radius:16px;padding:18px 16px;transition:transform .2s ease, box-shadow .2s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
+    .card h3{font:700 16px/1.3 system-ui;margin:.2rem 0 .35rem;color:#0f1a2a}
+    .card p{font:400 14px/1.6 system-ui;color:#2a3040;margin:0}
+
+    /* Capabilities */
+    .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
+    .cap{margin:6px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    @media (max-width: 720px){.cap{grid-template-columns:1fr}}
+    .cap-item{display:flex;gap:12px;background:#fff;border:1px dashed var(--vx-line);border-radius:14px;padding:14px}
+    .cap-item h3{font:600 15px/1.3 system-ui;margin:0 0 4px}
+    .cap-item ul{margin:0;padding-left:18px;font:400 14px/1.55 system-ui;color:#333}
+
+    /* Pills */
+    .pills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:6px 0 0}
+    .pills li{border:1px solid var(--vx-line);background:#fff;border-radius:999px;padding:.45rem .75rem;font:600 13px/1.1 system-ui;color:#243045}
+
+    /* KPIs */
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0}
+    @media (max-width:720px){.kpis{grid-template-columns:1fr 1fr}}
+    .kpi{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;align-items:center}
+    .kpi .num{font:800 28px/1.1 system-ui;color:#0a1626}
+    .kpi .lab{font:500 12px/1.3 system-ui;color:#55607a}
+
+    /* Quality / Timeline / FAQ / CTA */
+    .quality p{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px;margin:10px 0}
+    .flow{margin-top:20px}
+    .steps{list-style:none;margin:0;padding:0;border-left:2px solid var(--vx-line);position:relative}
+    .steps li{padding:14px 14px 14px 24px;position:relative}
+    .steps .dot{position:absolute;left:-7px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--vx-accent);box-shadow:0 0 0 6px rgba(63,169,245,.15)}
+    .steps h3{font:600 15px/1.3 system-ui;margin:0;color:#0f1a2a}
+    .steps .time{margin:.2rem 0 0;font:600 13px/1.2 system-ui;color:var(--vx-primary)}
+    .callout{display:flex;gap:10px;align-items:center;border:1px solid var(--vx-line);background:linear-gradient(180deg,#fff,rgba(255,255,255,.7));border-radius:12px;padding:12px 14px;margin-top:14px}
+    .faq details{background:#fff;border:1px solid var(--vx-line);border-radius:12px;padding:12px 14px;margin:10px 0}
+    .faq summary{cursor:pointer;font:600 14px/1.3 system-ui;color:#0f1a2a}
+    .faq div{padding-top:8px;color:#2a3040;font:400 14px/1.55 system-ui}
+    .final-cta{margin:28px 0 40px;border:1px solid var(--vx-line);background:radial-gradient(1200px 1200px at 0% 100%, rgba(63,169,245,.12), transparent), #fff;padding:22px;border-radius:16px;display:grid;gap:6px;justify-items:start}
+    .final-cta h2{margin:0;color:#0a1626;font:700 22px/1.2 system-ui}
+    .final-cta p{margin:0 0 6px;color:#2a3040;font:400 14px/1.55 system-ui}
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -32,8 +100,6 @@
             <a href="../../../services/">Services <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
               <li><a href="../../cell-lines/">Cell line services</a></li>
-
-              <!-- SINGLE owner with fly-out (parent renamed to Protein Production) -->
               <li class="has-sub">
                 <a href="../" aria-haspopup="true" aria-expanded="false">
                   Protein Production <span class="caret right" aria-hidden="true">▸</span>
@@ -43,7 +109,6 @@
                   <li><a href="../antigen/">Antigen production</a></li>
                 </ul>
               </li>
-
               <li><a href="../../assays/">Assays</a></li>
             </ul>
           </li>
@@ -82,23 +147,153 @@
   </header>
 
   <main id="main" class="page-services">
-    <section class="hero">
-      <div class="hero-inner container">
-        <h1 class="hero-title">Antibody Production</h1>
-        <p style="color:#fff; max-width:70ch; font-weight:600;">Custom monoclonal and recombinant antibody production with optimized expression systems, scalable purification, and rigorous QC.</p>
+    <!-- Hero -->
+    <section class="svc-hero">
+      <div class="container">
+        <h1>Antibody Production</h1>
+        <p>Custom monoclonal and recombinant antibody production with optimized expression systems, scalable purification, and rigorous QC—built for assay performance and translational readiness.</p>
+        <div class="svc-badges">
+          <span class="svc-badge">Mammalian / Insect / E. coli</span>
+          <span class="svc-badge">Affinity &amp; polishing</span>
+          <span class="svc-badge">CoA / QC docs</span>
+        </div>
+        <div class="svc-ctas">
+          <a class="btn primary" href="../../../contact/">Get a Quote</a>
+          <a class="btn" href="#workflow">View Workflow</a>
+        </div>
       </div>
     </section>
 
-    <!-- Your existing body content goes here... -->
+    <!-- Why Vaxonyx (cards) -->
+    <section class="container" aria-labelledby="why">
+      <h2 id="why" class="svc-h2">Why Vaxonyx for Antibodies</h2>
+      <div class="cards">
+        <article class="card"><h3>High Yield</h3><p>Fed-batch &amp; vector optimization deliver robust titers and consistency.</p></article>
+        <article class="card"><h3>Quality &amp; Purity</h3><p>Protein A/G capture, polishing steps, SDS-PAGE, WB, endotoxin, SEC.</p></article>
+        <article class="card"><h3>Speed</h3><p>Streamlined build-test cycles for fast research or preclinical timelines.</p></article>
+        <article class="card"><h3>Formats</h3><p>IgG subclasses, Fab/F(ab')2, scFv, Fc fusions, and custom tags.</p></article>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="container" aria-labelledby="cap">
+      <h2 id="cap" class="svc-h2">Capabilities</h2>
+      <div class="cap">
+        <div class="cap-item">
+          <div aria-hidden="true">🧬</div>
+          <div>
+            <h3>Expression Systems</h3>
+            <ul>
+              <li>HEK293/CHO transient or stable</li>
+              <li>CHO pools &amp; clonal selection</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div aria-hidden="true">🧪</div>
+          <div>
+            <h3>Puriﬁcation</h3>
+            <ul>
+              <li>Protein A/G, ion-exchange, SEC</li>
+              <li>Endotoxin control, buffer exchange</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div aria-hidden="true">📊</div>
+          <div>
+            <h3>QC Panel</h3>
+            <ul>
+              <li>SDS-PAGE, Western blot, HPLC-SEC</li>
+              <li>Concentration, endotoxin, bioburden</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div aria-hidden="true">🧷</div>
+          <div>
+            <h3>Deliverables</h3>
+            <ul>
+              <li>CoA, sequence verification (on request)</li>
+              <li>Buffer &amp; vialing per spec</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="container" aria-labelledby="apps">
+      <h2 id="apps" class="svc-h2">Applications</h2>
+      <ul class="pills">
+        <li>ELISA &amp; LFA</li>
+        <li>Flow cytometry</li>
+        <li>IHC/IF</li>
+        <li>Therapeutic research</li>
+      </ul>
+    </section>
+
+    <!-- KPIs -->
+    <section class="container" aria-label="Key performance indicators">
+      <div class="kpis">
+        <div class="kpi"><span class="num" data-target="95">0</span><span class="lab">% on-time</span></div>
+        <div class="kpi"><span class="num" data-target="6">0</span><span class="lab">weeks typical delivery</span></div>
+        <div class="kpi"><span class="num" data-target="90">0</span><span class="lab">% purity or higher</span></div>
+      </div>
+    </section>
+
+    <!-- Quality -->
+    <section class="container quality">
+      <p><strong>Quality first.</strong> We pair robust upstream expression with fit-for-purpose downstream polishing and a clear QC dossier to ensure reproducibility and assay performance.</p>
+    </section>
+
+    <!-- Workflow -->
+    <section id="workflow" class="container flow" aria-labelledby="flow">
+      <h2 id="flow" class="svc-h2">Illustrative Workflow</h2>
+      <ol class="steps">
+        <li><span class="dot"></span><h3>Sequence design &amp; vector build</h3><p class="time">1–2 weeks</p></li>
+        <li><span class="dot"></span><h3>Expression set-up (transient/stable)</h3><p class="time">1–3 weeks</p></li>
+        <li><span class="dot"></span><h3>Puriﬁcation &amp; polishing</h3><p class="time">1–2 weeks</p></li>
+        <li><span class="dot"></span><h3>QC &amp; documentation</h3><p class="time">~1 week</p></li>
+      </ol>
+      <div class="callout">
+        <p><strong>Need specific subclasses or formats?</strong> Add Fc, tags, or custom linkers to match your assay.</p>
+        <a class="btn" href="../../../contact/">Talk to BD</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container faq" aria-labelledby="faq">
+      <h2 id="faq" class="svc-h2">Frequently asked</h2>
+      <details>
+        <summary>Which hosts do you recommend?</summary>
+        <div>HEK293 for speed/transient screening; CHO for developability &amp; scale. We can evaluate insect or E. coli per target constraints.</div>
+      </details>
+      <details>
+        <summary>Can you deliver Fab/scFv/Fc-fusion?</summary>
+        <div>Yes—Fab, F(ab')2, scFv, Fc-fusion, or custom isotypes/subclasses are supported.</div>
+      </details>
+      <details>
+        <summary>What QC is included?</summary>
+        <div>Standard: SDS-PAGE, WB (as needed), concentration, endotoxin; optional: HPLC-SEC, MS, binding assays.</div>
+      </details>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="container final-cta">
+      <h2>Ready to produce an antibody?</h2>
+      <p>Send target, isotype/format, yield, and buffer preferences. We’ll scope options and a rapid quote.</p>
+      <a class="btn primary" href="../../../contact/">Start a Project</a>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
         <img class="brand-logo" src="../../../assets/Vaxonyx%20AI.svg" alt="Vaxonyx AI">
         <p>Vaxonyx AI builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
       </div>
-
       <div class="foot-links">
         <div class="foot-title">Quick Access</div>
         <ul class="links">
@@ -111,7 +306,6 @@
           <li><a href="../../../contact/">Contact</a></li>
         </ul>
       </div>
-
       <div class="foot-contacts">
         <div class="foot-title">General Information</div>
         <a class="email" href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a>
@@ -123,6 +317,22 @@
     </div>
     <div class="footer-bottom">© 2025 Vaxonyx AI. All rights reserved.</div>
   </footer>
+
+  <!-- KPI counters -->
+  <script>
+    (function(){
+      const els=[...document.querySelectorAll('.kpi .num')];
+      const obs=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(!e.isIntersecting) return;
+          const el=e.target; const target=+el.dataset.target; let cur=0; const inc=Math.max(1,Math.round(target/40));
+          const t=setInterval(()=>{cur+=inc; if(cur>=target){cur=target; clearInterval(t);} el.textContent=cur;},24);
+          obs.unobserve(el);
+        });
+      },{threshold:.3});
+      els.forEach(el=>obs.observe(el));
+    })();
+  </script>
 
   <script src="../../../assets/osx_widget.js?v=build-19" defer></script>
 </body>
