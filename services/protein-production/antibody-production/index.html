@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Antibody & Protein Production – Vaxonyx</title>
-  <meta name="description" content="Custom protein and antibody production services using mammalian, insect, yeast, and E. coli systems — optimized for yield, quality, and turnaround time.">
+  <meta name="description" content="Tailored protein and antibody production using mammalian, insect, yeast, and E. coli systems for high yield, purity, and rapid turnaround.">
 
   <link rel="preload" href="../../../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="../../../css/styles.css?v=build-25">
@@ -15,7 +15,6 @@
       --vx-accent:#3FA9F5;
       --vx-ink:#0b1220;
       --vx-line:rgba(12,18,32,.12);
-      --vx-ring:rgba(63,169,245,.45);
       --vx-bg:conic-gradient(from 210deg at 30% -10%,rgba(0,124,145,.10),rgba(63,169,245,.12),transparent 50%);
     }
     .container{width:min(1120px,92%);margin-inline:auto}
@@ -23,24 +22,32 @@
     .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.1 system-ui;color:var(--vx-ink);margin:0 0 10px}
     .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
     h2.svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
-    p,li{font:400 15px/1.6 system-ui;color:#2a3040}
-    ul{margin:8px 0 0 18px;padding:0}
-    .svc-ctas{display:flex;gap:.75rem;margin:18px 0 0;flex-wrap:wrap}
-    .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px system-ui;background:var(--bg);color:var(--fg)}
-    .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
+    ul{margin:8px 0 0 20px;padding:0}
+    li{font:400 15px/1.6 system-ui;color:#2a3040}
   </style>
 </head>
 <body>
-  <header class="site-header">
+  <!-- ===== Header ===== -->
+  <header class="site-header" role="banner">
     <div class="container header-row">
       <a class="brand" href="../../../">
         <img class="brand-logo" src="../../../assets/Vaxonyx.svg" alt="Vaxonyx">
       </a>
-      <nav class="site-nav">
+
+      <nav class="site-nav" aria-label="Main">
         <ul class="menu">
+          <li class="dropdown">
+            <a href="../../../about/">About ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../../../about/#mission">Mission & Vision</a></li>
+              <li><a href="../../../about/#team">Team</a></li>
+              <li><a href="../../../careers/">Careers</a></li>
+            </ul>
+          </li>
           <li class="dropdown">
             <a href="../../../services/">Services ▾</a>
             <ul class="dropdown-menu">
+              <li><a href="../../cell-lines/">Cell line development</a></li>
               <li class="has-sub">
                 <a href="../">Protein Production ▸</a>
                 <ul class="submenu">
@@ -48,22 +55,44 @@
                   <li><a href="../antigen/">Antigen Production</a></li>
                 </ul>
               </li>
+              <li><a href="../../assays/">Assays</a></li>
             </ul>
           </li>
+          <li class="dropdown">
+            <a href="../../../platforms/">Platforms ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../../../platforms/#ai">AI platforms</a></li>
+              <li><a href="../../../platforms/#dna">DNA platforms</a></li>
+              <li><a href="../../../platforms/#delivery">DNA delivery platforms</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="../../../innovation/">Innovation ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../../../innovation/#pipeline">Pipeline</a></li>
+              <li><a href="../../../innovation/#products">Products</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="../../../news/">News & Investors ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../../../news/#press">Press & updates</a></li>
+              <li><a href="../../../investors/">Investor materials</a></li>
+            </ul>
+          </li>
+          <li><a href="../../../contact/">Contact</a></li>
         </ul>
       </nav>
-      <button class="vx-fab" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
+
+      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
     </div>
   </header>
 
   <main class="page-services">
     <section class="svc-hero">
       <div class="container">
-        <h1>Protein & Antibody Production Services</h1>
-        <p>Excelling in both protein expression and purification, we offer tailored solutions for protein production by using our mammalian, insect, and <i>E. coli</i> expression platforms, which are designed to meet the diverse and constantly evolving needs of our clients.</p>
-        <div class="svc-ctas">
-          <a class="btn primary" href="../../../contact/">Request Quote</a>
-        </div>
+        <h1>Antibody & Protein Production</h1>
+        <p>Excelling in both protein expression and purification, we offer tailored solutions for protein production by using our mammalian, insect, and <i>E. coli</i> expression platforms, designed to meet diverse and evolving research needs.</p>
       </div>
     </section>
 
@@ -71,42 +100,41 @@
       <h2 class="svc-h2">Key Features</h2>
       <ul>
         <li><strong>High-Titer Expression:</strong> Harnessing the latest advancements in biotechnology, our protein production processes ensure high expression levels.</li>
-        <li><strong>Rapid Turnaround:</strong> Using our high-titer expression platforms and streamlined operational processes, we can produce proteins within a rapid delivery timeframe of just 4–6 weeks.</li>
-        <li><strong>Economical Solutions:</strong> Our high-titer expression platforms produce a substantial number of proteins from a smaller culture volume in a shorter timeframe, resulting in cost-effective solutions for our customers.</li>
+        <li><strong>Rapid Turnaround:</strong> Our streamlined operational processes enable delivery within 4–6 weeks.</li>
+        <li><strong>Economical Solutions:</strong> High-titer expression reduces volume and time, yielding cost-effective production.</li>
       </ul>
     </section>
 
     <section class="container">
       <h2 class="svc-h2">Process of Protein Production</h2>
-      <p>Protein production, including protein expression services and protein purification, is a biotechnical process of generating large quantities of a specific protein of interest using recombinant DNA technology. Protein production occurs through the transcription and translation of genetic information encoded in DNA, allowing for the use of these proteins in a variety of applications such as research, diagnostics, therapeutics, and industrial processes.</p>
+      <p>Protein production, including expression and purification, is the biotechnical generation of specific proteins using recombinant DNA technology. This process supports applications across diagnostics, therapeutics, research, and industrial biotechnology.</p>
     </section>
 
     <section class="container">
       <h2 class="svc-h2">Protein Expression</h2>
-      <p>We offer a wide range of protein expression services that utilize distinct expression systems, which are tailored to meet your specific project requirements. Our expertise extends to mammalian, insect, bacterial, and yeast expression systems, each offering unique advantages and capabilities.</p>
+      <p>We provide multiple expression systems — mammalian, insect, bacterial, and yeast — each optimized to project-specific requirements.</p>
 
       <h3>Mammalian Expression</h3>
-      <p>Utilizing HEK293 and CHO suspension cultures allows for the production of recombinant proteins and antibodies at large scale. Our optimized system, utilizing either transfection with plasmid DNA, transduction BacMam viruses produced in insect cells, or stable cell line development, allows for high-yielding and reproducible expression of intracellular, secreted and membrane proteins.</p>
+      <p>HEK293 and CHO suspension cultures enable large-scale recombinant protein and antibody production. Using plasmid transfection, BacMam viral transduction, or stable cell lines, we achieve high-yield and reproducible expression for intracellular, secreted, and membrane proteins.</p>
 
       <h3>Insect Expression</h3>
-      <p>Large scale production of intracellular, secreted, or membrane proteins using our baculovirus-mediated expression in insect cells. This allows for most of the post-translational modifications that occur in mammalian cells and results in high yields and fast turnaround times once baculovirus stocks have been generated.</p>
+      <p>Baculovirus-mediated expression in insect cells supports scalable production of intracellular, secreted, or membrane proteins with mammalian-like post-translational modifications and fast turnaround.</p>
 
       <h3>Bacterial Expression</h3>
-      <p>Using a variety of <i>E. coli</i> strains, our bacterial expression systems offer reliable and reproducible production of recombinant proteins at bioreactor scale, up to 40 L per batch.</p>
+      <p><i>E. coli</i>-based systems offer reliable and reproducible protein expression at bioreactor scales up to 40 L per batch.</p>
 
       <h3>Yeast Expression</h3>
-      <p>Protein expression in yeast provides a system that can produce high yield and potential capacity for scale up of proteins that are hard to express in bacteria. The similarity of the secretory system in yeast to that in mammalian provides a means to produce proteins with near-native post-translational modifications. In addition, yeast cells can be genetically manipulated to produce functional versions of therapeutically important proteins.</p>
+      <p>Yeast systems combine scalability with near-mammalian post-translational modifications, ideal for complex proteins. Genetic modification enables functional versions of therapeutically relevant proteins.</p>
     </section>
 
     <section class="container">
       <h2 class="svc-h2">Protein Purification</h2>
-      <p>Protein purification refers to the isolation of a target protein from a complex mixture of other biological materials utilizing various bulk physicochemical properties such as size, charge and hydrophobicity. Isolating a protein to a purity of &gt;90% is essential for their functional and structural characterization.</p>
-      <p>The process of protein purification consists of the following steps:</p>
+      <p>Protein purification isolates target proteins using physicochemical properties like size, charge, and hydrophobicity. Achieving &gt;90% purity ensures suitability for structural and functional studies.</p>
       <ul>
         <li>Sample Preparation</li>
         <li>Protein Extraction</li>
-        <li>Optimization and Purification</li>
-        <li>Analysis and Quality Control</li>
+        <li>Optimization & Purification</li>
+        <li>Analysis & Quality Control</li>
       </ul>
     </section>
   </main>
@@ -117,13 +145,27 @@
         <img class="brand-logo" src="../../../assets/Vaxonyx.svg" alt="Vaxonyx">
         <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
       </div>
+
+      <div class="foot-links">
+        <div class="foot-title">Quick Access</div>
+        <ul class="links">
+          <li><a href="../../../about/">About</a></li>
+          <li><a href="../../../innovation/">Innovation</a></li>
+          <li><a href="../../../pipeline/">Pipeline</a></li>
+          <li><a href="../../../products/">Products</a></li>
+          <li><a href="../../../news/">News & Investors</a></li>
+          <li><a href="../../../careers/">Careers</a></li>
+          <li><a href="../../../contact/">Contact</a></li>
+        </ul>
+      </div>
+
       <div class="foot-contacts">
         <div class="foot-title">General Information</div>
-        <a href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
+        <a class="email" href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
         <div class="foot-title mt">Investor Relations</div>
-        <a href="mailto:investorrelations@vaxonyx.com">investorrelations@vaxonyx.com</a>
+        <a class="email" href="mailto:investorrelations@vaxonyx.com">investorrelations@vaxonyx.com</a>
         <div class="foot-title mt">Business Development</div>
-        <a href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
+        <a class="email" href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
       </div>
     </div>
     <div class="footer-bottom">© 2025 Vaxonyx. All rights reserved.</div>
