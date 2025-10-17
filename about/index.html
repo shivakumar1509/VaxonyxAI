@@ -3,40 +3,184 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <base href="/VaxonyxAI/">
-  <title>About — Vaxonyx AI</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>About – Vaxonyx</title>
+
+  <!-- Brand assets & global styles -->
+  <link rel="preload" href="../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css?v=build-27" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.svg" class="brand-logo" alt="Vaxonyx AI">
-        <span class="brand-text">Vaxonyx AI</span>
+  <!-- ===== Header (same as homepage) ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <a class="brand" href="../">
+        <img class="brand-logo" src="../assets/Vaxonyx.svg" alt="Vaxonyx">
       </a>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="about/" class="active">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
-          <li><a href="contact/">Contact</a></li>
+
+      <nav class="site-nav" aria-label="Main">
+        <ul class="menu">
+          <li class="dropdown">
+            <a href="./">About <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#mission">Mission &amp; Vision</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="../careers/">Careers</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="../services/">Services <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../services/cell-lines/">Cell line services</a></li>
+
+              <!-- Fly-out submenu -->
+              <li class="has-sub">
+                <a href="../services/protein-production/" aria-haspopup="true" aria-expanded="false">
+                  Protein production <span class="caret right" aria-hidden="true">▸</span>
+                </a>
+                <ul class="submenu" role="menu" aria-label="Protein production submenu">
+                  <li><a href="../services/protein-production/antibody-production/">Antibody production</a></li>
+                  <li><a href="../services/protein-production/antigen/">Antigen production</a></li>
+                </ul>
+              </li>
+
+              <li><a href="../services/assays/">Assays</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="../platforms/">Platforms <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../platforms/#ai">AI platforms</a></li>
+              <li><a href="../platforms/#dna">DNA platforms</a></li>
+              <li><a href="../platforms/#delivery">DNA delivery platforms</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="../innovation/">Innovation <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../innovation/#pipeline">Pipeline</a></li>
+              <li><a href="../innovation/#products">Products</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="../news/">News &amp; Investors <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../news/#press">Press &amp; updates</a></li>
+              <li><a href="../investors/">Investor materials</a></li>
+            </ul>
+          </li>
+
+          <li><a href="../contact/">Contact</a></li>
         </ul>
       </nav>
+
+      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
     </div>
   </header>
 
-  <main class="page container">
-    <h1>About Us</h1>
-    <p>Vaxonyx AI is a biotech software group operating across India and the USA. We build reproducible pipelines for neoantigen discovery, bulk/scRNA-seq analysis, and translational reporting.</p>
-    <p>Our principles: scientific rigor, transparency, and design clarity.</p>
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero-inner container">
+        <h1 class="hero-title">About Vaxonyx</h1>
+        <p class="hero-sub">Designing tools to unlock next-generation vaccine design and delivery.</p>
+      </div>
+    </section>
+
+    <!-- ===== Mission & Vision ===== -->
+    <section id="mission" class="container about-section" aria-labelledby="mission-title" style="margin-top:28px">
+      <h2 id="mission-title">Mission</h2>
+      <p>
+        At <strong>Vaxonyx</strong>, we are building the foundation for a new era in vaccine and immunotherapy innovation.
+        Our mission is to harness the full potential of genomics, bioinformatics, and molecular design to accelerate
+        discoveries that directly improve human and animal health.
+      </p>
+      <p>
+        Through advanced platforms in <strong>bulk RNA-seq</strong>, <strong>single-cell RNA-seq</strong>,
+        <strong>variant calling</strong>, <strong>HLA typing</strong>, and <strong>neoantigen discovery</strong>,
+        we turn complex datasets into clear, actionable insights that drive translational breakthroughs.
+      </p>
+      <p>
+        We bridge computation and biology with precision. Every workflow—from immune profiling to vaccine target validation—
+        is built for <strong>reproducibility</strong>, <strong>scalability</strong>, and <strong>clinical relevance</strong>.
+        Our mission is not just to analyze data, but to <strong>enable discovery</strong>—helping partners move from
+        sequence to solution faster and more accurately than ever before.
+      </p>
+    </section>
+
+    <section id="vision" class="container about-section" aria-labelledby="vision-title" style="margin-top:22px">
+      <h2 id="vision-title">Vision</h2>
+      <p>
+        Over the next decade, <strong>Vaxonyx</strong> will stand at the forefront of a global transformation in how
+        vaccines and immunotherapies are designed. We envision a future where therapeutic decisions are data-informed,
+        antigens are computationally optimized before synthesis, and vaccines are tailored to genetic and immunologic profiles.
+      </p>
+      <p>
+        Our vision is to make <strong>computational immunology the engine of modern medicine</strong>—transforming raw
+        genomic information into predictive models that guide vaccine design, immune-response forecasting, and personalized
+        therapeutic development.
+      </p>
+      <p>
+        By integrating AI-driven analytics, high-throughput sequencing, and molecular engineering into one cohesive ecosystem,
+        we will expand our technologies, collaborations, and impact until <strong>precision vaccine design becomes the new
+        standard of care</strong>.
+      </p>
+    </section>
+
+    <!-- ===== Team (placeholder) ===== -->
+    <section id="team" class="container about-section" aria-labelledby="team-title" style="margin-top:28px">
+      <h2 id="team-title">Team</h2>
+      <p>We are scientists, engineers, and builders advancing computational immunology and translational biology.</p>
+      <!-- Add your team cards here -->
+    </section>
+
+    <!-- Optional CTA -->
+    <section class="container" style="margin:28px 0 34px; border-top:1px solid rgba(12,18,32,.12); padding-top:14px">
+      <a class="btn" href="../contact/">Talk to BD</a>
+      <a class="btn primary" href="../news/#press" style="margin-left:8px">See Updates</a>
+    </section>
   </main>
 
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
-    <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+    <div class="container footer-grid">
+      <div class="foot-brand">
+        <img class="brand-logo" src="../assets/Vaxonyx.svg" alt="Vaxonyx">
+        <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+      </div>
+
+      <div class="foot-links">
+        <div class="foot-title">Quick Access</div>
+        <ul class="links">
+          <li><a href="./">About</a></li>
+          <li><a href="../innovation/">Innovation</a></li>
+          <li><a href="../pipeline/">Pipeline</a></li>
+          <li><a href="../products/">Products</a></li>
+          <li><a href="../news/">News &amp; Investors</a></li>
+          <li><a href="../careers/">Careers</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-contacts">
+        <div class="foot-title">General Information</div>
+        <a class="email" href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
+
+        <div class="foot-title mt">Investor Relations</div>
+        <a class="email" href="mailto:investorrelations@vaxonyx.com">investorrelations@vaxonyx.com</a>
+
+        <div class="foot-title mt">Business Development</div>
+        <a class="email" href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">© 2025 Vaxonyx. All rights reserved.</div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+
+  <!-- AI widget JS -->
+  <script src="../assets/osx_widget.js?v=build-19" defer></script>
 </body>
 </html>
