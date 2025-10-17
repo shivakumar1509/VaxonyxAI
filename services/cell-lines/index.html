@@ -8,9 +8,10 @@
 
   <!-- Brand assets & global styles -->
   <link rel="preload" href="../../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
-  <link rel="stylesheet" href="../../css/styles.css?v=build-23">
+  <!-- Use same CSS build as homepage -->
+  <link rel="stylesheet" href="../../css/styles.css?v=build-27">
 
-  <!-- Page-scoped styles for this service (safe to keep inline) -->
+  <!-- Page-scoped styles for this service (kept intact) -->
   <style>
     :root{
       --vx-primary:#007C91; /* Teal */
@@ -71,7 +72,8 @@
     .steps li{padding:14px 14px 14px 24px;position:relative}
     .steps .dot{position:absolute;left:-7px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--vx-accent);box-shadow:0 0 0 6px rgba(63,169,245,.15)}
     .steps h3{font:600 15px/1.3 system-ui;margin:0;color:#0f1a2a}
-    .steps .time{margin:.2rem 0 0;font:600 13px/1.2 system-ui;color:#var(--vx-primary)}
+    .steps .time{margin:.2rem 0 0;font:600 13px/1.2 system-ui;color:var(--vx-primary)}
+
     .callout{display:flex;gap:10px;align-items:center;border:1px solid var(--vx-line);background:linear-gradient(180deg,#fff,rgba(255,255,255,.7));border-radius:12px;padding:12px 14px;margin-top:14px}
 
     /* FAQ */
@@ -86,10 +88,14 @@
 
     /* Local section headings */
     .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
+
+    /* Safeguards so dropdowns don't disappear on hover */
+    .site-nav .dropdown:hover > .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;}
+    .site-nav .has-sub:hover > .submenu{opacity:1;visibility:visible;pointer-events:auto;}
   </style>
 </head>
 <body>
-  <!-- ===== Site Header (copied from homepage) ===== -->
+  <!-- ===== Site Header (synced with homepage) ===== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
       <a class="brand" href="../../">
@@ -101,8 +107,8 @@
           <li class="dropdown">
             <a href="../../about/">About <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="/about/#mission">Mission &amp; Vision</a></li>
-              <li><a href="/about/#team">Team</a></li>
+              <li><a href="../../about/#mission">Mission &amp; Vision</a></li>
+              <li><a href="../../about/#team">Team</a></li>
               <li><a href="../../careers/">Careers</a></li>
             </ul>
           </li>
@@ -111,7 +117,18 @@
             <a href="../../services/">Services <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
               <li><a aria-current="page" href="../">Cell line services</a></li>
-              <li><a href="../protein-production/">Protein Production</a></li>
+
+              <!-- Fly-out submenu (matches homepage) -->
+              <li class="has-sub">
+                <a href="../protein-production/" aria-haspopup="true" aria-expanded="false">
+                  Protein production <span class="caret right" aria-hidden="true">▸</span>
+                </a>
+                <ul class="submenu" role="menu" aria-label="Protein production submenu">
+                  <li><a href="../protein-production/antibody-production/">Antibody production</a></li>
+                  <li><a href="../protein-production/antigen/">Antigen production</a></li>
+                </ul>
+              </li>
+
               <li><a href="../assays/">Assays</a></li>
             </ul>
           </li>
@@ -119,25 +136,25 @@
           <li class="dropdown">
             <a href="../../platforms/">Platforms <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="/platforms/#ai">AI platforms</a></li>
-              <li><a href="/platforms/#dna">DNA platforms</a></li>
-              <li><a href="/platforms/#delivery">DNA delivery platforms</a></li>
+              <li><a href="../../platforms/#ai">AI platforms</a></li>
+              <li><a href="../../platforms/#dna">DNA platforms</a></li>
+              <li><a href="../../platforms/#delivery">DNA delivery platforms</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
             <a href="../../innovation/">Innovation <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="/innovation/#pipeline">Pipeline</a></li>
-              <li><a href="/innovation/#products">Products</a></li>
+              <li><a href="../../innovation/#pipeline">Pipeline</a></li>
+              <li><a href="../../innovation/#products">Products</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
             <a href="../../news/">News &amp; Investors <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="/news/#press">Press &amp; updates</a></li>
-              <li><a href":"../../investors/">Investor materials</a></li>
+              <li><a href="../../news/#press">Press &amp; updates</a></li>
+              <li><a href="../../investors/">Investor materials</a></li>
             </ul>
           </li>
 
@@ -296,7 +313,7 @@
     </section>
   </main>
 
-  <!-- ===== Footer (copied from homepage) ===== -->
+  <!-- ===== Footer (kept intact) ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
@@ -309,8 +326,8 @@
         <ul class="links">
           <li><a href="../../about/">About</a></li>
           <li><a href="../../innovation/">Innovation</a></li>
-          <li><a href="/pipeline/">Pipeline</a></li>
-          <li><a href="/products/">Products</a></li>
+          <li><a href="../../pipeline/">Pipeline</a></li>
+          <li><a href="../../products/">Products</a></li>
           <li><a href="../../news/">News &amp; Investors</a></li>
           <li><a href="../../careers/">Careers</a></li>
           <li><a href="../../contact/">Contact</a></li>
@@ -332,7 +349,7 @@
     <div class="footer-bottom">© 2025 Vaxonyx. All rights reserved.</div>
   </footer>
 
-  <!-- Page micro-JS: KPI counters -->
+  <!-- Page micro-JS: KPI counters (kept intact) -->
   <script>
     (function(){
       const els=[...document.querySelectorAll('.kpi .num')];
