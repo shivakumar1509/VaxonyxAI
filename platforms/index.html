@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Platforms – Vaxonyx</title>
+  <link rel="preload" href="../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css?v=build-27" />
+  <style>
+    .status{display:inline-flex;align-items:center;gap:.5ch;font:600 13px/1 system-ui;border:1px solid rgba(12,18,32,.12);border-radius:999px;padding:.5rem .75rem;background:#fff}
+    .status b{font-weight:800}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+    @media(max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.cards{grid-template-columns:1fr}}
+    .card{background:#fff;border:1px solid rgba(12,18,32,.12);border-radius:16px;padding:16px}
+    .card h3{margin:.1rem 0 .35rem;font:700 16px/1.3 system-ui}
+    .card p{margin:0;font:400 14px/1.6 system-ui;color:#2a3040}
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <a class="brand" href="../"><img class="brand-logo" src="../assets/Vaxonyx.svg" alt="Vaxonyx"></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul class="menu">
+          <li class="dropdown">
+            <a href="../about/">About <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../about/#mission">Mission &amp; Vision</a></li>
+              <li><a href="../about/#team">Team</a></li>
+              <li><a href="../careers/">Careers</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="../services/">Services <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../services/cell-lines/">Cell line services</a></li>
+              <li class="has-sub">
+                <a href="../services/protein-production/" aria-haspopup="true" aria-expanded="false">
+                  Protein production <span class="caret right" aria-hidden="true">▸</span>
+                </a>
+                <ul class="submenu" role="menu" aria-label="Protein production submenu">
+                  <li><a href="../services/protein-production/antibody-production/">Antibody production</a></li>
+                  <li><a href="../services/protein-production/antigen/">Antigen production</a></li>
+                </ul>
+              </li>
+              <li><a href="../services/assays/">Assays</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="./">Platforms <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#ai">AI platforms</a></li>
+              <li><a href="#dna">DNA platforms</a></li>
+              <li><a href="#delivery">DNA delivery platforms</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="../innovation/">Innovation <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../innovation/#pipeline">Pipeline</a></li>
+              <li><a href="../innovation/#products">Products</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="../news/">News &amp; Investors <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../news/#press">Press &amp; updates</a></li>
+              <li><a href="../investors/">Investor materials</a></li>
+            </ul>
+          </li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-inner container">
+        <h1 class="hero-title">Platforms</h1>
+        <p class="hero-sub"><span class="status">Status: <b>In Research</b> — live previews coming soon</span></p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="cards">
+        <article id="ai" class="card">
+          <h3>AI platforms</h3>
+          <p>Model-driven epitope/neoantigen ranking, immunogenicity prediction, and workflow orchestration.</p>
+        </article>
+        <article id="dna" class="card">
+          <h3>DNA platforms</h3>
+          <p>Sequence design, optimization, and analytics across bulk RNA-seq, scRNA-seq, variant calling &amp; HLA typing.</p>
+        </article>
+        <article id="delivery" class="card">
+          <h3>DNA delivery platforms</h3>
+          <p>Vectors and delivery strategies aligned with expression, stability, and safety requirements.</p>
+        </article>
+      </div>
+      <p><a class="btn" href="../contact/">Get early access</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="foot-brand">
+        <img class="brand-logo" src="../assets/Vaxonyx.svg" alt="Vaxonyx">
+        <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-title">Quick Access</div>
+        <ul class="links">
+          <li><a href="../about/">About</a></li>
+          <li><a href="../innovation/">Innovation</a></li>
+          <li><a href="../pipeline/">Pipeline</a></li>
+          <li><a href="../products/">Products</a></li>
+          <li><a href="../news/">News &amp; Investors</a></li>
+          <li><a href="../careers/">Careers</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-contacts">
+        <div class="foot-title">General Information</div>
+        <a class="email" href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
+        <div class="foot-title mt">Investor Relations</div>
+        <a class="email" href="mailto:investorrelations@vaxonyx.com">investorrelations@vaxonyx.com</a>
+        <div class="foot-title mt">Business Development</div>
+        <a class="email" href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Vaxonyx. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/osx_widget.js?v=build-19" defer></script>
+</body>
+</html>
