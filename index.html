@@ -101,8 +101,8 @@
   <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero-inner container">
-      <h1 class="hero-title">
-        Designing tools to unlock next-generation vaccine design and delivery.
+      <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite" style="opacity:1; transition:opacity 400ms ease">
+        Science for All — Affordable, Accessible, Advanced.
       </h1>
     </div>
   </section>
@@ -154,5 +154,32 @@
 
   <!-- AI widget JS -->
   <script src="assets/osx_widget.js?v=build-19" defer></script>
+
+  <!-- Rotating slogans (lightweight, no external deps) -->
+  <script>
+    (function() {
+      var slogans = [
+        "Science for All — Affordable, Accessible, Advanced.",
+        "AI-Driven Solutions for Next-Gen Therapeutics."
+      ];
+      var el = document.getElementById("vx-rotating-slogan");
+      if (!el) return;
+
+      var i = 0;
+      var DISPLAY_MS = 3000;   // visible time per slogan
+      var FADE_MS = 400;       // matches inline transition
+
+      function nextSlogan() {
+        el.style.opacity = "0";
+        setTimeout(function() {
+          i = (i + 1) % slogans.length;
+          el.textContent = slogans[i];
+          el.style.opacity = "1";
+        }, FADE_MS);
+      }
+
+      setInterval(nextSlogan, DISPLAY_MS + FADE_MS * 2);
+    })();
+  </script>
 </body>
 </html>
