@@ -20,12 +20,20 @@
     .svc-hero{padding:88px 0 42px;background:var(--vx-bg)}
     .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.1 system-ui;color:var(--vx-ink);margin:0 0 10px}
     .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
+
+    /* badges */
+    .svc-badges{display:flex;gap:.5rem;align-items:center;margin:14px 0 0;flex-wrap:wrap}
+    .svc-badge{display:inline-flex;align-items:center;gap:.5ch;padding:.4rem .7rem;
+      border:1px solid var(--vx-line);border-radius:999px;font:600 12px/1.1 system-ui;
+      color:var(--vx-primary);background:#fff}
+
     .section{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
     p{font:400 15px/1.65 system-ui;color:#2a3040}
     ul{margin:8px 0 0 18px}
     .callout{border:1px solid var(--vx-line);background:#fff;border-radius:16px;padding:18px}
     .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1;background:var(--bg);color:var(--fg)}
     .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
+
     .dropdown-menu a[aria-current="page"]{color:var(--vx-blue)!important;background:rgba(27,66,122,.08);font-weight:700}
     .dropdown-menu a[aria-current="page"]:hover{background:rgba(27,66,122,.12)}
   </style>
@@ -110,6 +118,13 @@
       <div class="container">
         <h1>DNA Delivery Platform</h1>
         <p>Efficient, targeted, and safe non-viral systems for transporting genetic materials to cells and tissues.</p>
+        <!-- NEW badges -->
+        <div class="svc-badges">
+          <span class="svc-badge">Non-viral</span>
+          <span class="svc-badge">Low toxicity</span>
+          <span class="svc-badge">Targeted uptake</span>
+          <span class="svc-badge">Minimal immunogenicity</span>
+        </div>
       </div>
     </section>
 
