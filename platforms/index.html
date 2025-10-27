@@ -34,7 +34,6 @@
     .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
     .anchor-pad{scroll-margin-top:90px}
 
-    /* keep active link color inside menus consistent */
     .dropdown-menu a[aria-current="page"]{
       color: var(--vx-blue) !important;
       background: rgba(27,66,122,.08);
@@ -44,7 +43,6 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-row">
       <a class="brand" href="../">
@@ -54,7 +52,7 @@
       <nav class="site-nav" aria-label="Main">
         <ul class="menu">
           <li class="dropdown">
-            <a href="../about/">About <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../about/">About ▾</a>
             <ul class="dropdown-menu">
               <li><a href="../about/#mission">Mission &amp; Vision</a></li>
               <li><a href="../about/#team">Team</a></li>
@@ -63,19 +61,19 @@
           </li>
 
           <li class="dropdown">
-            <a href="../services/">Services <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../services/">Services ▾</a>
             <ul class="dropdown-menu">
               <li><a href="../services/cell-lines/">Cell line services</a></li>
               <li class="has-sub">
-                <a href="../services/protein-production/">Protein production <span class="caret right" aria-hidden="true">▸</span></a>
-                <ul class="submenu" role="menu" aria-label="Protein production submenu">
+                <a href="../services/protein-production/">Protein production ▸</a>
+                <ul class="submenu">
                   <li><a href="../services/protein-production/antibody-production/">Antibody production</a></li>
                   <li><a href="../services/protein-production/antigen/">Antigen production</a></li>
                 </ul>
               </li>
               <li class="has-sub">
-                <a href="../services/assays/">Assays <span class="caret right" aria-hidden="true">▸</span></a>
-                <ul class="submenu" role="menu" aria-label="Assays submenu">
+                <a href="../services/assays/">Assays ▸</a>
+                <ul class="submenu">
                   <li><a href="../services/assays/biochemical/">Biochemical assays</a></li>
                   <li><a href="../services/assays/virology/">Virology-Based assays</a></li>
                 </ul>
@@ -85,7 +83,7 @@
           </li>
 
           <li class="dropdown">
-            <a aria-current="page" href="./">Platforms <span class="caret" aria-hidden="true">▾</span></a>
+            <a aria-current="page" href="./">Platforms ▾</a>
             <ul class="dropdown-menu">
               <li><a href="#ai">AI platforms</a></li>
               <li><a href="#dna">DNA platforms</a></li>
@@ -94,7 +92,7 @@
           </li>
 
           <li class="dropdown">
-            <a href="../innovation/">Innovation <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../innovation/">Innovation ▾</a>
             <ul class="dropdown-menu">
               <li><a href="../innovation/#pipeline">Pipeline</a></li>
               <li><a href="../innovation/#products">Products</a></li>
@@ -102,7 +100,7 @@
           </li>
 
           <li class="dropdown">
-            <a href="../news/">News &amp; Investors <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../news/">News &amp; Investors ▾</a>
             <ul class="dropdown-menu">
               <li><a href="../news/#press">Press &amp; updates</a></li>
               <li><a href="../investors/">Investor materials</a></li>
@@ -118,7 +116,6 @@
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="plat-hero">
       <div class="container">
         <h1>Platforms</h1>
@@ -126,9 +123,8 @@
       </div>
     </section>
 
-    <!-- Cards -->
-    <section class="container" aria-labelledby="browse">
-      <h2 id="browse" class="section">Browse platforms</h2>
+    <section class="container">
+      <h2 class="section">Browse platforms</h2>
       <div class="cards three">
         <article id="ai" class="card anchor-pad">
           <h3>AI Platform</h3>
@@ -139,30 +135,28 @@
         <article id="dna" class="card anchor-pad">
           <h3>DNA Design Platform</h3>
           <p>Next-generation plasmid systems engineered for robust expression, long-term stability, and tailored immunogenicity profiles.</p>
-          <div><a class="btn" href="#dna-details">View Summary</a></div>
+          <div><a class="btn primary" href="./dna/">Explore DNA Platform</a></div>
         </article>
 
         <article id="delivery" class="card anchor-pad">
           <h3>DNA Delivery Platform</h3>
           <p>Non-viral delivery technologies optimized for efficient uptake and expression with low toxicity and minimal immunogenicity.</p>
-          <div><a class="btn" href="#delivery-details">View Summary</a></div>
+          <div><a class="btn primary" href="./delivery/">Explore Delivery Platform</a></div>
         </article>
       </div>
     </section>
 
-    <!-- Brief summaries (anchors for dropdown items) -->
-    <section class="container" id="dna-details" aria-labelledby="dna-h2">
-      <h2 id="dna-h2" class="section">DNA Design Platform</h2>
-      <p>Our DNA Design Platform focuses on next-generation plasmids for vaccines and gene therapy. Constructs are engineered for enhanced immunogenicity and durable expression. For gene therapy, we emphasize low-immunogenic backbones with reduced CpG content, optimized UTRs, and self-episomal replication in mitotic cells to enable persistent expression without genomic integration. Through sequence engineering and vector optimization, we deliver safe, efficient, and durable DNA platforms that bridge discovery and translational medicine.</p>
+    <section class="container" id="dna-details">
+      <h2 class="section">DNA Design Platform</h2>
+      <p>Our DNA Design Platform focuses on next-generation plasmids for vaccines and gene therapy. Constructs are engineered for enhanced immunogenicity and durable expression. For gene therapy, we emphasize low-immunogenic backbones with reduced CpG content, optimized UTRs, and self-episomal replication in mitotic cells to enable persistent expression without genomic integration.</p>
     </section>
 
-    <section class="container" id="delivery-details" aria-labelledby="deliv-h2" style="margin-bottom:34px">
-      <h2 id="deliv-h2" class="section">DNA Delivery Platform</h2>
-      <p>Our DNA Delivery Platform develops efficient, targeted, and safe systems for transporting genetic materials. We optimize delivery agents for improved DNA uptake and expression while maintaining low toxicity and minimal immunogenicity. By combining advanced formulation science with molecular engineering, we create versatile non-viral platforms for vaccines, gene therapy, and immunotherapy—delivering reliable performance across preclinical and translational studies. Vaxonyx is open to collaborations to co-develop and validate novel DNA delivery technologies that advance genetic medicines.</p>
+    <section class="container" id="delivery-details" style="margin-bottom:34px">
+      <h2 class="section">DNA Delivery Platform</h2>
+      <p>Our DNA Delivery Platform develops efficient, targeted, and safe systems for transporting genetic materials. We optimize delivery agents for improved DNA uptake and expression while maintaining low toxicity and minimal immunogenicity. By combining advanced formulation science with molecular engineering, we create versatile non-viral platforms for vaccines, gene therapy, and immunotherapy—delivering reliable performance across preclinical and translational studies.</p>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
@@ -194,7 +188,6 @@
         <a class="email" href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
       </div>
     </div>
-
     <div class="footer-bottom">© 2025 Vaxonyx. All rights reserved.</div>
   </footer>
 
