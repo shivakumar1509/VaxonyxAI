@@ -292,3 +292,34 @@ a{ color:var(--vx-blue); }
   justify-items:center;  /* center inner items (h2, p, button) */
   text-align:center;     /* center text content */
 }
+
+/* --- Footer centering + sticky-bottom (site-wide) --- */
+
+/* Make the page fill the viewport and push footer to bottom */
+html, body { height: 100%; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+
+/* Center the footer content */
+.site-footer { text-align: center; }
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;        /* single column on all pages */
+  justify-items: center;             /* center items horizontally */
+  gap: 18px;                         /* breathing room between blocks */
+}
+
+/* Center the link list nicely as pills/rows */
+.site-footer .foot-links .links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  justify-content: center;           /* center link rows */
+}
+
+/* Ensure the very bottom copyright line is centered */
+.site-footer .footer-bottom { text-align: center; }
+
