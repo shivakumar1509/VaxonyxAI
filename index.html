@@ -91,7 +91,6 @@
         </ul>
       </nav>
 
-      <!-- Keep AI in the button label -->
       <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
         Ask Vaxonyx AI
       </button>
@@ -104,10 +103,13 @@
       <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite" style="opacity:1; transition:opacity 400ms ease">
         Science for All — Affordable, Accessible, Advanced.
       </h1>
+      <div id="vx-rotating-image" style="opacity:0; transition:opacity 400ms ease; margin-top:1rem;">
+        <img src="VaxonyxAI/assets/Neoantigens_discovery.svg" alt="Neoantigen Discovery" style="max-width:300px; display:block; margin:0 auto;">
+      </div>
     </div>
   </section>
 
-  <!-- ===== Footer (inlined to avoid include.js issues) ===== -->
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
@@ -154,30 +156,39 @@
   <!-- AI widget JS -->
   <script src="assets/osx_widget.js?v=build-19" defer></script>
 
-  <!-- Rotating slogans (lightweight, no external deps) -->
+  <!-- Rotating slogans and image -->
   <script>
     (function() {
-      var slogans = [
+      const slogans = [
         "Science for All — Affordable, Accessible, Advanced.",
         "AI-Driven Solutions for Next-Gen Therapeutics."
       ];
-      var el = document.getElementById("vx-rotating-slogan");
-      if (!el) return;
+      const el = document.getElementById("vx-rotating-slogan");
+      const img = document.getElementById("vx-rotating-image");
+      if (!el || !img) return;
 
-      var i = 0;
-      var DISPLAY_MS = 3000;
-      var FADE_MS = 400;
+      let i = 0;
+      const DISPLAY_MS = 3000;
+      const FADE_MS = 400;
 
-      function nextSlogan() {
+      function nextSlide() {
         el.style.opacity = "0";
-        setTimeout(function() {
-          i = (i + 1) % slogans.length;
-          el.textContent = slogans[i];
-          el.style.opacity = "1";
+        img.style.opacity = "0";
+        setTimeout(() => {
+          i = (i + 1) % (slogans.length + 1);
+
+          if (i < slogans.length) {
+            el.textContent = slogans[i];
+            el.style.opacity = "1";
+          } else {
+            // Show SVG after the last slogan
+            el.textContent = "";
+            img.style.opacity = "1";
+          }
         }, FADE_MS);
       }
 
-      setInterval(nextSlogan, DISPLAY_MS + FADE_MS * 2);
+      setInterval(nextSlide, DISPLAY_MS + FADE_MS * 2);
     })();
   </script>
 </body>
