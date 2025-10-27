@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaxonyx</title>
 
-  <!-- Preload the SVG logo -->
+  <!-- Preload SVGs -->
   <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
+  <link rel="preload" href="assets/Neoantigens_discovery.svg" as="image" type="image/svg+xml">
 
   <!-- Global styles -->
   <link rel="stylesheet" href="css/styles.css?v=build-33" />
@@ -35,7 +36,7 @@
             <ul class="dropdown-menu">
               <li><a href="services/cell-lines/">Cell line services</a></li>
 
-              <!-- Protein Production with fly-out submenu -->
+              <!-- Protein Production -->
               <li class="has-sub">
                 <a href="services/protein-production/" aria-haspopup="true" aria-expanded="false">
                   Protein production <span class="caret right" aria-hidden="true">▸</span>
@@ -57,7 +58,6 @@
                 </ul>
               </li>
 
-              <!-- Molecular biology -->
               <li><a href="services/molecular-biology/">Molecular biology</a></li>
             </ul>
           </li>
@@ -103,8 +103,13 @@
       <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite" style="opacity:1; transition:opacity 400ms ease">
         Science for All — Affordable, Accessible, Advanced.
       </h1>
-      <div id="vx-rotating-image" style="opacity:0; transition:opacity 400ms ease; margin-top:1rem;">
-        <img src="VaxonyxAI/assets/Neoantigens_discovery.svg" alt="Neoantigen Discovery" style="max-width:300px; display:block; margin:0 auto;">
+      <div id="vx-rotating-image" style="opacity:0; transition:opacity 400ms ease; margin-top:1.5rem;">
+        <img
+          src="assets/Neoantigens_discovery.svg"
+          alt="Neoantigen Discovery"
+          style="max-width:425px; width:100%; height:auto; display:block; margin:0 auto;"
+          onerror="this.style.display='none'; console.warn('Neoantigens_discovery.svg failed to load');"
+        >
       </div>
     </div>
   </section>
@@ -156,34 +161,32 @@
   <!-- AI widget JS -->
   <script src="assets/osx_widget.js?v=build-19" defer></script>
 
-  <!-- Rotating slogans and image -->
+  <!-- Rotating slogans and SVG -->
   <script>
     (function() {
       const slogans = [
         "Science for All — Affordable, Accessible, Advanced.",
         "AI-Driven Solutions for Next-Gen Therapeutics."
       ];
-      const el = document.getElementById("vx-rotating-slogan");
-      const img = document.getElementById("vx-rotating-image");
-      if (!el || !img) return;
+      const textEl = document.getElementById("vx-rotating-slogan");
+      const imgEl = document.getElementById("vx-rotating-image");
+      if (!textEl || !imgEl) return;
 
       let i = 0;
       const DISPLAY_MS = 3000;
       const FADE_MS = 400;
 
       function nextSlide() {
-        el.style.opacity = "0";
-        img.style.opacity = "0";
+        textEl.style.opacity = "0";
+        imgEl.style.opacity = "0";
         setTimeout(() => {
           i = (i + 1) % (slogans.length + 1);
-
           if (i < slogans.length) {
-            el.textContent = slogans[i];
-            el.style.opacity = "1";
+            textEl.textContent = slogans[i];
+            textEl.style.opacity = "1";
           } else {
-            // Show SVG after the last slogan
-            el.textContent = "";
-            img.style.opacity = "1";
+            textEl.textContent = "";
+            imgEl.style.opacity = "1";
           }
         }, FADE_MS);
       }
