@@ -8,9 +8,28 @@
   <!-- Brand assets & global styles -->
   <link rel="preload" href="../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="../css/styles.css?v=build-27" />
+
+  <!-- Page-scoped styles to match service pages (no blue hero) -->
+  <style>
+    :root{
+      --vx-primary:#007C91; /* Teal */
+      --vx-accent:#3FA9F5;  /* Sky */
+      --vx-ink:#0b1220;
+      --vx-line:rgba(12,18,32,.12);
+      --vx-bg: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%);
+    }
+    .container{width:min(1120px,92%);margin-inline:auto}
+    .svc-hero{position:relative;padding:88px 0 42px;background:var(--vx-bg)}
+    .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--vx-ink);margin:0 0 10px}
+    .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
+    .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
+    /* Keep dropdowns stable like other pages */
+    .site-nav .dropdown:hover > .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
+    .site-nav .has-sub:hover > .submenu{opacity:1;visibility:visible;pointer-events:auto}
+  </style>
 </head>
 <body>
-  <!-- ===== Header (same as homepage) ===== -->
+  <!-- ===== Header (same as other pages) ===== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
       <a class="brand" href="../">
@@ -82,17 +101,17 @@
   </header>
 
   <main id="main">
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <div class="hero-inner container">
-        <h1 class="hero-title">About Vaxonyx</h1>
-        <p class="hero-sub">Designing tools to unlock next-generation vaccine design and delivery.</p>
+    <!-- ===== Hero (matches service pages; no blue gradient) ===== -->
+    <section class="svc-hero">
+      <div class="container">
+        <h1>About Vaxonyx</h1>
+        <p>Designing tools to unlock next-generation vaccine design and delivery.</p>
       </div>
     </section>
 
     <!-- ===== Mission & Vision ===== -->
     <section id="mission" class="container about-section" aria-labelledby="mission-title" style="margin-top:28px">
-      <h2 id="mission-title">Mission</h2>
+      <h2 id="mission-title" class="svc-h2">Mission</h2>
       <p>
         At <strong>Vaxonyx</strong>, we are building the foundation for a new era in vaccine and immunotherapy innovation.
         Our mission is to harness the full potential of genomics, bioinformatics, and molecular design to accelerate
@@ -112,7 +131,7 @@
     </section>
 
     <section id="vision" class="container about-section" aria-labelledby="vision-title" style="margin-top:22px">
-      <h2 id="vision-title">Vision</h2>
+      <h2 id="vision-title" class="svc-h2">Vision</h2>
       <p>
         Over the next decade, <strong>Vaxonyx</strong> will stand at the forefront of a global transformation in how
         vaccines and immunotherapies are designed. We envision a future where therapeutic decisions are data-informed,
@@ -132,19 +151,19 @@
 
     <!-- ===== Team (placeholder) ===== -->
     <section id="team" class="container about-section" aria-labelledby="team-title" style="margin-top:28px">
-      <h2 id="team-title">Team</h2>
+      <h2 id="team-title" class="svc-h2">Team</h2>
       <p>We are scientists, engineers, and builders advancing computational immunology and translational biology.</p>
       <!-- Add your team cards here -->
     </section>
 
-    <!-- Optional CTA -->
+    <!-- Optional CTA (kept) -->
     <section class="container" style="margin:28px 0 34px; border-top:1px solid rgba(12,18,32,.12); padding-top:14px">
       <a class="btn" href="../contact/">Talk to BD</a>
       <a class="btn primary" href="../news/#press" style="margin-left:8px">See Updates</a>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
+  <!-- ===== Footer (unchanged) ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
