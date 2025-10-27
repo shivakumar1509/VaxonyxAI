@@ -309,17 +309,5 @@ main { flex: 1; }
   gap: 18px;                         /* breathing room between blocks */
 }
 
-/* Center the link list nicely as pills/rows */
-.site-footer .foot-links .links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-  justify-content: center;           /* center link rows */
-}
 
-/* Ensure the very bottom copyright line is centered */
-.site-footer .footer-bottom { text-align: center; }
 
