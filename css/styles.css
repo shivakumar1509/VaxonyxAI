@@ -144,9 +144,9 @@ body{
   background: linear-gradient(180deg, #3FA9F5 0%, #0d2a56 70%, #000 100%);
   min-height: 64vh;
   display:flex; align-items:center;
-  justify-content:center; /* ✅ NEW: center the content horizontally */
+  justify-content:center; /* center the content horizontally */
 }
-.hero-inner{ position:relative; padding: var(--hero-pad-y) 0; width:100%; text-align:center; } /* ✅ NEW: center text */
+.hero-inner{ position:relative; padding: var(--hero-pad-y) 0; width:100%; text-align:center; } /* center text */
 .hero-title{
   color:#fff; font-weight:800;
   font-size: clamp(28px, 5vw, 56px);
@@ -285,4 +285,10 @@ a{ color:var(--vx-blue); }
   display:flex;
   gap:10px;
   flex-wrap:wrap
+}
+
+/* ===== Alignment helper for service CTAs ===== */
+.final-cta{
+  justify-items:center;  /* center inner items (h2, p, button) */
+  text-align:center;     /* center text content */
 }
