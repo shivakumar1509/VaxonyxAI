@@ -81,18 +81,8 @@
     .faq summary{cursor:pointer;font:600 14px/1.3 system-ui;color:#0f1a2a}
     .faq div{padding-top:8px;color:#2a3040;font:400 14px/1.55 system-ui}
 
-    /* Final CTA (centered) */
-    .final-cta{
-      margin:28px 0 40px;
-      border:1px solid var(--vx-line);
-      background:radial-gradient(1200px 1200px at 0% 100%, rgba(63,169,245,.12), transparent), #fff;
-      padding:22px;
-      border-radius:16px;
-      display:grid;
-      gap:6px;
-      justify-items:center;   /* centered */
-      text-align:center;      /* centered text */
-    }
+    /* Final CTA */
+    .final-cta{margin:28px 0 40px;border:1px solid var(--vx-line);background:radial-gradient(1200px 1200px at 0% 100%, rgba(63,169,245,.12), transparent), #fff;padding:22px;border-radius:16px;display:grid;gap:6px;justify-items:start}
     .final-cta h2{margin:0;color:#0a1626;font:700 22px/1.2 system-ui}
     .final-cta p{margin:0 0 6px;color:#2a3040;font:400 14px/1.55 system-ui}
 
@@ -337,7 +327,55 @@
 
   <!-- ===== Shared Footer Include ===== -->
   <div data-include="/VaxonyxAI/partials/footer.html"></div>
-  <script src="/VaxonyxAI/assets/include.js" defer></script>
+
+  <!-- Inline include.js to avoid bad script src paths -->
+  <script>
+    (function () {
+      function resolvePath(path, siteBase) {
+        if (/^https?:\/\//i.test(path)) return path;
+        if (path.startsWith('/')) {
+          return (siteBase || '') + path;
+        }
+        return path;
+      }
+
+      function runIncludes() {
+        var scriptTag = document.currentScript;
+        var siteBase = "/VaxonyxAI"; // set base once for GitHub Pages repo
+
+        var nodes = document.querySelectorAll('[data-include]');
+        if (!nodes.length) {
+          console.log('[include.js] No data-include elements found.');
+          return;
+        }
+        console.log('[include.js] siteBase =', siteBase);
+        nodes.forEach(function (node) {
+          var raw = node.getAttribute('data-include');
+          var url = resolvePath(raw, siteBase);
+          console.log('[include.js] fetching:', url, '(from raw:', raw + ')');
+
+          fetch(url, { cache: 'no-cache' })
+            .then(function (res) {
+              if (!res.ok) throw new Error('HTTP ' + res.status + ' fetching ' + url);
+              return res.text();
+            })
+            .then(function (html) {
+              node.outerHTML = html;
+              console.log('[include.js] injected:', url);
+            })
+            .catch(function (err) {
+              console.error('[include.js] Failed:', err);
+            });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', runIncludes);
+      } else {
+        runIncludes();
+      }
+    })();
+  </script>
 
   <!-- Page micro-JS: KPI counters (kept intact) -->
   <script>
