@@ -98,34 +98,33 @@
   </header>
 
   <!-- ===== Hero ===== -->
-  <!-- Center contents within the blue hero box -->
-  <section class="hero" style="display:flex; align-items:center; justify-content:center;">
-    <div class="hero-inner container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:60vh;">
-      <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite" style="opacity:1; transition:opacity 400ms ease">
+  <!-- Vertically centered slogans + SVG -->
+  <section class="hero" style="display:flex; align-items:center; justify-content:center; min-height:100vh;">
+    <div class="hero-inner container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+      <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite" style="opacity:1; transition:opacity 400ms ease; margin-bottom:2rem;">
         Science for All — Affordable, Accessible, Advanced.
       </h1>
 
-      <!-- SVG container scaled to ~1.5× the old size -->
+      <!-- SVG container (1.5× scale, centered) -->
       <div id="vx-rotating-image" style="
         opacity:0;
         transition:opacity 400ms ease;
-        margin-top:2rem;
         display:flex;
         justify-content:center;
         align-items:center;
         background-color:white;
         border-radius:12px;
         box-shadow:0 4px 20px rgba(0,0,0,0.2);
-        padding:1.5rem;          /* was 1rem */
+        padding:1.5rem;
         width:90%;
-        max-width:1350px;        /* was 900px → 1.5× */
+        max-width:1350px;
         margin-left:auto;
         margin-right:auto;
       ">
         <img
           src="assets/Neoantigens_discovery.svg"
           alt="Neoantigen Discovery"
-          style="width:100%; height:auto;"  /* keep crisp; scaling via container */
+          style="width:100%; height:auto;"
           onerror="this.style.display='none'; console.warn('Neoantigens_discovery.svg failed to load');"
         >
       </div>
