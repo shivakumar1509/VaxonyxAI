@@ -98,23 +98,19 @@
   </header>
 
   <!-- ===== Hero ===== -->
-  <!-- Keep original hero height; center content with Grid; hidden thing = display:none -->
   <section class="hero">
-    <div class="hero-inner container"
-         style="display:grid; place-items:center; text-align:center; padding:4rem 0;">
-      <h1 class="hero-title" id="vx-rotating-slogan"
-          aria-live="polite"
+    <div class="hero-inner container" style="display:grid; place-items:center; text-align:center; padding:4rem 0;">
+      <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite"
           style="opacity:1; transition:opacity 400ms ease; margin:0;">
         Science for All — Affordable, Accessible, Advanced.
       </h1>
 
       <!-- SVG 1.5× container -->
       <div id="vx-rotating-image" style="
-        display:none;                 /* hidden elements don't take space */
+        display:none;                 /* stays out of layout when hidden */
         opacity:0;
         transition:opacity 400ms ease;
         margin-top:2rem;
-        display:flex;
         justify-content:center;
         align-items:center;
         background-color:white;
@@ -122,14 +118,14 @@
         box-shadow:0 4px 20px rgba(0,0,0,0.2);
         padding:1.5rem;
         width:90%;
-        max-width:1350px;             /* 1.5× of 900px */
+        max-width:1350px;
         margin-left:auto;
         margin-right:auto;
       ">
         <img
           src="assets/Neoantigens_discovery.svg"
           alt="Neoantigen Discovery"
-          style="width:100%; height:auto;"
+          style="width:100%; height:auto; display:block;"
           onerror="this.style.display='none'; console.warn('Neoantigens_discovery.svg failed to load');"
         >
       </div>
@@ -183,55 +179,61 @@
   <!-- AI widget JS -->
   <script src="assets/osx_widget.js?v=build-19" defer></script>
 
-  <!-- Rotating slogans and SVG -->
+  <!-- Rotating slogans and SVG with 10s image dwell -->
   <script>
     (function() {
       const slogans = [
         "Science for All — Affordable, Accessible, Advanced.",
         "AI-Driven Solutions for Next-Gen Therapeutics."
       ];
-      const textEl = document.getElementById("vx-rotating-slogan");
-      const imgEl  = document.getElementById("vx-rotating-image");
-      if (!textEl || !imgEl) return;
 
-      // Ensure only one thing is in the layout at a time
+      const textEl = document.getElementById("vx-rotating-slogan");
+      const imgWrap = document.getElementById("vx-rotating-image");
+      if (!textEl || !imgWrap) return;
+
+      const FADE_MS  = 400;
+      const TEXT_MS  = 3000;   // how long each slogan stays
+      const IMAGE_MS = 10000;  // <-- SVG stays visible for 10s
+
       function showText(s) {
-        imgEl.style.opacity = "0";
+        imgWrap.style.opacity = "0";
         setTimeout(() => {
-          imgEl.style.display = "none";
+          imgWrap.style.display = "none";
           textEl.textContent = s;
           textEl.style.display = "block";
-          textEl.style.opacity = "1";
-        }, 200);
+          requestAnimationFrame(() => { textEl.style.opacity = "1"; });
+        }, FADE_MS);
       }
+
       function showImage() {
         textEl.style.opacity = "0";
         setTimeout(() => {
           textEl.style.display = "none";
-          imgEl.style.display = "flex";
-          requestAnimationFrame(() => { imgEl.style.opacity = "1"; });
-        }, 200);
+          imgWrap.style.display = "flex";
+          requestAnimationFrame(() => { imgWrap.style.opacity = "1"; });
+        }, FADE_MS);
       }
 
-      // Initial state: text visible, image not in layout
+      // initial state: first slogan visible
       textEl.style.display = "block";
-      textEl.style.opacity = "1";
-      imgEl.style.display = "none";
-      imgEl.style.opacity = "0";
+      textEl.style.opacity  = "1";
+      imgWrap.style.display = "none";
+      imgWrap.style.opacity = "0";
 
-      let i = 0;
-      const DISPLAY_MS = 3000;
-
-      function nextSlide() {
+      let i = -1;
+      function next() {
         i = (i + 1) % (slogans.length + 1);
         if (i < slogans.length) {
           showText(slogans[i]);
+          setTimeout(next, TEXT_MS + FADE_MS * 2);
         } else {
           showImage();
+          setTimeout(next, IMAGE_MS + FADE_MS * 2); // 10s dwell for SVG
         }
       }
 
-      setInterval(nextSlide, DISPLAY_MS);
+      // start the cycle
+      setTimeout(next, TEXT_MS + FADE_MS * 2);
     })();
   </script>
 </body>
