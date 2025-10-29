@@ -8,7 +8,6 @@
   <!-- Preload SVGs -->
   <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
   <link rel="preload" href="assets/Neoantigens_discovery.svg" as="image" type="image/svg+xml">
-  <!-- (PDFs don't benefit much from preload here, so we skip it) -->
 
   <!-- Global styles -->
   <link rel="stylesheet" href="css/styles.css?v=build-33" />
@@ -106,8 +105,8 @@
         Science for All — Affordable, Accessible, Advanced.
       </h1>
 
-      <!-- Rotating frames: PDF (antigen) and SVG (neo), shown one at a time -->
-      <div id="vx-rot-pdf-antigen" style="
+      <!-- Rotating image containers (shown one at a time) -->
+      <div id="vx-rot-img-antigen" style="
         display:none;
         opacity:0;
         transition:opacity 400ms ease;
@@ -117,18 +116,18 @@
         background-color:white;
         border-radius:12px;
         box-shadow:0 4px 20px rgba(0,0,0,0.2);
-        padding:0;                               /* no extra white padding */
+        padding:0;
         width:90%;
         max-width:1350px;
         margin-left:auto;
         margin-right:auto;">
-        <!-- Keep a stable aspect ratio; adjust 1350/600 to your PDF page ratio -->
-        <object data="assets/antigen.pdf?v=1"
-                type="application/pdf"
-                aria-label="Antigen Platform PDF"
-                style="width:100%; aspect-ratio: 1350 / 600; height:auto; border:0; border-radius:12px;">
-          <a href="assets/Antigens.pdf">Open Antigens.pdf</a>
-        </object>
+        <img
+          src="assets/antigen.png"
+          srcset="assets/antigen.png 1x, assets/antigen@2x.png 2x"
+          alt="Antigen Platform"
+          width="1350" height="600"
+          style="width:100%; height:auto; display:block; border-radius:12px;"
+          onerror="console.warn('antigen.png not found');">
       </div>
 
       <div id="vx-rot-img-neo" style="
@@ -203,36 +202,36 @@
   <!-- AI widget JS -->
   <script src="assets/osx_widget.js?v=build-19" defer></script>
 
-  <!-- Rotating slogans + Antigens.pdf + Neoantigens_discovery.svg -->
+  <!-- Rotating slogans + antigen.png + Neoantigens_discovery.svg -->
   <script>
     (function() {
-      // Desired order:
-      // 1) text0 -> 2) Antigens.pdf -> 3) text1 -> 4) Neoantigens_discovery.svg -> loop
+      // Content order:
+      // 1) text0 -> 2) antigen.png -> 3) text1 -> 4) Neoantigens_discovery.svg -> loop
       const text0 = "Science for All — Affordable, Accessible, Advanced.";
       const text1 = "AI-Driven Solutions for Next-Gen Therapeutics.";
 
       const textEl = document.getElementById("vx-rotating-slogan");
-      const pdfAntigen = document.getElementById("vx-rot-pdf-antigen");
+      const imgAntigen = document.getElementById("vx-rot-img-antigen");
       const imgNeo     = document.getElementById("vx-rot-img-neo");
-      if (!textEl || !pdfAntigen || !imgNeo) return;
+      if (!textEl || !imgAntigen || !imgNeo) return;
 
       const FADE_MS  = 400;
       const TEXT_MS  = 3000;   // dwell per text
-      const IMAGE_MS = 10000;  // dwell per image/PDF
+      const IMAGE_MS = 10000;  // dwell per image
 
       function showText(s) {
-        [pdfAntigen, imgNeo].forEach(el => { el.style.opacity = "0"; });
+        [imgAntigen, imgNeo].forEach(el => { el.style.opacity = "0"; });
         setTimeout(() => {
-          [pdfAntigen, imgNeo].forEach(el => { el.style.display = "none"; });
+          [imgAntigen, imgNeo].forEach(el => { el.style.display = "none"; });
           textEl.textContent = s;
           textEl.style.display = "block";
           requestAnimationFrame(() => { textEl.style.opacity = "1"; });
         }, FADE_MS);
       }
 
-      function showFrame(which) {
-        const toShow = which === "pdf" ? pdfAntigen : imgNeo;
-        const toHide = which === "pdf" ? imgNeo : pdfAntigen;
+      function showImage(which) {
+        const toShow = which === "antigen" ? imgAntigen : imgNeo;
+        const toHide = which === "antigen" ? imgNeo : imgAntigen;
 
         textEl.style.opacity = "0";
         setTimeout(() => {
@@ -245,17 +244,18 @@
         }, FADE_MS);
       }
 
-      // Initial state: first slogan visible
+      // initial state: first slogan visible
       textEl.style.display = "block";
       textEl.style.opacity  = "1";
-      pdfAntigen.style.display = "none"; pdfAntigen.style.opacity = "0";
+      imgAntigen.style.display = "none"; imgAntigen.style.opacity = "0";
       imgNeo.style.display     = "none"; imgNeo.style.opacity     = "0";
 
+      // Sequence controller
       const steps = [
-        {type:"text",  value:text0, dwell:TEXT_MS},
-        {type:"frame", value:"pdf", dwell:IMAGE_MS},
-        {type:"text",  value:text1, dwell:TEXT_MS},
-        {type:"frame", value:"neo", dwell:IMAGE_MS},
+        {type:"text",  value:text0,     dwell:TEXT_MS},
+        {type:"image", value:"antigen", dwell:IMAGE_MS},
+        {type:"text",  value:text1,     dwell:TEXT_MS},
+        {type:"image", value:"neo",     dwell:IMAGE_MS},
       ];
 
       let i = 0;
@@ -264,14 +264,14 @@
         if (step.type === "text") {
           showText(step.value);
         } else {
-          showFrame(step.value);
+          showImage(step.value);
         }
         const dwell = step.dwell + FADE_MS * 2;
         i = (i + 1) % steps.length;
         setTimeout(next, dwell);
       }
 
-      // Start after the first visible text has had its dwell
+      // start after the first visible text has had its dwell
       setTimeout(next, TEXT_MS + FADE_MS * 2);
     })();
   </script>
