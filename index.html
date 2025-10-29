@@ -8,6 +8,7 @@
   <!-- Preload SVGs -->
   <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
   <link rel="preload" href="assets/Neoantigens_discovery.svg" as="image" type="image/svg+xml">
+  <link rel="preload" href="assets/antigen.svg" as="image" type="image/svg+xml">
 
   <!-- Global styles -->
   <link rel="stylesheet" href="css/styles.css?v=build-33" />
@@ -105,9 +106,9 @@
         Science for All — Affordable, Accessible, Advanced.
       </h1>
 
-      <!-- SVG 1.5× container -->
-      <div id="vx-rotating-image" style="
-        display:none;                 /* stays out of layout when hidden */
+      <!-- Rotating image containers (same size, shown one at a time) -->
+      <div id="vx-rot-img-1" style="
+        display:none;
         opacity:0;
         transition:opacity 400ms ease;
         margin-top:2rem;
@@ -120,14 +121,34 @@
         width:90%;
         max-width:1350px;
         margin-left:auto;
-        margin-right:auto;
-      ">
+        margin-right:auto;">
         <img
           src="assets/Neoantigens_discovery.svg"
           alt="Neoantigen Discovery"
           style="width:100%; height:auto; display:block;"
-          onerror="this.style.display='none'; console.warn('Neoantigens_discovery.svg failed to load');"
-        >
+          onerror="this.style.display='none'; console.warn('Neoantigens_discovery.svg failed to load');">
+      </div>
+
+      <div id="vx-rot-img-2" style="
+        display:none;
+        opacity:0;
+        transition:opacity 400ms ease;
+        margin-top:2rem;
+        justify-content:center;
+        align-items:center;
+        background-color:white;
+        border-radius:12px;
+        box-shadow:0 4px 20px rgba(0,0,0,0.2);
+        padding:1.5rem;
+        width:90%;
+        max-width:1350px;
+        margin-left:auto;
+        margin-right:auto;">
+        <img
+          src="assets/antigen.svg"
+          alt="Antigen Platform"
+          style="width:100%; height:auto; display:block;"
+          onerror="this.style.display='none'; console.warn('antigen.svg failed to load');">
       </div>
     </div>
   </section>
@@ -179,60 +200,76 @@
   <!-- AI widget JS -->
   <script src="assets/osx_widget.js?v=build-19" defer></script>
 
-  <!-- Rotating slogans and SVG with 10s image dwell -->
+  <!-- Rotating slogans + 2 SVGs -->
   <script>
     (function() {
-      const slogans = [
-        "Science for All — Affordable, Accessible, Advanced.",
-        "AI-Driven Solutions for Next-Gen Therapeutics."
-      ];
+      // Content order: text0 -> image1 -> text1 -> image2 -> loop
+      const text0 = "Science for All — Affordable, Accessible, Advanced.";
+      const text1 = "AI-Driven Solutions for Next-Gen Therapeutics.";
 
       const textEl = document.getElementById("vx-rotating-slogan");
-      const imgWrap = document.getElementById("vx-rotating-image");
-      if (!textEl || !imgWrap) return;
+      const img1  = document.getElementById("vx-rot-img-1");
+      const img2  = document.getElementById("vx-rot-img-2");
+      if (!textEl || !img1 || !img2) return;
 
       const FADE_MS  = 400;
-      const TEXT_MS  = 3000;   // how long each slogan stays
-      const IMAGE_MS = 10000;  // <-- SVG stays visible for 10s
+      const TEXT_MS  = 3000;   // dwell per text
+      const IMAGE_MS = 10000;  // dwell per image
 
       function showText(s) {
-        imgWrap.style.opacity = "0";
+        // hide both images
+        [img1, img2].forEach(el => { el.style.opacity = "0"; });
         setTimeout(() => {
-          imgWrap.style.display = "none";
+          [img1, img2].forEach(el => { el.style.display = "none"; });
           textEl.textContent = s;
           textEl.style.display = "block";
           requestAnimationFrame(() => { textEl.style.opacity = "1"; });
         }, FADE_MS);
       }
 
-      function showImage() {
+      function showImage(which) {
+        const target = which === 1 ? img1 : img2;
+        const other  = which === 1 ? img2 : img1;
+
         textEl.style.opacity = "0";
         setTimeout(() => {
           textEl.style.display = "none";
-          imgWrap.style.display = "flex";
-          requestAnimationFrame(() => { imgWrap.style.opacity = "1"; });
+          other.style.display = "none";
+          other.style.opacity  = "0";
+
+          target.style.display = "flex";
+          requestAnimationFrame(() => { target.style.opacity = "1"; });
         }, FADE_MS);
       }
 
       // initial state: first slogan visible
       textEl.style.display = "block";
       textEl.style.opacity  = "1";
-      imgWrap.style.display = "none";
-      imgWrap.style.opacity = "0";
+      img1.style.display = "none"; img1.style.opacity = "0";
+      img2.style.display = "none"; img2.style.opacity = "0";
 
-      let i = -1;
+      // Sequence controller
+      const steps = [
+        {type:"text",  value:text0, dwell:TEXT_MS},
+        {type:"image", value:1,     dwell:IMAGE_MS},
+        {type:"text",  value:text1, dwell:TEXT_MS},
+        {type:"image", value:2,     dwell:IMAGE_MS},
+      ];
+
+      let i = 0;
       function next() {
-        i = (i + 1) % (slogans.length + 1);
-        if (i < slogans.length) {
-          showText(slogans[i]);
-          setTimeout(next, TEXT_MS + FADE_MS * 2);
+        const step = steps[i];
+        if (step.type === "text") {
+          showText(step.value);
         } else {
-          showImage();
-          setTimeout(next, IMAGE_MS + FADE_MS * 2); // 10s dwell for SVG
+          showImage(step.value);
         }
+        const dwell = step.dwell + FADE_MS * 2;
+        i = (i + 1) % steps.length;
+        setTimeout(next, dwell);
       }
 
-      // start the cycle
+      // start after the first visible text has had its dwell
       setTimeout(next, TEXT_MS + FADE_MS * 2);
     })();
   </script>
