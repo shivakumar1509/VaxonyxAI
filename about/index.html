@@ -14,63 +14,76 @@
   <!-- Page-scoped styles -->
   <style>
     :root{
-      --vx-primary:#007C91;
-      --vx-accent:#3FA9F5;
+      --vx-primary:#007C91; /* teal from index */
+      --vx-accent:#3FA9F5;  /* sky */
       --vx-ink:#0b1220;
       --vx-line:rgba(12,18,32,.12);
+      --vx-soft-blue-1:#F1F8FF;
+      --vx-soft-blue-2:#E9F5FF;
+      --vx-soft-blue-border:#B9E3FF;
     }
+    html { scroll-behavior: smooth; }
     .container{width:min(1120px,92%);margin-inline:auto}
 
-    /* Hero (simple, matches brand) */
-    .svc-hero{padding:84px 0 36px;background:conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.08), rgba(63,169,245,.10), transparent 55%)}
+    /* Hero: subtle blue like index */
+    .svc-hero{
+      padding:84px 0 36px;
+      background:
+        linear-gradient(135deg, rgba(63,169,245,.14), rgba(0,124,145,.06) 40%, transparent 60%),
+        linear-gradient(180deg, #ffffff, #ffffff);
+    }
     .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;margin:0 0 10px;color:var(--vx-ink)}
     .svc-hero p{margin:0;color:#213;font:400 16px/1.65 system-ui}
     .svc-hero .sub{display:block}
 
-    /* Feature (Mission/Vision) – subtle, not loud */
+    /* Section anchor offset so header doesn't cover it */
+    .about-section { scroll-margin-top: 96px; }
+
+    /* Feature (Mission/Vision) – light blue cards like home */
     .feature{
       border-radius:16px;
-      padding:20px 20px 18px;
-      background:linear-gradient(180deg,#0e1426,#0b1220 60%,#0b1220);
-      color:#dce8ff;
-      border:1px solid rgba(110,215,255,.18);
-      box-shadow:0 10px 24px rgba(12,18,32,.12);
+      padding:22px 22px 20px;
+      background:linear-gradient(180deg,var(--vx-soft-blue-1),var(--vx-soft-blue-2));
+      border:1px solid var(--vx-soft-blue-border);
+      box-shadow:0 8px 18px rgba(12,18,32,.08);
       margin:18px 0;
+      color:#122033;
     }
     .feature .eyebrow{
       display:inline-block;
-      font:700 12px/1 system-ui;
-      color:#9EE8FF;
-      border:1px solid rgba(110,215,255,.4);
+      font:800 12px/1 system-ui;
+      color:#045B6B;
+      border:1px solid rgba(0,124,145,.25);
       border-radius:999px;
       padding:6px 10px;
       margin-bottom:10px;
-      background:rgba(255,255,255,.03)
+      background:rgba(255,255,255,.6);
+      letter-spacing:.05em;
+      text-transform:uppercase;
     }
     .feature h3{
       margin:0 0 10px;
-      font:800 clamp(18px,2.4vw,26px)/1.15 system-ui,Segoe UI,Roboto,Helvetica,Arial;
-      color:#6ED7FF;
-      text-transform:none; /* no shouting */
+      font:800 clamp(22px,3.2vw,34px)/1.12 system-ui,Segoe UI,Roboto,Helvetica,Arial;
+      color:#0A7C93; /* brighter teal */
       letter-spacing:.01em;
     }
-    .feature p{margin:0;font:400 16px/1.7 system-ui;color:#d7e3f6}
+    .feature p{margin:0;font:400 17px/1.75 system-ui;color:#142033}
 
     /* Bio split */
     .bio-card{border:1px solid var(--vx-line);border-radius:18px;background:#fff;box-shadow:0 4px 18px rgba(12,18,32,.06);padding:18px}
-    .bio-split{display:grid;grid-template-columns:1.2fr .9fr;gap:22px;align-items:start}
+    .bio-split{display:grid;grid-template-columns:1.25fr .9fr;gap:22px;align-items:start}
     @media (max-width: 860px){.bio-split{grid-template-columns:1fr}}
     .bio-media{border-radius:16px;overflow:hidden;justify-self:end;max-width:320px}
     .bio-media img{width:100%;height:auto;display:block}
-    .team-name{font:700 22px/1.25 system-ui;color:var(--vx-ink);margin:0 0 6px}
-    .team-title{font:500 14px/1.4 system-ui;color:#334;margin:0 0 8px}
-    .team-blurb{font:400 14px/1.65 system-ui;color:#223;margin:0 0 10px}
+    .team-name{font:800 24px/1.25 system-ui;color:var(--vx-ink);margin:0 0 6px}
+    .team-title{font:600 14px/1.4 system-ui;color:#334;margin:0 0 8px}
+    .team-blurb{font:400 15px/1.7 system-ui;color:#223;margin:0 0 10px}
     details.team-details{margin-top:6px;border-top:1px dashed var(--vx-line);padding-top:10px}
-    details.team-details summary{cursor:pointer;font:600 14px/1.4 system-ui;color:var(--vx-primary)}
+    details.team-details summary{cursor:pointer;font:700 14px/1.4 system-ui;color:var(--vx-primary)}
   </style>
 </head>
 <body>
-  <!-- ===== Header (same structure as index; paths adjusted with ../) ===== -->
+  <!-- ===== Header (same structure/markup as index; paths adjusted with ../) ===== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
       <a class="brand" href="../">
@@ -92,6 +105,7 @@
             <a href="../services/">Services <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
               <li><a href="../services/cell-lines/">Cell line services</a></li>
+
               <li class="has-sub">
                 <a href="../services/protein-production/" aria-haspopup="true" aria-expanded="false">
                   Protein production <span class="caret right" aria-hidden="true">▸</span>
@@ -101,6 +115,7 @@
                   <li><a href="../services/protein-production/antigen/">Antigen production</a></li>
                 </ul>
               </li>
+
               <li class="has-sub">
                 <a href="../services/assays/" aria-haspopup="true" aria-expanded="false">
                   Assays <span class="caret right" aria-hidden="true">▸</span>
@@ -110,6 +125,7 @@
                   <li><a href="../services/assays/virology/">Virology-Based assays</a></li>
                 </ul>
               </li>
+
               <li><a href="../services/molecular-biology/">Molecular biology</a></li>
             </ul>
           </li>
@@ -165,7 +181,7 @@
     <section id="mission" class="container about-section" aria-labelledby="mission-title" style="margin-top:24px">
       <div class="feature">
         <span class="eyebrow">Our Mission</span>
-        <h3 id="mission-title">To develop innovative, accessible & affordable platforms</h3>
+        <h3 id="mission-title">To develop innovative, accessible &amp; affordable platforms</h3>
         <p>
           At <strong>Vaxonyx</strong>, our mission is to develop innovative, accessible, and affordable genetic,
           vaccine, and immunotherapy platforms using AI and molecular biology to tackle infectious diseases, cancer,
@@ -203,7 +219,7 @@
             <details class="team-details" open>
               <summary>Full bio</summary>
               <p class="team-blurb">
-                Kempaiah Rayavara is the Founder and President of Vaxonyx. With 20+ years leading
+                Kempaiah Rayavara, PhD, is the Founder and President of Vaxonyx. With 20+ years leading
                 interdisciplinary research, he specializes in harnessing artificial intelligence and molecular biology to address
                 infectious diseases, cancer, and immune disorders. He has guided programs from discovery through IND submission
                 and FDA approval, including preclinical GLP safety and efficacy studies in rodent and non-human primate models.
@@ -235,7 +251,7 @@
     </section>
   </main>
 
-  <!-- ===== Footer (same structure as index; paths adjusted with ../) ===== -->
+  <!-- ===== Footer (same as index; ../ paths) ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
