@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Vaxonyx</title>
 
-  <!-- Assets & global CSS (same pattern as main index) -->
-  <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=build-33" />
+  <!-- Preload SVGs (path fixed for /contact/) -->
+  <link rel="preload" href="../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
 
-  <!-- Page-scoped styles (NAMESPACED to avoid footer/main CSS conflicts) -->
+  <!-- Global styles (path fixed for /contact/) -->
+  <link rel="stylesheet" href="../css/styles.css?v=build-33" />
+
+  <!-- Page-scoped styles (scoped to .vx-contact) -->
   <style>
-    .vx-contact :root { /* no globals */ }
-
-    .vx-contact .container { width: min(1120px, 92%); margin-inline: auto; }
+    .vx-contact .container { width:min(1120px,92%); margin-inline:auto; }
 
     .vx-contact .svc-hero{
       padding:88px 0 42px;
@@ -21,8 +21,7 @@
     }
     .vx-contact .svc-hero h1{
       font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;
-      margin:0 0 10px;
-      color:#0b1220;
+      margin:0 0 10px; color:#0b1220;
     }
     .vx-contact .svc-hero p{
       font:400 16px/1.65 system-ui; color:#213; max-width:70ch; margin:0;
@@ -40,12 +39,13 @@
       box-shadow:0 2px 6px rgba(0,0,0,.04);
     }
     .vx-contact .contact-card h2{ font:700 16px/1.3 system-ui; margin:.2rem 0 .35rem; color:#0f1a2a; }
-    .vx-contact .contact-card p,
-    .vx-contact .contact-card address{ font:400 14px/1.65 system-ui; color:#2a3040; margin:0; }
+    .vx-contact .contact-card p, .vx-contact .contact-card address{
+      font:400 14px/1.65 system-ui; color:#2a3040; margin:0;
+    }
     .vx-contact .contact-card a{ color:#1B427A; text-decoration:none; }
     .vx-contact .contact-card a:hover{ text-decoration:underline; }
 
-    /* Form block */
+    /* Form */
     .vx-contact .contact-form-section{
       background:#fafbfc; border-top:1px solid rgba(12,18,32,.08); padding:50px 0;
     }
@@ -57,8 +57,7 @@
     .vx-contact .contact-form input,
     .vx-contact .contact-form textarea{
       width:100%; border:1px solid rgba(12,18,32,.15); border-radius:6px;
-      padding:10px 12px; font:400 14px system-ui; color:#111; box-sizing:border-box;
-      background:#fff;
+      padding:10px 12px; font:400 14px system-ui; color:#111; box-sizing:border-box; background:#fff;
     }
     .vx-contact .contact-form textarea{ min-height:110px; resize:vertical; }
     .vx-contact .send-btn{
@@ -69,79 +68,79 @@
   </style>
 </head>
 <body>
-  <!-- ===== Header (same structure/paths as main index) ===== -->
+  <!-- ===== Header (copied; paths fixed with ../) ===== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
       <a class="brand" href="../">
-        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx">
+        <img class="brand-logo" src="../assets/Vaxonyx.svg" alt="Vaxonyx">
       </a>
 
       <nav class="site-nav" aria-label="Main">
         <ul class="menu">
           <li class="dropdown">
-            <a href="about/">About <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../about/">About <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="about/#mission">Mission &amp; Vision</a></li>
-              <li><a href="about/#team">Team</a></li>
-              <li><a href="careers/">Careers</a></li>
+              <li><a href="../about/#mission">Mission &amp; Vision</a></li>
+              <li><a href="../about/#team">Team</a></li>
+              <li><a href="../careers/">Careers</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="services/">Services <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../services/">Services <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="services/cell-lines/">Cell line services</a></li>
+              <li><a href="../services/cell-lines/">Cell line services</a></li>
 
               <li class="has-sub">
-                <a href="services/protein-production/" aria-haspopup="true" aria-expanded="false">
+                <a href="../services/protein-production/" aria-haspopup="true" aria-expanded="false">
                   Protein production <span class="caret right" aria-hidden="true">▸</span>
                 </a>
                 <ul class="submenu" role="menu" aria-label="Protein production submenu">
-                  <li><a href="services/protein-production/antibody-production/">Antibody production</a></li>
-                  <li><a href="services/protein-production/antigen/">Antigen production</a></li>
+                  <li><a href="../services/protein-production/antibody-production/">Antibody production</a></li>
+                  <li><a href="../services/protein-production/antigen/">Antigen production</a></li>
                 </ul>
               </li>
 
               <li class="has-sub">
-                <a href="services/assays/" aria-haspopup="true" aria-expanded="false">
+                <a href="../services/assays/" aria-haspopup="true" aria-expanded="false">
                   Assays <span class="caret right" aria-hidden="true">▸</span>
                 </a>
                 <ul class="submenu" role="menu" aria-label="Assays submenu">
-                  <li><a href="services/assays/biochemical/">Biochemical assays</a></li>
-                  <li><a href="services/assays/virology/">Virology-Based assays</a></li>
+                  <li><a href="../services/assays/biochemical/">Biochemical assays</a></li>
+                  <li><a href="../services/assays/virology/">Virology-Based assays</a></li>
                 </ul>
               </li>
 
-              <li><a href="services/molecular-biology/">Molecular biology</a></li>
+              <li><a href="../services/molecular-biology/">Molecular biology</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="platforms/">Platforms <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../platforms/">Platforms <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="platforms/#ai">AI platforms</a></li>
-              <li><a href="platforms/#dna">DNA platforms</a></li>
-              <li><a href="platforms/#delivery">DNA delivery platforms</a></li>
+              <li><a href="../platforms/#ai">AI platforms</a></li>
+              <li><a href="../platforms/#dna">DNA platforms</a></li>
+              <li><a href="../platforms/#delivery">DNA delivery platforms</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="innovation/">Innovation <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../innovation/">Innovation <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="innovation/#pipeline">Pipeline</a></li>
-              <li><a href="innovation/#products">Products</a></li>
+              <li><a href="../innovation/#pipeline">Pipeline</a></li>
+              <li><a href="../innovation/#products">Products</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="news/">News &amp; Investors <span class="caret" aria-hidden="true">▾</span></a>
+            <a href="../news/">News &amp; Investors <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="news/#press">Press &amp; updates</a></li>
-              <li><a href="investors/">Investor materials</a></li>
+              <li><a href="../news/#press">Press &amp; updates</a></li>
+              <li><a href="../investors/">Investor materials</a></li>
             </ul>
           </li>
 
-          <li><a href="contact/" class="active">Contact</a></li>
+          <li><a href="../contact/" class="active">Contact</a></li>
         </ul>
       </nav>
 
@@ -151,9 +150,9 @@
     </div>
   </header>
 
-  <!-- ===== Page content is namespaced to .vx-contact ===== -->
-  <main class="vx-contact" id="content">
-    <!-- Hero (no blue bar) -->
+  <!-- ===== Page content (scoped) ===== -->
+  <main class="vx-contact">
+    <!-- Hero -->
     <section class="svc-hero">
       <div class="container">
         <h1>Contact Vaxonyx</h1>
@@ -161,7 +160,7 @@
       </div>
     </section>
 
-    <!-- Cards -->
+    <!-- Contact cards -->
     <section class="contact-section" aria-labelledby="contact-info">
       <div class="container contact-grid">
         <div class="contact-card">
@@ -187,11 +186,11 @@
       </div>
     </section>
 
-    <!-- Contact form (below cards) -->
+    <!-- Simple contact form -->
     <section class="contact-form-section" aria-labelledby="form-title">
       <div class="container">
         <h2 class="form-title" id="form-title">Get in Touch</h2>
-        <!-- mailto keeps it backend-free; swap action for Formspree/Netlify if desired -->
+        <!-- mailto keeps it backend-free; replace action with Formspree/Netlify for silent submit -->
         <form action="mailto:info@vaxonyx.com" method="post" enctype="text/plain" class="contact-form">
           <label for="cf-name">Name <span style="color:red">*</span></label>
           <input type="text" id="cf-name" name="Name" required>
@@ -208,24 +207,24 @@
     </section>
   </main>
 
-  <!-- ===== Footer (unchanged) ===== -->
+  <!-- ===== Footer (copied; paths fixed with ../) ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
-        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx">
+        <img class="brand-logo" src="../assets/Vaxonyx.svg" alt="Vaxonyx">
         <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
       </div>
 
       <div class="foot-links">
         <div class="foot-title">Quick Access</div>
         <ul class="links">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="innovation/#pipeline">Pipeline</a></li>
-          <li><a href="innovation/#products">Products</a></li>
-          <li><a href="news/">News &amp; Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
-          <li><a href="contact/">Contact</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../innovation/">Innovation</a></li>
+          <li><a href="../innovation/#pipeline">Pipeline</a></li>
+          <li><a href="../innovation/#products">Products</a></li>
+          <li><a href="../news/">News &amp; Investors</a></li>
+          <li><a href="../careers/">Careers</a></li>
+          <li><a href="../contact/">Contact</a></li>
         </ul>
       </div>
 
@@ -252,7 +251,7 @@
     <div class="footer-bottom">© 2025 Vaxonyx. All rights reserved.</div>
   </footer>
 
-  <!-- AI widget JS -->
-  <script src="assets/osx_widget.js?v=build-19" defer></script>
+  <!-- AI widget JS (path fixed for /contact/) -->
+  <script src="../assets/osx_widget.js?v=build-19" defer></script>
 </body>
 </html>
