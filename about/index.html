@@ -26,6 +26,19 @@
     /* Keep dropdowns stable like other pages */
     .site-nav .dropdown:hover > .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
     .site-nav .has-sub:hover > .submenu{opacity:1;visibility:visible;pointer-events:auto}
+
+    /* Team layout */
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .team-card{border:1px solid var(--vx-line);border-radius:18px;overflow:hidden;background:#fff}
+    .team-media{aspect-ratio:4/3;background:#f6f8fb}
+    .team-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .team-body{padding:14px 16px 18px}
+    .team-name{font:700 18px/1.2 system-ui;margin:0 0 6px;color:var(--vx-ink)}
+    .team-title{font:500 14px/1.4 system-ui;color:#334}
+    .team-blurb{font:400 14px/1.6 system-ui;color:#223;margin:10px 0 0}
+    details.team-details{margin-top:10px;border-top:1px dashed var(--vx-line);padding-top:10px}
+    details.team-details summary{cursor:pointer;font:600 14px/1.4 system-ui;color:var(--vx-primary)}
+    details.team-details[open] summary{margin-bottom:8px}
   </style>
 </head>
 <body>
@@ -113,47 +126,64 @@
     <section id="mission" class="container about-section" aria-labelledby="mission-title" style="margin-top:28px">
       <h2 id="mission-title" class="svc-h2">Mission</h2>
       <p>
-        At <strong>Vaxonyx</strong>, we are building the foundation for a new era in vaccine and immunotherapy innovation.
-        Our mission is to harness the full potential of genomics, bioinformatics, and molecular design to accelerate
-        discoveries that directly improve human and animal health.
-      </p>
-      <p>
-        Through advanced platforms in <strong>bulk RNA-seq</strong>, <strong>single-cell RNA-seq</strong>,
-        <strong>variant calling</strong>, <strong>HLA typing</strong>, and <strong>neoantigen discovery</strong>,
-        we turn complex datasets into clear, actionable insights that drive translational breakthroughs.
-      </p>
-      <p>
-        We bridge computation and biology with precision. Every workflow—from immune profiling to vaccine target validation—
-        is built for <strong>reproducibility</strong>, <strong>scalability</strong>, and <strong>clinical relevance</strong>.
-        Our mission is not just to analyze data, but to <strong>enable discovery</strong>—helping partners move from
-        sequence to solution faster and more accurately than ever before.
+        At <strong>Vaxonyx</strong>, our mission is to develop innovative, accessible, and affordable genetic, vaccine, and
+        immunotherapy platforms using AI and molecular biology to tackle infectious diseases, cancer, and immune disorders.
+        We strive to turn scientific breakthroughs into real-world health solutions for everyone, everywhere.
       </p>
     </section>
 
     <section id="vision" class="container about-section" aria-labelledby="vision-title" style="margin-top:22px">
       <h2 id="vision-title" class="svc-h2">Vision</h2>
       <p>
-        Over the next decade, <strong>Vaxonyx</strong> will stand at the forefront of a global transformation in how
-        vaccines and immunotherapies are designed. We envision a future where therapeutic decisions are data-informed,
-        antigens are computationally optimized before synthesis, and vaccines are tailored to genetic and immunologic profiles.
-      </p>
-      <p>
-        Our vision is to make <strong>computational immunology the engine of modern medicine</strong>—transforming raw
-        genomic information into predictive models that guide vaccine design, immune-response forecasting, and personalized
-        therapeutic development.
-      </p>
-      <p>
-        By integrating AI-driven analytics, high-throughput sequencing, and molecular engineering into one cohesive ecosystem,
-        we will expand our technologies, collaborations, and impact until <strong>precision vaccine design becomes the new
-        standard of care</strong>.
+        <strong>Vaxonyx’s vision</strong> is to lead globally in AI-driven biotechnology by creating advanced DNA platforms that
+        revolutionize vaccine and gene therapy development. The company aims to set new standards for precision and effectiveness,
+        making personalized therapies accessible and affordable for all.
       </p>
     </section>
 
-    <!-- ===== Team (placeholder) ===== -->
+    <!-- ===== Team ===== -->
     <section id="team" class="container about-section" aria-labelledby="team-title" style="margin-top:28px">
       <h2 id="team-title" class="svc-h2">Team</h2>
       <p>We are scientists, engineers, and builders advancing computational immunology and translational biology.</p>
-      <!-- Add your team cards here -->
+
+      <div class="team-grid" role="list">
+        <!-- Founder card -->
+        <article class="team-card" role="listitem">
+          <figure class="team-media">
+            <!-- Put your photo at: ../assets/team/kempaiah-rayavara.jpg (recommended 1600×1200) -->
+            <img src="../assets/team/kempaiah-rayavara.jpg" alt="Dr. Kempaiah Rayavara portrait" loading="lazy">
+          </figure>
+          <div class="team-body">
+            <h3 class="team-name">Dr. Kempaiah Rayavara, PhD</h3>
+            <div class="team-title">Founder &amp; President</div>
+            <p class="team-blurb">Transforming global health with AI-guided genetic, vaccine, and immunotherapy platforms.</p>
+
+            <details class="team-details">
+              <summary>Read full bio</summary>
+              <p class="team-blurb">
+                Dr. Kempaiah Rayavara, PhD, is the Founder and President of Vaxonyx. With 20+ years leading
+                interdisciplinary research, he specializes in harnessing artificial intelligence and molecular biology to address
+                infectious diseases, cancer, and immune disorders. He has guided programs from discovery through IND submission
+                and FDA approval, including preclinical GLP safety and efficacy studies in rodent and non‑human primate models.
+              </p>
+              <p class="team-blurb">
+                Previously, as Director of Preclinical R&amp;D at Imunon Inc., he led the design and development of a plasmid DNA
+                vaccine, overseeing IND‑enabling efficacy, biodistribution, and toxicology studies that resulted in Phase I clinical
+                approval. Earlier, at NIAID/NIH, he contributed to the identification of the malaria parasite gene responsible for the PSAC
+                nutrient acquisition channel. His experience spans drug‑mechanism research for tissue repair (Chrysalis BioTherapeutics),
+                and development of models for respiratory viruses (RSV, COVID‑19, influenza) at UTMB and Southern Research—playing a key
+                role in establishing COVID‑19 models during the pandemic.
+              </p>
+              <p class="team-blurb">
+                Dr. Rayavara earned his PhD in Biochemistry studying the pharmaceutical potential of nutraceuticals against diet‑induced
+                obesity. This diverse expertise underpins Vaxonyx’s commitment to rigorous, high‑quality solutions that bridge cutting‑edge
+                biotechnology with real‑world impact worldwide.
+              </p>
+            </details>
+          </div>
+        </article>
+        <!-- /Founder card -->
+      </div>
     </section>
 
     <!-- Optional CTA (kept) -->
