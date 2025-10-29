@@ -45,7 +45,22 @@
     .mv-grid{display:grid;gap:18px;margin-top:8px}
     @media (min-width: 880px){.mv-grid{grid-template-columns:1fr 1fr}}
     .mv-card{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--vx-line)}
-    .mv-card-inner{p
+    .mv-card-inner{padding:22px 22px 20px;background:radial-gradient(1200px 480px at 10% -10%, rgba(63,169,245,.28), transparent 55%),
+                    radial-gradient(900px 420px at 110% 120%, rgba(0,124,145,.25), transparent 60%), #0b1220}
+    .mv-card h3{font:800 18px/1.1 system-ui;color:#E9F6FF;margin:0 0 10px;letter-spacing:.02em}
+    .mv-card p{font:400 15px/1.65 system-ui;color:#ECF4FF;max-width:74ch;margin:0}
+
+    /* Founder split layout */
+    .founder{border:1px solid var(--vx-line);border-radius:18px;background:#fff;overflow:hidden;margin-top:14px}
+    .founder-wrap{display:grid;grid-template-columns:1fr;gap:0}
+    @media (min-width: 900px){.founder-wrap{grid-template-columns:1fr 320px}}
+    .founder-body{padding:18px 18px 20px}
+    .founder-body h3{font:800 20px/1.2 system-ui;margin:0 0 6px;color:var(--vx-ink)}
+    .founder-title{font:600 14px/1.3 system-ui;color:#445}
+    .founder-bio{font:400 14px/1.7 system-ui;color:#223;margin-top:10px}
+    .founder-media{background:#f6f8fb}
+    .founder-media img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}
+  </style>
 </head>
 <body>
   <!-- ===== Header (same as other pages) ===== -->
@@ -133,59 +148,31 @@
 
     <!-- ===== Mission & Vision ===== -->
     <section id="mission" class="container about-section" aria-labelledby="mission-title" style="margin-top:28px">
-      <h2 id="mission-title" class="svc-h2">Mission</h2>
-      <p>
-        At <strong>Vaxonyx</strong>, our mission is to develop innovative, accessible, and affordable genetic, vaccine, and
-        immunotherapy platforms using AI and molecular biology to tackle infectious diseases, cancer, and immune disorders.
-        We strive to turn scientific breakthroughs into real-world health solutions for everyone, everywhere.
-      </p>
-    </section>
-
-    <section id="vision" class="container about-section" aria-labelledby="vision-title" style="margin-top:22px">
-      <h2 id="vision-title" class="svc-h2">Vision</h2>
-      <p>
-        <strong>Vaxonyx’s vision</strong> is to lead globally in AI-driven biotechnology by creating advanced DNA platforms that
-        revolutionize vaccine and gene therapy development. The company aims to set new standards for precision and effectiveness,
-        making personalized therapies accessible and affordable for all.
-      </p>
-    </section>
-
-    <!-- ===== Team ===== -->
-    <section id="team" class="container about-section" aria-labelledby="team-title" style="margin-top:28px">
+      <h2 id="mission-title" class="svc-h2">Mission &amp; Vision</h2>
+      <div class="mv-grid">
+        <article class="mv-card" aria-label="Mission">
+          <div class="mv-card-inner">
+            <h3>Our Mission</h3>
+            <p>
+              At <strong>Vaxonyx</strong>, our mission is to develop innovative, accessible, and affordable genetic, vaccine, and
+              immunotherapy platforms using AI and molecular biology to tackle infectious diseases, cancer, and immune disorders.
+              We strive to turn scientific breakthroughs into real-world health solutions for everyone, everywhere.
+            </p>
+          </div>
+        </article>
+        <article id="vision" class="mv-card" aria-label="Vision">
+          <div class="mv-card-inner">
+            <h3>Our Vision</h3>
+            <p>
+              <strong>Vaxonyx’s vision</strong> is to lead globally in AI-driven biotechnology by creating advanced DNA platforms that
+              revolutionize vaccine and gene therapy development. Th<section id="team" class="container about-section" aria-labelledby="team-title" style="margin-top:28px">
       <h2 id="team-title" class="svc-h2">Team</h2>
       <p>We are scientists, engineers, and builders advancing computational immunology and translational biology.</p>
 
-      <div class="team-grid" role="list">
-        <!-- Founder card -->
-        <article class="team-card" role="listitem">
-          <figure class="team-media">
-            <!-- Put your photo at: ../assets/team/kempaiah-rayavara.jpg (recommended 1600×1200) -->
-            <img src="../assets/team/kempaiah-rayavara.jpg" alt="Dr. Kempaiah Rayavara portrait" loading="lazy">
-          </figure>
-          <div class="team-body">
-            <h3 class="team-name">Dr. Kempaiah Rayavara, PhD</h3>
-            <div class="team-title">Founder &amp; President</div>
-            <p class="team-blurb">Transforming global health with AI-guided genetic, vaccine, and immunotherapy platforms.</p>
-
-            <details class="team-details">
-              <summary>Read full bio</summary>
-              <p class="team-blurb">
-                Dr. Kempaiah Rayavara, PhD, is the Founder and President of Vaxonyx. With 20+ years leading
-                interdisciplinary research, he specializes in harnessing artificial intelligence and molecular biology to address
-                infectious diseases, cancer, and immune disorders. He has guided programs from discovery through IND submission
-                and FDA approval, including preclinical GLP safety and efficacy studies in rodent and non‑human primate models.
-              </p>
-              <p class="team-blurb">
-                Previously, as Director of Preclinical R&amp;D at Imunon Inc., he led the design and development of a plasmid DNA
-                vaccine, overseeing IND‑enabling efficacy, biodistribution, and toxicology studies that resulted in Phase I clinical
-                approval. Earlier, at NIAID/NIH, he contributed to the identification of the malaria parasite gene responsible for the PSAC
-                nutrient acquisition channel. His experience spans drug‑mechanism research for tissue repair (Chrysalis BioTherapeutics),
-                and development of models for respiratory viruses (RSV, COVID‑19, influenza) at UTMB and Southern Research—playing a key
-                role in establishing COVID‑19 models during the pandemic.
-              </p>
-              <p class="team-blurb">
-                Dr. Rayavara earned his PhD in Biochemistry studying the pharmaceutical potential of nutraceuticals against diet‑induced
-                obesity. This diverse expertise underpins Vaxonyx’s commitment to rigorous, high‑quality solutions that bridge cutting‑edge
+      <article class="founder" role="region" aria-labelledby="founder-name">
+        <div class="founder-wrap">
+          <div class="founder-body">
+            <h3 id="founder-nameolutions that bridge cutting‑edge
                 biotechnology with real‑world impact worldwide.
               </p>
             </details>
