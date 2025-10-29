@@ -39,7 +39,13 @@
     details.team-details{margin-top:10px;border-top:1px dashed var(--vx-line);padding-top:10px}
     details.team-details summary{cursor:pointer;font:600 14px/1.4 system-ui;color:var(--vx-primary)}
     details.team-details[open] summary{margin-bottom:8px}
-  </style>
+      /* --- Upgrades for hero + mission/vision + team --- */
+    .kv-taglines{font:600 clamp(16px,2.2vw,20px)/1.45 system-ui;color:#0b1220;margin:8px 0 0}
+
+    .mv-grid{display:grid;gap:18px;margin-top:8px}
+    @media (min-width: 880px){.mv-grid{grid-template-columns:1fr 1fr}}
+    .mv-card{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--vx-line)}
+    .mv-card-inner{p
 </head>
 <body>
   <!-- ===== Header (same as other pages) ===== -->
@@ -118,7 +124,10 @@
     <section class="svc-hero">
       <div class="container">
         <h1>About Vaxonyx</h1>
-        <p>Designing tools to unlock next-generation vaccine design and delivery.</p>
+        <p class="kv-taglines">
+          <span>Science for All — Affordable, Accessible, Advanced.</span><br/>
+          <span>AI-Driven Solutions for Next-Gen Therapeutics.</span>
+        </p>
       </div>
     </section>
 
