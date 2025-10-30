@@ -102,12 +102,12 @@
 
           <li><a href="contact/">Contact</a></li>
 
-          <!-- Ask Vaxonyx AI (moves into menu on mobile) -->
+          <!-- Ask Vaxonyx AI (inline for MOBILE ONLY; hidden on desktop via CSS) -->
           <li class="ai-inline"><button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button></li>
         </ul>
       </nav>
 
-      <!-- Desktop AI button -->
+      <!-- Desktop AI button (shows on desktop; hidden on mobile via CSS) -->
       <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
         Ask Vaxonyx AI
       </button>
@@ -201,7 +201,7 @@
       const nav = document.getElementById('primary-nav');
       const toggle = document.querySelector('.menu-toggle');
 
-      // Toggle off-canvas menu
+      // Toggle offcanvas menu
       toggle.addEventListener('click', () => {
         const open = body.classList.toggle('nav-open');
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
