@@ -5,192 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaxonyx</title>
 
-  <!-- Preload SVGs -->
+  <!-- Only the site logo is preloaded -->
   <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
-  <link rel="preload" href="assets/Neoantigens_discovery.svg" as="image" type="image/svg+xml">
 
   <!-- Global styles -->
-  <link rel="stylesheet" href="css/styles.css?v=build-33" />
+  <link rel="stylesheet" href="css/styles.css?v=build-35" />
 </head>
 <body>
   <!-- ===== Header ===== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
-      <a class="brand" href="">
-        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx">
+      <a class="brand" href="/" aria-label="Vaxonyx home">
+        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx logo" width="160" height="42">
       </a>
 
-      <nav class="site-nav" aria-label="Main">
-        <ul class="menu">
+      <!-- Mobile menu toggle -->
+      <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle menu</span>
+        ☰
+      </button>
+
+      <nav id="primary-nav" class="site-nav" aria-label="Main">
+        <ul class="menu" role="list">
           <li class="dropdown">
-            <a href="about/">About <span class="caret" aria-hidden="true">▾</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="about/#mission">Mission &amp; Vision</a></li>
-              <li><a href="about/#team">Team</a></li>
-              <li><a href="careers/">Careers</a></li>
+            <a href="about/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              About <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="about/#mission">Mission &amp; Vision</a></li>
+              <li role="none"><a role="menuitem" href="about/#team">Team</a></li>
+              <li role="none"><a role="menuitem" href="careers/">Careers</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="services/">Services <span class="caret" aria-hidden="true">▾</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="services/cell-lines/">Cell line services</a></li>
+            <a href="services/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              Services <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-label="Services submenu">
+              <li role="none"><a role="menuitem" href="services/cell-lines/">Cell line services</a></li>
 
-              <!-- Protein Production -->
               <li class="has-sub">
-                <a href="services/protein-production/" aria-haspopup="true" aria-expanded="false">
+                <a href="services/protein-production/" class="submenu-link" aria-haspopup="true" aria-expanded="false">
                   Protein production <span class="caret right" aria-hidden="true">▸</span>
                 </a>
                 <ul class="submenu" role="menu" aria-label="Protein production submenu">
-                  <li><a href="services/protein-production/antibody-production/">Antibody production</a></li>
-                  <li><a href="services/protein-production/antigen/">Antigen production</a></li>
+                  <li role="none"><a role="menuitem" href="services/protein-production/antibody-production/">Antibody production</a></li>
+                  <li role="none"><a role="menuitem" href="services/protein-production/antigen/">Antigen production</a></li>
                 </ul>
               </li>
 
-              <!-- Assays -->
               <li class="has-sub">
-                <a href="services/assays/" aria-haspopup="true" aria-expanded="false">
+                <a href="services/assays/" class="submenu-link" aria-haspopup="true" aria-expanded="false">
                   Assays <span class="caret right" aria-hidden="true">▸</span>
                 </a>
                 <ul class="submenu" role="menu" aria-label="Assays submenu">
-                  <li><a href="services/assays/biochemical/">Biochemical assays</a></li>
-                  <li><a href="services/assays/virology/">Virology-Based assays</a></li>
+                  <li role="none"><a role="menuitem" href="services/assays/biochemical/">Biochemical assays</a></li>
+                  <li role="none"><a role="menuitem" href="services/assays/virology/">Virology-Based assays</a></li>
                 </ul>
               </li>
 
-              <li><a href="services/molecular-biology/">Molecular biology</a></li>
+              <li role="none"><a role="menuitem" href="services/molecular-biology/">Molecular biology</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="platforms/">Platforms <span class="caret" aria-hidden="true">▾</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="platforms/#ai">AI platforms</a></li>
-              <li><a href="platforms/#dna">DNA platforms</a></li>
-              <li><a href="platforms/#delivery">DNA delivery platforms</a></li>
+            <a href="platforms/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              Platforms <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="platforms/#ai">AI platforms</a></li>
+              <li role="none"><a role="menuitem" href="platforms/#dna">DNA platforms</a></li>
+              <li role="none"><a role="menuitem" href="platforms/#delivery">DNA delivery platforms</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="innovation/">Innovation <span class="caret" aria-hidden="true">▾</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="innovation/#pipeline">Pipeline</a></li>
-              <li><a href="innovation/#products">Products</a></li>
+            <a href="innovation/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              Innovation <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="innovation/#pipeline">Pipeline</a></li>
+              <li role="none"><a role="menuitem" href="innovation/#products">Products</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="news/">News &amp; Investors <span class="caret" aria-hidden="true">▾</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="news/#press">Press &amp; updates</a></li>
-              <li><a href="investors/">Investor materials</a></li>
+            <a href="news/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              News &amp; Investors <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="news/#press">Press &amp; updates</a></li>
+              <li role="none"><a role="menuitem" href="investors/">Investor materials</a></li>
             </ul>
           </li>
 
           <li><a href="contact/">Contact</a></li>
+
+          <!-- Ask Vaxonyx AI (moves into menu on mobile) -->
+          <li class="ai-inline"><button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button></li>
         </ul>
       </nav>
 
-      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
+      <!-- Desktop AI button -->
+      <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
         Ask Vaxonyx AI
       </button>
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
+  <!-- ===== Hero (text-only rotator) ===== -->
   <section class="hero">
-    <div class="hero-inner container" style="display:grid; place-items:center; text-align:center; padding:4rem 0;">
-      <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite"
-          style="opacity:1; transition:opacity 400ms ease; margin:0;">
+    <div class="hero-inner container">
+      <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite">
         Science for All — Affordable, Accessible, Advanced.
       </h1>
-
-      <!-- Rotating image containers (shown one at a time) -->
-      <div id="vx-rot-img-antigen" style="
-        display:none;
-        opacity:0;
-        transition:opacity 400ms ease;
-        margin-top:2rem;
-        justify-content:center;
-        align-items:center;
-        background-color:white;
-        border-radius:12px;
-        box-shadow:0 4px 20px rgba(0,0,0,0.2);
-        padding:0;
-        width:90%;
-        max-width:1350px;
-        margin-left:auto;
-        margin-right:auto;">
-        <img
-          src="assets/antigen.png"
-          srcset="assets/antigen.png 1x, assets/antigen@2x.png 2x"
-          alt="Antigen Platform"
-          width="1350" height="600"
-          style="width:100%; height:auto; display:block; border-radius:12px;"
-          onerror="console.warn('antigen.png not found');">
-      </div>
-
-      <div id="vx-rot-img-neo" style="
-        display:none;
-        opacity:0;
-        transition:opacity 400ms ease;
-        margin-top:2rem;
-        justify-content:center;
-        align-items:center;
-        background-color:white;
-        border-radius:12px;
-        box-shadow:0 4px 20px rgba(0,0,0,0.2);
-        padding:1.5rem;
-        width:90%;
-        max-width:1350px;
-        margin-left:auto;
-        margin-right:auto;">
-        <img
-          src="assets/Neoantigens_discovery.svg"
-          alt="Neoantigen Discovery"
-          width="1350" height="600"
-          style="width:100%; height:auto; display:block;"
-          onerror="this.style.display='none'; console.warn('Neoantigens_discovery.svg failed to load');">
-      </div>
     </div>
   </section>
 
-  <!-- ===== Partners (compact block above footer) ===== -->
-  <section id="partners" style="background:#f8fbff; padding:3rem 0; border-top:1px solid #e0e6f0;">
-    <div class="container" style="width:min(1120px,92%); margin-inline:auto; text-align:center;">
-      <h2 style="font-size:1.8rem; font-weight:700; color:#003366; margin-bottom:1rem;">Partners</h2>
-      <p style="font-size:1.05rem; line-height:1.7; color:#333; max-width:850px; margin:0 auto 2rem;">
+  <!-- ===== Partners ===== -->
+  <section id="partners" class="partners">
+    <div class="container partners-inner">
+      <h2>Partners</h2>
+      <p>
         At <strong>Vaxonyx</strong>, we believe that innovation accelerates through collaboration.
         We partner with academic institutions, biotechnology companies, healthcare organizations,
         and technology innovators to advance the frontiers of genetic medicine, vaccines, and immunotherapies.
       </p>
 
-      <div class="partner-mini-card" style="
-        background:white;
-        border-radius:12px;
-        box-shadow:0 4px 20px rgba(0,0,0,0.08);
-        padding:1.5rem;
-        margin:0 auto;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        max-width:750px;">
-        <h3 style="color:#003366; font-size:1.3rem; font-weight:600; margin-bottom:0.5rem;">
-          Key Partner: Atlas Medicals
-        </h3>
-        <p style="color:#333; font-size:1rem; line-height:1.6; margin-bottom:1rem;">
+      <div class="partner-mini-card">
+        <h3>Key Partner: Atlas Medicals</h3>
+        <p>
           <strong>Vaxonyx</strong> is working with <strong>Atlas Medicals</strong> on the biochemical characterization
           of their advanced biomaterial, <em>OcuGraft</em>.
         </p>
-        <a href="https://atlasmedical.us/" target="_blank"
-           style="color:#0077cc; font-weight:600; text-decoration:none;">
-          🌐 https://atlasmedical.us/
-        </a>
+        <a href="https://atlasmedical.us/" target="_blank" rel="noopener">🌐 https://atlasmedical.us/</a>
 
-        <img src="assets/atlas_partner.png" alt="Atlas Medicals partnership"
-             style="margin-top:1.5rem; width:100%; max-width:400px; border-radius:8px;
-             box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <img src="assets/atlas_partner.png" alt="Atlas Medicals partnership">
       </div>
     </div>
   </section>
@@ -199,7 +150,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
-        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx">
+        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx" width="160" height="42">
         <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
       </div>
 
@@ -242,78 +193,94 @@
   <!-- AI widget JS -->
   <script src="assets/osx_widget.js?v=build-19" defer></script>
 
-  <!-- Rotating slogans + antigen.png + Neoantigens_discovery.svg -->
+  <!-- Mobile nav + accessible dropdowns -->
   <script>
-    (function() {
-      // Content order:
-      // 1) text0 -> 2) antigen.png -> 3) text1 -> 4) Neoantigens_discovery.svg -> loop
-      const text0 = "Science for All — Affordable, Accessible, Advanced.";
-      const text1 = "AI-Driven Solutions for Next-Gen Therapeutics.";
+    (function () {
+      const mqMobile = matchMedia('(max-width: 920px)');
+      const body = document.body;
+      const nav = document.getElementById('primary-nav');
+      const toggle = document.querySelector('.menu-toggle');
 
-      const textEl = document.getElementById("vx-rotating-slogan");
-      const imgAntigen = document.getElementById("vx-rot-img-antigen");
-      const imgNeo     = document.getElementById("vx-rot-img-neo");
-      if (!textEl || !imgAntigen || !imgNeo) return;
+      // Toggle offcanvas menu
+      toggle.addEventListener('click', () => {
+        const open = body.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
 
-      const FADE_MS  = 400;
-      const TEXT_MS  = 3000;   // dwell per text
-      const IMAGE_MS = 10000;  // dwell per image
-
-      function showText(s) {
-        [imgAntigen, imgNeo].forEach(el => { el.style.opacity = "0"; });
-        setTimeout(() => {
-          [imgAntigen, imgNeo].forEach(el => { el.style.display = "none"; });
-          textEl.textContent = s;
-          textEl.style.display = "block";
-          requestAnimationFrame(() => { textEl.style.opacity = "1"; });
-        }, FADE_MS);
-      }
-
-      function showImage(which) {
-        const toShow = which === "antigen" ? imgAntigen : imgNeo;
-        const toHide = which === "antigen" ? imgNeo : imgAntigen;
-
-        textEl.style.opacity = "0";
-        setTimeout(() => {
-          textEl.style.display = "none";
-          toHide.style.display = "none";
-          toHide.style.opacity  = "0";
-
-          toShow.style.display = "flex";
-          requestAnimationFrame(() => { toShow.style.opacity = "1"; });
-        }, FADE_MS);
-      }
-
-      // initial state: first slogan visible
-      textEl.style.display = "block";
-      textEl.style.opacity  = "1";
-      imgAntigen.style.display = "none"; imgAntigen.style.opacity = "0";
-      imgNeo.style.display     = "none"; imgNeo.style.opacity     = "0";
-
-      // Sequence controller
-      const steps = [
-        {type:"text",  value:text0,     dwell:TEXT_MS},
-        {type:"image", value:"antigen", dwell:IMAGE_MS},
-        {type:"text",  value:text1,     dwell:TEXT_MS},
-        {type:"image", value:"neo",     dwell:IMAGE_MS},
-      ];
-
-      let i = 0;
-      function next() {
-        const step = steps[i];
-        if (step.type === "text") {
-          showText(step.value);
-        } else {
-          showImage(step.value);
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && body.classList.contains('nav-open')) {
+          body.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
         }
-        const dwell = step.dwell + FADE_MS * 2;
-        i = (i + 1) % steps.length;
-        setTimeout(next, dwell);
-      }
+      });
 
-      // start after the first visible text has had its dwell
-      setTimeout(next, TEXT_MS + FADE_MS * 2);
+      // Click-to-open dropdowns on mobile
+      function wireDropdowns() {
+        const dropdownLinks = nav.querySelectorAll('.dropdown > .dropdown-link, .has-sub > .submenu-link');
+        dropdownLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            if (!mqMobile.matches) return; // desktop uses hover
+            e.preventDefault();
+            const parent = link.parentElement;
+            const expanded = link.getAttribute('aria-expanded') === 'true';
+            // close siblings
+            Array.from(parent.parentElement.children).forEach(sib => {
+              const a = sib.querySelector(':scope > .dropdown-link, :scope > .submenu-link');
+              if (a && sib !== parent) {
+                a.setAttribute('aria-expanded', 'false');
+                sib.classList.remove('open');
+              }
+            });
+            link.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            parent.classList.toggle('open', !expanded);
+          }, { passive: false });
+        });
+      }
+      wireDropdowns();
+
+      // Close nav when clicking outside (mobile)
+      document.addEventListener('click', (e) => {
+        if (!body.classList.contains('nav-open')) return;
+        if (!e.target.closest('.site-header')) {
+          body.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
     })();
   </script>
+
+  <!-- Rotating slogans (text-only) -->
+  <script>
+    (function() {
+      const text0 = "Science for All — Affordable, Accessible, Advanced.";
+      const text1 = "AI-Driven Solutions for Next-Gen Therapeutics.";
+      const lines = [text0, text1];
+
+      const textEl = document.getElementById("vx-rotating-slogan");
+      if (!textEl) return;
+
+      const FADE_MS  = 350;
+      const TEXT_MS  = 3200;
+
+      let i = 0;
+      function cycle() {
+        const nextText = lines[i % lines.length];
+        textEl.style.opacity = '0';
+        setTimeout(() => {
+          textEl.textContent = nextText;
+          textEl.style.opacity = '1';
+          i++;
+          setTimeout(cycle, TEXT_MS);
+        }, FADE_MS);
+      }
+      // initial fade-in if needed
+      requestAnimationFrame(() => { textEl.style.opacity = '1'; });
+      setTimeout(cycle, TEXT_MS + FADE_MS);
+    })();
+  </script>
+
+  <!-- Screen reader text helper -->
+  <span class="sr-only" id="sr-helper" aria-hidden="true"></span>
 </body>
 </html>
