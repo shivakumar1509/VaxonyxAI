@@ -9,7 +9,7 @@
   <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
 
   <!-- Global styles -->
-  <link rel="stylesheet" href="css/styles.css?v=build-35" />
+  <link rel="stylesheet" href="css/styles.css?v=build-36" />
 </head>
 <body>
   <!-- ===== Header ===== -->
@@ -114,7 +114,7 @@
     </div>
   </header>
 
-  <!-- ===== Hero (text-only rotator) ===== -->
+  <!-- ===== Hero (text-only rotator, tall) ===== -->
   <section class="hero">
     <div class="hero-inner container">
       <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite">
@@ -201,7 +201,7 @@
       const nav = document.getElementById('primary-nav');
       const toggle = document.querySelector('.menu-toggle');
 
-      // Toggle offcanvas menu
+      // Toggle off-canvas menu
       toggle.addEventListener('click', () => {
         const open = body.classList.toggle('nav-open');
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -215,8 +215,8 @@
         }
       });
 
-      // Click-to-open dropdowns on mobile
-      function wireDropdowns() {
+      // Tap-to-open dropdowns on mobile
+      (function wireDropdowns() {
         const dropdownLinks = nav.querySelectorAll('.dropdown > .dropdown-link, .has-sub > .submenu-link');
         dropdownLinks.forEach(link => {
           link.addEventListener('click', (e) => {
@@ -236,8 +236,7 @@
             parent.classList.toggle('open', !expanded);
           }, { passive: false });
         });
-      }
-      wireDropdowns();
+      })();
 
       // Close nav when clicking outside (mobile)
       document.addEventListener('click', (e) => {
@@ -274,7 +273,6 @@
           setTimeout(cycle, TEXT_MS);
         }, FADE_MS);
       }
-      // initial fade-in if needed
       requestAnimationFrame(() => { textEl.style.opacity = '1'; });
       setTimeout(cycle, TEXT_MS + FADE_MS);
     })();

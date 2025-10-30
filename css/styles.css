@@ -125,11 +125,11 @@ img{ max-width:100%; height:auto; display:block; }
 .vx-fab:hover{ filter:brightness(1.06); }
 .vx-fab-desktop{ display:inline-flex; }
 
-/* ===== Hero (text only) ===== */
+/* ===== Hero (text only, tall) ===== */
 .hero{
   position:relative; overflow:hidden;
   background:linear-gradient(180deg,#3FA9F5 0%,#0d2a56 70%,#000 100%);
-  min-height:48vh;
+  min-height:64vh; /* restored height */
   display:flex; align-items:center; justify-content:center;
 }
 .hero-inner{ position:relative; padding:var(--hero-pad-y) 0; width:100%; text-align:center; }
@@ -138,6 +138,11 @@ img{ max-width:100%; height:auto; display:block; }
   font-size:clamp(28px,5vw,56px);
   line-height:1.15; margin:0;
   opacity:0; transition:opacity 350ms ease;
+}
+
+/* Optional: boost for tall desktops */
+@media (min-height: 800px) and (min-width: 920px){
+  .hero{ min-height:72vh; }
 }
 
 /* ===== Partners ===== */
@@ -325,4 +330,5 @@ img{ max-width:100%; height:auto; display:block; }
 /* Tiny phones */
 @media (max-width: 380px){
   .menu-toggle{ font-size:16px; padding:.45rem .6rem; }
-  .hero-title{ font-size:clamp(
+  .hero-title{ font-size:clamp(24px,7vw,34px); }
+}
