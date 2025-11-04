@@ -34,10 +34,11 @@ img{ max-width:100%; height:auto; display:block; }
 .site-header{
   position:sticky;
   top:0;
-  z-index:1000;
+  z-index:2000;                 /* ↑ keep menus above page content */
   background:#fff;
   border-bottom:1px solid var(--vx-line);
   height:var(--header-h);
+  overflow:visible;             /* ↑ let dropdowns escape header box */
 }
 .header-row{
   height:var(--header-h);
@@ -82,10 +83,11 @@ img{ max-width:100%; height:auto; display:block; }
 
 /* Dropdowns (desktop hover) */
 .dropdown-menu{
-  position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%);
+  /* CHANGED: anchor below the trigger instead of centering */
+  position:absolute; top:100%; left:0; transform:none;
   background:#fff; border:1px solid var(--vx-line); border-radius:12px;
   box-shadow:0 12px 28px rgba(0,0,0,.12);
-  display:none; min-width:240px; padding:10px; z-index:1000;
+  display:none; min-width:260px; padding:10px; z-index:2100;
 }
 .dropdown:hover .dropdown-menu,
 .dropdown:focus-within .dropdown-menu{ display:block; }
@@ -98,10 +100,11 @@ img{ max-width:100%; height:auto; display:block; }
   content:""; position:absolute; top:0; bottom:0; left:100%; width:14px; background:transparent;
 }
 .submenu{
-  position:absolute; top:-10px; left:100%;
+  /* CHANGED: align neatly to the right of parent item */
+  position:absolute; top:-1px; left:100%;
   background:#fff; border:1px solid var(--vx-line); border-radius:12px;
   box-shadow:0 12px 28px rgba(0,0,0,.12);
-  display:none; min-width:240px; padding:10px; z-index:1000;
+  display:none; min-width:240px; padding:10px; z-index:2200;
 }
 .has-sub:hover>.submenu,.has-sub:focus-within>.submenu{ display:block; }
 .dropdown-menu li{ list-style:none; }
