@@ -340,3 +340,41 @@ img{ max-width:100%; height:auto; display:block; }
   .menu-toggle{ font-size:16px; padding:.45rem .6rem; }
   .hero-title{ font-size:clamp(24px,7vw,34px); }
 }
+/* --- FINAL OVERRIDES: desktop dropdown positioning & layering --- */
+@media (min-width: 921px){
+  .site-header{ z-index: 3000; overflow: visible; }
+
+  /* make each top-level <li> the anchor */
+  .site-nav .menu > li{ position: relative; }
+
+  /* anchor the first dropdown directly under its trigger */
+  .site-nav .menu > li.dropdown > .dropdown-menu{
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+    display: none;
+    min-width: 260px;
+    z-index: 3100;
+  }
+  .site-nav .menu > li.dropdown:hover > .dropdown-menu,
+  .site-nav .menu > li.dropdown:focus-within > .dropdown-menu{
+    display: block;
+  }
+
+  /* right-hand submenu should open flush to the right */
+  .site-nav .dropdown-menu .has-sub{ position: relative; }
+  .site-nav .dropdown-menu .has-sub > .submenu{
+    position: absolute !important;
+    top: -1px !important;
+    left: 100% !important;
+    transform: none !important;
+    display: none;
+    min-width: 240px;
+    z-index: 3200;
+  }
+  .site-nav .dropdown-menu .has-sub:hover > .submenu,
+  .site-nav .dropdown-menu .has-sub:focus-within > .submenu{
+    display: block;
+  }
+}
