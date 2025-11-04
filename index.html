@@ -10,6 +10,41 @@
 
   <!-- Global styles -->
   <link rel="stylesheet" href="css/styles.css?v=build-39" />
+
+  <!-- Hard override: force correct desktop dropdown positioning -->
+  <style id="vx-dd-fix">
+  @media (min-width:921px){
+    .site-header{ overflow:visible !important; z-index:3000 !important; }
+    .site-nav .menu>li{ position:relative !important; }
+    .site-nav .menu>li.dropdown > .dropdown-menu{
+      position:absolute !important;
+      top:100% !important;
+      left:0 !important;
+      transform:none !important;
+      z-index:3100 !important;
+      display:none;
+      min-width:260px;
+    }
+    .site-nav .menu>li.dropdown:hover > .dropdown-menu,
+    .site-nav .menu>li.dropdown:focus-within > .dropdown-menu{
+      display:block !important;
+    }
+    .site-nav .dropdown-menu .has-sub{ position:relative !important; }
+    .site-nav .dropdown-menu .has-sub > .submenu{
+      position:absolute !important;
+      top:-1px !important;
+      left:100% !important;
+      transform:none !important;
+      z-index:3200 !important;
+      display:none;
+      min-width:240px;
+    }
+    .site-nav .dropdown-menu .has-sub:hover > .submenu,
+    .site-nav .dropdown-menu .has-sub:focus-within > .submenu{
+      display:block !important;
+    }
+  }
+  </style>
 </head>
 <body>
   <!-- ===== Header ===== -->
