@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if page.title %}{{ page.title }} · {% endif %}Vaxonyx</title>
+
+  <link rel="preload" href="{{ '/assets/Vaxonyx.svg' | relative_url }}" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/css/styles.css?v=build-39' | relative_url }}" />
+
+  <!-- your inline fixes go here (unchanged from your current page) -->
+  <style>
+    /* keep the nav/hero/footer CSS you already use */
+  </style>
+</head>
+<body>
+  {% include header.html %}
+
+  <main role="main">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/osx_widget.js?v=build-19' | relative_url }}" defer></script>
+  <!-- any other shared JS (dropdown wiring, etc.) -->
+  <script>
+    /* your existing mobile menu & dropdown JS here */
+  </script>
+</body>
+</html>
