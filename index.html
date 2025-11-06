@@ -62,7 +62,6 @@
 
       <nav id="primary-nav" class="site-nav" aria-label="Main">
         <ul class="menu" role="list">
-          <!-- NEW: Home button before About -->
           <li><a href="index.html">Home</a></li>
 
           <li class="dropdown">
@@ -107,14 +106,11 @@
             </ul>
           </li>
 
-          <!-- Removed top-level Platforms -->
-
           <li class="dropdown">
             <a href="innovation/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
               Innovation <span class="caret" aria-hidden="true">▾</span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <!-- Platforms FIRST under Innovation (with submenu to AI/Delivery) -->
               <li class="has-sub">
                 <a href="innovation/platform/" class="submenu-link" aria-haspopup="true" aria-expanded="false">
                   Platforms <span class="caret right" aria-hidden="true">▸</span>
@@ -124,11 +120,13 @@
                   <li role="none"><a role="menuitem" href="innovation/platform/delivery/">Delivery</a></li>
                 </ul>
               </li>
-
               <li role="none"><a role="menuitem" href="innovation/pipeline/">Pipeline</a></li>
               <li role="none"><a role="menuitem" href="innovation/products/">Products</a></li>
             </ul>
           </li>
+
+          <!-- NEW TAB: Partners -->
+          <li><a href="partners/">Partners</a></li>
 
           <li class="dropdown">
             <a href="news/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
@@ -163,28 +161,7 @@
     </div>
   </section>
 
-  <!-- ===== Partners ===== -->
-  <section id="partners" class="partners">
-    <div class="container partners-inner">
-      <h2>Partners</h2>
-      <p>
-        At <strong>Vaxonyx</strong>, we believe that innovation accelerates through collaboration.
-        We partner with academic institutions, biotechnology companies, healthcare organizations,
-        and technology innovators to advance the frontiers of genetic medicine, vaccines, and immunotherapies.
-      </p>
-
-      <div class="partner-mini-card">
-        <h3>Key Partner: Atlas Medicals</h3>
-        <p>
-          <strong>Vaxonyx</strong> is working with <strong>Atlas Medicals</strong> on the biochemical characterization
-          of their advanced biomaterial, <em>OcuGraft</em>.
-        </p>
-        <a href="https://atlasmedical.us/" target="_blank" rel="noopener">🌐 https://atlasmedical.us/</a>
-
-        <img src="assets/atlas_partner.png" alt="Atlas Medicals partnership">
-      </div>
-    </div>
-  </section>
+  <!-- (Partners section removed from homepage) -->
 
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
