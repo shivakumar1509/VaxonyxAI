@@ -1,0 +1,81 @@
+<header class="site-header" role="banner">
+  <div class="container header-row">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Vaxonyx home">
+      <img class="brand-logo" src="{{ '/assets/Vaxonyx.svg' | relative_url }}" alt="Vaxonyx logo" width="160" height="42">
+    </a>
+
+    <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false">☰</button>
+
+    <nav id="primary-nav" class="site-nav" aria-label="Main">
+      <ul class="menu" role="list">
+        <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
+
+        <li class="dropdown">
+          <a href="{{ '/about/' | relative_url }}" class="dropdown-link">About ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ '/about/#mission' | relative_url }}">Mission &amp; Vision</a></li>
+            <li><a href="{{ '/about/#team' | relative_url }}">Team</a></li>
+            <li><a href="{{ '/assets/careers/' | relative_url }}">Careers</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="{{ '/services/' | relative_url }}" class="dropdown-link">Services ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ '/services/cell-lines/' | relative_url }}">Cell line services</a></li>
+            <li class="has-sub">
+              <a href="{{ '/services/protein-production/' | relative_url }}" class="submenu-link">Protein production ▸</a>
+              <ul class="submenu">
+                <li><a href="{{ '/services/protein-production/antibody-production/' | relative_url }}">Antibody production</a></li>
+                <li><a href="{{ '/services/protein-production/antigen/' | relative_url }}">Antigen production</a></li>
+              </ul>
+            </li>
+            <li class="has-sub">
+              <a href="{{ '/services/assays/' | relative_url }}" class="submenu-link">Assays ▸</a>
+              <ul class="submenu">
+                <li><a href="{{ '/services/assays/biochemical/' | relative_url }}">Biochemical assays</a></li>
+                <li><a href="{{ '/services/assays/virology/' | relative_url }}">Virology-Based assays</a></li>
+              </ul>
+            </li>
+            <li><a href="{{ '/services/molecular-biology/' | relative_url }}">Molecular biology</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="{{ '/innovation/' | relative_url }}" class="dropdown-link">Innovation ▾</a>
+          <ul class="dropdown-menu">
+            <li class="has-sub">
+              <a href="{{ '/innovation/platform/' | relative_url }}" class="submenu-link">Platforms ▸</a>
+              <ul class="submenu">
+                <li><a href="{{ '/innovation/platform/ai/' | relative_url }}">AI</a></li>
+                <li><a href="{{ '/innovation/platform/delivery/' | relative_url }}">Delivery</a></li>
+              </ul>
+            </li>
+            <li><a href="{{ '/innovation/pipeline/' | relative_url }}">Pipeline</a></li>
+            <li><a href="{{ '/innovation/products/' | relative_url }}">Products</a></li>
+          </ul>
+        </li>
+
+        <li><a href="{{ '/partners/' | relative_url }}">Partners</a></li>
+
+        <li class="dropdown">
+          <a href="{{ '/news/' | relative_url }}" class="dropdown-link">News &amp; Investors ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ '/news/#press' | relative_url }}">Press &amp; updates</a></li>
+            <li><a href="{{ '/investors/' | relative_url }}">Investor materials</a></li>
+          </ul>
+        </li>
+
+        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+
+        <li class="ai-inline">
+          <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
+      Ask Vaxonyx AI
+    </button>
+  </div>
+</header>
