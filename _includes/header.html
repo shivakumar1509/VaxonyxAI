@@ -23,6 +23,7 @@
           <a href="{{ '/services/' | relative_url }}" class="dropdown-link">Services ▾</a>
           <ul class="dropdown-menu">
             <li><a href="{{ '/services/cell-lines/' | relative_url }}">Cell line services</a></li>
+
             <li class="has-sub">
               <a href="{{ '/services/protein-production/' | relative_url }}" class="submenu-link">Protein production ▸</a>
               <ul class="submenu">
@@ -30,6 +31,7 @@
                 <li><a href="{{ '/services/protein-production/antigen/' | relative_url }}">Antigen production</a></li>
               </ul>
             </li>
+
             <li class="has-sub">
               <a href="{{ '/services/assays/' | relative_url }}" class="submenu-link">Assays ▸</a>
               <ul class="submenu">
@@ -37,6 +39,7 @@
                 <li><a href="{{ '/services/assays/virology/' | relative_url }}">Virology-Based assays</a></li>
               </ul>
             </li>
+
             <li><a href="{{ '/services/molecular-biology/' | relative_url }}">Molecular biology</a></li>
           </ul>
         </li>
@@ -68,12 +71,14 @@
 
         <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
 
+        <!-- Mobile-only AI button -->
         <li class="ai-inline">
           <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
         </li>
       </ul>
     </nav>
 
+    <!-- Desktop AI button -->
     <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
       Ask Vaxonyx AI
     </button>
