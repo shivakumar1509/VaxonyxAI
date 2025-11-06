@@ -1,39 +1,35 @@
-!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Make every relative URL resolve from your repo root -->
+  <base href="/VaxonyxAI/">
   <title>Platforms – Vaxonyx</title>
-  <meta name="description" content="Explore Vaxonyx platforms: AI for discovery and design, DNA design for optimized plasmids, and DNA delivery for non-viral transport.">
+  <meta name="description" content="Explore Vaxonyx platforms: AI for discovery and design, and DNA delivery for non-viral transport.">
 
-  <link rel="preload" href="../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
-  <link rel="stylesheet" href="../css/styles.css?v=build-27">
+  <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=build-39">
 
   <style>
-    :root{
-      --vx-primary:#007C91; --vx-accent:#3FA9F5; --vx-ink:#0b1220;
-      --vx-muted:#5b6375; --vx-line:rgba(12,18,32,.12);
-      --vx-ring:rgba(63,169,245,.45);
-      --vx-bg: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%);
-    }
     .container{width:min(1120px,92%);margin-inline:auto}
-    .plat-hero{padding:88px 0 42px;background:var(--vx-bg)}
+    .plat-hero{padding:88px 0 42px;background:conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%)}
     .plat-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui;color:var(--vx-ink);margin:0 0 10px}
     .plat-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
 
     h2.section{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
     .cards{display:grid;gap:16px;margin:22px 0}
-    .cards.three{grid-template-columns:repeat(3,1fr)}
-    @media (max-width: 960px){.cards.three{grid-template-columns:1fr 1fr}}
-    @media (max-width: 680px){.cards.three{grid-template-columns:1fr}}
+    .cards.two{grid-template-columns:repeat(2,1fr)}
+    @media (max-width: 960px){.cards.two{grid-template-columns:1fr}}
     .card{background:#fff;border:1px solid var(--vx-line);border-radius:16px;padding:18px 16px;display:grid;gap:10px;align-content:start;transition:.2s ease}
     .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
     .card h3{font:700 16px/1.3 system-ui;margin:0;color:#0f1a2a}
     .card p{font:400 14px/1.6 system-ui;color:#2a3040;margin:0}
-    .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1;background:var(--bg);color:var(--fg)}
-    .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
+    .btn{--bg:transparent;--fg:var(--vx-blue);display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1;background:var(--bg);color:var(--fg)}
+    .btn.primary{--bg:linear-gradient(180deg,#3FA9F5,#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px rgba(63,169,245,.45)}
     .anchor-pad{scroll-margin-top:90px}
 
+    /* highlight current item inside dropdown menu */
     .dropdown-menu a[aria-current="page"]{
       color: var(--vx-blue) !important;
       background: rgba(27,66,122,.08);
@@ -43,75 +39,78 @@
   </style>
 </head>
 <body>
+  <!-- ===== Header (same classes your global CSS expects) ===== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
-      <a class="brand" href="../">
-        <img class="brand-logo" src="../assets/Vaxonyx.svg" alt="Vaxonyx">
+      <!-- Tip: empty href="" resolves to the <base> (/VaxonyxAI/) -->
+      <a class="brand" href="" aria-label="Vaxonyx home">
+        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx" width="160" height="42">
       </a>
 
       <nav class="site-nav" aria-label="Main">
-        <ul class="menu">
+        <ul class="menu" role="list">
           <li class="dropdown">
-            <a href="../about/">About ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="../about/#mission">Mission &amp; Vision</a></li>
-              <li><a href="../about/#team">Team</a></li>
-              <li><a href="../careers/">Careers</a></li>
+            <a href="about/" class="dropdown-link">About ▾</a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="about/#mission">Mission &amp; Vision</a></li>
+              <li role="none"><a role="menuitem" href="about/#team">Team</a></li>
+              <li role="none"><a role="menuitem" href="assets/careers/">Careers</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="../services/">Services ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="../services/cell-lines/">Cell line services</a></li>
+            <a href="services/" class="dropdown-link">Services ▾</a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="services/cell-lines/">Cell line services</a></li>
               <li class="has-sub">
-                <a href="../services/protein-production/">Protein production ▸</a>
-                <ul class="submenu">
-                  <li><a href="../services/protein-production/antibody-production/">Antibody production</a></li>
-                  <li><a href="../services/protein-production/antigen/">Antigen production</a></li>
+                <a href="services/protein-production/" class="submenu-link">Protein production ▸</a>
+                <ul class="submenu" role="menu">
+                  <li role="none"><a role="menuitem" href="services/protein-production/antibody-production/">Antibody production</a></li>
+                  <li role="none"><a role="menuitem" href="services/protein-production/antigen/">Antigen production</a></li>
                 </ul>
               </li>
               <li class="has-sub">
-                <a href="../services/assays/">Assays ▸</a>
-                <ul class="submenu">
-                  <li><a href="../services/assays/biochemical/">Biochemical assays</a></li>
-                  <li><a href="../services/assays/virology/">Virology-Based assays</a></li>
+                <a href="services/assays/" class="submenu-link">Assays ▸</a>
+                <ul class="submenu" role="menu">
+                  <li role="none"><a role="menuitem" href="services/assays/biochemical/">Biochemical assays</a></li>
+                  <li role="none"><a role="menuitem" href="services/assays/virology/">Virology-Based assays</a></li>
                 </ul>
               </li>
-              <li><a href="../services/molecular-biology/">Molecular biology</a></li>
+              <li role="none"><a role="menuitem" href="services/molecular-biology/">Molecular biology</a></li>
+            </ul>
+          </li>
+
+          <!-- Platforms section (current), with submenu to AI + Delivery -->
+          <li class="dropdown">
+            <a href="innovation/platform/" class="dropdown-link" aria-current="page">Platforms ▾</a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="#ai">AI platforms</a></li>
+              <li role="none"><a role="menuitem" href="#delivery">DNA delivery platforms</a></li>
+            </ul>
+          </li>
+
+          <!-- Innovation parent still exists for Pipeline/Products -->
+          <li class="dropdown">
+            <a href="innovation/" class="dropdown-link">Innovation ▾</a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="innovation/pipeline/">Pipeline</a></li>
+              <li role="none"><a role="menuitem" href="innovation/products/">Products</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a aria-current="page" href="./">Platforms ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="#ai">AI platforms</a></li>
-              <li><a href="#dna">DNA platforms</a></li>
-              <li><a href="#delivery">DNA delivery platforms</a></li>
+            <a href="news/" class="dropdown-link">News &amp; Investors ▾</a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="news/#press">Press &amp; updates</a></li>
+              <li role="none"><a role="menuitem" href="investors/">Investor materials</a></li>
             </ul>
           </li>
 
-          <li class="dropdown">
-            <a href="../innovation/">Innovation ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="../innovation/#pipeline">Pipeline</a></li>
-              <li><a href="../innovation/#products">Products</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a href="../news/">News &amp; Investors ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="../news/#press">Press &amp; updates</a></li>
-              <li><a href="../investors/">Investor materials</a></li>
-            </ul>
-          </li>
-
-          <li><a href="../contact/">Contact</a></li>
+          <li><a href="contact/">Contact</a></li>
         </ul>
       </nav>
 
-      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
+      <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
     </div>
   </header>
 
@@ -119,36 +118,25 @@
     <section class="plat-hero">
       <div class="container">
         <h1>Platforms</h1>
-        <p>From AI-integrated discovery to DNA design and delivery, our platforms connect computational insight with translational execution.</p>
+        <p>From AI-integrated discovery to DNA delivery, our platforms connect computational insight with translational execution.</p>
       </div>
     </section>
 
     <section class="container">
       <h2 class="section">Browse platforms</h2>
-      <div class="cards three">
+      <div class="cards two">
         <article id="ai" class="card anchor-pad">
           <h3>AI Platform</h3>
           <p>Machine learning and predictive analytics for genomic analysis, variant calling, epitope identification, and personalized design workflows.</p>
-          <div><a class="btn primary" href="./ai/">Explore AI Platform</a></div>
-        </article>
-
-        <article id="dna" class="card anchor-pad">
-          <h3>DNA Design Platform</h3>
-          <p>Next-generation plasmid systems engineered for robust expression, long-term stability, and tailored immunogenicity profiles.</p>
-          <div><a class="btn primary" href="./dna/">Explore DNA Platform</a></div>
+          <div><a class="btn primary" href="innovation/platform/ai/">Explore AI Platform</a></div>
         </article>
 
         <article id="delivery" class="card anchor-pad">
           <h3>DNA Delivery Platform</h3>
           <p>Non-viral delivery technologies optimized for efficient uptake and expression with low toxicity and minimal immunogenicity.</p>
-          <div><a class="btn primary" href="./delivery/">Explore Delivery Platform</a></div>
+          <div><a class="btn primary" href="innovation/platform/delivery/">Explore Delivery Platform</a></div>
         </article>
       </div>
-    </section>
-
-    <section class="container" id="dna-details">
-      <h2 class="section">DNA Design Platform</h2>
-      <p>Our DNA Design Platform focuses on next-generation plasmids for vaccines and gene therapy. Constructs are engineered for enhanced immunogenicity and durable expression. For gene therapy, we emphasize low-immunogenic backbones with reduced CpG content, optimized UTRs, and self-episomal replication in mitotic cells to enable persistent expression without genomic integration.</p>
     </section>
 
     <section class="container" id="delivery-details" style="margin-bottom:34px">
@@ -157,24 +145,26 @@
     </section>
   </main>
 
-<!-- ===== Footer (inlined to avoid include issues) ===== -->
+  <!-- ===== Footer (uses global classes; links updated) ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="foot-brand">
-        <img class="brand-logo" src="../../assets/Vaxonyx.svg" alt="Vaxonyx">
+        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx" width="160" height="42">
         <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
       </div>
 
       <div class="foot-links">
         <div class="foot-title">Quick Access</div>
         <ul class="links">
-          <li><a href="../../about/">About</a></li>
-          <li><a href="../../innovation/">Innovation</a></li>
-          <li><a href="../../innovation/#pipeline">Pipeline</a></li>
-          <li><a href="../../innovation/#products">Products</a></li>
-          <li><a href="../../news/">News &amp; Investors</a></li>
-          <li><a href="../../careers/">Careers</a></li>
-          <li><a href="../../contact/">Contact</a></li>
+          <li><a href="about/">About</a></li>
+          <li><a href="innovation/">Innovation</a></li>
+          <li><a href="innovation/platform/">Platforms</a></li>
+          <li><a href="innovation/pipeline/">Pipeline</a></li>
+          <li><a href="innovation/products/">Products</a></li>
+          <li><a href="news/">News</a></li>
+          <li><a href="investors/">Investors</a></li>
+          <li><a href="assets/careers/">Careers</a></li>
+          <li><a href="contact/">Contact</a></li>
         </ul>
       </div>
 
@@ -185,22 +175,19 @@
           Huntsville, AL 35806, USA<br>
           📞 +1 (938) 287-3891
         </address>
-        <a class="email" href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
+        <a class="email" href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a>
 
         <div class="foot-title mt">Investor Relations</div>
-        <a class="email" href="mailto:investorrelations@vaxonyx.com">investorrelations@vaxonyx.com</a>
+        <a class="email" href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a>
 
         <div class="foot-title mt">Business Development</div>
-        <a class="email" href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
-
-        <div class="foot-title mt">Personal Contact</div>
-        <a class="email" href="mailto:krayavra@vaxonyx.com">krayavra@vaxonyx.com</a>
+        <a class="email" href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a>
       </div>
     </div>
 
     <div class="footer-bottom">© 2025 Vaxonyx. All rights reserved.</div>
   </footer>
 
-  <script src="../assets/osx_widget.js?v=build-19" defer></script>
+  <script src="assets/osx_widget.js?v=build-19" defer></script>
 </body>
 </html>
