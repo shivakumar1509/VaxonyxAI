@@ -11,7 +11,7 @@
   <!-- Global styles -->
   <link rel="stylesheet" href="css/styles.css?v=build-39" />
 
-  <!-- Topbar + centered dropdowns (desktop) -->
+  <!-- Compact nav spacing + centered dropdowns (desktop) -->
   <style id="vx-dd-fix">
   :root{
     --vx-blue:#1B427A;
@@ -20,58 +20,44 @@
     --vx-orange:#F26B3B;
   }
 
-  /* ====== TOP BLUE BAR ====== */
-  .topbar{
-    background:linear-gradient(180deg,#3FA9F5 0%, #167fd8 100%);
-    color:#fff;
-    font-weight:700;
-    font-size:13px;
-  }
-  .topbar-inner{
-    display:flex; align-items:center; justify-content:flex-end;
-    gap:12px;
-    padding:8px 0;
-  }
-  .topbar a{
-    color:#fff; text-decoration:none;
-    padding:6px 10px; border-radius:999px;
-    border:1px solid rgba(255,255,255,.25);
-    background:rgba(255,255,255,.08);
-    display:inline-flex; align-items:center;
-  }
-  .topbar a:hover{ background:rgba(255,255,255,.16); }
-
-  /* ====== HEADER ====== */
+  /* ===== Header ===== */
   .site-header{
     position:sticky; top:0; z-index:2000;
     background:#fff; border-bottom:1px solid var(--vx-line);
     height:68px; overflow:visible;
   }
-  .header-row{ height:68px; display:flex; align-items:center; gap:20px; }
+  .header-row{ height:68px; display:flex; align-items:center; gap:16px; }
   .brand-logo{ height:42px; }
 
   .menu-toggle{
     border:1px solid var(--vx-line); background:#fff; border-radius:10px;
-    padding:.5rem .7rem; font-size:18px; line-height:1; cursor:pointer; display:none;
+    padding:.45rem .6rem; font-size:18px; line-height:1; cursor:pointer; display:none;
   }
 
   .site-nav{ margin-left:auto; }
-  .menu{ display:flex; align-items:center; gap:28px; padding:0; margin:0; list-style:none; }
+  .menu{
+    display:flex; align-items:center;
+    gap:18px;                 /* ↓ reduced gap across top menu */
+    padding:0; margin:0; list-style:none;
+  }
   .menu>li{ position:relative; }
-  .menu>li>a, .menu .dropdown-link, .menu .submenu-link{
-    color:var(--vx-blue); text-decoration:none; font-weight:700;
-    display:inline-flex; align-items:center; gap:8px; padding:.25rem 0;
+  .menu>li>a,
+  .menu .dropdown-link,
+  .menu .submenu-link{
+    color:var(--vx-blue);
+    text-decoration:none;
+    font-weight:700;
+    display:inline-flex; align-items:center; gap:6px;
+    padding:8px 0;            /* ↓ tighter vertical padding */
   }
   .menu>li>a:hover{ text-decoration:underline; }
+  .caret{ font-size:18px; line-height:1; }
+  .caret.right{ transform:translateY(-1px); }
 
-  /* ====== DESKTOP DROPDOWNS (centered under trigger) ====== */
+  /* ===== Desktop dropdowns: centered under trigger ===== */
   @media (min-width:921px){
     .site-header{ overflow:visible !important; z-index:3000 !important; }
-    .site-nav .menu{ display:flex; align-items:center; gap:28px; }
     .site-nav .menu>li{ position:relative; }
-    .site-nav .menu>li > a, .site-nav .menu>li > .dropdown-link{
-      display:flex; align-items:center; padding:12px 6px;
-    }
     .site-nav .menu>li.dropdown > .dropdown-menu{
       position:absolute !important;
       top:calc(100% + 10px) !important;
@@ -79,7 +65,7 @@
       transform:translateX(-50%) !important;
       z-index:3100 !important;
       display:none;
-      min-width:260px; max-width:420px;
+      min-width:240px; max-width:420px;
       background:#fff; border-radius:12px; padding:8px 0;
       box-shadow:0 10px 25px rgba(0,0,0,.12);
     }
@@ -96,13 +82,14 @@
       position:absolute !important;
       top:-8px !important; left:100% !important; transform:none !important;
       z-index:3200 !important; display:none;
-      min-width:240px; background:#fff; border-radius:10px; padding:8px 0;
+      min-width:220px; background:#fff; border-radius:10px; padding:8px 0;
       box-shadow:0 10px 25px rgba(0,0,0,.12);
     }
     .site-nav .dropdown-menu .has-sub:hover > .submenu,
     .site-nav .dropdown-menu .has-sub:focus-within > .submenu{
       display:block !important;
     }
+
     .site-nav .dropdown-menu li{ white-space:nowrap; }
     .site-nav .dropdown-menu a{
       display:block; padding:8px 12px; border-radius:8px;
@@ -111,29 +98,71 @@
     .site-nav .dropdown-menu a:hover{ background:rgba(27,66,122,.08); }
   }
 
-  /* AI button */
+  /* Ask Vaxonyx AI button */
   .vx-fab{
     border:0; border-radius:999px; padding:10px 14px;
     background:var(--vx-orange); color:#fff; font-weight:800;
     box-shadow:0 10px 22px rgba(242,107,59,.36); cursor:pointer;
   }
 
-  /* ====== MOBILE NAV ====== */
+  /* ===== Hero ===== */
+  .hero{
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg,#3FA9F5 0%,#0d2a56 70%,#000 100%);
+    min-height:64vh;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-inner{ padding:100px 0; width:100%; text-align:center; }
+  .hero-title{
+    color:#fff; font-weight:800; font-size:clamp(28px,5vw,56px);
+    line-height:1.15; margin:0; opacity:0; transition:opacity 350ms ease;
+  }
+
+  /* ===== Footer ===== */
+  .site-footer{ border-top:1px solid var(--vx-line); background:#f7f9fc; }
+  .footer-grid{
+    display:grid; grid-template-columns:1.3fr 0.9fr 1.1fr;
+    gap:32px; padding:24px 0; align-items:start;
+  }
+  .foot-title{ font-weight:800; color:var(--vx-ink); margin:0 0 6px; }
+  .links{ padding:0; margin:0; list-style:none; }
+  .links li+li{ margin-top:6px; }
+  .links a, .email{ color:var(--vx-blue); text-decoration:none; }
+  .links a:hover, .email:hover{ text-decoration:underline; }
+  .footer-bottom{ padding:10px 0 16px; text-align:center; color:#6b7a90; font-size:14px; }
+
+  /* Footer follow (LinkedIn only) */
+  .foot-follow{
+    margin-top:12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+  }
+  .foot-follow a{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:6px 10px; border-radius:999px;
+    border:1px solid var(--vx-line);
+    background:#fff; color:var(--vx-blue); text-decoration:none; font-weight:700;
+  }
+  .foot-follow a:hover{ background:#eef5ff; }
+
+  /* ===== Mobile ===== */
   @media (max-width:920px){
     .menu-toggle{ display:inline-flex; margin-left:auto; }
+
     .site-nav{
       position:fixed; inset:68px 0 0 0; background:#fff;
       transform:translateX(100%); transition:transform .25s ease;
       border-top:1px solid var(--vx-line); padding:10px 0 24px; overflow:auto;
     }
     body.nav-open .site-nav{ transform:translateX(0%); }
-    .menu{ flex-direction:column; align-items:stretch; gap:4px; padding:0 16px; }
-    .menu>li>a, .menu .dropdown-link, .menu .submenu-link{
+
+    .menu{ flex-direction:column; align-items:stretch; gap:6px; padding:0 16px; }
+    .menu>li>a,
+    .menu .dropdown-link,
+    .menu .submenu-link{
       padding:.8rem .6rem; border-radius:10px;
     }
-    .menu>li>a:hover{ background:rgba(27,66,122,.06); text-decoration:none; }
+    .menu>li>a:hover{ text-decoration:none; background:rgba(27,66,122,.06); }
 
-    .vx-fab.vx-fab-desktop{ display:none; } /* hide floating on mobile */
+    .vx-fab.vx-fab-desktop{ display:none; }
     .ai-inline{ display:block; }
 
     .dropdown-menu, .submenu{
@@ -147,14 +176,6 @@
   </style>
 </head>
 <body>
-  <!-- ===== Top Blue Bar ===== -->
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <a href="https://www.linkedin.com/company/vaxonyx/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="#" target="_blank" rel="noopener">Facebook</a>
-    </div>
-  </div>
-
   <!-- ===== Header ===== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
@@ -233,6 +254,7 @@
             </ul>
           </li>
 
+          <!-- Partners tab -->
           <li><a href="partners/">Partners</a></li>
 
           <li class="dropdown">
@@ -259,7 +281,7 @@
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
+  <!-- ===== Hero (text-only rotator) ===== -->
   <section class="hero">
     <div class="hero-inner container">
       <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite">
@@ -274,6 +296,10 @@
       <div class="foot-brand">
         <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx" width="160" height="42">
         <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+        <!-- Follow (LinkedIn only) -->
+        <div class="foot-follow" aria-label="Follow Vaxonyx">
+          <a href="https://www.linkedin.com/company/vaxonyx/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
 
       <div class="foot-links">
