@@ -11,38 +11,62 @@
   <!-- Global styles -->
   <link rel="stylesheet" href="css/styles.css?v=build-39" />
 
-  <!-- Hard override: force correct desktop dropdown positioning -->
+  <!-- Desktop dropdown alignment fix (centered under parent; tidy submenus) -->
   <style id="vx-dd-fix">
   @media (min-width:921px){
     .site-header{ overflow:visible !important; z-index:3000 !important; }
-    .site-nav .menu>li{ position:relative !important; }
+
+    /* even spacing across the top nav */
+    .site-nav .menu{ display:flex; align-items:center; gap:28px; }
+
+    .site-nav .menu>li{ position:relative; }
+    .site-nav .menu>li > a,
+    .site-nav .menu>li > .dropdown-link{
+      display:flex; align-items:center; padding:12px 6px;
+    }
+
+    /* main dropdowns: centered beneath their trigger */
     .site-nav .menu>li.dropdown > .dropdown-menu{
       position:absolute !important;
-      top:100% !important;
-      left:0 !important;
-      transform:none !important;
+      top:calc(100% + 10px) !important;
+      left:50% !important;
+      transform:translateX(-50%) !important;
       z-index:3100 !important;
       display:none;
       min-width:260px;
+      background:#fff; border-radius:12px; padding:8px 0;
+      box-shadow:0 10px 25px rgba(0,0,0,.12);
     }
+
+    /* hover bridge so small gaps don't close the menu */
+    .site-nav .menu>li.dropdown::after{
+      content:""; position:absolute; left:0; right:0; top:100%; height:12px;
+    }
+
     .site-nav .menu>li.dropdown:hover > .dropdown-menu,
     .site-nav .menu>li.dropdown:focus-within > .dropdown-menu{
       display:block !important;
     }
+
+    /* nested submenu (flyout to the right) */
     .site-nav .dropdown-menu .has-sub{ position:relative !important; }
     .site-nav .dropdown-menu .has-sub > .submenu{
       position:absolute !important;
-      top:-1px !important;
+      top:-8px !important;
       left:100% !important;
       transform:none !important;
       z-index:3200 !important;
       display:none;
       min-width:240px;
+      background:#fff; border-radius:10px; padding:8px 0;
+      box-shadow:0 10px 25px rgba(0,0,0,.12);
     }
     .site-nav .dropdown-menu .has-sub:hover > .submenu,
     .site-nav .dropdown-menu .has-sub:focus-within > .submenu{
       display:block !important;
     }
+
+    .site-nav .dropdown-menu li{ white-space:nowrap; }
   }
   </style>
 </head>
@@ -125,7 +149,7 @@
             </ul>
           </li>
 
-          <!-- NEW TAB: Partners -->
+          <!-- Partners tab -->
           <li><a href="partners/">Partners</a></li>
 
           <li class="dropdown">
