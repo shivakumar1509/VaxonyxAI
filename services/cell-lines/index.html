@@ -1,398 +1,258 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cell Line Development – Vaxonyx</title>
-  <meta name="description" content="Stable & transient mammalian cell line development (CHO, HEK293). Rapid timelines, high yield & stability, documentation and release testing." />
+---
+layout: default
+title: Cell Line Development – Vaxonyx
+description: Stable & transient mammalian cell line development (CHO, HEK293). Rapid timelines, high yield & stability, documentation and release testing.
+---
 
-  <!-- Brand assets & global styles -->
-  <link rel="preload" href="../../assets/Vaxonyx.svg" as="image" type="image/svg+xml">
-  <!-- Use same CSS build as homepage -->
-  <link rel="stylesheet" href="../../css/styles.css?v=build-27">
+<style>
+  :root{
+    --vx-primary:#007C91; /* Teal */
+    --vx-accent:#3FA9F5;  /* Sky */
+    --vx-ink:#0b1220; --vx-muted:#5b6375; --vx-line:rgba(12,18,32,.12);
+    --vx-ring:rgba(63,169,245,.45);
+    --vx-bg: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%);
+  }
+  /* Utility */
+  .container{width:min(1120px,92%);margin-inline:auto}
+  .sr-only{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
 
-  <!-- Page-scoped styles for this service (kept intact, with small tweak to center final CTA) -->
-  <style>
-    :root{
-      --vx-primary:#007C91; /* Teal */
-      --vx-accent:#3FA9F5;  /* Sky */
-      --vx-ink:#0b1220; --vx-muted:#5b6375; --vx-line:rgba(12,18,32,.12);
-      --vx-ring:rgba(63,169,245,.45);
-      --vx-bg: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%);
-    }
-    /* Utility */
-    .container{width:min(1120px,92%);margin-inline:auto}
-    .sr-only{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+  /* Page hero */
+  .svc-hero{position:relative;padding:88px 0 42px;background:var(--vx-bg)}
+  .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--vx-ink);margin:0 0 10px}
+  .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
+  .svc-badges{display:flex;gap:.5rem;align-items:center;margin:14px 0 0}
+  .svc-badge{display:inline-flex;align-items:center;gap:.5ch;padding:.4rem .7rem;border:1px solid var(--vx-line);border-radius:999px;font:600 12px/1.1 system-ui;color:var(--vx-primary);background:#fff}
 
-    /* Page hero */
-    .svc-hero{position:relative;padding:88px 0 42px;background:var(--vx-bg)}
-    .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--vx-ink);margin:0 0 10px}
-    .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
-    .svc-badges{display:flex;gap:.5rem;align-items:center;margin:14px 0 0}
-    .svc-badge{display:inline-flex;align-items:center;gap:.5ch;padding:.4rem .7rem;border:1px solid var(--vx-line);border-radius:999px;font:600 12px/1.1 system-ui;color:var(--vx-primary);background:#fff}
+  /* CTA Row */
+  .svc-ctas{display:flex;gap:.75rem;align-items:center;margin:18px 0 0;flex-wrap:wrap}
+  .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1 system-ui;background:var(--bg);color:var(--fg)}
+  .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
 
-    /* CTA Row */
-    .svc-ctas{display:flex;gap:.75rem;align-items:center;margin:18px 0 0;flex-wrap:wrap}
-    .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1 system-ui;background:var(--bg);color:var(--fg)}
-    .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
+  /* Cards */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
+  @media (max-width: 960px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width: 560px){.cards{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--vx-line);border-radius:16px;padding:18px 16px;transition:transform .2s ease, box-shadow .2s ease}
+  .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
+  .card h3{font:700 16px/1.3 system-ui;margin:.2rem 0 .35rem;color:#0f1a2a}
+  .card p{font:400 14px/1.6 system-ui;color:#2a3040;margin:0}
 
-    /* Cards */
-    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
-    @media (max-width: 960px){.cards{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width: 560px){.cards{grid-template-columns:1fr}}
-    .card{background:#fff;border:1px solid var(--vx-line);border-radius:16px;padding:18px 16px;transition:transform .2s ease, box-shadow .2s ease}
-    .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
-    .card h3{font:700 16px/1.3 system-ui;margin:.2rem 0 .35rem;color:#0f1a2a}
-    .card p{font:400 14px/1.6 system-ui;color:#2a3040;margin:0}
+  /* Capabilities list */
+  .cap{margin:6px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media (max-width: 720px){.cap{grid-template-columns:1fr}}
+  .cap-item{display:flex;gap:12px;background:#fff;border:1px dashed var(--vx-line);border-radius:14px;padding:14px}
+  .cap-item h3{font:600 15px/1.3 system-ui;margin:0 0 4px}
+  .cap-item ul{margin:0;padding-left:18px;font:400 14px/1.55 system-ui;color:#333}
 
-    /* Capabilities list */
-    .cap{margin:6px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    @media (max-width: 720px){.cap{grid-template-columns:1fr}}
-    .cap-item{display:flex;gap:12px;background:#fff;border:1px dashed var(--vx-line);border-radius:14px;padding:14px}
-    .cap-item h3{font:600 15px/1.3 system-ui;margin:0 0 4px}
-    .cap-item ul{margin:0;padding-left:18px;font:400 14px/1.55 system-ui;color:#333}
+  /* Pills */
+  .pills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:6px 0 0}
+  .pills li{border:1px solid var(--vx-line);background:#fff;border-radius:999px;padding:.45rem .75rem;font:600 13px/1.1 system-ui;color:#243045}
 
-    /* Pills */
-    .pills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:6px 0 0}
-    .pills li{border:1px solid var(--vx-line);background:#fff;border-radius:999px;padding:.45rem .75rem;font:600 13px/1.1 system-ui;color:#243045}
+  /* KPIs */
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0}
+  @media (max-width:720px){.kpis{grid-template-columns:1fr 1fr}}
+  .kpi{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;align-items:center}
+  .kpi .num{font:800 28px/1.1 system-ui;color:#0a1626}
+  .kpi .lab{font:500 12px/1.3 system-ui;color:#55607a}
 
-    /* KPIs */
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0}
-    @media (max-width:720px){.kpis{grid-template-columns:1fr 1fr}}
-    .kpi{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;align-items:center}
-    .kpi .num{font:800 28px/1.1 system-ui;color:#0a1626}
-    .kpi .lab{font:500 12px/1.3 system-ui;color:#55607a}
+  /* Quality */
+  .quality p{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px;margin:10px 0}
 
-    /* Quality */
-    .quality p{background:#fff;border:1px solid var(--vx-line);border-radius:14px;padding:16px;margin:10px 0}
+  /* Timeline */
+  .flow{margin-top:20px}
+  .steps{list-style:none;margin:0;padding:0;border-left:2px solid var(--vx-line);position:relative}
+  .steps li{padding:14px 14px 14px 24px;position:relative}
+  .steps .dot{position:absolute;left:-7px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--vx-accent);box-shadow:0 0 0 6px rgba(63,169,245,.15)}
+  .steps h3{font:600 15px/1.3 system-ui;margin:0;color:#0f1a2a}
+  .steps .time{margin:.2rem 0 0;font:600 13px/1.2 system-ui;color:var(--vx-primary)}
 
-    /* Timeline */
-    .flow{margin-top:20px}
-    .steps{list-style:none;margin:0;padding:0;border-left:2px solid var(--vx-line);position:relative}
-    .steps li{padding:14px 14px 14px 24px;position:relative}
-    .steps .dot{position:absolute;left:-7px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--vx-accent);box-shadow:0 0 0 6px rgba(63,169,245,.15)}
-    .steps h3{font:600 15px/1.3 system-ui;margin:0;color:#0f1a2a}
-    .steps .time{margin:.2rem 0 0;font:600 13px/1.2 system-ui;color:var(--vx-primary)}
+  .callout{display:flex;gap:10px;align-items:center;border:1px solid var(--vx-line);background:linear-gradient(180deg,#fff,rgba(255,255,255,.7));border-radius:12px;padding:12px 14px;margin-top:14px}
 
-    .callout{display:flex;gap:10px;align-items:center;border:1px solid var(--vx-line);background:linear-gradient(180deg,#fff,rgba(255,255,255,.7));border-radius:12px;padding:12px 14px;margin-top:14px}
+  /* FAQ */
+  .faq details{background:#fff;border:1px solid var(--vx-line);border-radius:12px;padding:12px 14px;margin:10px 0}
+  .faq summary{cursor:pointer;font:600 14px/1.3 system-ui;color:#0f1a2a}
+  .faq div{padding-top:8px;color:#2a3040;font:400 14px/1.55 system-ui}
 
-    /* FAQ */
-    .faq details{background:#fff;border:1px solid var(--vx-line);border-radius:12px;padding:12px 14px;margin:10px 0}
-    .faq summary{cursor:pointer;font:600 14px/1.3 system-ui;color:#0f1a2a}
-    .faq div{padding-top:8px;color:#2a3040;font:400 14px/1.55 system-ui}
+  /* Final CTA — centered */
+  .final-cta{
+    margin:28px 0 40px;
+    border:1px solid var(--vx-line);
+    background:radial-gradient(1200px 1200px at 0% 100%, rgba(63,169,245,.12), transparent), #fff;
+    padding:22px;border-radius:16px;
+    display:grid;gap:6px;
+    justify-items:center;
+    text-align:center;
+  }
+  .final-cta h2{margin:0;color:#0a1626;font:700 22px/1.2 system-ui}
+  .final-cta p{margin:0 0 6px;color:#2a3040;font:400 14px/1.55 system-ui}
 
-    /* Final CTA — centered */
-    .final-cta{
-      margin:28px 0 40px;
-      border:1px solid var(--vx-line);
-      background:radial-gradient(1200px 1200px at 0% 100%, rgba(63,169,245,.12), transparent), #fff;
-      padding:22px;border-radius:16px;
-      display:grid;gap:6px;
-      justify-items:center;      /* center content */
-      text-align:center;         /* center text */
-    }
-    .final-cta h2{margin:0;color:#0a1626;font:700 22px/1.2 system-ui}
-    .final-cta p{margin:0 0 6px;color:#2a3040;font:400 14px/1.55 system-ui}
+  /* Local section headings */
+  .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
 
-    /* Local section headings */
-    .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
+  /* Keep dropdowns steady on hover */
+  .site-nav .dropdown:hover > .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;}
+  .site-nav .has-sub:hover > .submenu{opacity:1;visibility:visible;pointer-events:auto;}
+</style>
 
-    /* Safeguards so dropdowns don't disappear on hover */
-    .site-nav .dropdown:hover > .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;}
-    .site-nav .has-sub:hover > .submenu{opacity:1;visibility:visible;pointer-events:auto;}
-  </style>
-</head>
-<body>
-  <!-- ===== Site Header (synced with homepage) ===== -->
-  <header class="site-header" role="banner">
-    <div class="container header-row">
-      <a class="brand" href="../../">
-        <img class="brand-logo" src="../../assets/Vaxonyx.svg" alt="Vaxonyx">
-      </a>
-
-    <nav class="site-nav" aria-label="Main">
-      <ul class="menu">
-        <li class="dropdown">
-          <a href="../../about/">About <span class="caret" aria-hidden="true">▾</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="../../about/#mission">Mission &amp; Vision</a></li>
-            <li><a href="../../about/#team">Team</a></li>
-            <li><a href="../../careers/">Careers</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="../../services/">Services <span class="caret" aria-hidden="true">▾</span></a>
-          <ul class="dropdown-menu">
-            <li><a aria-current="page" href="../">Cell line services</a></li>
-
-            <!-- Fly-out submenu (matches homepage) -->
-            <li class="has-sub">
-              <a href="../protein-production/" aria-haspopup="true" aria-expanded="false">
-                Protein production <span class="caret right" aria-hidden="true">▸</span>
-              </a>
-              <ul class="submenu" role="menu" aria-label="Protein production submenu">
-                <li><a href="../protein-production/antibody-production/">Antibody production</a></li>
-                <li><a href="../protein-production/antigen/">Antigen production</a></li>
-              </ul>
-            </li>
-
-            <!-- Assays with fly-out submenu -->
-            <li class="has-sub">
-              <a href="../assays/" aria-haspopup="true" aria-expanded="false">
-                Assays <span class="caret right" aria-hidden="true">▸</span>
-              </a>
-              <ul class="submenu" role="menu" aria-label="Assays submenu">
-                <li><a href="../assays/biochemical/">Biochemical assays</a></li>
-                <li><a href="../assays/virology/">Virology-Based assays</a></li>
-              </ul>
-            </li>
-
-            <!-- Molecular biology -->
-            <li><a href="../molecular-biology/">Molecular biology</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="../../platforms/">Platforms <span class="caret" aria-hidden="true">▾</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="../../platforms/#ai">AI platforms</a></li>
-            <li><a href="../../platforms/#dna">DNA platforms</a></li>
-            <li><a href="../../platforms/#delivery">DNA delivery platforms</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="../../innovation/">Innovation <span class="caret" aria-hidden="true">▾</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="../../innovation/#pipeline">Pipeline</a></li>
-            <li><a href="../../innovation/#products">Products</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="../../news/">News &amp; Investors <span class="caret" aria-hidden="true">▾</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="../../news/#press">Press &amp; updates</a></li>
-            <li><a href="../../investors/">Investor materials</a></li>
-          </ul>
-        </li>
-
-        <li><a href="../../contact/">Contact</a></li>
-      </ul>
-    </nav>
-
-      <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
-    </div>
-  </header>
-
-  <main id="main" class="page-services">
-    <!-- ===== Hero ===== -->
-    <section class="svc-hero">
-      <div class="container">
-        <h1>Cell Line Development</h1>
-        <p>We build stable and transient, high-performing mammalian cell lines tailored to your target product profile. From early-stage clone generation to production-ready master cell banks, we prioritize speed, reliability, and clear documentation.</p>
-        <div class="svc-badges">
-          <span class="svc-badge">CHO &amp; HEK293</span>
-        </div>
-        <div class="svc-ctas">
-          <a class="btn primary" href="../../contact/">Get a Quote</a>
-          <a class="btn" href="#workflow">View Workflow</a>
-        </div>
+<main id="main" class="page-services">
+  <!-- ===== Hero ===== -->
+  <section class="svc-hero">
+    <div class="container">
+      <h1>Cell Line Development</h1>
+      <p>We build stable and transient, high-performing mammalian cell lines tailored to your target product profile. From early-stage clone generation to production-ready master cell banks, we prioritize speed, reliability, and clear documentation.</p>
+      <div class="svc-badges">
+        <span class="svc-badge">CHO &amp; HEK293</span>
       </div>
-    </section>
-
-    <!-- ===== Why Choose Us (cards) ===== -->
-    <section class="container" aria-labelledby="why">
-      <h2 id="why" class="svc-h2">Why Vaxonyx</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Custom Solutions</h3>
-          <p>CHO, HEK293, or client-specified systems. Vector & promoter selection mapped to your use case.</p>
-        </article>
-        <article class="card">
-          <h3>Rapid Timelines</h3>
-          <p>Streamlined workflows accelerate clone selection with data-driven gates and parallel tracks.</p>
-        </article>
-        <article class="card">
-          <h3>High Yield &amp; Stability</h3>
-          <p>Optimized vectors, selection markers, and amplification strategies for sustained expression.</p>
-        </article>
-        <article class="card">
-          <h3>Documentation Ready</h3>
-          <p>Clear documentation, identity & stability data, biosafety testing, and release-ready reports.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ===== Capabilities ===== -->
-    <section class="container" aria-labelledby="capabilities">
-      <h2 id="capabilities" class="svc-h2">Capabilities</h2>
-      <div class="cap">
-        <div class="cap-item">
-          <div aria-hidden="true">🧬</div>
-          <div>
-            <h3>Vector Design &amp; Transfection</h3>
-            <ul>
-              <li>Codon optimization &amp; vector engineering</li>
-              <li>Transient expression &amp; stable integration strategies</li>
-            </ul>
-          </div>
-        </div>
-        <div class="cap-item">
-          <div aria-hidden="true">🔬</div>
-          <div>
-            <h3>Clone Selection &amp; Screening</h3>
-            <ul>
-              <li>Automated single-cell cloning</li>
-              <li>High-throughput screening for productivity &amp; quality</li>
-            </ul>
-          </div>
-        </div>
-        <div class="cap-item">
-          <div aria-hidden="true">⚙️</div>
-          <div>
-            <h3>Process Development</h3>
-            <ul>
-              <li>Optimization for titer, purity, and reproducibility</li>
-            </ul>
-          </div>
-        </div>
-        <div class="cap-item">
-          <div aria-hidden="true">🏷️</div>
-          <div>
-            <h3>Cell Banking &amp; Characterization</h3>
-            <ul>
-              <li>Master &amp; Working Cell Banks</li>
-              <li>Identity, stability, sterility &amp; mycoplasma testing</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Applications ===== -->
-    <section class="container" aria-labelledby="apps">
-      <h2 id="apps" class="svc-h2">Applications</h2>
-      <ul class="pills">
-        <li>Monoclonal antibodies</li>
-        <li>Recombinant protein therapeutics</li>
-        <li>Vaccines</li>
-        <li>Gene therapy vectors</li>
-      </ul>
-    </section>
-
-    <!-- ===== KPIs ===== -->
-    <section class="container" aria-label="Key performance indicators">
-      <div class="kpis">
-        <div class="kpi"><span class="num" data-target="95">0</span><span class="lab">% on-time</span></div>
-        <div class="kpi"><span class="num" data-target="10">0</span><span class="lab">weeks to first clones</span></div>
-        <div class="kpi"><span class="num" data-target="2">0</span><span class="lab">week CoA delivery</span></div>
-      </div>
-    </section>
-
-    <!-- ===== Quality Statement ===== -->
-    <section class="container quality">
-      <p><strong>Quality you can trust.</strong> Our scientists pair deep molecular biology expertise with state-of-the-art automation to deliver stable, high-yielding lines that accelerate research, diagnostics, and therapeutic programs.</p>
-    </section>
-
-    <!-- ===== Workflow Timeline ===== -->
-    <section id="workflow" class="container flow" aria-labelledby="flow">
-      <h2 id="flow" class="svc-h2">Stable Cell Line Workflow (illustrative timeline)</h2>
-      <ol class="steps">
-        <li><span class="dot"></span><h3>Gene synthesis &amp; plasmid construction</h3><p class="time">2–3 weeks</p></li>
-        <li><span class="dot"></span><h3>Transfection &amp; analysis</h3><p class="time">4–5 weeks</p></li>
-        <li><span class="dot"></span><h3>Cloning</h3><p class="time">6–8 weeks</p></li>
-        <li><span class="dot"></span><h3>Verification &amp; production</h3><p class="time">3–5 weeks</p></li>
-        <li><span class="dot"></span><h3>Delivery with CoA</h3><p class="time">~2 weeks</p></li>
-      </ol>
-      <div class="callout">
-        <p><strong>Need it faster?</strong> Ask about our parallelized screening tracks and premium turnaround options.</p>
-        <a class="btn" href="../../contact/">Talk to BD</a>
-      </div>
-    </section>
-
-    <!-- ===== FAQ ===== -->
-    <section class="container faq" aria-labelledby="faq">
-      <h2 id="faq" class="svc-h2">Frequently asked</h2>
-      <details>
-        <summary>What hosts do you support?</summary>
-        <div>CHO and HEK293 are standard; we can evaluate additional hosts on request.</div>
-      </details>
-      <details>
-        <summary>Can you start from my plasmid or sequence only?</summary>
-        <div>Either. We can synthesize from sequence or work with supplied vectors under your IP framework.</div>
-      </details>
-
-    <!-- ===== Final CTA ===== -->
-    <section class="container final-cta">
-      <h2>Ready to build?</h2>
-      <p>Send your target, desired titer, and timeline. We’ll scope a package within 24 business hours.</p>
-      <a class="btn primary" href="../../contact/">Start a Project</a>
-    </section>
-  </main>
-
-  <!-- ===== Footer (inlined to avoid include issues) ===== -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="foot-brand">
-        <img class="brand-logo" src="../../assets/Vaxonyx.svg" alt="Vaxonyx">
-        <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
-      </div>
-
-      <div class="foot-links">
-        <div class="foot-title">Quick Access</div>
-        <ul class="links">
-          <li><a href="../../about/">About</a></li>
-          <li><a href="../../innovation/">Innovation</a></li>
-          <li><a href="../../innovation/#pipeline">Pipeline</a></li>
-          <li><a href="../../innovation/#products">Products</a></li>
-          <li><a href="../../news/">News &amp; Investors</a></li>
-          <li><a href="../../careers/">Careers</a></li>
-          <li><a href="../../contact/">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="foot-contacts">
-        <div class="foot-title">General Information</div>
-        <address>
-          📍 601 Genome Way, 3023E, Room 3006<br>
-          Huntsville, AL 35806, USA<br>
-          📞 +1 (938) 287-3891
-        </address>
-        <a class="email" href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
-
-        <div class="foot-title mt">Investor Relations</div>
-        <a class="email" href="mailto:investorrelations@vaxonyx.com">investorrelations@vaxonyx.com</a>
-
-        <div class="foot-title mt">Business Development</div>
-        <a class="email" href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
-
-        <div class="foot-title mt">Personal Contact</div>
-        <a class="email" href="mailto:krayavra@vaxonyx.com">krayavra@vaxonyx.com</a>
+      <div class="svc-ctas">
+        <a class="btn primary" href="{{ '/contact/' | relative_url }}">Get a Quote</a>
+        <a class="btn" href="#workflow">View Workflow</a>
       </div>
     </div>
+  </section>
 
-    <div class="footer-bottom">© 2025 Vaxonyx. All rights reserved.</div>
-  </footer>
+  <!-- ===== Why Choose Us (cards) ===== -->
+  <section class="container" aria-labelledby="why">
+    <h2 id="why" class="svc-h2">Why Vaxonyx</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Custom Solutions</h3>
+        <p>CHO, HEK293, or client-specified systems. Vector & promoter selection mapped to your use case.</p>
+      </article>
+      <article class="card">
+        <h3>Rapid Timelines</h3>
+        <p>Streamlined workflows accelerate clone selection with data-driven gates and parallel tracks.</p>
+      </article>
+      <article class="card">
+        <h3>High Yield &amp; Stability</h3>
+        <p>Optimized vectors, selection markers, and amplification strategies for sustained expression.</p>
+      </article>
+      <article class="card">
+        <h3>Documentation Ready</h3>
+        <p>Clear documentation, identity & stability data, biosafety testing, and release-ready reports.</p>
+      </article>
+    </div>
+  </section>
 
-  <!-- Page micro-JS: KPI counters (kept intact) -->
-  <script>
-    (function(){
-      const els=[...document.querySelectorAll('.kpi .num')];
-      const obs=new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(!e.isIntersecting) return;
-          const el=e.target; const target=+el.dataset.target; let cur=0; const inc=Math.max(1,Math.round(target/40));
-          const t=setInterval(()=>{cur+=inc; if(cur>=target){cur=target; clearInterval(t);} el.textContent=cur;},24);
-          obs.unobserve(el);
-        });
-      },{threshold:.3});
-      els.forEach(el=>obs.observe(el));
-    })();
-  </script>
+  <!-- ===== Capabilities ===== -->
+  <section class="container" aria-labelledby="capabilities">
+    <h2 id="capabilities" class="svc-h2">Capabilities</h2>
+    <div class="cap">
+      <div class="cap-item">
+        <div aria-hidden="true">🧬</div>
+        <div>
+          <h3>Vector Design &amp; Transfection</h3>
+          <ul>
+            <li>Codon optimization &amp; vector engineering</li>
+            <li>Transient expression &amp; stable integration strategies</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div aria-hidden="true">🔬</div>
+        <div>
+          <h3>Clone Selection &amp; Screening</h3>
+          <ul>
+            <li>Automated single-cell cloning</li>
+            <li>High-throughput screening for productivity &amp; quality</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div aria-hidden="true">⚙️</div>
+        <div>
+          <h3>Process Development</h3>
+          <ul>
+            <li>Optimization for titer, purity, and reproducibility</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div aria-hidden="true">🏷️</div>
+        <div>
+          <h3>Cell Banking &amp; Characterization</h3>
+          <ul>
+            <li>Master &amp; Working Cell Banks</li>
+            <li>Identity, stability, sterility &amp; mycoplasma testing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- AI widget JS -->
-  <script src="../../assets/osx_widget.js?v=build-19" defer></script>
-</body>
-</html>
+  <!-- ===== Applications ===== -->
+  <section class="container" aria-labelledby="apps">
+    <h2 id="apps" class="svc-h2">Applications</h2>
+    <ul class="pills">
+      <li>Monoclonal antibodies</li>
+      <li>Recombinant protein therapeutics</li>
+      <li>Vaccines</li>
+      <li>Gene therapy vectors</li>
+    </ul>
+  </section>
+
+  <!-- ===== KPIs ===== -->
+  <section class="container" aria-label="Key performance indicators">
+    <div class="kpis">
+      <div class="kpi"><span class="num" data-target="95">0</span><span class="lab">% on-time</span></div>
+      <div class="kpi"><span class="num" data-target="10">0</span><span class="lab">weeks to first clones</span></div>
+      <div class="kpi"><span class="num" data-target="2">0</span><span class="lab">week CoA delivery</span></div>
+    </div>
+  </section>
+
+  <!-- ===== Quality Statement ===== -->
+  <section class="container quality">
+    <p><strong>Quality you can trust.</strong> Our scientists pair deep molecular biology expertise with state-of-the-art automation to deliver stable, high-yielding lines that accelerate research, diagnostics, and therapeutic programs.</p>
+  </section>
+
+  <!-- ===== Workflow Timeline ===== -->
+  <section id="workflow" class="container flow" aria-labelledby="flow">
+    <h2 id="flow" class="svc-h2">Stable Cell Line Workflow (illustrative timeline)</h2>
+    <ol class="steps">
+      <li><span class="dot"></span><h3>Gene synthesis &amp; plasmid construction</h3><p class="time">2–3 weeks</p></li>
+      <li><span class="dot"></span><h3>Transfection &amp; analysis</h3><p class="time">4–5 weeks</p></li>
+      <li><span class="dot"></span><h3>Cloning</h3><p class="time">6–8 weeks</p></li>
+      <li><span class="dot"></span><h3>Verification &amp; production</h3><p class="time">3–5 weeks</p></li>
+      <li><span class="dot"></span><h3>Delivery with CoA</h3><p class="time">~2 weeks</p></li>
+    </ol>
+    <div class="callout">
+      <p><strong>Need it faster?</strong> Ask about our parallelized screening tracks and premium turnaround options.</p>
+      <a class="btn" href="{{ '/contact/' | relative_url }}">Talk to BD</a>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="container faq" aria-labelledby="faq">
+    <h2 id="faq" class="svc-h2">Frequently asked</h2>
+    <details>
+      <summary>What hosts do you support?</summary>
+      <div>CHO and HEK293 are standard; we can evaluate additional hosts on request.</div>
+    </details>
+    <details>
+      <summary>Can you start from my plasmid or sequence only?</summary>
+      <div>Either. We can synthesize from sequence or work with supplied vectors under your IP framework.</div>
+    </details>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="container final-cta">
+    <h2>Ready to build?</h2>
+    <p>Send your target, desired titer, and timeline. We’ll scope a package within 24 business hours.</p>
+    <a class="btn primary" href="{{ '/contact/' | relative_url }}">Start a Project</a>
+  </section>
+</main>
+
+<script>
+  // KPI counters
+  (function(){
+    const els=[...document.querySelectorAll('.kpi .num')];
+    const obs=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el=e.target; const target=+el.dataset.target; let cur=0; const inc=Math.max(1,Math.round(target/40));
+        const t=setInterval(()=>{cur+=inc; if(cur>=target){cur=target; clearInterval(t);} el.textContent=cur;},24);
+        obs.unobserve(el);
+      });
+    },{threshold:.3});
+    els.forEach(el=>obs.observe(el));
+  })();
+</script>
