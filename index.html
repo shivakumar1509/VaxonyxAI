@@ -104,24 +104,26 @@
             </ul>
           </li>
 
-          <li class="dropdown">
-            <a href="platforms/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
-              Platforms <span class="caret" aria-hidden="true">▾</span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li role="none"><a role="menuitem" href="platforms/#ai">AI platforms</a></li>
-              <li role="none"><a role="menuitem" href="platforms/#dna">DNA platforms</a></li>
-              <li role="none"><a role="menuitem" href="platforms/#delivery">DNA delivery platforms</a></li>
-            </ul>
-          </li>
+          <!-- Removed top-level Platforms -->
 
           <li class="dropdown">
             <a href="innovation/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
               Innovation <span class="caret" aria-hidden="true">▾</span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li role="none"><a role="menuitem" href="innovation/#pipeline">Pipeline</a></li>
-              <li role="none"><a role="menuitem" href="innovation/#products">Products</a></li>
+              <!-- Platforms FIRST under Innovation (with submenu to AI/Delivery) -->
+              <li class="has-sub">
+                <a href="innovation/platform/" class="submenu-link" aria-haspopup="true" aria-expanded="false">
+                  Platforms <span class="caret right" aria-hidden="true">▸</span>
+                </a>
+                <ul class="submenu" role="menu" aria-label="Platforms submenu">
+                  <li role="none"><a role="menuitem" href="innovation/platform/ai/">AI</a></li>
+                  <li role="none"><a role="menuitem" href="innovation/platform/delivery/">Delivery</a></li>
+                </ul>
+              </li>
+
+              <li role="none"><a role="menuitem" href="innovation/pipeline/">Pipeline</a></li>
+              <li role="none"><a role="menuitem" href="innovation/products/">Products</a></li>
             </ul>
           </li>
 
@@ -194,8 +196,9 @@
         <ul class="links">
           <li><a href="about/">About</a></li>
           <li><a href="innovation/">Innovation</a></li>
-          <li><a href="innovation/#pipeline">Pipeline</a></li>
-          <li><a href="innovation/#products">Products</a></li>
+          <li><a href="innovation/platform/">Platforms</a></li>
+          <li><a href="innovation/pipeline/">Pipeline</a></li>
+          <li><a href="innovation/products/">Products</a></li>
           <li><a href="news/">News &amp; Investors</a></li>
           <li><a href="careers/">Careers</a></li>
           <li><a href="contact/">Contact</a></li>
