@@ -3,71 +3,170 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Make all relative URLs resolve from your repo root on GitHub Pages -->
   <base href="/VaxonyxAI/">
   <title>Careers — Vaxonyx AI</title>
-  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Match site assets & CSS file names -->
+  <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=build-39" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.svg" class="brand-logo" alt="Vaxonyx AI">
-        <span class="brand-text">Vaxonyx AI</span>
+  <!-- ===== Header (same structure/classes as homepage) ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <a class="brand" href="/" aria-label="Vaxonyx home">
+        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx logo" width="160" height="42">
       </a>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/" class="active">Careers</a></li>
+
+      <!-- Mobile menu toggle -->
+      <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle menu</span>
+        ☰
+      </button>
+
+      <nav id="primary-nav" class="site-nav" aria-label="Main">
+        <ul class="menu" role="list">
+          <li class="dropdown">
+            <a href="about/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              About <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="about/#mission">Mission &amp; Vision</a></li>
+              <li role="none"><a role="menuitem" href="about/#team">Team</a></li>
+              <!-- Careers now lives under /assets/ -->
+              <li role="none"><a role="menuitem" href="assets/careers/" aria-current="page">Careers</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="services/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              Services <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-label="Services submenu">
+              <li role="none"><a role="menuitem" href="services/cell-lines/">Cell line services</a></li>
+
+              <li class="has-sub">
+                <a href="services/protein-production/" class="submenu-link" aria-haspopup="true" aria-expanded="false">
+                  Protein production <span class="caret right" aria-hidden="true">▸</span>
+                </a>
+                <ul class="submenu" role="menu" aria-label="Protein production submenu">
+                  <li role="none"><a role="menuitem" href="services/protein-production/antibody-production/">Antibody production</a></li>
+                  <li role="none"><a role="menuitem" href="services/protein-production/antigen/">Antigen production</a></li>
+                </ul>
+              </li>
+
+              <li class="has-sub">
+                <a href="services/assays/" class="submenu-link" aria-haspopup="true" aria-expanded="false">
+                  Assays <span class="caret right" aria-hidden="true">▸</span>
+                </a>
+                <ul class="submenu" role="menu" aria-label="Assays submenu">
+                  <li role="none"><a role="menuitem" href="services/assays/biochemical/">Biochemical assays</a></li>
+                  <li role="none"><a role="menuitem" href="services/assays/virology/">Virology-Based assays</a></li>
+                </ul>
+              </li>
+
+              <li role="none"><a role="menuitem" href="services/molecular-biology/">Molecular biology</a></li>
+            </ul>
+          </li>
+
+          <!-- Innovation with Platforms, Pipeline, Products -->
+          <li class="dropdown">
+            <a href="innovation/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              Innovation <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li class="has-sub">
+                <a href="innovation/platform/" class="submenu-link" aria-haspopup="true" aria-expanded="false">
+                  Platforms <span class="caret right" aria-hidden="true">▸</span>
+                </a>
+                <ul class="submenu" role="menu" aria-label="Platforms submenu">
+                  <li role="none"><a role="menuitem" href="innovation/platform/ai/">AI</a></li>
+                  <li role="none"><a role="menuitem" href="innovation/platform/delivery/">Delivery</a></li>
+                </ul>
+              </li>
+              <li role="none"><a role="menuitem" href="innovation/pipeline/">Pipeline</a></li>
+              <li role="none"><a role="menuitem" href="innovation/products/">Products</a></li>
+            </ul>
+          </li>
+
+          <!-- Keep your current News/Investors layout for now -->
+          <li class="dropdown">
+            <a href="news/" class="dropdown-link" aria-haspopup="true" aria-expanded="false">
+              News <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a role="menuitem" href="news/#press">Press &amp; updates</a></li>
+              <li role="none"><a role="menuitem" href="investors/">Investor materials</a></li>
+            </ul>
+          </li>
+
           <li><a href="contact/">Contact</a></li>
+
+          <!-- Ask Vaxonyx AI (inline for MOBILE ONLY; hidden on desktop via CSS) -->
+          <li class="ai-inline"><button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button></li>
         </ul>
       </nav>
+
+      <!-- Desktop AI button (shows on desktop; hidden on mobile via CSS) -->
+      <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
+        Ask Vaxonyx AI
+      </button>
     </div>
   </header>
 
-  <main class="page container">
+  <!-- ===== Main ===== -->
+  <main class="container" style="padding: 48px 0;">
     <h1>Careers &amp; Business Development</h1>
     <p>Interested in partnering or joining? Email <a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a> with your background and interests.</p>
     <p>We’re building in India and the USA, with a remote-friendly culture focused on scientific rigor and clean design.</p>
   </main>
 
+  <!-- ===== Footer (same structure/classes as homepage) ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <section>
-        <h3>Contact</h3>
-        <ul class="contact-list">
-          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
-          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
-          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
-        </ul>
-        <address class="hq">Headquarters: Add official address here</address>
-      </section>
-      <section>
-        <h3>Quick Access</h3>
-        <ul class="footer-links">
+      <div class="foot-brand">
+        <img class="brand-logo" src="assets/Vaxonyx.svg" alt="Vaxonyx" width="160" height="42">
+        <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+      </div>
+
+      <div class="foot-links">
+        <div class="foot-title">Quick Access</div>
+        <ul class="links">
           <li><a href="about/">About</a></li>
           <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
+          <li><a href="innovation/platform/">Platforms</a></li>
+          <li><a href="innovation/pipeline/">Pipeline</a></li>
+          <li><a href="innovation/products/">Products</a></li>
+          <li><a href="news/">News</a></li>
           <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
+          <li><a href="assets/careers/">Careers</a></li>
           <li><a href="contact/">Contact</a></li>
         </ul>
-      </section>
-      <section>
-        <h3>Follow</h3>
-        <div class="socials">
-          <a href="#" class="social-icon">in</a>
-          <a href="#" class="social-icon">X</a>
-          <a href="#" class="social-icon">▶</a>
-        </div>
-      </section>
+      </div>
+
+      <div class="foot-contacts">
+        <div class="foot-title">General Information</div>
+        <address>
+          📍 601 Genome Way, 3023E, Room 3006<br>
+          Huntsville, AL 35806, USA<br>
+          📞 +1 (938) 287-3891
+        </address>
+        <a class="email" href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a>
+
+        <div class="foot-title mt">Investor Relations</div>
+        <a class="email" href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a>
+
+        <div class="foot-title mt">Business Development</div>
+        <a class="email" href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a>
+      </div>
     </div>
-    <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
+
+    <div class="footer-bottom">© <span id="year"></span> Vaxonyx. All rights reserved.</div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+
+  <!-- AI widget JS -->
+  <script src="assets/osx_widget.js?v=build-19" defer></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
