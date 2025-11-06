@@ -9,73 +9,100 @@
   <link rel="preload" href="assets/Vaxonyx.svg" as="image" type="image/svg+xml">
 
   <!-- Global styles -->
-  <link rel="stylesheet" href="css/styles.css?v=build-40" />
+  <link rel="stylesheet" href="css/styles.css?v=build-39" />
 
-  <!-- Desktop dropdown alignment + header "Follow" pill + mobile row -->
+  <!-- Topbar + centered dropdowns (desktop) -->
   <style id="vx-dd-fix">
   :root{
     --vx-blue:#1B427A;
-    --vx-light:#3FA9F5;
-    --vx-light-2:#167fd8;
+    --vx-ink:#0b1b3a;
     --vx-line:#e6ebf4;
-    --pill-fg:#fff;
+    --vx-orange:#F26B3B;
   }
 
-  /* ======== DESKTOP NAV: perfectly centered dropdowns ======== */
+  /* ====== TOP BLUE BAR ====== */
+  .topbar{
+    background:linear-gradient(180deg,#3FA9F5 0%, #167fd8 100%);
+    color:#fff;
+    font-weight:700;
+    font-size:13px;
+  }
+  .topbar-inner{
+    display:flex; align-items:center; justify-content:flex-end;
+    gap:12px;
+    padding:8px 0;
+  }
+  .topbar a{
+    color:#fff; text-decoration:none;
+    padding:6px 10px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.08);
+    display:inline-flex; align-items:center;
+  }
+  .topbar a:hover{ background:rgba(255,255,255,.16); }
+
+  /* ====== HEADER ====== */
+  .site-header{
+    position:sticky; top:0; z-index:2000;
+    background:#fff; border-bottom:1px solid var(--vx-line);
+    height:68px; overflow:visible;
+  }
+  .header-row{ height:68px; display:flex; align-items:center; gap:20px; }
+  .brand-logo{ height:42px; }
+
+  .menu-toggle{
+    border:1px solid var(--vx-line); background:#fff; border-radius:10px;
+    padding:.5rem .7rem; font-size:18px; line-height:1; cursor:pointer; display:none;
+  }
+
+  .site-nav{ margin-left:auto; }
+  .menu{ display:flex; align-items:center; gap:28px; padding:0; margin:0; list-style:none; }
+  .menu>li{ position:relative; }
+  .menu>li>a, .menu .dropdown-link, .menu .submenu-link{
+    color:var(--vx-blue); text-decoration:none; font-weight:700;
+    display:inline-flex; align-items:center; gap:8px; padding:.25rem 0;
+  }
+  .menu>li>a:hover{ text-decoration:underline; }
+
+  /* ====== DESKTOP DROPDOWNS (centered under trigger) ====== */
   @media (min-width:921px){
     .site-header{ overflow:visible !important; z-index:3000 !important; }
-
-    /* even spacing across top nav */
     .site-nav .menu{ display:flex; align-items:center; gap:28px; }
-
-    /* each top-level item becomes the positioning anchor */
     .site-nav .menu>li{ position:relative; }
-    .site-nav .menu>li > a,
-    .site-nav .menu>li > .dropdown-link{
+    .site-nav .menu>li > a, .site-nav .menu>li > .dropdown-link{
       display:flex; align-items:center; padding:12px 6px;
     }
-
-    /* CENTER each dropdown exactly under its parent label */
     .site-nav .menu>li.dropdown > .dropdown-menu{
       position:absolute !important;
       top:calc(100% + 10px) !important;
       left:50% !important;
       transform:translateX(-50%) !important;
+      z-index:3100 !important;
       display:none;
       min-width:260px; max-width:420px;
       background:#fff; border-radius:12px; padding:8px 0;
       box-shadow:0 10px 25px rgba(0,0,0,.12);
-      z-index:3100 !important;
     }
-
-    /* tiny hover bridge so a 1–2px gap doesn’t collapse the menu */
     .site-nav .menu>li.dropdown::after{
       content:""; position:absolute; left:0; right:0; top:100%; height:12px;
     }
-
     .site-nav .menu>li.dropdown:hover > .dropdown-menu,
     .site-nav .menu>li.dropdown:focus-within > .dropdown-menu{
       display:block !important;
     }
 
-    /* Right-flyout submenus stay flush and aligned */
     .site-nav .dropdown-menu .has-sub{ position:relative !important; }
     .site-nav .dropdown-menu .has-sub > .submenu{
       position:absolute !important;
-      top:-8px !important;
-      left:100% !important;
-      transform:none !important;
-      display:none;
-      min-width:240px;
-      background:#fff; border-radius:10px; padding:8px 0;
+      top:-8px !important; left:100% !important; transform:none !important;
+      z-index:3200 !important; display:none;
+      min-width:240px; background:#fff; border-radius:10px; padding:8px 0;
       box-shadow:0 10px 25px rgba(0,0,0,.12);
-      z-index:3200 !important;
     }
     .site-nav .dropdown-menu .has-sub:hover > .submenu,
     .site-nav .dropdown-menu .has-sub:focus-within > .submenu{
       display:block !important;
     }
-
     .site-nav .dropdown-menu li{ white-space:nowrap; }
     .site-nav .dropdown-menu a{
       display:block; padding:8px 12px; border-radius:8px;
@@ -84,46 +111,50 @@
     .site-nav .dropdown-menu a:hover{ background:rgba(27,66,122,.08); }
   }
 
-  /* ======== HEADER "Follow" pill (desktop) ======== */
-  @media (min-width:921px){
-    .follow-pill{
-      margin-left:12px; margin-right:12px;
-      display:inline-flex; align-items:center; gap:10px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:linear-gradient(180deg,var(--vx-light),var(--vx-light-2));
-      color:var(--pill-fg); font-weight:700; font-size:13px;
-      box-shadow:0 8px 18px rgba(22,127,216,.25);
-      white-space:nowrap;
-    }
-    .follow-pill a{
-      color:var(--pill-fg); text-decoration:none; opacity:.95;
-      display:inline-flex; align-items:center; gap:6px;
-    }
-    .follow-pill a:hover{ opacity:1; text-decoration:underline; }
-    .follow-sep{ opacity:.55; }
-    .ext-arrow{ width:12px; height:12px; display:inline-block; }
+  /* AI button */
+  .vx-fab{
+    border:0; border-radius:999px; padding:10px 14px;
+    background:var(--vx-orange); color:#fff; font-weight:800;
+    box-shadow:0 10px 22px rgba(242,107,59,.36); cursor:pointer;
   }
 
-  /* ======== MOBILE: show a simple social row inside the slide menu ======== */
-  .social-mobile{ display:none; }
+  /* ====== MOBILE NAV ====== */
   @media (max-width:920px){
-    .social-mobile{
-      display:flex; justify-content:center; gap:14px;
-      padding:14px 0 4px; margin:10px 16px 0;
-      border-top:1px solid var(--vx-line);
+    .menu-toggle{ display:inline-flex; margin-left:auto; }
+    .site-nav{
+      position:fixed; inset:68px 0 0 0; background:#fff;
+      transform:translateX(100%); transition:transform .25s ease;
+      border-top:1px solid var(--vx-line); padding:10px 0 24px; overflow:auto;
     }
-    .social-mobile a{
-      font-weight:700; color:var(--vx-blue); text-decoration:none;
-      border:1px solid var(--vx-line); border-radius:999px;
-      padding:6px 10px; font-size:13px;
-      background:#fff;
+    body.nav-open .site-nav{ transform:translateX(0%); }
+    .menu{ flex-direction:column; align-items:stretch; gap:4px; padding:0 16px; }
+    .menu>li>a, .menu .dropdown-link, .menu .submenu-link{
+      padding:.8rem .6rem; border-radius:10px;
     }
-    .social-mobile a:hover{ text-decoration:underline; }
+    .menu>li>a:hover{ background:rgba(27,66,122,.06); text-decoration:none; }
+
+    .vx-fab.vx-fab-desktop{ display:none; } /* hide floating on mobile */
+    .ai-inline{ display:block; }
+
+    .dropdown-menu, .submenu{
+      position:static; transform:none; box-shadow:none;
+      border:1px solid var(--vx-line); border-radius:10px;
+      padding:8px; margin:6px 0 10px; display:none;
+    }
+    .dropdown.open > .dropdown-menu{ display:block; }
+    .has-sub.open > .submenu{ display:block; }
   }
   </style>
 </head>
 <body>
+  <!-- ===== Top Blue Bar ===== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a href="https://www.linkedin.com/company/vaxonyx/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+
   <!-- ===== Header ===== -->
   <header class="site-header" role="banner">
     <div class="container header-row">
@@ -202,7 +233,6 @@
             </ul>
           </li>
 
-          <!-- Partners tab -->
           <li><a href="partners/">Partners</a></li>
 
           <li class="dropdown">
@@ -217,29 +247,10 @@
 
           <li><a href="contact/">Contact</a></li>
 
-          <!-- Ask Vaxonyx AI (inline for MOBILE ONLY; shown in slide menu) -->
+          <!-- Ask Vaxonyx AI (inline for MOBILE ONLY; hidden on desktop via CSS) -->
           <li class="ai-inline"><button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button></li>
-
-          <!-- MOBILE social row -->
-          <li class="social-mobile" aria-label="Follow Vaxonyx">
-            <a href="https://www.linkedin.com/company/vaxonyx/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="#" target="_blank" rel="noopener">Facebook</a>
-          </li>
         </ul>
       </nav>
-
-      <!-- DESKTOP: compact blue pill for social links (before AI button) -->
-      <div class="follow-pill" aria-label="Follow Vaxonyx">
-        <span>Follow:</span>
-        <a href="https://www.linkedin.com/company/vaxonyx/" target="_blank" rel="noopener">
-          LinkedIn
-          <svg class="ext-arrow" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5v2H7v10h10v-3h2v5H5V5z"/>
-          </svg>
-        </a>
-        <span class="follow-sep">·</span>
-        <a href="#" target="_blank" rel="noopener" title="Facebook (coming soon)">Facebook</a>
-      </div>
 
       <!-- Desktop AI button -->
       <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
@@ -248,7 +259,7 @@
     </div>
   </header>
 
-  <!-- ===== Hero (text-only rotator, tall) ===== -->
+  <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero-inner container">
       <h1 class="hero-title" id="vx-rotating-slogan" aria-live="polite">
@@ -390,7 +401,6 @@
     })();
   </script>
 
-  <!-- Screen reader text helper -->
   <span class="sr-only" id="sr-helper" aria-hidden="true"></span>
 </body>
 </html>
