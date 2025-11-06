@@ -68,6 +68,19 @@
 
     .site-nav .dropdown-menu li{ white-space:nowrap; }
   }
+
+  /* --- Social icons in header (desktop) --- */
+  @media (min-width:921px){
+    .social-icons{ display:flex; align-items:center; gap:12px; margin-left:12px; }
+    .social-icons a{
+      display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center;
+      color:#1B427A; opacity:.75; text-decoration:none; transition:opacity .2s ease, transform .1s ease;
+    }
+    .social-icons a:hover{ opacity:1; transform:translateY(-1px); }
+    .social-icons svg{ display:block; width:22px; height:22px; }
+  }
+
+  /* show header icons inline on mobile if you want later; currently desktop-only */
   </style>
 </head>
 <body>
@@ -168,6 +181,22 @@
           <li class="ai-inline"><button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button></li>
         </ul>
       </nav>
+
+      <!-- Desktop social icons (to the left of the AI button) -->
+      <div class="social-icons" aria-label="Follow Vaxonyx">
+        <a class="social-linkedin" href="https://www.linkedin.com/company/vaxonyx/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <!-- LinkedIn SVG icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23.5h-4V8zM8 8h3.8v2.12h.06c.53-1 1.82-2.12 3.75-2.12 4.02 0 4.76 2.65 4.76 6.1V23.5h-4V15.6c0-1.89-.03-4.32-2.63-4.32-2.64 0-3.04 2.06-3.04 4.18v8.04H8V8z"/>
+          </svg>
+          <span class="sr-only">LinkedIn</span>
+        </a>
+        <!-- Add Facebook later:
+        <a class="social-facebook" href="https://facebook.com/vaxonyx" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg ...>...</svg><span class="sr-only">Facebook</span>
+        </a>
+        -->
+      </div>
 
       <!-- Desktop AI button (shows on desktop; hidden on mobile via CSS) -->
       <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">
