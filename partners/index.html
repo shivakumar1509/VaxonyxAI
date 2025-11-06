@@ -4,78 +4,105 @@ title: Partners • Vaxonyx
 description: Collaborating to accelerate innovation in genetic medicine, vaccines, and immunotherapies.
 ---
 
-<style id="vx-dd-fix">
-@media (min-width:921px){
-  .site-header{ overflow:visible !important; z-index:3000 !important; }
-  .site-nav .menu>li{ position:relative !important; }
-  .site-nav .menu>li.dropdown > .dropdown-menu{
-    position:absolute !important;
-    top:100% !important;
-    left:0 !important;
-    transform:none !important;
-    z-index:3100 !important;
-    display:none;
-    min-width:260px;
+<style>
+  :root{
+    --vx-primary:#007C91; /* Teal */
+    --vx-accent:#3FA9F5;  /* Sky */
+    --vx-ink:#0b1220; --vx-muted:#5b6375; --vx-line:rgba(12,18,32,.12);
+    --vx-ring:rgba(63,169,245,.45);
+    --vx-bg: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%);
   }
-  .site-nav .menu>li.dropdown:hover > .dropdown-menu,
-  .site-nav .menu>li.dropdown:focus-within > .dropdown-menu{
-    display:block !important;
+  .container{width:min(1120px,92%);margin-inline:auto}
+
+  /* Desktop dropdown fix (unchanged) */
+  @media (min-width:921px){
+    .site-header{ overflow:visible !important; z-index:3000 !important; }
+    .site-nav .menu>li{ position:relative !important; }
+    .site-nav .menu>li.dropdown > .dropdown-menu{
+      position:absolute !important; top:100% !important; left:0 !important; transform:none !important;
+      z-index:3100 !important; display:none; min-width:260px;
+    }
+    .site-nav .menu>li.dropdown:hover > .dropdown-menu,
+    .site-nav .menu>li.dropdown:focus-within > .dropdown-menu{ display:block !important; }
+    .site-nav .dropdown-menu .has-sub{ position:relative !important; }
+    .site-nav .dropdown-menu .has-sub > .submenu{
+      position:absolute !important; top:-1px !important; left:100% !important; transform:none !important;
+      z-index:3200 !important; display:none; min-width:240px;
+    }
   }
-  .site-nav .dropdown-menu .has-sub{ position:relative !important; }
-  .site-nav .dropdown-menu .has-sub > .submenu{
-    position:absolute !important;
-    top:-1px !important;
-    left:100% !important;
-    transform:none !important;
-    z-index:3200 !important;
-    display:none;
-    min-width:240px;
+
+  /* Service-style hero (no solid blue box) */
+  .svc-hero{position:relative;padding:88px 0 42px;background:var(--vx-bg)}
+  .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--vx-ink);margin:0 0 10px}
+  .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
+  .svc-badges{display:flex;gap:.5rem;align-items:center;margin:14px 0 0;flex-wrap:wrap}
+  .svc-badge{display:inline-flex;align-items:center;gap:.5ch;padding:.4rem .7rem;border:1px solid var(--vx-line);border-radius:999px;font:600 12px/1.1 system-ui;color:var(--vx-primary);background:#fff}
+  .svc-ctas{display:flex;gap:.75rem;align-items:center;margin:18px 0 0;flex-wrap:wrap}
+  .btn{--bg:transparent;--fg:var(--vx-primary);display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1 system-ui;background:var(--bg);color:var(--fg)}
+  .btn.primary{--bg:linear-gradient(180deg,var(--vx-accent),#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px var(--vx-ring)}
+
+  /* Partners section */
+  .partners-inner{display:grid;gap:16px;margin:26px 0}
+  .partners-inner h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;color:var(--vx-ink);margin:0 0 6px}
+  .partners-inner p{font:400 15px/1.7 system-ui;color:#223;margin:0}
+
+  /* Partner mini-card — plain white (no blue box) */
+  .partner-mini-card{
+    background:#fff; border:1px solid var(--vx-line); border-radius:14px; padding:16px;
+    display:grid; gap:10px; align-content:start;
   }
-}
+  .partner-mini-card h3{font:700 18px/1.3 system-ui;color:#0f1a2a;margin:0}
+  .partner-mini-card img{max-width:100%;height:auto;border-radius:12px;border:1px solid var(--vx-line)}
 </style>
 
-<!-- ===== Hero (short) ===== -->
-<section class="hero hero-short">
-  <div class="hero-inner container">
-    <h1 class="hero-title">Partners</h1>
-    <p class="hero-subtitle">Collaborating to accelerate innovation in genetic medicine, vaccines, and immunotherapies.</p>
-  </div>
-</section>
+<main id="main" class="page-services">
+  <!-- ===== Hero ===== -->
+  <section class="svc-hero">
+    <div class="container">
+      <h1>Partners</h1>
+      <p>Collaborating to accelerate innovation in genetic medicine, vaccines, and immunotherapies.</p>
+      <div class="svc-badges">
+        <span class="svc-badge">Academia</span>
+        <span class="svc-badge">Biotech &amp; Pharma</span>
+        <span class="svc-badge">Healthcare</span>
+        <span class="svc-badge">Tech</span>
+      </div>
+      <div class="svc-ctas">
+        <a class="btn primary" href="{{ '/contact/' | relative_url }}">Explore a Partnership</a>
+        <a class="btn" href="mailto:bd@vaxonyx.com">Email Business Development</a>
+      </div>
+    </div>
+  </section>
 
-<!-- ===== Partners content ===== -->
-<section id="partners" class="partners">
-  <div class="container partners-inner">
-    <h2>Our Collaborations</h2>
-    <p>
-      At <strong>Vaxonyx</strong>, we believe that innovation accelerates through collaboration.
-      We partner with academic institutions, biotechnology companies, healthcare organizations,
-      and technology innovators to advance the frontiers of genetic medicine, vaccines, and translational immunology.
-    </p>
-
-    <div class="partner-mini-card">
-      <h3>Key Partner: Atlas Medicals</h3>
+  <!-- ===== Partners content ===== -->
+  <section id="partners" class="partners">
+    <div class="container partners-inner">
+      <h2>Our Collaborations</h2>
       <p>
-        <strong>Vaxonyx</strong> is working with <strong>Atlas Medicals</strong> on the biochemical characterization
-        of their advanced biomaterial, <em>OcuGraft</em>.
+        At <strong>Vaxonyx</strong>, we believe that innovation accelerates through collaboration. We partner with academic institutions,
+        biotechnology companies, healthcare organizations, and technology innovators to advance the frontiers of genetic medicine,
+        vaccines, and translational immunology.
       </p>
-      <a href="https://atlasmedical.us/" target="_blank" rel="noopener">🌐 atlasmedical.us</a>
 
-      <img src="{{ '/assets/atlas_partner.png' | relative_url }}" alt="Atlas Medicals partnership">
-    </div>
+      <article class="partner-mini-card">
+        <h3>Key Partner: Atlas Medicals</h3>
+        <p>
+          <strong>Vaxonyx</strong> is working with <strong>Atlas Medicals</strong> on the biochemical characterization
+          of their advanced biomaterial, <em>OcuGraft</em>.
+        </p>
+        <a href="https://atlasmedical.us/" target="_blank" rel="noopener">🌐 atlasmedical.us</a>
+        <img src="{{ '/assets/atlas_partner.png' | relative_url }}" alt="Atlas Medicals partnership">
+      </article>
 
-    <!-- Optional: add more partner cards as you grow -->
-    <!--
-    <div class="partner-mini-card">
-      <h3>Partner Name</h3>
-      <p>Short description of the collaboration.</p>
-      <a href="https://partner.example.com" target="_blank" rel="noopener">🌐 partner.example.com</a>
-      <img src="{{ '/assets/partner_logo.png' | relative_url }}" alt="Partner logo">
+      <!-- More partner cards can be added here as you grow -->
+      <!--
+      <article class="partner-mini-card">
+        <h3>Partner Name</h3>
+        <p>Short description of the collaboration.</p>
+        <a href="https://partner.example.com" target="_blank" rel="noopener">🌐 partner.example.com</a>
+        <img src="{{ '/assets/partner_logo.png' | relative_url }}" alt="Partner logo">
+      </article>
+      -->
     </div>
-    -->
-
-    <div class="svc-ctas" style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
-      <a class="btn primary" href="{{ '/contact/' | relative_url }}">Explore a Partnership</a>
-      <a class="btn" href="mailto:bd@vaxonyx.com">Email Business Development</a>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
