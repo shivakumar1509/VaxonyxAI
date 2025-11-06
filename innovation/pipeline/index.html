@@ -1,79 +1,51 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <base href="/VaxonyxAI/">
-  <title>Pipeline — Vaxonyx AI</title>
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.svg" class="brand-logo" alt="Vaxonyx AI">
-        <span class="brand-text">Vaxonyx AI</span>
-      </a>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/" class="active">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
-          <li><a href="contact/">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+---
+layout: default
+title: Pipeline — Vaxonyx AI
+---
 
-  <main class="page container">
-    <h1>Pipeline</h1>
-    <ol class="numbered">
-      <li>HLA typing (OptiType / arcasHLA)</li>
-      <li>Alignment &amp; variant calling (STAR, Mutect2)</li>
-      <li>Annotation (VEP + key plugins)</li>
-      <li>Neoantigen prediction (pVACseq; Class I &amp; optional Class II)</li>
-      <li>Ranking (XGBoost; IEDB/TESLA-informed features)</li>
-      <li>QC &amp; reporting</li>
-    </ol>
-  </main>
+<main class="page container">
+  <h1>Pipeline</h1>
+  <ol class="numbered">
+    <li>HLA typing (OptiType / arcasHLA)</li>
+    <li>Alignment &amp; variant calling (STAR, Mutect2)</li>
+    <li>Annotation (VEP + key plugins)</li>
+    <li>Neoantigen prediction (pVACseq; Class I &amp; optional Class II)</li>
+    <li>Ranking (XGBoost; IEDB/TESLA-informed features)</li>
+    <li>QC &amp; reporting</li>
+  </ol>
+</main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <section>
-        <h3>Contact</h3>
-        <ul class="contact-list">
-          <li><a href="mailto:info@vaxonyxai.com">info@vaxonyxai.com</a></li>
-          <li><a href="mailto:investorrelations@vaxonyxai.com">investorrelations@vaxonyxai.com</a></li>
-          <li><a href="mailto:bd@vaxonyxai.com">bd@vaxonyxai.com</a></li>
-        </ul>
-        <address class="hq">Headquarters: Add official address here</address>
-      </section>
-      <section>
-        <h3>Quick Access</h3>
-        <ul class="footer-links">
-          <li><a href="about/">About</a></li>
-          <li><a href="innovation/">Innovation</a></li>
-          <li><a href="pipeline/">Pipeline</a></li>
-          <li><a href="products/">Products</a></li>
-          <li><a href="investors/">Investors</a></li>
-          <li><a href="careers/">Careers</a></li>
-          <li><a href="contact/">Contact</a></li>
-        </ul>
-      </section>
-      <section>
-        <h3>Follow</h3>
-        <div class="socials">
-          <a href="#" class="social-icon">in</a>
-          <a href="#" class="social-icon">X</a>
-          <a href="#" class="social-icon">▶</a>
-        </div>
-      </section>
-    </div>
-    <p class="copyright">© <span id="year"></span> Vaxonyx AI. All rights reserved.</p>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
-</body>
-</html>
+<style>
+  .page.container {
+    width: min(1000px, 92%);
+    margin-inline: auto;
+    padding: 48px 0;
+  }
+  .page h1 {
+    font: 800 clamp(28px, 4vw, 42px)/1.2 system-ui, sans-serif;
+    color: #0b1220;
+    margin-bottom: 20px;
+  }
+  .numbered {
+    counter-reset: item;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .numbered li {
+    counter-increment: item;
+    margin: 10px 0;
+    padding-left: 2.2em;
+    position: relative;
+    font: 500 16px/1.6 system-ui, sans-serif;
+    color: #222;
+  }
+  .numbered li::before {
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+    color: #007C91;
+  }
+</style>
