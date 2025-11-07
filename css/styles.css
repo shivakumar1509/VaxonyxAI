@@ -208,3 +208,33 @@ img{ max-width:100%; height:auto; display:block; }
   .vx-fab-desktop{ display:none; }
   .ai-inline{ display:block; }
 }
+/* ==== FORCE-HIDE HAMBURGER ON DESKTOP ==== */
+@media (min-width: 921px){
+  .site-header .menu-toggle{
+    display: none !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+}
+.site-header .menu-toggle:focus{ outline: none !important; }
+/* ==== LINKEDIN PILL: CLEAR HOVER CONTRAST ==== */
+.btn-social.linkedin{
+  color: #1B427A !important;
+  background: #fff !important;
+  border: 1.5px solid #e6ebf4 !important;
+}
+.btn-social.linkedin:hover,
+.btn-social.linkedin:focus{
+  background: #1B427A !important;
+  color: #fff !important;
+  border-color: #1B427A !important;
+  text-decoration: none !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(27,66,122,.25);
+}
