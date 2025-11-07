@@ -1,0 +1,2 @@
+url: "https://vaxonyx.com"   # or your CloudFront / Amplify domain
+baseurl: ""                  # IMPORTANT for root hosting
