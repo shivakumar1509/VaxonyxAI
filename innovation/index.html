@@ -12,15 +12,32 @@ title: Innovation – Vaxonyx
     padding:.5rem .75rem;
     background:#fff;
   }
-  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:22px 0}
+  .hero-sub{margin-top:10px;font:400 15px/1.5 system-ui;color:#223;}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+  @media(max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:720px){.cards{grid-template-columns:1fr}}
+
   .card{
     background:#fff;border:1px solid rgba(12,18,32,.12);
-    border-radius:16px;padding:16px;
+    border-radius:16px;padding:16px;height:100%;
+    transition:transform .15s ease, box-shadow .15s ease;
   }
+  .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
   .card h3{margin:.1rem 0 .35rem;font:700 16px/1.3 system-ui}
   .card p{margin:0;font:400 14px/1.6 system-ui;color:#2a3040}
-  .hero-sub{margin-top:10px;font:400 15px/1.5 system-ui;color:#223;}
+
+  .card-link{display:block;text-decoration:none;color:inherit;height:100%}
+
+  /* simple button so CTA looks consistent even without global .btn */
+  .btn{
+    --bg:linear-gradient(180deg,#3FA9F5,#167fd8);
+    --fg:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:.7rem 1rem;border-radius:14px;border:none;
+    text-decoration:none;font:600 14px/1 system-ui;background:var(--bg);color:var(--fg);
+    box-shadow:0 8px 22px -10px rgba(63,169,245,.45);
+  }
 </style>
 
 <main id="main">
@@ -35,13 +52,26 @@ title: Innovation – Vaxonyx
 
   <section class="container">
     <div class="cards">
-      <article id="pipeline" class="card">
-        <h3>Pipeline</h3>
-        <p>End-to-end plans for vaccine/antigen discovery and validation. Detailed roadmap coming soon.</p>
+      <!-- Platforms (added to match nav + subpages) -->
+      <article id="platforms" class="card">
+        <a class="card-link" href="{{ '/innovation/platforms/' | relative_url }}">
+          <h3>Platforms</h3>
+          <p>From AI-integrated discovery to DNA delivery. Browse our AI Platform and DNA Delivery Platform.</p>
+        </a>
       </article>
+
+      <article id="pipeline" class="card">
+        <a class="card-link" href="{{ '/innovation/pipeline/' | relative_url }}">
+          <h3>Pipeline</h3>
+          <p>End-to-end plans for vaccine/antigen discovery and validation. Detailed roadmap coming soon.</p>
+        </a>
+      </article>
+
       <article id="products" class="card">
-        <h3>Products</h3>
-        <p>Catalog of AI tools, data packages, and assay-ready materials. Launch information forthcoming.</p>
+        <a class="card-link" href="{{ '/innovation/products/' | relative_url }}">
+          <h3>Products</h3>
+          <p>Catalog of AI tools, data packages, and assay-ready materials. Launch information forthcoming.</p>
+        </a>
       </article>
     </div>
 
