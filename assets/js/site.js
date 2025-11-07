@@ -25,3 +25,19 @@
     }
   });
 })();
+/* === Fix LinkedIn hover visibility === */
+.btn-social.linkedin {
+  color: #1B427A;               /* normal text */
+  background: #fff;
+  border-color: #e6ebf4;
+  transition: all 0.2s ease;
+}
+
+.btn-social.linkedin:hover {
+  background: #1B427A;          /* dark blue background */
+  color: #fff;                  /* white text on hover */
+  border-color: #1B427A;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(27, 66, 122, 0.25);
+}
