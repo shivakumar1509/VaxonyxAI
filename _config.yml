@@ -1,12 +1,7 @@
+# _config.yml
 title: Vaxonyx
-url: https://vaxonyx.com
-baseurl: ""        # keep empty if you deploy to root
+url: "https://shivakumar1509.github.io"   # REQUIRED for project sites
+baseurl: "/VaxonyxAI"                      # REQUIRED for project sites
+
 markdown: kramdown
-theme: null
-plugins: []        # add plugins if you install them in Gemfile
-exclude:
-  - vendor
-  - node_modules
-  - Gemfile
-  - Gemfile.lock
-  - README.md
+permalink: pretty

@@ -1,11 +1,10 @@
+<!-- _includes/header.html -->
 <header class="site-header" role="banner">
   <div class="container header-row">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Vaxonyx home">
-      <!-- Header logo should NOT be lazy -->
       <img class="brand-logo"
            src="{{ '/assets/Vaxonyx.svg' | relative_url }}"
-           alt="Vaxonyx logo"
-           width="160" height="42" decoding="async" fetchpriority="high">
+           alt="Vaxonyx logo" width="160" height="42">
     </a>
 
     <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false">☰</button>
@@ -64,45 +63,9 @@
         </li>
 
         <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-
-        <!-- Mobile-only AI button -->
-        <li class="ai-inline">
-          <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
-        </li>
       </ul>
     </nav>
 
-    <!-- Desktop AI button -->
     <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
   </div>
 </header>
-
-<script>
-  // Minimal a11y: keep aria-expanded in sync
-  (function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.getElementById('primary-nav');
-    if (!toggle || !nav) return;
-
-    toggle.addEventListener('click', () => {
-      const open = document.body.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!document.body.classList.contains('nav-open')) return;
-      if (!e.target.closest('.site-header')) {
-        document.body.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Close on ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
-        document.body.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  })();
-</script>
