@@ -4,7 +4,6 @@
       <img class="brand-logo" src="{{ '/assets/Vaxonyx.svg' | relative_url }}" alt="Vaxonyx" width="160" height="42">
     </a>
 
-    <!-- Single mobile menu toggle -->
     <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu" title="Menu">
       <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="#1B427A" stroke-width="2" stroke-linecap="round"/>
@@ -14,7 +13,6 @@
     <nav id="primary-nav" class="site-nav" aria-label="Main" role="navigation">
       <ul class="menu" role="list">
         <li><a href="{{ '/' | relative_url }}">Home</a></li>
-
         <li class="dropdown">
           <a href="{{ '/about/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">About ▾</a>
           <ul class="dropdown-menu" role="menu">
@@ -23,12 +21,10 @@
             <li><a href="{{ '/careers/' | relative_url }}">Careers</a></li>
           </ul>
         </li>
-
         <li class="dropdown">
           <a href="{{ '/services/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">Services ▾</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ '/services/cell-lines/' | relative_url }}">Cell line services</a></li>
-
             <li class="has-sub">
               <a href="{{ '/services/protein-production/' | relative_url }}" class="submenu-link" aria-haspopup="true" aria-expanded="false">Protein production ▸</a>
               <ul class="submenu" role="menu">
@@ -36,7 +32,6 @@
                 <li><a href="{{ '/services/protein-production/antigen/' | relative_url }}">Antigen production</a></li>
               </ul>
             </li>
-
             <li class="has-sub">
               <a href="{{ '/services/assays/' | relative_url }}" class="submenu-link" aria-haspopup="true" aria-expanded="false">Assays ▸</a>
               <ul class="submenu" role="menu">
@@ -44,14 +39,11 @@
                 <li><a href="{{ '/services/assays/virology/' | relative_url }}">Virology-Based assays</a></li>
               </ul>
             </li>
-
             <li><a href="{{ '/services/molecular-biology/' | relative_url }}">Molecular biology</a></li>
           </ul>
         </li>
-
         <li><a href="{{ '/innovation/' | relative_url }}">Innovation</a></li>
         <li><a href="{{ '/partners/' | relative_url }}">Partners</a></li>
-
         <li class="dropdown">
           <a href="{{ '/news/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">News &amp; Investors ▾</a>
           <ul class="dropdown-menu" role="menu">
@@ -59,7 +51,6 @@
             <li><a href="{{ '/investors/' | relative_url }}">Investor materials</a></li>
           </ul>
         </li>
-
         <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
 
         <!-- Mobile-only AI button -->

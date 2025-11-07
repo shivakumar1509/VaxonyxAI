@@ -8,7 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tiny critical CSS so layout doesn't collapse if main CSS misses -->
+  <!-- tiny safety net; keep it -->
   <style>
     :root{--vx-line:#e6ebf4}
     html,body{margin:0}
@@ -21,18 +21,12 @@
     @media (min-width:921px){ .menu-toggle{display:none !important} }
   </style>
 
-  <!-- One clean stylesheet (ensure this file exists exactly at this path) -->
   <link rel="stylesheet" href="{{ '/assets/styles.css?v=13' | relative_url }}">
 </head>
 <body>
   {% include header.html %}
-
-  <main id="content">
-    {{ content }}
-  </main>
-
+  <main id="content">{{ content }}</main>
   {% include footer.html %}
-
   <script src="{{ '/assets/js/site.js?v=5' | relative_url }}" defer></script>
 </body>
 </html>
