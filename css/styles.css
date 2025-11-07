@@ -260,3 +260,30 @@ img{ max-width:100%; height:auto; display:block; }
     scroll-behavior:auto !important;
   }
 }
+/* --- Fix odd bullets & spacing in dropdowns --- */
+.menu,
+.menu li,
+.dropdown-menu,
+.dropdown-menu li,
+.submenu,
+.submenu li{
+  list-style: none;            /* kill bullets */
+  list-style-image: none;      /* belt & suspenders */
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu,
+.submenu{
+  padding: 8px;                /* keep your inner padding */
+}
+
+/* consistent item spacing & line-height */
+.dropdown-menu li + li,
+.submenu li + li{ margin-top: 6px; }
+
+.dropdown-menu a,
+.submenu a{
+  line-height: 1.2;
+  display: block;
+}
