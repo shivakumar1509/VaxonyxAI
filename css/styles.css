@@ -92,7 +92,7 @@ img{max-width:100%;height:auto;display:block}
 /* Hero (legacy generic) */
 .hero{
   background:linear-gradient(180deg,#1B73E8 0%,#002D6B 100%);
-  color:#fff;text-align:center;padding:280px 0;min-height:800px
+  color:#fff;text-align:center;padding:240px 0;min-height:750px
 }
 
 /* === Homepage VX-HERO (new, taller, cleaner) === */
