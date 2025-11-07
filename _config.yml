@@ -1,7 +1,12 @@
-# _config.yml
 title: Vaxonyx
-url: "https://shivakumar1509.github.io"   # REQUIRED for project sites
-baseurl: "/VaxonyxAI"                      # REQUIRED for project sites
-
+url: "https://shivakumar1509.github.io"   # project base host
+baseurl: "/VaxonyxAI"                     # project subpath (critical)
 markdown: kramdown
-permalink: pretty
+theme: null
+plugins: []
+exclude:
+  - vendor
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - README.md
