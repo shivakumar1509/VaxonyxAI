@@ -1,5 +1,5 @@
 /* =========================================================
-   VAXONYX — Global Styles (FINAL)
+   VAXONYX — Global Styles (CLEAN)
    ========================================================= */
 
 /* ---------- CSS Variables ---------- */
@@ -42,21 +42,20 @@ img{ max-width:100%; height:auto; display:block; }
 .brand{ display:inline-flex; align-items:center; min-width:0; }
 .brand-logo{ height:var(--logo-h); display:block; }
 
-/* --- Hamburger (reset & default OFF) --- */
+/* Hamburger — hidden by default (desktop), enabled in mobile media query */
 .menu-toggle,
 .menu-toggle:focus,
 .menu-toggle:active{
   border:0; outline:0; box-shadow:none;
   background:transparent;
-  appearance:none; -webkit-appearance:none; -moz-appearance:none;
   color:var(--vx-blue);
   font-size:26px; line-height:1;
   padding:0; margin:0;
   cursor:pointer;
-  display:none;               /* off by default */
+  display:none;               /* OFF by default (desktop) */
 }
 
-/* --- Primary nav --- */
+/* Primary nav */
 .site-nav{ margin-left:auto; }
 .menu{
   display:flex; align-items:center; gap:28px;
@@ -73,9 +72,9 @@ img{ max-width:100%; height:auto; display:block; }
   letter-spacing:.2px;
 }
 .site-header .menu a:hover{ text-decoration:underline; }
-.site-header .menu a:visited{ color:var(--vx-blue); } /* no purple */
+.site-header .menu a:visited{ color:var(--vx-blue); }
 
-/* --- Dropdowns (desktop hover) --- */
+/* Dropdowns (desktop hover) */
 .dropdown-menu{
   position:absolute; top:100%; left:0;
   background:#fff; border:1px solid var(--vx-line); border-radius:12px;
@@ -92,6 +91,7 @@ img{ max-width:100%; height:auto; display:block; }
 }
 .dropdown-menu a:hover{ background:rgba(27,66,122,.08); }
 
+/* Submenus */
 .has-sub{ position:relative; }
 .submenu{
   position:absolute; top:-1px; left:100%;
@@ -99,9 +99,10 @@ img{ max-width:100%; height:auto; display:block; }
   box-shadow:0 12px 28px rgba(0,0,0,.12);
   display:none; min-width:240px; padding:10px; z-index:3200;
 }
-.has-sub:hover>.submenu,.has-sub:focus-within>.submenu{ display:block; }
+.has-sub:hover>.submenu,
+.has-sub:focus-within>.submenu{ display:block; }
 
-/* --- Ask Vaxonyx AI button --- */
+/* Ask Vaxonyx AI button */
 .vx-fab{
   border:0; border-radius:999px; padding:10px 14px;
   background:var(--vx-orange); color:#fff; font-weight:800;
@@ -142,7 +143,7 @@ img{ max-width:100%; height:auto; display:block; }
 .foot-follow{ display:flex; align-items:center; gap:12px; margin-top:18px; }
 .foot-follow .follow-label{ font-weight:800; color:#0b1b3a; }
 
-/* LinkedIn pill + high-contrast hover */
+/* LinkedIn button */
 .btn-social{
   display:inline-flex; align-items:center; justify-content:center;
   padding:.45rem 1.1rem; border-radius:9999px;
@@ -162,31 +163,34 @@ img{ max-width:100%; height:auto; display:block; }
   box-shadow:0 6px 14px rgba(27,66,122,.25);
 }
 
-/* Fallback: if classes ever change, still style LinkedIn link */
-.foot-follow a[href*="linkedin.com"]{
-  border-radius:9999px; padding:.45rem 1.1rem;
-  border:1.5px solid var(--vx-line); background:#fff; color:#1B427A; font-weight:700;
-}
-.foot-follow a[href*="linkedin.com"]:hover{
-  background:#1B427A; color:#fff; border-color:#1B427A;
-}
-
+/* Footer bottom */
 .footer-bottom{
   padding:16px 0 22px; text-align:center;
   color:#6b7a90; font-size:14px; border-top:1px solid var(--vx-line);
 }
 
 /* =========================================================
+   Hero section
+   ========================================================= */
+.hero{
+  background: linear-gradient(180deg, #1B73E8 0%, #002D6B 100%);
+  color:#fff;
+  text-align:center;
+  padding:200px 0;
+  min-height:700px;
+}
+
+/* =========================================================
    Responsive
    ========================================================= */
 
-/* Hard kill hamburger on DESKTOP */
+/* Desktop: ensure all hamburgers are hidden */
 @media (min-width:921px){
-  .site-header .menu-toggle{
+  .menu-toggle{
     display:none !important;
-    width:0 !important; height:0 !important; padding:0 !important; margin:0 !important;
+    width:0 !important; height:0 !important;
+    overflow:hidden !important; padding:0 !important; margin:0 !important;
     border:0 !important; background:transparent !important; box-shadow:none !important;
-    overflow:hidden !important;
   }
 }
 
@@ -194,7 +198,7 @@ img{ max-width:100%; height:auto; display:block; }
 @media (max-width:920px){
   :root{ --logo-h:36px; --header-h:64px; }
 
-  /* Show hamburger ONLY on mobile (styled) */
+  /* Show a single hamburger on mobile */
   .menu-toggle{
     display:inline-flex !important;
     align-items:center; justify-content:center;
@@ -223,14 +227,4 @@ img{ max-width:100%; height:auto; display:block; }
   /* AI button visibility */
   .vx-fab-desktop{ display:none; }
   .ai-inline{ display:block; }
-}
-/* =========================================================
-   Hero section (blue gradient)
-   ========================================================= */
-.hero {
-  background: linear-gradient(180deg, #1B73E8 0%, #002D6B 100%);
-  color: #fff;
-  text-align: center;
-  padding: 200px 0;   /* increase vertical padding (was maybe 80–100px before) */
-  min-height: 700px;  /* you can tweak this value */
 }
