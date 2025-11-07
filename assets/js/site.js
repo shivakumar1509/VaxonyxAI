@@ -1,4 +1,3 @@
-// assets/js/site.js
 (function () {
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.getElementById('primary-nav');
