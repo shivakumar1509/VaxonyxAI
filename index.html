@@ -10,52 +10,47 @@ description: Vaxonyx builds AI-powered platforms for neoantigen discovery, vacci
     --vx-blue-dark:#001c39;
   }
 
-  /* ***** HERO (scoped; nothing global gets overridden) ***** */
+  /* ===== HERO (scoped; does not touch global .container, headers, logos, etc.) ===== */
   .vx-hero{
     background:linear-gradient(to bottom, var(--vx-blue-light), var(--vx-blue-dark));
     color:#fff;
     text-align:center;
-    /* taller blue area */
-    padding:140px 20px 140px;
-    min-height: 520px;
+    padding:110px 20px 80px;   /* smaller blue height */
     display:flex;
-    align-items:center;            /* vertically center lines */
+    align-items:center;
   }
   .vx-hero .vx-inner{
-    /* use the same max-width as your site without redefining .container */
     width:min(1120px,92%);
     margin-inline:auto;
   }
 
-  /* keep a single H1 for SEO; visually hidden but present */
+  /* keep a single H1 for SEO; visually hidden so it doesn't affect layout */
   .vx-hero h1{
     position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;
   }
 
-  /* Slogan lines (two only) */
+  /* Two hero lines */
   .vx-hero .vx-line{
     margin:0;
     font-weight:800;
     line-height:1.15;
     color:#fff;
-    /* fits on one line on desktop; wraps on small screens */
-    font-size:clamp(22px, 3.4vw, 44px);
+    font-size:clamp(22px, 3.4vw, 44px); /* one line on desktop, wraps on mobile */
     white-space:nowrap;
   }
-  /* bigger space between the two lines */
-  .vx-hero .vx-line + .vx-line{ margin-top:34px; }
+  .vx-hero .vx-line + .vx-line{ margin-top:46px; } /* <-- bigger gap between lines */
 
   @media (max-width: 720px){
-    .vx-hero{ padding:100px 16px 110px; min-height:unset; }
+    .vx-hero{ padding:90px 16px 70px; }
     .vx-hero .vx-line{
       white-space:normal;          /* allow wrap on phones */
       line-height:1.25;
       font-size:clamp(20px, 5vw, 30px);
     }
-    .vx-hero .vx-line + .vx-line{ margin-top:20px; }
+    .vx-hero .vx-line + .vx-line{ margin-top:26px; }
   }
 
-  /* Sections below (do not touch global fonts) */
+  /* Sections below (scoped wrappers; no global overrides) */
   section.intro, section.cta { text-align:center; padding:64px 0; }
 
   .vx-btn{
@@ -74,7 +69,6 @@ description: Vaxonyx builds AI-powered platforms for neoantigen discovery, vacci
     <h1>Vaxonyx</h1>
     <p class="vx-line">Science for All — Affordable, Accessible, Advanced.</p>
     <p class="vx-line">AI-Driven Solutions for Next-Gen Therapeutics.</p>
-    <!-- third line removed on purpose -->
   </div>
 </section>
 
