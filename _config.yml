@@ -1,0 +1,12 @@
+title: Vaxonyx
+url: https://vaxonyx.com
+baseurl: ""        # keep empty if you deploy to root
+markdown: kramdown
+theme: null
+plugins: []        # add plugins if you install them in Gemfile
+exclude:
+  - vendor
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - README.md
