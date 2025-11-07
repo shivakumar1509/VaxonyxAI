@@ -93,4 +93,33 @@
     <!-- Desktop AI button -->
     <button class="vx-fab vx-fab-desktop" id="vx-fab" type="button">Ask Vaxonyx AI</button>
   </div>
+
+  <!-- Minimal, robust binder (works even if widget loads late) -->
+  <script>
+  (function(){
+    function openAI(e){
+      if(e) e.preventDefault();
+      if (window.VX_WIDGET && typeof window.VX_WIDGET.open === 'function') {
+        window.VX_WIDGET.open();
+      } else {
+        console.warn('VX_WIDGET not ready'); // visible in Console if scripts didn’t load
+      }
+    }
+    function bind(){
+      ['vx-fab','vx-fab-mobile'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (el && !el.dataset.vxBound){
+          el.dataset.vxBound = '1';
+          el.addEventListener('click', openAI, {passive:false});
+          el.style.cursor = 'pointer';
+          el.style.position = 'relative';
+          el.style.zIndex = '2147483001';
+        }
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bind, {once:true});
+    } else { bind(); }
+  })();
+  </script>
 </header>
