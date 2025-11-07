@@ -1,9 +1,12 @@
 title: Vaxonyx
-url: "https://shivakumar1509.github.io"   # hosting base
-baseurl: "/VaxonyxAI"                     # project subfolder (critical)
 markdown: kramdown
 theme: null
 plugins: []
+permalink: pretty
+# Leave these blank by default so site works anywhere
+url: ""
+baseurl: ""
+
 exclude:
   - vendor
   - node_modules
