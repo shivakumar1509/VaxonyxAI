@@ -1,3 +1,3 @@
-# _config_aws.yml
-url: "https://vaxonyx.com"   # or your Amplify domain while testing
-baseurl: ""                   # IMPORTANT for root hosting
+# _config_aws.yml  — only used for AWS builds
+url: "https://vaxonyx.com"   # or your Amplify/CloudFront domain
+baseurl: ""                  # IMPORTANT for root hosting

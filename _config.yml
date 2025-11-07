@@ -1,18 +1,17 @@
-# _config.yml
+# _config.yml  — default for GitHub Pages
 title: Vaxonyx
 markdown: kramdown
 theme: null
 plugins: []
 permalink: pretty
 
-# Portable defaults — let overrides set these for each host
-url: ""
-baseurl: ""
+# GitHub Pages project URL
+url: "https://shivakumar1509.github.io"
+baseurl: "/VaxonyxAI"
 
-# Optional version you can bump to invalidate browser caches
+# bump when you change CSS/JS
 assets_version: "25"
 
-# Don’t publish these
 exclude:
   - vendor
   - node_modules
@@ -20,4 +19,3 @@ exclude:
   - Gemfile.lock
   - README.md
   - .github
-  - amplify.yml
