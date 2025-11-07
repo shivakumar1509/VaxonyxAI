@@ -231,6 +231,6 @@ img{ max-width:100%; height:auto; display:block; }
   background: linear-gradient(180deg, #1B73E8 0%, #002D6B 100%);
   color: #fff;
   text-align: center;
-  padding: 160px 0;   /* increase vertical padding (was maybe 80–100px before) */
-  min-height: 600px;  /* you can tweak this value */
+  padding: 200px 0;   /* increase vertical padding (was maybe 80–100px before) */
+  min-height: 700px;  /* you can tweak this value */
 }
