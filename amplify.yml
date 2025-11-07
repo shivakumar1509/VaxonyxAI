@@ -1,0 +1,19 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - ruby -v
+        - gem install bundler
+        - bundle config set path 'vendor/bundle'
+        - bundle install --jobs=4 --retry=3
+    build:
+      commands:
+        - JEKYLL_ENV=production bundle exec jekyll build --trace
+  artifacts:
+    baseDirectory: _site
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - vendor/bundle/**/*
