@@ -4,7 +4,7 @@
       <img class="brand-logo" src="{{ '/assets/Vaxonyx.svg' | relative_url }}" alt="Vaxonyx" width="160" height="42">
     </a>
 
-    <!-- Mobile menu toggle (no visible text, icon only) -->
+    <!-- Single mobile menu toggle -->
     <button class="menu-toggle"
             aria-controls="primary-nav"
             aria-expanded="false"
@@ -16,12 +16,12 @@
       </svg>
     </button>
 
-    <nav id="primary-nav" class="site-nav" aria-label="Main">
+    <nav id="primary-nav" class="site-nav" aria-label="Main" role="navigation">
       <ul class="menu" role="list">
         <li><a href="{{ '/' | relative_url }}">Home</a></li>
 
         <li class="dropdown">
-          <a href="{{ '/about/' | relative_url }}" class="dropdown-link">About ▾</a>
+          <a href="{{ '/about/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">About ▾</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ '/about/#mission' | relative_url }}">Mission &amp; Vision</a></li>
             <li><a href="{{ '/about/#team' | relative_url }}">Team</a></li>
@@ -30,12 +30,12 @@
         </li>
 
         <li class="dropdown">
-          <a href="{{ '/services/' | relative_url }}" class="dropdown-link">Services ▾</a>
+          <a href="{{ '/services/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">Services ▾</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ '/services/cell-lines/' | relative_url }}">Cell line services</a></li>
 
             <li class="has-sub">
-              <a href="{{ '/services/protein-production/' | relative_url }}" class="submenu-link">Protein production ▸</a>
+              <a href="{{ '/services/protein-production/' | relative_url }}" class="submenu-link" aria-haspopup="true" aria-expanded="false">Protein production ▸</a>
               <ul class="submenu" role="menu">
                 <li><a href="{{ '/services/protein-production/antibody-production/' | relative_url }}">Antibody production</a></li>
                 <li><a href="{{ '/services/protein-production/antigen/' | relative_url }}">Antigen production</a></li>
@@ -43,7 +43,7 @@
             </li>
 
             <li class="has-sub">
-              <a href="{{ '/services/assays/' | relative_url }}" class="submenu-link">Assays ▸</a>
+              <a href="{{ '/services/assays/' | relative_url }}" class="submenu-link" aria-haspopup="true" aria-expanded="false">Assays ▸</a>
               <ul class="submenu" role="menu">
                 <li><a href="{{ '/services/assays/biochemical/' | relative_url }}">Biochemical assays</a></li>
                 <li><a href="{{ '/services/assays/virology/' | relative_url }}">Virology-Based assays</a></li>
@@ -58,7 +58,7 @@
         <li><a href="{{ '/partners/' | relative_url }}">Partners</a></li>
 
         <li class="dropdown">
-          <a href="{{ '/news/' | relative_url }}" class="dropdown-link">News &amp; Investors ▾</a>
+          <a href="{{ '/news/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">News &amp; Investors ▾</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ '/news/#press' | relative_url }}">Press &amp; updates</a></li>
             <li><a href="{{ '/investors/' | relative_url }}">Investor materials</a></li>
