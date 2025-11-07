@@ -228,3 +228,20 @@ img{ max-width:100%; height:auto; display:block; }
   .vx-fab-desktop{ display:none; }
   .ai-inline{ display:block; }
 }
+/* --- Hardening tweaks --- */
+@media (max-width:920px){
+  .site-nav{
+    z-index: 3500;                 /* sits above hero/content */
+    -webkit-overflow-scrolling: touch;
+  }
+  .menu-toggle{
+    touch-action: manipulation;    /* snappier taps on mobile */
+  }
+}
+
+/* Optional: reduce motion respect */
+@media (prefers-reduced-motion: reduce){
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
