@@ -1,4 +1,4 @@
-/* === VAXONYX — Global Styles (CLEAN) === */
+/* === VAXONYX — Global Styles (CLEAN, Unified Nav Font) === */
 
 /* ---------- Design tokens ---------- */
 :root{
@@ -12,21 +12,26 @@
 
   --logo-h:42px;
   --header-h:68px;
+
+  /* === NAV TYPOGRAPHY VARS === */
+  --nav-top-size:14px;   /* Top-level menu font size */
+  --nav-dd-size:14px;    /* Dropdown font size */
+  --nav-weight:700;
+  --nav-line:1.25;
 }
 
 /* ---------- Base ---------- */
 *{ box-sizing:border-box; }
 html,body{ margin:0; height:100%; }
 body{
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color:var(--vx-ink);
-  background:#fff;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--vx-ink); background:#fff;
   display:flex; flex-direction:column; min-height:100vh;
 }
 main{ flex:1; }
-.container{ width:min(var(--max), 100% - 2*var(--edge)); margin-inline:auto; }
+.container{ width:min(var(--max),100% - 2*var(--edge)); margin-inline:auto; }
 img{ max-width:100%; height:auto; display:block; }
-.sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.sr-only{ position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 /* =========================================================
    Header / Navigation
@@ -53,20 +58,23 @@ img{ max-width:100%; height:auto; display:block; }
 /* Primary nav row */
 .site-nav{ margin-left:auto; }
 .menu{
-  display:flex; align-items:center; gap:22px;   /* tighter than default */
+  display:flex; align-items:center; gap:22px;
   padding:0; margin:0; list-style:none;
 }
 .menu>li{ position:relative; }
 
-/* Top-level + trigger links — unified smaller size */
+/* ---------- Unified Nav Font (Top-level + Dropdown) ---------- */
 .site-header .menu > li > a,
 .site-header .dropdown-link,
 .site-header .submenu-link{
+  font-size:var(--nav-top-size);
+  line-height:var(--nav-line);
+  font-weight:var(--nav-weight);
   color:var(--vx-blue);
-  text-decoration:none;
-  font-weight:700;
-  font-size:15px;        /* smaller top row */
   letter-spacing:.2px;
+  text-decoration:none;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 .site-header .menu a:hover{ text-decoration:underline; }
 .site-header .menu a:visited{ color:var(--vx-blue); }
@@ -92,20 +100,34 @@ img{ max-width:100%; height:auto; display:block; }
 .has-sub:hover>.submenu,
 .has-sub:focus-within>.submenu{ display:block; }
 
-/* Dropdown item sizing (smaller + consistent) */
+/* ---------- Dropdown Item Typography ---------- */
 .dropdown-menu a,
 .submenu a{
+  font-size:var(--nav-dd-size);
+  line-height:var(--nav-line);
+  font-weight:var(--nav-weight);
   display:block;
-  padding:7px 10px;                 /* slightly reduced */
+  padding:7px 10px;
   border-radius:8px;
   color:var(--vx-blue);
-  font-weight:700;
-  font-size:14px;                   /* smaller than top row */
   text-decoration:none;
   white-space:nowrap;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 .dropdown-menu a:hover,
 .submenu a:hover{ background:rgba(27,66,122,.08); }
+
+/* Remove bullets, unify spacing */
+.menu, .menu li,
+.dropdown-menu, .dropdown-menu li,
+.submenu, .submenu li{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.dropdown-menu li + li,
+.submenu li + li{ margin-top:6px; }
 
 /* ---------- “Ask Vaxonyx AI” button ---------- */
 .vx-fab{
@@ -121,16 +143,16 @@ img{ max-width:100%; height:auto; display:block; }
    Homepage Hero (tight)
    ========================================================= */
 .vx-hero{
-  background: linear-gradient(to bottom, #2196f3, #001c39);
+  background:linear-gradient(to bottom,#2196f3,#001c39);
   color:#fff; text-align:center;
-  padding: 180px 20px 120px;     /* tightened */
-  min-height: 640px;             /* tightened */
+  padding:180px 20px 120px;
+  min-height:640px;
   display:flex; align-items:center; justify-content:center;
 }
 .vx-hero .vx-inner{ width:min(1120px,92%); margin-inline:auto; }
 .vx-hero .vx-line{
   margin:0; font-weight:800; line-height:1.12; color:#fff;
-  font-size:clamp(22px, 3.2vw, 40px);
+  font-size:clamp(22px,3.2vw,40px);
 }
 .vx-hero .vx-line + .vx-line{ margin-top:28px; }
 
@@ -174,13 +196,13 @@ img{ max-width:100%; height:auto; display:block; }
   box-shadow:0 4px 10px rgba(0,0,0,.05);
   transition:all .2s ease;
 }
-.btn-social.linkedin{ color:#1B427A !important; }
+.btn-social.linkedin{ color:#1B427A!important; }
 .btn-social.linkedin:hover,
 .btn-social.linkedin:focus{
-  background:#1B427A !important;
-  color:#fff !important;
-  border-color:#1B427A !important;
-  text-decoration:none !important;
+  background:#1B427A!important;
+  color:#fff!important;
+  border-color:#1B427A!important;
+  text-decoration:none!important;
   transform:translateY(-2px);
   box-shadow:0 6px 14px rgba(27,66,122,.25);
 }
@@ -197,10 +219,10 @@ img{ max-width:100%; height:auto; display:block; }
 /* Desktop: ensure hamburger is hidden */
 @media (min-width:921px){
   .menu-toggle{
-    display:none !important;
-    width:0 !important; height:0 !important;
-    overflow:hidden !important; padding:0 !important; margin:0 !important;
-    border:0 !important; background:transparent !important; box-shadow:none !important;
+    display:none!important;
+    width:0!important; height:0!important;
+    overflow:hidden!important; padding:0!important; margin:0!important;
+    border:0!important; background:transparent!important; box-shadow:none!important;
   }
 }
 
@@ -210,7 +232,7 @@ img{ max-width:100%; height:auto; display:block; }
 
   /* Show hamburger on mobile */
   .menu-toggle{
-    display:inline-flex !important;
+    display:inline-flex!important;
     align-items:center; justify-content:center;
     touch-action:manipulation;
   }
@@ -246,7 +268,7 @@ img{ max-width:100%; height:auto; display:block; }
   .vx-hero{ padding:120px 16px 90px; min-height:520px; }
   .vx-hero .vx-line{
     white-space:normal; line-height:1.24;
-    font-size:clamp(20px, 5vw, 28px);
+    font-size:clamp(20px,5vw,28px);
   }
   .vx-hero .vx-line + .vx-line{ margin-top:20px; }
 }
@@ -254,36 +276,9 @@ img{ max-width:100%; height:auto; display:block; }
 /* Reduced motion accessibility */
 @media (prefers-reduced-motion:reduce){
   *{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.01ms !important;
-    scroll-behavior:auto !important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
   }
-}
-/* --- Fix odd bullets & spacing in dropdowns --- */
-.menu,
-.menu li,
-.dropdown-menu,
-.dropdown-menu li,
-.submenu,
-.submenu li{
-  list-style: none;            /* kill bullets */
-  list-style-image: none;      /* belt & suspenders */
-  margin: 0;
-  padding: 0;
-}
-
-.dropdown-menu,
-.submenu{
-  padding: 8px;                /* keep your inner padding */
-}
-
-/* consistent item spacing & line-height */
-.dropdown-menu li + li,
-.submenu li + li{ margin-top: 6px; }
-
-.dropdown-menu a,
-.submenu a{
-  line-height: 1.2;
-  display: block;
 }
