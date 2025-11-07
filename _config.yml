@@ -10,7 +10,7 @@ url: "https://shivakumar1509.github.io"
 baseurl: "/VaxonyxAI"
 
 # Bump this whenever you change CSS/JS to clear browser cache
-assets_version: "29"
+assets_version: "30"
 
 # Default exclusions
 exclude:
