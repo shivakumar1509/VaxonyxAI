@@ -81,7 +81,7 @@ img{ max-width:100%; height:auto; display:block; }
 
 /* ---------- Dropdowns (desktop hover) ---------- */
 .dropdown-menu{
-  position:absolute; top:calc(100% + 12px)%; left:0;
+  position:absolute; top:calc(100% + 6px); left:0;
   background:#fff; border:1px solid var(--vx-line); border-radius:12px;
   box-shadow:0 12px 28px rgba(0,0,0,.12);
   display:none; min-width:260px; padding:8px; z-index:3100;
