@@ -151,12 +151,24 @@ img{ max-width:100%; height:auto; display:block; }
   box-shadow:0 4px 10px rgba(0,0,0,.05);
   transition:all .2s ease;
 }
-.btn-social:hover{
-  background:var(--vx-blue);
-  color:#fff;
-  border-color:var(--vx-blue);
+.btn-social.linkedin{ color:#1B427A !important; }
+.btn-social.linkedin:hover,
+.btn-social.linkedin:focus{
+  background:#1B427A !important;
+  color:#fff !important;
+  border-color:#1B427A !important;
+  text-decoration:none !important;
   transform:translateY(-2px);
   box-shadow:0 6px 14px rgba(27,66,122,.25);
+}
+
+/* Fallback: if classes ever change, still style LinkedIn link */
+.foot-follow a[href*="linkedin.com"]{
+  border-radius:9999px; padding:.45rem 1.1rem;
+  border:1.5px solid var(--vx-line); background:#fff; color:#1B427A; font-weight:700;
+}
+.foot-follow a[href*="linkedin.com"]:hover{
+  background:#1B427A; color:#fff; border-color:#1B427A;
 }
 
 .footer-bottom{
@@ -170,7 +182,12 @@ img{ max-width:100%; height:auto; display:block; }
 
 /* Hard kill hamburger on DESKTOP */
 @media (min-width:921px){
-  .site-header .menu-toggle{ display:none !important; width:0; height:0; padding:0; border:0; }
+  .site-header .menu-toggle{
+    display:none !important;
+    width:0 !important; height:0 !important; padding:0 !important; margin:0 !important;
+    border:0 !important; background:transparent !important; box-shadow:none !important;
+    overflow:hidden !important;
+  }
 }
 
 /* Mobile / Tablet */
@@ -181,7 +198,6 @@ img{ max-width:100%; height:auto; display:block; }
   .menu-toggle{
     display:inline-flex !important;
     align-items:center; justify-content:center;
-    border:1.5px solid #ccc; border-radius:6px; background:#fff; padding:6px 10px;
   }
 
   /* Slide-in nav */
@@ -207,34 +223,4 @@ img{ max-width:100%; height:auto; display:block; }
   /* AI button visibility */
   .vx-fab-desktop{ display:none; }
   .ai-inline{ display:block; }
-}
-/* ==== FORCE-HIDE HAMBURGER ON DESKTOP ==== */
-@media (min-width: 921px){
-  .site-header .menu-toggle{
-    display: none !important;
-    border: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-  }
-}
-.site-header .menu-toggle:focus{ outline: none !important; }
-/* ==== LINKEDIN PILL: CLEAR HOVER CONTRAST ==== */
-.btn-social.linkedin{
-  color: #1B427A !important;
-  background: #fff !important;
-  border: 1.5px solid #e6ebf4 !important;
-}
-.btn-social.linkedin:hover,
-.btn-social.linkedin:focus{
-  background: #1B427A !important;
-  color: #fff !important;
-  border-color: #1B427A !important;
-  text-decoration: none !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(27,66,122,.25);
 }

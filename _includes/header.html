@@ -1,15 +1,18 @@
-<!-- header.html -->
 <header class="site-header" role="banner">
   <div class="container header-row">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Vaxonyx home">
       <img class="brand-logo" src="{{ '/assets/Vaxonyx.svg' | relative_url }}" alt="Vaxonyx" width="160" height="42">
     </a>
 
-    <!-- Mobile menu toggle (SVG icon; hidden on desktop via CSS above) -->
-    <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false">
-      <span class="sr-only">Menu</span>
+    <!-- Mobile menu toggle (no visible text, icon only) -->
+    <button class="menu-toggle"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+            aria-label="Open menu"
+            title="Menu">
       <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="#1B427A" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 6h18M3 12h18M3 18h18"
+              fill="none" stroke="#1B427A" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
 
