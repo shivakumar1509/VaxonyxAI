@@ -1,58 +1,66 @@
 ---
 layout: default
 title: Home
+description: Vaxonyx builds AI-powered platforms for neoantigen discovery, vaccine design, and translational immunology.
 ---
+
+<style>
+  :root{
+    --vx-primary:#007C91; /* Teal */
+    --vx-accent:#3FA9F5;  /* Sky */
+    --vx-ink:#0b1220; --vx-line:rgba(12,18,32,.12);
+    --vx-bg: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%);
+  }
+  .container{width:min(1120px,92%);margin-inline:auto}
+
+  /* Hero (no flashing/rotation; soft blue gradient like services pages) */
+  .hero{padding:88px 0 48px;background:var(--vx-bg)}
+  .hero-title{
+    margin:0 0 10px;
+    font:800 clamp(32px,5.2vw,56px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    color:var(--vx-ink);
+    text-align:center;
+  }
+  .hero-lines{display:grid;gap:.35rem;justify-items:center;margin-top:.25rem}
+  .hero-line{
+    font:600 clamp(15px,1.8vw,18px)/1.55 system-ui;
+    color:#213;
+    text-align:center;
+  }
+
+  /* CTA button look-alike (matches site buttons) */
+  .vx-btn{
+    --bg:linear-gradient(180deg,var(--vx-accent),#167fd8); --fg:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:.8rem 1.2rem;border-radius:14px;border:none;text-decoration:none;
+    font:700 14px/1 system-ui;background:var(--bg);color:var(--fg);
+    box-shadow:0 8px 22px -10px rgba(63,169,245,.45);
+  }
+</style>
 
 <section class="hero">
   <div class="hero-inner container">
-    <h1 class="hero-title" id="vx-rotating-slogan">
-      Science for All — Affordable, Accessible, Advanced.
-    </h1>
+    <h1 class="hero-title">About Vaxonyx</h1>
+    <div class="hero-lines">
+      <div class="hero-line">Science for All — Affordable, Accessible, Advanced.</div>
+      <div class="hero-line">AI-Driven Solutions for Next-Gen Therapeutics.</div>
+      <div class="hero-line">Empowering Translational Immunology with Innovation.</div>
+    </div>
   </div>
 </section>
 
 <section class="intro container" style="padding:60px 0; text-align:center;">
   <h2 style="font-weight:800; color:#1B427A; margin-bottom:16px;">Welcome to Vaxonyx</h2>
   <p style="max-width:780px; margin:0 auto; line-height:1.6; color:#334;">
-    We develop AI-powered bioinformatics platforms enabling next-generation neoantigen discovery, vaccine design, and translational immunology. 
+    We develop AI-powered bioinformatics platforms enabling next-generation neoantigen discovery, vaccine design, and translational immunology.
     Our mission is to make biomedical innovation <strong>affordable, accessible, and advanced</strong> for researchers and healthcare systems worldwide.
   </p>
 </section>
 
 <section class="cta" style="background:#f3f7fd; padding:60px 0; text-align:center;">
   <h2 style="font-weight:800; color:#1B427A; margin-bottom:20px;">Explore Our Innovation</h2>
-  <p style="margin-bottom:32px; font-size:17px;">From antigen discovery to delivery technologies — our integrated pipeline accelerates translational breakthroughs.</p>
-  <a href="{{ '/innovation/' | relative_url }}" class="vx-fab" style="text-decoration:none;">Learn More</a>
+  <p style="margin-bottom:32px; font-size:17px;">
+    From antigen discovery to delivery technologies — our integrated pipeline accelerates translational breakthroughs.
+  </p>
+  <a href="{{ '/innovation/' | relative_url }}" class="vx-btn">Learn More</a>
 </section>
-
-<script>
-  // Rotating slogan animation
-  (function() {
-    const lines = [
-      "Science for All — Affordable, Accessible, Advanced.",
-      "AI-Driven Solutions for Next-Gen Therapeutics.",
-      "Empowering Translational Immunology with Innovation."
-    ];
-    const textEl = document.getElementById("vx-rotating-slogan");
-    if (!textEl) return;
-
-    const FADE_MS = 350;
-    const TEXT_MS = 3200;
-    let i = 0;
-
-    function cycle() {
-      const next = lines[i % lines.length];
-      textEl.style.opacity = "0";
-      setTimeout(() => {
-        textEl.textContent = next;
-        textEl.style.opacity = "1";
-        i++;
-        setTimeout(cycle, TEXT_MS);
-      }, FADE_MS);
-    }
-
-    // Initial fade-in
-    requestAnimationFrame(() => { textEl.style.opacity = "1"; });
-    setTimeout(cycle, TEXT_MS + FADE_MS);
-  })();
-</script>
