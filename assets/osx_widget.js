@@ -1,17 +1,19 @@
-// /assets/osx_widget.js — Vaxonyx-only widget, fixed & FAB-bound
+// /assets/VaxonyxAI/osx_widget.js — Vaxonyx-only widget, fixed & FAB-bound
 (function () {
   const PANEL_W = 420, PANEL_H = 520, LOG_MAX = 300, TYPE_MS = 15;
+
+  // IMPORTANT: use an absolute path for the illustration (works on Amplify + custom domain)
   const CSS = `
     .vx-panel { position: fixed; bottom: 70px; right: 16px;
       width:${PANEL_W}px; height:${PANEL_H}px; max-width:calc(100vw - 32px); max-height:calc(100vh - 120px);
       background:#fff; color:#0b1b3a; border:1px solid #e6ebf4; border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.35);
-      display:none; overflow:hidden; z-index: 9999; }
+      display:none; overflow:hidden; z-index: 2147483000; }
     .vx-panel.open { display:block; }
     .vx-head { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#1B427A; color:#fff; }
     .vx-close { background:transparent; border:0; color:#fff; font-size:20px; cursor:pointer; }
     .vx-hero { display:flex; align-items:center; gap:14px; padding:12px 14px; background:#f6f9ff; border-bottom:1px solid #e6ebf4; }
     .vx-illus { width:72px; height:72px; border-radius:999px; flex:0 0 72px; background:#fff center/80% no-repeat;
-      background-image:url("assets/assistant-lady.svg"); border:1px solid #e6ebf4; box-shadow:0 4px 10px rgba(0,0,0,.08); }
+      background-image:url("/assets/assistant-lady.svg"); border:1px solid #e6ebf4; box-shadow:0 4px 10px rgba(0,0,0,.08); }
     .vx-w1{ font-weight:800; font-size:1rem; color:#0b1b3a; } .vx-w2{ font-size:.9rem; color:#395084; }
     .vx-body{ display:grid; grid-template-rows:1fr auto; height:calc(100% - 120px); padding:10px 12px 12px; gap:10px; }
     .vx-log{ max-height:${LOG_MAX}px; overflow:auto; display:grid; gap:8px; padding-right:4px; }
@@ -23,14 +25,14 @@
     .vx-send{ border:0; border-radius:8px; padding:8px 10px; background:#1B427A; color:#fff; font-weight:800; cursor:pointer }
   `;
 
-  const QA = window.VX_QA || [
+  const QA = (typeof window !== 'undefined' && window.VX_QA) || [
     {id:'hello',  q:'What does Vaxonyx AI do?', a:'We build bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.'},
     {id:'contact',q:'How do I contact you?', a:'info@vaxonyxai.com (general) • investorrelations@vaxonyxai.com (IR) • bd@vaxonyxai.com (BD).'}
   ];
 
   const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
   const escAttr = s => esc(s).replace(/'/g,'&#39;');
-  const ready = fn => (document.readyState==='loading') ? document.addEventListener('DOMContentLoaded',fn) : fn();
+  const ready = fn => (document.readyState==='loading') ? document.addEventListener('DOMContentLoaded',fn,{once:true}) : fn();
 
   function ensureCSS() {
     if (!document.getElementById('vx-widget-css')) {
@@ -45,6 +47,8 @@
 
     panel=document.createElement('div');
     panel.className='vx-panel';
+    panel.setAttribute('role','dialog');
+    panel.setAttribute('aria-label','Vaxonyx AI');
     panel.innerHTML=`
       <div class="vx-head"><strong>Vaxonyx AI</strong><button class="vx-close" aria-label="Close">×</button></div>
       <div class="vx-hero"><div class="vx-illus" aria-hidden="true"></div>
@@ -76,7 +80,8 @@
     function answer(q){
       if(!q) return;
       const wrap=document.createElement('div'); wrap.className='vx-x';
-      wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a"></div>`; log.appendChild(wrap); log.scrollTop=log.scrollHeight;
+      wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a" aria-live="polite"></div>`; 
+      log.appendChild(wrap); log.scrollTop=log.scrollHeight;
       const found = QA.find(x => (x.q||'').toLowerCase()===q.toLowerCase()) || null;
       type(wrap.querySelector('.vx-a'), found ? String(found.a) : 'Thanks! A specialist will follow up soon.');
     }
@@ -91,34 +96,42 @@
     }, TYPE_MS);
   }
 
-  // Public API that *creates* if missing
+  // Public API
   window.VX_WIDGET = {
     open(){ const p = buildPanel(); p.classList.add('open'); },
     close(){ const p=document.querySelector('.vx-panel'); if(p) p.classList.remove('open'); }
   };
 
-  // Bind to the page FAB (works even if FAB appears later)
-  ready(() => {
-    const hook = () => {
-      const fab = document.getElementById('vx-fab');
-      if (fab && !fab.dataset.vxBound) {
-        fab.dataset.vxBound = '1';
-        fab.addEventListener('click', () => window.VX_WIDGET.open());
+  // Bind to ALL .vx-fab buttons (desktop + mobile), not just a single #vx-fab
+  function bindFABs() {
+    document.querySelectorAll('.vx-fab').forEach(btn => {
+      if (!btn.dataset.vxBound) {
+        btn.dataset.vxBound = '1';
+        btn.addEventListener('click', () => window.VX_WIDGET.open(), { passive:true });
+        btn.style.cursor = 'pointer';
+        btn.style.position = 'relative';
+        btn.style.zIndex = '2147483001';
       }
-    };
-    hook();
-    // In case the FAB is injected after load
-    const obs = new MutationObserver(hook);
+    });
+  }
+
+  // Ensure nothing invisible is blocking clicks
+  function elevateHeader() {
+    const hdr = document.querySelector('.site-header, .header-row');
+    if (hdr) { hdr.style.pointerEvents = 'auto'; }
+  }
+
+  ready(() => {
+    bindFABs();
+    elevateHeader();
+    // In case the buttons are injected later (mobile menu etc.)
+    const obs = new MutationObserver(() => { bindFABs(); });
     obs.observe(document.documentElement, {childList:true, subtree:true});
   });
 
   // Clean up any legacy OncoSyNex widget remnants
   ready(() => {
     const old = document.getElementById('osx-widget'); if (old) old.remove();
-    [...document.querySelectorAll('button')].forEach(b=>{
-      const t=(b.textContent||'').trim().toLowerCase();
-      if (t.includes('oncosynex')) b.remove();
-    });
     if (window.OSX_WIDGET) try { delete window.OSX_WIDGET; } catch {}
   });
 })();

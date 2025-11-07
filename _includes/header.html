@@ -55,7 +55,6 @@
         <li class="dropdown">
           <a href="{{ '/innovation/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">Innovation ▾</a>
           <ul class="dropdown-menu" role="menu">
-
             <!-- Platforms flyout -->
             <li class="has-sub">
               <a href="{{ '/innovation/platforms/' | relative_url }}" class="submenu-link" aria-haspopup="true" aria-expanded="false">Platforms ▸</a>
@@ -86,12 +85,12 @@
 
         <!-- Mobile-only AI button -->
         <li class="ai-inline">
-          <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
+          <button class="vx-fab" id="vx-fab-mobile" type="button">Ask Vaxonyx AI</button>
         </li>
       </ul>
     </nav>
 
     <!-- Desktop AI button -->
-    <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
+    <button class="vx-fab vx-fab-desktop" id="vx-fab" type="button">Ask Vaxonyx AI</button>
   </div>
 </header>
