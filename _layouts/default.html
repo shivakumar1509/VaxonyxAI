@@ -6,8 +6,39 @@
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
 
-  <!-- Load your stylesheet from the correct project path -->
-  <link rel="stylesheet" href="{{ '/assets/style.css?v=1' | relative_url }}">
+  <!-- CRITICAL CSS so header/nav/footer never render as bullet lists -->
+  <style>
+    :root{--vx-line:#e6ebf4;--header-h:68px;--logo-h:42px}
+    html,body{margin:0}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif;color:#0b1b3a}
+    .container{width:min(1180px,100% - 32px);margin-inline:auto}
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--vx-line);height:var(--header-h)}
+    .header-row{height:var(--header-h);display:flex;align-items:center;gap:20px}
+    .brand-logo{height:var(--logo-h)}
+    .site-nav{margin-left:auto}
+    .menu{display:flex;gap:28px;list-style:none;padding:0;margin:0}
+    .menu>li{position:relative}
+    .menu>li>a,.dropdown-link,.submenu-link{font-weight:700;text-decoration:none}
+    .dropdown-menu,.submenu{display:none;position:absolute;background:#fff;border:1px solid var(--vx-line);border-radius:12px;padding:10px}
+    .dropdown:hover>.dropdown-menu{display:block}
+    .has-sub:hover>.submenu{display:block}
+    /* Footer */
+    .site-footer{border-top:1px solid var(--vx-line);background:#f7f9fc}
+    .footer-grid{display:grid;grid-template-columns:1.3fr .9fr 1.1fr;gap:32px;padding:24px 0}
+    .links{list-style:none;padding:0;margin:0}
+    .links li+li{margin-top:6px}
+    .footer-bottom{text-align:center;color:#6b7a90;font-size:14px;padding:12px 0 18px}
+    /* Mobile */
+    @media (max-width:920px){
+      .menu{flex-direction:column;gap:6px}
+      .dropdown-menu,.submenu{position:static}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- Your full stylesheet (project-safe path) -->
+  <link rel="stylesheet" href="{{ '/assets/style.css?v=2' | relative_url }}">
 </head>
 <body>
   {% include header.html %}
@@ -18,6 +49,6 @@
 
   {% include footer.html %}
 
-  <script src="{{ '/assets/js/site.js?v=1' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/site.js?v=2' | relative_url }}" defer></script>
 </body>
 </html>

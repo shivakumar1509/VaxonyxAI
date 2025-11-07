@@ -1,6 +1,6 @@
 title: Vaxonyx
-url: "https://shivakumar1509.github.io"   # project base host
-baseurl: "/VaxonyxAI"                     # project subpath (critical)
+url: "https://shivakumar1509.github.io"   # hosting base
+baseurl: "/VaxonyxAI"                     # project subfolder (critical)
 markdown: kramdown
 theme: null
 plugins: []
