@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: AI Platform – Vaxonyx
@@ -16,7 +15,7 @@ description: AI-integrated platform for genomic analysis, variant calling, epito
   .btn{--bg:transparent;--fg:var(--vx-blue);display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:14px;border:1px solid var(--vx-line);text-decoration:none;font:600 14px/1;background:var(--bg);color:var(--fg)}
   .btn.primary{--bg:linear-gradient(180deg,#3FA9F5,#167fd8);--fg:#fff;border:none;box-shadow:0 8px 22px -10px rgba(63,169,245,.45)}
 
-  /* active item highlight inside dropdowns if template echoes this link */
+  /* active item highlight inside dropdowns when aria-current is set */
   .dropdown-menu a[aria-current="page"]{
     color: var(--vx-blue) !important;
     background: rgba(27,66,122,.08);
@@ -52,7 +51,24 @@ description: AI-integrated platform for genomic analysis, variant calling, epito
     </div>
     <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
       <a class="btn primary" href="{{ '/contact/' | relative_url }}">Talk to BD</a>
-      <a class="btn" href="{{ '/innovation/platform/' | relative_url }}">Back to Platforms</a>
+      <!-- ✅ fixed path back to platforms (was /innovation/platform/) -->
+      <a class="btn" href="{{ '/innovation/platforms/' | relative_url }}">Back to Platforms</a>
     </div>
   </section>
 </main>
+
+<!-- ✅ auto-highlight this page in the nav dropdown -->
+<script>
+  (function(){
+    try{
+      var here = location.pathname.replace(/index\.html?$/,'');
+      document.querySelectorAll('.site-header .dropdown-menu a').forEach(function(a){
+        var href = a.getAttribute('href') || '';
+        // Normalize both sides (relative_url already handles baseurl)
+        if (href && (href === here || (here.endsWith('/') && href === here))) {
+          a.setAttribute('aria-current','page');
+        }
+      });
+    }catch(e){}
+  })();
+</script>
