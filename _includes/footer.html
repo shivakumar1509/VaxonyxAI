@@ -1,17 +1,154 @@
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <!-- Left -->
-    <div class="foot-brand">
-      <img class="brand-logo" src="{{ '/assets/Vaxonyx.svg' | relative_url }}" alt="Vaxonyx" width="160" height="42" loading="lazy">
-      <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+  <style>
+    /* === Vaxonyx Footer — Final Polished === */
+    .site-footer {
+      border-top: 1px solid #e6ebf4;
+      background: #f7f9fc;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #0b1b3a;
+    }
 
-      <div class="foot-follow" aria-label="Follow Vaxonyx">
-        <span class="follow-label" style="font-weight:700;color:#0b1b3a;">Follow us:</span>
-        <a class="btn-social linkedin" href="https://www.linkedin.com/company/vaxonyx/" target="_blank" rel="noopener">LinkedIn</a>
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr 1.1fr;
+      gap: 32px;
+      padding: 48px 0 28px;
+      width: min(1180px, 92%);
+      margin-inline: auto;
+    }
+
+    .foot-brand p {
+      margin: 14px 0 0;
+      line-height: 1.6;
+      color: #0b1b3a;
+    }
+
+    .foot-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin: 0 0 8px;
+      color: #0b1b3a;
+    }
+
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .links li + li {
+      margin-top: 6px;
+    }
+
+    .links a {
+      color: #1B427A;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .foot-contacts a {
+      color: #1B427A;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .foot-contacts a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Follow us: LinkedIn pill --- */
+    .foot-follow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .foot-follow .follow-label {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #0b1b3a;
+    }
+
+    .btn-social {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 1.1rem;
+      border-radius: 9999px;
+      background: #fff;
+      border: 1.5px solid #e6ebf4;
+      color: #1B427A;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .btn-social:hover {
+      background: #1B427A;
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(27, 66, 122, 0.25);
+    }
+
+    /* --- Footer headings --- */
+    .foot-contacts .foot-subtitle {
+      font-weight: 700;
+      color: #0b1b3a;
+      margin-top: 12px; /* tighter spacing to match your original */
+      margin-bottom: 4px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      color: #6b7a90;
+      font-size: 14px;
+      border-top: 1px solid #e6ebf4;
+      padding: 16px 0 22px;
+      width: 100%;
+    }
+
+    @media (max-width: 920px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .foot-follow {
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <div class="footer-grid">
+    <!-- Left Column -->
+    <div class="foot-brand">
+      <img class="brand-logo"
+           src="{{ '/assets/Vaxonyx.svg' | relative_url }}"
+           alt="Vaxonyx"
+           width="160"
+           height="42"
+           loading="lazy">
+      <p>
+        Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery,
+        vaccine design, and translational immunology.
+      </p>
+
+      <div class="foot-follow">
+        <span class="follow-label">Follow us:</span>
+        <a class="btn-social linkedin"
+           href="https://www.linkedin.com/company/vaxonyx/"
+           target="_blank"
+           rel="noopener">LinkedIn</a>
       </div>
     </div>
 
-    <!-- Middle -->
+    <!-- Middle Column -->
     <div class="foot-links">
       <div class="foot-title">Quick Access</div>
       <ul class="links">
@@ -26,21 +163,24 @@
       </ul>
     </div>
 
-    <!-- Right -->
+    <!-- Right Column -->
     <div class="foot-contacts">
       <div class="foot-title">General Information</div>
-      <address>
-        📍 601 Genome Way, 3023E, Room 3006<br>
+      <address style="font-style: normal; line-height: 1.6;">
+        📍 <strong>601 Genome Way, 3023E, Room 3006</strong><br>
         Huntsville, AL 35806, USA<br>
         📞 <a href="tel:+19382873891">+1 (938) 287-3891</a>
       </address>
-      <a class="email" href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
+      <a href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
 
-      <div class="foot-title mt" style="margin-top:14px;">Investor Relations</div>
-      <a class="email" href="mailto:investorrelations@vaxonyx.com">investorrelations@vaxonyx.com</a>
+      <div class="foot-subtitle">Investor Relations</div>
+      <a href="mailto:investorrelations@vaxonyx.com">investorrelations@vaxonyx.com</a>
 
-      <div class="foot-title mt" style="margin-top:14px;">Business Development</div>
-      <a class="email" href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
+      <div class="foot-subtitle">Business Development</div>
+      <a href="mailto:bd@vaxonyx.com">bd@vaxonyx.com</a>
+
+      <div class="foot-subtitle">Personal Contact</div>
+      <a href="mailto:krayavra@vaxonyx.com">krayavra@vaxonyx.com</a>
     </div>
   </div>
 
