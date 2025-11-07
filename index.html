@@ -10,60 +10,65 @@ description: Vaxonyx builds AI-powered platforms for neoantigen discovery, vacci
     --vx-blue-dark:#001c39;
   }
 
-  .container{
-    width:min(1120px,92%);
-    margin-inline:auto;
-  }
+  .container{width:min(1120px,92%);margin-inline:auto}
 
-  /* ===== Hero Section (Solid Blue Gradient Background) ===== */
-  .hero{
+  /* ===== HERO (namespaced, won't affect site header) ===== */
+  .vx-hero{
     background:linear-gradient(to bottom, var(--vx-blue-light), var(--vx-blue-dark));
     color:#fff;
     text-align:center;
-    padding:140px 20px;
+    padding:120px 20px 96px;
   }
-  .hero-inner{
-    max-width:900px;
-    margin-inline:auto;
+  .vx-hero .inner{max-width:1100px;margin:0 auto}
+
+  /* Keep a single H1 for SEO; visually small and hidden to screen readers only if you prefer */
+  .vx-hero h1{
+    position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; /* keep for SEO, not visible */
   }
-  .hero-line{
-    font:800 clamp(32px,5vw,60px)/1.15 "Segoe UI",system-ui,Roboto,Helvetica,Arial;
-    color:#fff;
+
+  /* Slogan lines */
+  .vx-hero .line{
     margin:0;
+    font-weight:800;
+    line-height:1.15;
+    color:#fff;
+    /* Size tuned to fit on one line within 1120px container on desktop */
+    font-size:clamp(22px, 3.4vw, 44px);
+    /* Keep single line on wide screens; allow wrap on small screens */
+    white-space:nowrap;
+  }
+  .vx-hero .line + .line{ margin-top:18px; }
+
+  @media (max-width: 720px){
+    .vx-hero{ padding:90px 16px 72px; }
+    .vx-hero .line{
+      white-space:normal;      /* let it wrap on phones */
+      line-height:1.25;
+      font-size:clamp(20px, 5vw, 30px);
+    }
   }
 
-  /* ===== Intro & CTA ===== */
-  section.intro, section.cta {
-    text-align:center;
-    padding:64px 0;
-  }
+  /* Sections below */
+  section.intro, section.cta { text-align:center; padding:64px 0; }
 
-  /* ===== CTA Button ===== */
+  /* CTA button */
   .vx-btn{
     background:linear-gradient(180deg,#3FA9F5,#167fd8);
-    color:#fff;
-    border:none;
-    border-radius:14px;
-    text-decoration:none;
-    font:700 14px/1.2 system-ui;
-    padding:0.9rem 1.4rem;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+    color:#fff; border:none; border-radius:14px; text-decoration:none;
+    font:700 14px/1.2 system-ui; padding:0.9rem 1.4rem; display:inline-flex;
+    align-items:center; justify-content:center;
     box-shadow:0 8px 22px -10px rgba(63,169,245,.45);
-    transition:all .2s ease;
+    transition:transform .2s ease, box-shadow .2s ease;
   }
-  .vx-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 30px -10px rgba(63,169,245,.6);
-  }
+  .vx-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 30px -10px rgba(63,169,245,.6) }
 </style>
 
-<section class="hero">
-  <div class="hero-inner container">
-    <h1 class="hero-line">Science for All — Affordable, Accessible, Advanced.</h1>
-    <h1 class="hero-line" style="margin-top:18px;">AI-Driven Solutions for Next-Gen Therapeutics.</h1>
-    <h1 class="hero-line" style="margin-top:18px;">Empowering Translational Immunology with Innovation.</h1>
+<section class="vx-hero">
+  <div class="inner container">
+    <h1>Vaxonyx</h1>
+    <p class="line">Science for All — Affordable, Accessible, Advanced.</p>
+    <p class="line">AI-Driven Solutions for Next-Gen Therapeutics.</p>
+    <p class="line">Empowering Translational Immunology with Innovation.</p>
   </div>
 </section>
 
