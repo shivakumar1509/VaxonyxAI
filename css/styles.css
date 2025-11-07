@@ -14,8 +14,8 @@
   --header-h:68px;
 
   /* === NAV TYPOGRAPHY VARS === */
-  --nav-top-size:14px;   /* Top-level menu font size */
-  --nav-dd-size:14px;    /* Dropdown font size */
+  --nav-top-size:15px;   /* Top-level menu font size */
+  --nav-dd-size:15px;    /* Dropdown font size */
   --nav-weight:700;
   --nav-line:1.25;
 }
