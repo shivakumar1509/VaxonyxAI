@@ -4,46 +4,70 @@ title: Home
 description: Vaxonyx builds AI-powered platforms for neoantigen discovery, vaccine design, and translational immunology.
 ---
 
+<!-- ===== Page-scoped styles (safe to keep inside the page) ===== -->
 <style>
   :root{
     --vx-blue-light:#2196f3;
     --vx-blue-dark:#001c39;
   }
 
-  /* ===== HERO (scoped; does not touch global header/footer) ===== */
+  /* HERO — gradient + two headline lines */
   .vx-hero{
     background:linear-gradient(to bottom, var(--vx-blue-light), var(--vx-blue-dark));
-    color:#fff; text-align:center;
-    padding:90px 20px 68px;       /* controlled, not too tall */
-    display:flex; align-items:center;
+    color:#fff;
+    text-align:center;
+    padding:90px 20px 68px;
+    display:flex;
+    align-items:center;
   }
   .vx-hero .vx-inner{ width:min(1120px,92%); margin-inline:auto; }
 
   /* keep a single H1 for SEO (visually hidden) */
-  .vx-hero h1{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .vx-hero h1{
+    position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;
+  }
 
-  /* Two lines only with bigger gap; one-line on desktop */
   .vx-hero .vx-line{
-    margin:0; font-weight:800; line-height:1.12; color:#fff;
+    margin:0;
+    font-weight:800;
+    line-height:1.12;
+    color:#fff;
     font-size:clamp(22px, 3.2vw, 40px);
-    white-space:nowrap;
+    white-space:nowrap;           /* one line on desktop */
   }
   .vx-hero .vx-line + .vx-line{ margin-top:48px; }
 
   @media (max-width: 720px){
     .vx-hero{ padding:72px 16px 60px; }
     .vx-hero .vx-line{
-      white-space:normal; line-height:1.24; font-size:clamp(20px, 5vw, 28px);
+      white-space:normal;         /* wrap on mobile */
+      line-height:1.24;
+      font-size:clamp(20px, 5vw, 28px);
     }
     .vx-hero .vx-line + .vx-line{ margin-top:26px; }
   }
 
-  section.intro, section.cta { text-align:center; padding:64px 0; }
+  /* Sections under the hero */
+  section.vx-intro, section.vx-cta { text-align:center; padding:64px 0; }
+  .vx-wrap{ width:min(1120px,92%); margin-inline:auto; }
+
+  .vx-title{
+    font-weight:800;
+    color:#1B427A;
+    margin:0 0 16px;
+  }
 
   .vx-btn{
-    background:linear-gradient(180deg,#3FA9F5,#167fd8); color:#fff; border:none; border-radius:14px;
-    text-decoration:none; font:700 14px/1.2 system-ui; padding:0.9rem 1.4rem; display:inline-flex;
-    align-items:center; justify-content:center; box-shadow:0 8px 22px -10px rgba(63,169,245,.45);
+    background:linear-gradient(180deg,#3FA9F5,#167fd8);
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    text-decoration:none;
+    font:700 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    padding:0.9rem 1.4rem;
+    display:inline-flex;
+    align-items:center; justify-content:center;
+    box-shadow:0 8px 22px -10px rgba(63,169,245,.45);
     transition:transform .2s ease, box-shadow .2s ease;
   }
   .vx-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 30px -10px rgba(63,169,245,.6) }
@@ -57,9 +81,9 @@ description: Vaxonyx builds AI-powered platforms for neoantigen discovery, vacci
   </div>
 </section>
 
-<section class="intro">
-  <div style="width:min(1120px,92%);margin-inline:auto;">
-    <h2 style="font-weight:800; color:#1B427A; margin-bottom:16px;">Welcome to Vaxonyx</h2>
+<section class="vx-intro">
+  <div class="vx-wrap">
+    <h2 class="vx-title">Welcome to Vaxonyx</h2>
     <p style="max-width:780px; margin:0 auto; line-height:1.6; color:#334;">
       We develop AI-powered bioinformatics platforms enabling next-generation neoantigen discovery, vaccine design, and translational immunology.
       Our mission is to make biomedical innovation <strong>affordable, accessible, and advanced</strong> for researchers and healthcare systems worldwide.
@@ -67,9 +91,9 @@ description: Vaxonyx builds AI-powered platforms for neoantigen discovery, vacci
   </div>
 </section>
 
-<section class="cta" style="background:#f3f7fd;">
-  <div style="width:min(1120px,92%);margin-inline:auto;">
-    <h2 style="font-weight:800; color:#1B427A; margin-bottom:20px;">Explore Our Innovation</h2>
+<section class="vx-cta" style="background:#f3f7fd;">
+  <div class="vx-wrap">
+    <h2 class="vx-title" style="margin-bottom:20px;">Explore Our Innovation</h2>
     <p style="margin-bottom:32px; font-size:17px;">
       From antigen discovery to delivery technologies — our integrated pipeline accelerates translational breakthroughs.
     </p>
