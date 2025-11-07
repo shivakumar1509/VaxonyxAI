@@ -1,15 +1,23 @@
+# _config.yml
 title: Vaxonyx
 markdown: kramdown
 theme: null
 plugins: []
 permalink: pretty
-# Leave these blank by default so site works anywhere
+
+# Portable defaults — let overrides set these for each host
 url: ""
 baseurl: ""
 
+# Optional version you can bump to invalidate browser caches
+assets_version: "21"
+
+# Don’t publish these
 exclude:
   - vendor
   - node_modules
   - Gemfile
   - Gemfile.lock
   - README.md
+  - .github
+  - amplify.yml

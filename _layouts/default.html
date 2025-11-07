@@ -6,9 +6,15 @@
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
 
+  <!-- Optional canonical (only renders if url is set) -->
+  {% if site.url %}
+    <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
+  {% endif %}
+
+  <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- tiny safety net; keep it -->
+  <!-- Tiny safety net so layout doesn't collapse before CSS loads -->
   <style>
     :root{--vx-line:#e6ebf4}
     html,body{margin:0}
@@ -21,12 +27,20 @@
     @media (min-width:921px){ .menu-toggle{display:none !important} }
   </style>
 
-  <link rel="stylesheet" href="{{ '/css/styles.css?v=24' | relative_url }}">
+  {% assign av = site.assets_version | default: '24' %}
+  <!-- Main stylesheet (portable via relative_url) -->
+  <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}?v={{ av }}">
 </head>
 <body>
   {% include header.html %}
-  <main id="content">{{ content }}</main>
+
+  <main id="content">
+    {{ content }}
+  </main>
+
   {% include footer.html %}
-  <script src="{{ '/assets/js/site.js?v=5' | relative_url }}" defer></script>
+
+  <!-- Site JS (portable via relative_url) -->
+  <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ av }}" defer></script>
 </body>
 </html>
