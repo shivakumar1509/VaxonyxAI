@@ -10,7 +10,7 @@ url: ""
 baseurl: ""
 
 # Optional version you can bump to invalidate browser caches
-assets_version: "21"
+assets_version: "25"
 
 # Don’t publish these
 exclude:
