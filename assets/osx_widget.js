@@ -1,12 +1,19 @@
-// /assets/VaxonyxAI/osx_widget.js — Vaxonyx-only widget, fixed & FAB-bound
+// /assets/osx_widget.js — Vaxonyx widget (robust load + suggestions)
 (function () {
   const PANEL_W = 420, PANEL_H = 520, LOG_MAX = 300, TYPE_MS = 15;
 
-  // IMPORTANT: use an absolute path for the illustration (works on Amplify + custom domain)
+  // Always resolve Q&A at runtime (handles late definitions or separate files)
+  function getQA() {
+    return (typeof window !== 'undefined' && (window.VX_QA || window.OSX_QA)) || [
+      {id:'hello',  q:'What does Vaxonyx AI do?', a:'We build bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.'},
+      {id:'contact',q:'How do I contact you?', a:'info@vaxonyxai.com (general) • investorrelations@vaxonyxai.com (IR) • bd@vaxonyxai.com (BD).'}
+    ];
+  }
+
   const CSS = `
     .vx-panel { position: fixed; bottom: 70px; right: 16px;
       width:${PANEL_W}px; height:${PANEL_H}px; max-width:calc(100vw - 32px); max-height:calc(100vh - 120px);
-      background:#fff; color:#0b1b3a; border:1px solid #e6ebf4; border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.35);
+      background:#fff !important; color:#0b1b3a; border:1px solid #e6ebf4; border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.35);
       display:none; overflow:hidden; z-index: 2147483000; }
     .vx-panel.open { display:block; }
     .vx-head { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#1B427A; color:#fff; }
@@ -24,11 +31,6 @@
     .vx-row{ display:flex; align-items:center; gap:6px } .vx-input{ flex:1; min-width:0; padding:8px 10px; border:1px solid #d7e0f7; border-radius:8px; font-size:.9rem }
     .vx-send{ border:0; border-radius:8px; padding:8px 10px; background:#1B427A; color:#fff; font-weight:800; cursor:pointer }
   `;
-
-  const QA = (typeof window !== 'undefined' && window.VX_QA) || [
-    {id:'hello',  q:'What does Vaxonyx AI do?', a:'We build bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.'},
-    {id:'contact',q:'How do I contact you?', a:'info@vaxonyxai.com (general) • investorrelations@vaxonyxai.com (IR) • bd@vaxonyxai.com (BD).'}
-  ];
 
   const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
   const escAttr = s => esc(s).replace(/'/g,'&#39;');
@@ -67,7 +69,9 @@
           send=panel.querySelector('.vx-send'), log=panel.querySelector('.vx-log'),
           suggs=panel.querySelector('.vx-buttons');
 
-    suggs.innerHTML = QA.slice(0,3).map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
+    // Populate suggestions from the latest QA list
+    const Q = getQA();
+    suggs.innerHTML = Q.slice(0, 6).map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
 
     closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
     panel.addEventListener('click', e => {
@@ -80,9 +84,9 @@
     function answer(q){
       if(!q) return;
       const wrap=document.createElement('div'); wrap.className='vx-x';
-      wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a" aria-live="polite"></div>`; 
+      wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a" aria-live="polite"></div>`;
       log.appendChild(wrap); log.scrollTop=log.scrollHeight;
-      const found = QA.find(x => (x.q||'').toLowerCase()===q.toLowerCase()) || null;
+      const found = getQA().find(x => (x.q||'').toLowerCase()===q.toLowerCase()) || null;
       type(wrap.querySelector('.vx-a'), found ? String(found.a) : 'Thanks! A specialist will follow up soon.');
     }
 
@@ -102,7 +106,7 @@
     close(){ const p=document.querySelector('.vx-panel'); if(p) p.classList.remove('open'); }
   };
 
-  // Bind to ALL .vx-fab buttons (desktop + mobile), not just a single #vx-fab
+  // Bind to ALL .vx-fab buttons (desktop + mobile)
   function bindFABs() {
     document.querySelectorAll('.vx-fab').forEach(btn => {
       if (!btn.dataset.vxBound) {
@@ -115,7 +119,6 @@
     });
   }
 
-  // Ensure nothing invisible is blocking clicks
   function elevateHeader() {
     const hdr = document.querySelector('.site-header, .header-row');
     if (hdr) { hdr.style.pointerEvents = 'auto'; }
@@ -124,14 +127,7 @@
   ready(() => {
     bindFABs();
     elevateHeader();
-    // In case the buttons are injected later (mobile menu etc.)
     const obs = new MutationObserver(() => { bindFABs(); });
     obs.observe(document.documentElement, {childList:true, subtree:true});
-  });
-
-  // Clean up any legacy OncoSyNex widget remnants
-  ready(() => {
-    const old = document.getElementById('osx-widget'); if (old) old.remove();
-    if (window.OSX_WIDGET) try { delete window.OSX_WIDGET; } catch {}
   });
 })();
