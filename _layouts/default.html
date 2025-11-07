@@ -14,7 +14,14 @@
 
   {% assign av = site.assets_version | default: '24' %}
   <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}?v={{ av }}">
+
+  <!-- ✅ Vaxonyx AI widget scripts -->
+  <script defer src="{{ '/VaxonyxAI/assets/osx_qa.js' | relative_url }}"></script>
+  <script>window.VX_QA = window.VX_QA || window.OSX_QA;</script>
+  <script defer src="{{ '/VaxonyxAI/assets/osx_widget.js' | relative_url }}"></script>
+  <!-- ✅ End Vaxonyx AI widget scripts -->
 </head>
+
 <body>
   {% include header.html %}
 
