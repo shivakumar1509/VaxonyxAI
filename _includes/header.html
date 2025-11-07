@@ -1,29 +1,97 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
+<header class="site-header" role="banner">
+  <div class="container header-row">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Vaxonyx home">
+      <img class="brand-logo" src="{{ '/assets/Vaxonyx.svg' | relative_url }}" alt="Vaxonyx" width="160" height="42">
+    </a>
 
-  {% if site.url %}
-    <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
-  {% endif %}
+    <!-- Mobile menu toggle -->
+    <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu" title="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="#1B427A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <nav id="primary-nav" class="site-nav" aria-label="Main" role="navigation">
+      <ul class="menu" role="list">
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
 
-  {% assign av = site.assets_version | default: '24' %}
-  <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}?v={{ av }}">
-</head>
-<body>
-  {% include header.html %}
+        <!-- About -->
+        <li class="dropdown">
+          <a href="{{ '/about/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">About ▾</a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ '/about/#mission' | relative_url }}">Mission &amp; Vision</a></li>
+            <li><a href="{{ '/about/#team' | relative_url }}">Team</a></li>
+            <li><a href="{{ '/careers/' | relative_url }}">Careers</a></li>
+          </ul>
+        </li>
 
-  <main id="content">
-    {{ content }}
-  </main>
+        <!-- Services -->
+        <li class="dropdown">
+          <a href="{{ '/services/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">Services ▾</a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ '/services/cell-lines/' | relative_url }}">Cell line services</a></li>
 
-  {% include footer.html %}
+            <li class="has-sub">
+              <a href="{{ '/services/protein-production/' | relative_url }}" class="submenu-link" aria-haspopup="true" aria-expanded="false">Protein production ▸</a>
+              <ul class="submenu" role="menu">
+                <li><a href="{{ '/services/protein-production/antibody-production/' | relative_url }}">Antibody production</a></li>
+                <li><a href="{{ '/services/protein-production/antigen/' | relative_url }}">Antigen production</a></li>
+              </ul>
+            </li>
 
-  <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ av }}" defer></script>
-</body>
-</html>
+            <li class="has-sub">
+              <a href="{{ '/services/assays/' | relative_url }}" class="submenu-link" aria-haspopup="true" aria-expanded="false">Assays ▸</a>
+              <ul class="submenu" role="menu">
+                <li><a href="{{ '/services/assays/biochemical/' | relative_url }}">Biochemical assays</a></li>
+                <li><a href="{{ '/services/assays/virology/' | relative_url }}">Virology-Based assays</a></li>
+              </ul>
+            </li>
+
+            <li><a href="{{ '/services/molecular-biology/' | relative_url }}">Molecular biology</a></li>
+          </ul>
+        </li>
+
+        <!-- Innovation (FIXED with Platforms flyout) -->
+        <li class="dropdown">
+          <a href="{{ '/innovation/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">Innovation ▾</a>
+          <ul class="dropdown-menu" role="menu">
+
+            <!-- Platforms flyout -->
+            <li class="has-sub">
+              <a href="{{ '/innovation/platforms/' | relative_url }}" class="submenu-link" aria-haspopup="true" aria-expanded="false">Platforms ▸</a>
+              <ul class="submenu" role="menu">
+                <li><a href="{{ '/innovation/platforms/ai/' | relative_url }}">AI Platforms</a></li>
+                <li><a href="{{ '/innovation/platforms/delivery/' | relative_url }}">DNA Delivery Platform</a></li>
+              </ul>
+            </li>
+
+            <li><a href="{{ '/innovation/pipeline/' | relative_url }}">Pipeline</a></li>
+            <li><a href="{{ '/innovation/products/' | relative_url }}">Products</a></li>
+          </ul>
+        </li>
+
+        <!-- Partners -->
+        <li><a href="{{ '/partners/' | relative_url }}">Partners</a></li>
+
+        <!-- News & Investors -->
+        <li class="dropdown">
+          <a href="{{ '/news/' | relative_url }}" class="dropdown-link" aria-haspopup="true" aria-expanded="false">News &amp; Investors ▾</a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ '/news/#press' | relative_url }}">Press &amp; updates</a></li>
+            <li><a href="{{ '/investors/' | relative_url }}">Investor materials</a></li>
+          </ul>
+        </li>
+
+        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+
+        <!-- Mobile-only AI button -->
+        <li class="ai-inline">
+          <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Desktop AI button -->
+    <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
+  </div>
+</header>
