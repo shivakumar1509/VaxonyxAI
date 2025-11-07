@@ -6,73 +6,70 @@
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
 
-  <!-- CRITICAL CSS so header/nav/footer never render as bullet lists -->
+  <!-- Inter font for consistent headings/nav -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CRITICAL CSS so header/nav/footer never render as bullets -->
   <style>
-  /* ---- CRITICAL STRUCTURE (so header/footer never flash as bullets) ---- */
-  :root{--vx-blue:#1B427A;--vx-line:#e6ebf4;--header-h:68px;--logo-h:42px}
-  html,body{margin:0}
-  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif;color:#0b1b3a}
-  .container{width:min(1180px,100% - 32px);margin-inline:auto}
+    /* ---- CRITICAL STRUCTURE ---- */
+    :root{--vx-blue:#1B427A;--vx-line:#e6ebf4;--header-h:68px;--logo-h:42px}
+    html,body{margin:0}
+    body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#0b1b3a}
+    .container{width:min(1180px,100% - 32px);margin-inline:auto}
 
-  /* Header shell */
-  .site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--vx-line);height:var(--header-h)}
-  .header-row{height:var(--header-h);display:flex;align-items:center;gap:20px}
-  .brand-logo{height:var(--logo-h)}
-  .site-nav{margin-left:auto}
-  .menu{display:flex;gap:28px;list-style:none;padding:0;margin:0}
-  .menu>li{position:relative}
+    /* Header shell */
+    .site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--vx-line);height:var(--header-h)}
+    .header-row{height:var(--header-h);display:flex;align-items:center;gap:20px}
+    .brand-logo{height:var(--logo-h)}
+    .site-nav{margin-left:auto}
+    .menu{display:flex;gap:28px;list-style:none;padding:0;margin:0}
+    .menu>li{position:relative}
 
-  /* Dropdown containers */
-  .dropdown-menu,.submenu{
-    display:none;position:absolute;background:#fff;border:1px solid var(--vx-line);
-    border-radius:12px;padding:10px;box-shadow:0 12px 28px rgba(0,0,0,.12)
-  }
-  .dropdown:hover>.dropdown-menu{display:block}
-  .has-sub:hover>.submenu{display:block}
+    /* Dropdown containers */
+    .dropdown-menu,.submenu{
+      display:none;position:absolute;background:#fff;border:1px solid var(--vx-line);
+      border-radius:12px;padding:10px;box-shadow:0 12px 28px rgba(0,0,0,.12)
+    }
+    .dropdown:hover>.dropdown-menu{display:block}
+    .has-sub:hover>.submenu{display:block}
 
-  /* Footer shell */
-  .site-footer{border-top:1px solid var(--vx-line);background:#f7f9fc}
-  .footer-grid{display:grid;grid-template-columns:1.3fr .9fr 1.1fr;gap:32px;padding:24px 0}
-  .links{list-style:none;padding:0;margin:0}
-  .links li+li{margin-top:6px}
-  .footer-bottom{text-align:center;color:#6b7a90;font-size:14px;padding:12px 0 18px}
+    /* Footer shell */
+    .site-footer{border-top:1px solid var(--vx-line);background:#f7f9fc}
+    .footer-grid{display:grid;grid-template-columns:1.3fr .9fr 1.1fr;gap:32px;padding:24px 0}
+    .links{list-style:none;padding:0;margin:0}
+    .links li+li{margin-top:6px}
+    .footer-bottom{text-align:center;color:#6b7a90;font-size:14px;padding:12px 0 18px}
 
-  /* ---- POLISH (exact look you want) ---- */
-  /* Top-level nav links */
-  .menu>li>a,.dropdown-link,.submenu-link{
-    color:var(--vx-blue);font-weight:700;text-decoration:none
-  }
-  .menu>li>a:hover,.dropdown-link:hover,.submenu-link:hover{ text-decoration:underline }
+    /* ---- POLISH (brand look) ---- */
+    .menu>li>a,.dropdown-link,.submenu-link{color:var(--vx-blue);font-weight:700;text-decoration:none}
+    .menu>li>a:hover,.dropdown-link:hover,.submenu-link:hover{ text-decoration:underline }
+    .dropdown-menu a{
+      display:block;padding:8px 12px;border-radius:8px;color:var(--vx-blue);
+      font-weight:700;text-decoration:none;white-space:nowrap
+    }
+    .dropdown-menu a:hover{ background:rgba(27,66,122,.08) }
 
-  /* Dropdown items */
-  .dropdown-menu a{
-    display:block;padding:8px 12px;border-radius:8px;
-    color:var(--vx-blue);font-weight:700;text-decoration:none;white-space:nowrap
-  }
-  .dropdown-menu a:hover{ background:rgba(27,66,122,.08) }
+    .site-footer a{ color:var(--vx-blue); text-decoration:none }
+    .site-footer a:hover{ text-decoration:underline }
+    .site-header .menu a:visited,
+    .site-footer a:visited{ color:var(--vx-blue) } /* no purple */
 
-  /* Footer links */
-  .site-footer a{ color:var(--vx-blue); text-decoration:none }
-  .site-footer a:hover{ text-decoration:underline }
+    .vx-fab{border:0;border-radius:999px;padding:10px 14px;background:#F26B3B;color:#fff;font-weight:800;box-shadow:0 10px 22px rgba(242,107,59,.36);cursor:pointer}
+    .vx-fab:hover{ filter:brightness(1.06) }
+    .vx-fab-desktop{ display:inline-flex }  /* desktop button ON */
+    .ai-inline{ display:none }              /* mobile-only button OFF on desktop */
 
-  /* Ask Vaxonyx AI button visibility */
-  .vx-fab{border:0;border-radius:999px;padding:10px 14px;background:#F26B3B;color:#fff;font-weight:800;box-shadow:0 10px 22px rgba(242,107,59,.36);cursor:pointer}
-  .vx-fab:hover{ filter:brightness(1.06) }
-  .vx-fab-desktop{ display:inline-flex }  /* desktop button ON */
-  .ai-inline{ display:none }              /* mobile-only button OFF on desktop */
-
-  /* Mobile tweaks */
-  @media (max-width:920px){
-    .menu{flex-direction:column;gap:6px;padding:0 16px}
-    .dropdown-menu,.submenu{position:static;box-shadow:none;margin:6px 0 10px}
-    .vx-fab-desktop{ display:none } /* hide floating desktop button on mobile */
-    .ai-inline{ display:block }     /* show inline AI button inside mobile menu */
-    .footer-grid{grid-template-columns:1fr}
-  }
-</style>
+    @media (max-width:920px){
+      .menu{flex-direction:column;gap:6px;padding:0 16px}
+      .dropdown-menu,.submenu{position:static;box-shadow:none;margin:6px 0 10px}
+      .vx-fab-desktop{ display:none } /* hide floating desktop button on mobile */
+      .ai-inline{ display:block }     /* show inline AI button inside mobile menu */
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
 
   <!-- Your full stylesheet (project-safe path) -->
-  <link rel="stylesheet" href="{{ '/assets/style.css?v=2' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css?v=3' | relative_url }}">
 </head>
 <body>
   {% include header.html %}
@@ -83,6 +80,6 @@
 
   {% include footer.html %}
 
-  <script src="{{ '/assets/js/site.js?v=2' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/site.js?v=3' | relative_url }}" defer></script>
 </body>
 </html>
