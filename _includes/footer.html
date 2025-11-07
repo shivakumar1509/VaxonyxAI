@@ -1,11 +1,18 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="foot-brand">
-      <img class="brand-logo" src="{{ '/assets/Vaxonyx.svg' | relative_url }}" alt="Vaxonyx" width="160" height="42">
+      <!-- Footer logo can be lazy -->
+      <img class="brand-logo"
+           src="{{ '/assets/Vaxonyx.svg' | relative_url }}"
+           alt="Vaxonyx"
+           width="160" height="42"
+           loading="lazy" decoding="async">
       <p>Vaxonyx builds future-ready bioinformatics platforms for neoantigen discovery, vaccine design, and translational immunology.</p>
+
       <div class="foot-follow" aria-label="Follow Vaxonyx">
         <span style="font-weight:700; color:var(--vx-ink);">Follow us:</span>
-        <a href="https://www.linkedin.com/company/vaxonyx/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/company/vaxonyx/"
+           target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
 
@@ -18,7 +25,8 @@
         <li><a href="{{ '/innovation/pipeline/' | relative_url }}">Pipeline</a></li>
         <li><a href="{{ '/innovation/products/' | relative_url }}">Products</a></li>
         <li><a href="{{ '/news/' | relative_url }}">News &amp; Investors</a></li>
-        <li><a href="{{ '/assets/careers/' | relative_url }}">Careers</a></li>
+        <!-- If your Careers page is NOT under /assets, change this to /careers/ -->
+        <li><a href="{{ '/careers/' | relative_url }}">Careers</a></li>
         <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
       </ul>
     </div>
@@ -28,7 +36,7 @@
       <address>
         📍 601 Genome Way, 3023E, Room 3006<br>
         Huntsville, AL 35806, USA<br>
-        📞 +1 (938) 287-3891
+        📞 <a href="tel:+19382873891">+1 (938) 287-3891</a>
       </address>
       <a class="email" href="mailto:info@vaxonyx.com">info@vaxonyx.com</a>
 
