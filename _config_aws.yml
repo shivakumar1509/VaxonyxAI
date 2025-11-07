@@ -1,3 +1,6 @@
-# _config_aws.yml  — only used for AWS builds
-url: "https://vaxonyx.com"   # or your Amplify/CloudFront domain
-baseurl: ""                  # IMPORTANT for root hosting
+# _config_aws.yml  — for AWS / Amplify
+url: "https://vaxonyx.com"   # your AWS or CloudFront domain
+baseurl: ""                  # IMPORTANT — root hosting
+
+# Optional: bump assets version to force refresh on prod
+assets_version: "26"
