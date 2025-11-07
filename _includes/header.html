@@ -1,11 +1,17 @@
+<!-- header.html -->
 <header class="site-header" role="banner">
   <div class="container header-row">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Vaxonyx home">
       <img class="brand-logo" src="{{ '/assets/Vaxonyx.svg' | relative_url }}" alt="Vaxonyx" width="160" height="42">
     </a>
 
-    <!-- Hamburger (mobile only via CSS below) -->
-    <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false">☰</button>
+    <!-- Mobile menu toggle (SVG icon; hidden on desktop via CSS above) -->
+    <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false">
+      <span class="sr-only">Menu</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="#1B427A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
 
     <nav id="primary-nav" class="site-nav" aria-label="Main">
       <ul class="menu" role="list">
@@ -58,14 +64,14 @@
 
         <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
 
-        <!-- Mobile-only AI button (shows only on small screens) -->
+        <!-- Mobile-only AI button -->
         <li class="ai-inline">
-          <button class="vx-fab" type="button">Ask Vaxonyx AI</button>
+          <button class="vx-fab" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
         </li>
       </ul>
     </nav>
 
-    <!-- Desktop AI button (hidden on mobile) -->
-    <button class="vx-fab vx-fab-desktop" type="button">Ask Vaxonyx AI</button>
+    <!-- Desktop AI button -->
+    <button class="vx-fab vx-fab-desktop" type="button" onclick="window.VX_WIDGET && VX_WIDGET.open()">Ask Vaxonyx AI</button>
   </div>
 </header>
