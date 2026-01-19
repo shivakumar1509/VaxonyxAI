@@ -67,6 +67,24 @@ title: About
   .team-blurb{font:400 15px/1.7 system-ui;color:#223;margin:0 0 10px}
   details.team-details{margin-top:6px;border-top:1px dashed var(--vx-line);padding-top:10px}
   details.team-details summary{cursor:pointer;font:700 14px/1.4 system-ui;color:var(--vx-primary)}
+
+  /* Advisor link pills */
+  .link-pills{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  .learn-more{font:700 14px/1.4 system-ui;color:#223;margin:8px 10px 0 0}
+  .pill-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(0,124,145,.28);
+    background:linear-gradient(180deg, rgba(63,169,245,.14), rgba(0,124,145,.06));
+    color:var(--vx-primary);
+    font:700 13px/1 system-ui;
+    text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    box-shadow:0 6px 14px rgba(12,18,32,.06);
+  }
+  .pill-btn:hover{transform:translateY(-1px);box-shadow:0 10px 18px rgba(12,18,32,.10)}
+  .pill-btn:focus{outline:2px solid rgba(63,169,245,.45);outline-offset:2px}
 </style>
 
 <main id="main">
@@ -180,53 +198,28 @@ title: About
         <div>
           <h3 class="team-name">Subash C. Das, DVM, MVS, Ph.D., PMP</h3>
           <div class="team-title">Advisor</div>
-          <p class="team-blurb">
-            Biotech-focused scientific leader with deep expertise in viral vaccine and therapeutic antibody
-            development—advancing early programs from discovery through IND with hands-on, execution-driven leadership.
-          </p>
 
           <details class="team-details" open>
             <summary>Full bio</summary>
+
             <p class="team-blurb">
-              Subash C. Das, DVM, MVS, Ph.D., PMP, is an advisor to Vaxonyx and a biotech-focused scientific leader
-              with deep expertise in viral vaccine and therapeutic antibody development. He is known for building
-              capabilities in fast-growing environments, driving proof-of-concept studies, and advancing early programs
-              toward IND through hands-on problem solving and cross-functional collaboration.
+              Subash C. Das, DVM, MVS, Ph.D., PMP, is an advisor to Vaxonyx and a biotech-focused scientific leader with deep expertise in viral vaccines and therapeutic antibodies. He is recognized for building R&amp;D capabilities, driving proof-of-concept work, and advancing early programs toward IND through hands-on leadership and cross-functional collaboration.
             </p>
 
             <p class="team-blurb">
-              Most recently, he served as Division Head &amp; Director, Infectious Disease Research at Southern Research Institute
-              (2021–2023), leading a 17-member team delivering preclinical efficacy and immunology studies for COVID-19,
-              influenza, and emerging viral pathogens. He served as Study Director/PI for government and industry programs
-              and developed and executed non-human primate, ferret, and mouse models, including establishing a transgenic
-              SARS-CoV-2 mouse model.
+              He most recently led Infectious Disease Research at Southern Research Institute (2021–2023), managing a 17-member team and directing preclinical efficacy/immunology studies across COVID-19, influenza, and emerging pathogens, including development of NHP, ferret, and mouse models. Previously at Takeda/Inviragen (2011–2020), he supported HFMD and dengue vaccine programs, leading animal efficacy studies, establishing GLP assays, and managing key external collaborations for GMP/antigen production.
             </p>
 
             <p class="team-blurb">
-              Previously, he was Senior Scientist &amp; Team Lead at Takeda Pharmaceuticals / Inviragen (2011–2020), where he
-              helped develop multivalent HFMD vaccine candidates and contributed to the TAK-003 dengue vaccine program.
-              He designed and led animal efficacy studies and correlates-of-protection analyses, developed and transferred
-              GLP assays for potency, stability, and immunogenicity, and managed cross-functional and external collaborations
-              including GMP seed virus and antigen production.
+              He earned a Ph.D. in Molecular Virology (University of London), an MVS in Immunology, and a DVM, holds a PMP&reg; credential, and has 50+ publications and 3 patents.
             </p>
 
-            <p class="team-blurb">
-              He holds a Ph.D. in Molecular Virology (University of London, Commonwealth Fellow), an MVS in Immunology
-              (Indian Veterinary Research Institute), and a DVM (OUAT, India). He is also a PMP® credential holder and has
-              authored 50+ peer-reviewed publications and holds 3 patents.
-            </p>
+            <div class="link-pills" aria-label="Learn more about Dr. Subash C. Das">
+              <span class="learn-more">Learn more:</span>
+              <a class="pill-btn" href="https://www.linkedin.com/in/subash-das-vet/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="pill-btn" href="https://www.ncbi.nlm.nih.gov/myncbi/subash.das.1/bibliography/public/" target="_blank" rel="noopener noreferrer">Publications</a>
+            </div>
 
-            <p class="team-blurb">
-              LinkedIn:
-              <a href="https://www.linkedin.com/in/subash-das-vet/" target="_blank" rel="noopener noreferrer">
-                linkedin.com/in/subash-das-vet
-              </a>
-              &nbsp;|&nbsp;
-              Publications:
-              <a href="https://www.ncbi.nlm.nih.gov/myncbi/subash.das.1/bibliography/public/" target="_blank" rel="noopener noreferrer">
-                NCBI bibliography
-              </a>
-            </p>
           </details>
         </div>
 
