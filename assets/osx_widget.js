@@ -10,11 +10,11 @@
     ];
   }
 
+  // NOTE: All styles are scoped under .vx-panel to avoid clashing with site-wide classes like .vx-hero
   const CSS = `
     .vx-panel {
       position: fixed; bottom: 70px; right: 16px;
       width:${PANEL_W}px; height:${PANEL_H}px; max-width:calc(100vw - 32px); max-height:calc(100vh - 120px);
-      /* we’ll enforce a solid white background using a ::before layer */
       color:#0b1b3a; border:1px solid #e6ebf4; border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.35);
       display:none; overflow:hidden; z-index: 2147483000;
     }
@@ -24,25 +24,38 @@
       z-index:0; pointer-events:none;
     }
     .vx-panel.open { display:block; }
-    /* Lift all inner content above the white backdrop */
-    .vx-head, .vx-hero, .vx-body, .vx-bottom { position: relative; z-index: 1; }
 
-    .vx-head { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#1B427A; color:#fff; }
-    .vx-close { background:transparent; border:0; color:#fff; font-size:20px; cursor:pointer; }
-    .vx-hero { display:flex; align-items:center; gap:14px; padding:12px 14px; background:#f6f9ff; border-bottom:1px solid #e6ebf4; }
-    .vx-illus { width:72px; height:72px; border-radius:999px; flex:0 0 72px; background:#fff center/80% no-repeat;
-      background-image:url("/assets/assistant-lady.svg"); border:1px solid #e6ebf4; box-shadow:0 4px 10px rgba(0,0,0,.08); }
-    .vx-w1{ font-weight:800; font-size:1rem; color:#0b1b3a; } .vx-w2{ font-size:.9rem; color:#395084; }
-    .vx-body{ display:grid; grid-template-rows:1fr auto; height:calc(100% - 120px); padding:10px 12px 12px; gap:10px; }
-    .vx-log{ max-height:${LOG_MAX}px; overflow:auto; display:grid; gap:8px; padding-right:4px; }
-    .vx-x{ display:grid; gap:4px; } .vx-q{ font-weight:700; font-size:.85rem }
-    .vx-a{ background:#f8fbff; border:1px solid #e6ebf4; border-radius:8px; padding:8px; white-space:pre-wrap; font-size:.85rem }
-    .vx-bottom{ border-top:1px solid #e6ebf4; background:#fbfdff; display:grid; gap:6px; padding:8px 12px; }
-    .vx-pop{ font-size:.8rem; font-weight:800; color:#314579; } .vx-buttons{ display:flex; flex-wrap:wrap; gap:6px }
-    .vx-sugg{ border:1px solid #d7e0f7; border-radius:999px; padding:6px 10px; background:#f6f9ff; cursor:pointer; font-size:.85rem }
-    .vx-row{ display:flex; align-items:center; gap:6px }
-    .vx-input{ flex:1; min-width:0; padding:8px 10px; border:1px solid #d7e0f7; border-radius:8px; font-size:.9rem }
-    .vx-send{ border:0; border-radius:8px; padding:8px 10px; background:#1B427A; color:#fff; font-weight:800; cursor:pointer }
+    /* Lift all inner content above the white backdrop */
+    .vx-panel .vx-head,
+    .vx-panel .vx-hero,
+    .vx-panel .vx-body,
+    .vx-panel .vx-bottom { position: relative; z-index: 1; }
+
+    .vx-panel .vx-head { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#1B427A; color:#fff; }
+    .vx-panel .vx-close { background:transparent; border:0; color:#fff; font-size:20px; cursor:pointer; }
+
+    .vx-panel .vx-hero { display:flex; align-items:center; gap:14px; padding:12px 14px; background:#f6f9ff; border-bottom:1px solid #e6ebf4; }
+    .vx-panel .vx-illus {
+      width:72px; height:72px; border-radius:999px; flex:0 0 72px; background:#fff center/80% no-repeat;
+      background-image:url("/assets/assistant-lady.svg"); border:1px solid #e6ebf4; box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+    .vx-panel .vx-w1{ font-weight:800; font-size:1rem; color:#0b1b3a; }
+    .vx-panel .vx-w2{ font-size:.9rem; color:#395084; }
+
+    .vx-panel .vx-body{ display:grid; grid-template-rows:1fr auto; height:calc(100% - 120px); padding:10px 12px 12px; gap:10px; }
+    .vx-panel .vx-log{ max-height:${LOG_MAX}px; overflow:auto; display:grid; gap:8px; padding-right:4px; }
+    .vx-panel .vx-x{ display:grid; gap:4px; }
+    .vx-panel .vx-q{ font-weight:700; font-size:.85rem }
+    .vx-panel .vx-a{ background:#f8fbff; border:1px solid #e6ebf4; border-radius:8px; padding:8px; white-space:pre-wrap; font-size:.85rem }
+
+    .vx-panel .vx-bottom{ border-top:1px solid #e6ebf4; background:#fbfdff; display:grid; gap:6px; padding:8px 12px; }
+    .vx-panel .vx-pop{ font-size:.8rem; font-weight:800; color:#314579; }
+    .vx-panel .vx-buttons{ display:flex; flex-wrap:wrap; gap:6px }
+    .vx-panel .vx-sugg{ border:1px solid #d7e0f7; border-radius:999px; padding:6px 10px; background:#f6f9ff; cursor:pointer; font-size:.85rem }
+
+    .vx-panel .vx-row{ display:flex; align-items:center; gap:6px }
+    .vx-panel .vx-input{ flex:1; min-width:0; padding:8px 10px; border:1px solid #d7e0f7; border-radius:8px; font-size:.9rem }
+    .vx-panel .vx-send{ border:0; border-radius:8px; padding:8px 10px; background:#1B427A; color:#fff; font-weight:800; cursor:pointer }
   `;
 
   const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
@@ -78,20 +91,32 @@
       </div>`;
     document.body.appendChild(panel);
 
-    const closeBtn=panel.querySelector('.vx-close'), input=panel.querySelector('.vx-input'),
-          send=panel.querySelector('.vx-send'), log=panel.querySelector('.vx-log'),
-          suggs=panel.querySelector('.vx-buttons');
+    const closeBtn=panel.querySelector('.vx-close');
+    const input=panel.querySelector('.vx-input');
+    const send=panel.querySelector('.vx-send');
+    const log=panel.querySelector('.vx-log');
+    const suggs=panel.querySelector('.vx-buttons');
 
     // suggestions from latest QA
     const Q = getQA();
     suggs.innerHTML = Q.slice(0, 6).map(x => `<button class="vx-sugg" type="button" data-q="${escAttr(x.q)}">${esc(x.q)}</button>`).join('');
 
     closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
+
     panel.addEventListener('click', e => {
       const b=e.target.closest('.vx-sugg'); if(!b) return;
-      input.value=b.getAttribute('data-q'); answer(input.value);
+      input.value=b.getAttribute('data-q');
+      answer(input.value);
+      input.focus();
     });
-    input.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); answer(input.value.trim()); }});
+
+    input.addEventListener('keydown', e => {
+      if(e.key==='Enter'){
+        e.preventDefault();
+        answer(input.value.trim());
+      }
+    });
+
     send.addEventListener('click', ()=> answer(input.value.trim()));
 
     function answer(q){
@@ -99,8 +124,11 @@
       const wrap=document.createElement('div'); wrap.className='vx-x';
       wrap.innerHTML=`<div class="vx-q">${esc(q)}</div><div class="vx-a" aria-live="polite"></div>`;
       log.appendChild(wrap); log.scrollTop=log.scrollHeight;
+
       const found = getQA().find(x => (x.q||'').toLowerCase()===q.toLowerCase()) || null;
       type(wrap.querySelector('.vx-a'), found ? String(found.a) : 'Thanks! A specialist will follow up soon.');
+      input.value = '';
+      input.focus();
     }
 
     return panel;
@@ -108,7 +136,9 @@
 
   function type(el, text){
     el.textContent=''; let i=0;
-    const t=setInterval(()=>{ el.textContent+=text.charAt(i++); if(i>=text.length) clearInterval(t);
+    const t=setInterval(()=>{
+      el.textContent+=text.charAt(i++);
+      if(i>=text.length) clearInterval(t);
       const sc=el.closest('.vx-log'); if(sc) sc.scrollTop=sc.scrollHeight;
     }, TYPE_MS);
   }
