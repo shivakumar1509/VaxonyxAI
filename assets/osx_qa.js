@@ -1,19 +1,20 @@
-// /oncosynex/assets/osx_qa.js
-// 100+ preloaded Q&A for the OncoSyNex AI widget.
+js
+// /assets/osx_qa.js
+// 100+ preloaded Q&A for the Vaxonyx AI widget.
 // You can safely edit text, add/remove items, or change order.
 
 window.OSX_QA = [
   /* =========================
    * GENERAL (15)
    * ========================= */
-  {id:'gen-01', q:'What is OncoSyNex?', a:'OncoSyNex provides AI-powered multi-omics software and services for immunotherapy, vaccine development, and translational research.', tags:['general'], keywords:['oncosynex','company','what is']},
-  {id:'gen-02', q:'Who uses OncoSyNex?', a:'Biotech and pharma R&D teams, academic labs, and hospital translational groups working on immuno-oncology, vaccines, and diagnostics.', tags:['general'], keywords:['customers','who uses','audience']},
+  {id:'gen-01', q:'What is Vaxonyx?', a:'Vaxonyx provides AI-powered multi-omics software and services for immunotherapy, vaccine development, and translational research.', tags:['general'], keywords:['vaxonyx','company','what is']},
+  {id:'gen-02', q:'Who uses Vaxonyx?', a:'Biotech and pharma R&D teams, academic labs, and hospital translational groups working on immuno-oncology, vaccines, and diagnostics.', tags:['general'], keywords:['customers','who uses','audience']},
   {id:'gen-03', q:'Do you support academic labs?', a:'Yes—academic pricing and lightweight onboarding are available for PIs, cores, and student teams.', tags:['general','pricing'], keywords:['academic','university','discount']},
   {id:'gen-04', q:'Can you handle clinical samples?', a:'Yes—our pipelines support clinical-grade QC, de-identification workflows, and exportable audit trails.', tags:['general','clinical'], keywords:['clinical','samples','audit']},
   {id:'gen-05', q:'Do you offer custom development?', a:'We offer custom pipelines, integrations, dashboards, and annotation logic on a statement-of-work basis.', tags:['general','services'], keywords:['custom','development','integration']},
   {id:'gen-06', q:'Where is data processed?', a:'Deployments can be cloud-hosted (region-selectable) or on-prem. We also support private VPC configurations.', tags:['general','security'], keywords:['cloud','on-prem','region','vpc']},
   {id:'gen-07', q:'What onboarding help do you provide?', a:'We include a project kickoff, sample templates, and pipeline presets; Enterprise plans add white-glove onboarding.', tags:['general','success'], keywords:['onboarding','kickoff','support']},
-  {id:'gen-08', q:'Do you have documentation?', a:'Yes—platform docs, pipeline guides, and API references are available at /oncosynex/resources/platform/.', tags:['general','docs'], keywords:['docs','documentation','api']},
+  {id:'gen-08', q:'Do you have documentation?', a:'Yes—platform docs, pipeline guides, and API references are available at /resources/platform/.', tags:['general','docs'], keywords:['docs','documentation','api']},
   {id:'gen-09', q:'Do you provide training sessions?', a:'We offer live training for new users and recorded modules for self-serve onboarding.', tags:['general','success'], keywords:['training','enablement']},
   {id:'gen-10', q:'How fast is typical turnaround?', a:'Turnaround depends on data size and compute tier; small RNA-seq runs complete in hours, WES/WGS in hours to a day.', tags:['general','performance'], keywords:['turnaround','speed','runtime']},
   {id:'gen-11', q:'Which file formats do you accept?', a:'We accept FASTQ, BAM/CRAM, VCF, GTF/GFF, and common expression matrices (CSV/TSV, MTX).', tags:['general','io'], keywords:['fastq','vcf','bam','mtx','matrix']},
@@ -97,7 +98,7 @@ window.OSX_QA = [
   {id:'ag-12', q:'Are plasmids provided with maps?', a:'Yes—annotated GenBank/FASTA maps are shared for each plasmid.', tags:['plasmids','docs'], keywords:['genbank','fasta','map']},
   {id:'ag-13', q:'Can I request sterile-filtered prep?', a:'Yes—sterile filtration and low-endotoxin prep are available on request.', tags:['antigens','quality'], keywords:['sterile','low endotoxin']},
   {id:'ag-14', q:'Do you provide GMP materials?', a:'Research-use materials are standard; GMP-like documentation available on request.', tags:['antigens','quality'], keywords:['gmp','ruo']},
-  {id:'ag-15', q:'How do I get a quote for antigens?', a:'Share catalog IDs and quantities at /oncosynex/contact/ for a formal quote.', tags:['antigens','pricing'], keywords:['quote','catalog','order']},
+  {id:'ag-15', q:'How do I get a quote for antigens?', a:'Share catalog IDs and quantities at /contact/ for a formal quote.', tags:['antigens','pricing'], keywords:['quote','catalog','order']},
 
   /* =========================
    * PRICING & LICENSING (10)
@@ -111,7 +112,7 @@ window.OSX_QA = [
   {id:'pr-07', q:'What payment methods are accepted?', a:'Wire transfers and standard corporate cards are accepted; terms vary by plan.', tags:['pricing','billing'], keywords:['payment','card','wire']},
   {id:'pr-08', q:'Is there a free tier?', a:'We don’t offer a public free tier; pilots are the best way to evaluate.', tags:['pricing'], keywords:['free','trial','pilot']},
   {id:'pr-09', q:'Can I buy only services?', a:'Yes—analysis-only engagements are available without a software subscription.', tags:['pricing','services'], keywords:['services only']},
-  {id:'pr-10', q:'How do I get a formal quote?', a:'Use /oncosynex/contact/ with your data size, sample counts, and timeline.', tags:['pricing','quote'], keywords:['quote','estimate']},
+  {id:'pr-10', q:'How do I get a formal quote?', a:'Use /contact/ with your data size, sample counts, and timeline.', tags:['pricing','quote'], keywords:['quote','estimate']},
 
   /* =========================
    * SECURITY & COMPLIANCE (10)
@@ -130,7 +131,7 @@ window.OSX_QA = [
   /* =========================
    * DEMOS, SUPPORT, WORKFLOWS (25)
    * ========================= */
-  {id:'supp-01', q:'How do I schedule a demo?', a:'Visit /oncosynex/contact/#demo to book a personalized walkthrough.', tags:['demo'], keywords:['demo','schedule']},
+  {id:'supp-01', q:'How do I schedule a demo?', a:'Visit /contact/#demo to book a personalized walkthrough.', tags:['demo'], keywords:['demo','schedule']},
   {id:'supp-02', q:'Do you migrate data from other platforms?', a:'Yes—data import, metadata mapping, and pipeline parity checks are included in migrations.', tags:['services'], keywords:['migration','import']},
   {id:'supp-03', q:'Can I tag samples and cohorts?', a:'Yes—projects, tags, and cohort sets help organize large studies.', tags:['ui','workflow'], keywords:['tags','cohorts','project']},
   {id:'supp-04', q:'Is there role-based sharing?', a:'Yes—owner, editor, and viewer roles with granular permissions.', tags:['ui','security'], keywords:['rbac','permissions']},
