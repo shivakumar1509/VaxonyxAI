@@ -43,6 +43,13 @@ title: About
       system-ui,Segoe UI,Roboto,Helvetica,Arial;
   }
 
+  .svc-h2{
+    margin:0 0 10px;
+    color:var(--vx-ink);
+    font:800 clamp(28px,4vw,40px)/1.15
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  }
+
   /* Overview feature card */
   .feature{
     margin:18px 0;
@@ -122,21 +129,22 @@ title: About
   /*
     SHIVAKUMAR CARD ONLY
 
-    The text receives the flexible area.
-    The photo receives a controlled 330px column.
-    The photo is centered in that column and then
-    moved slightly to the right.
+    The image column is exactly the same width as the image.
+    The image is anchored to the far-right side.
+    The negative right margin moves it closer to the card edge.
   */
   .shivakumar-card .bio-split{
-    grid-template-columns:minmax(0,1fr) 330px;
+    grid-template-columns:minmax(0,1fr) 260px;
+    gap:16px;
   }
 
   .bio-media.shivakumar-photo{
     width:260px;
     height:260px;
     max-width:none;
-    justify-self:center;
-    transform:translateX(18px);
+    margin:0 -12px 0 0;
+    justify-self:end;
+    transform:none;
     background:#f3f7fd;
   }
 
@@ -244,6 +252,7 @@ title: About
     }
 
     .bio-media.shivakumar-photo{
+      margin:0;
       justify-self:center;
       transform:none;
     }
