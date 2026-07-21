@@ -1,67 +1,374 @@
 <style>
-  /*
-   * Prevent page-specific .container rules from changing
-   * the width and layout of the shared header.
-   */
-  .site-header > .container.header-row{
-    width:min(1180px,94%) !important;
+  /* =========================================================
+     ISOLATED SHARED HEADER
+
+     This header does not use the generic .container class.
+     Page-level CSS cannot change its width or navigation layout.
+     ========================================================= */
+
+  .site-header .vx-header-shell{
+    width:min(1180px, calc(100% - 32px)) !important;
     max-width:1180px !important;
+    height:68px !important;
+
     margin-left:auto !important;
     margin-right:auto !important;
+    padding:0 !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    flex-wrap:nowrap !important;
+
+    gap:20px !important;
     box-sizing:border-box !important;
   }
 
-  /*
-   * Keep desktop navigation on one line.
-   */
-  @media (min-width:901px){
+  .site-header .vx-header-shell .brand{
+    display:inline-flex !important;
+    align-items:center !important;
+    flex:0 0 auto !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
 
-    .site-header .header-row{
-      display:flex !important;
-      align-items:center !important;
-      flex-wrap:nowrap !important;
-      gap:18px !important;
-    }
+  .site-header .vx-header-shell .brand-logo{
+    display:block !important;
+    width:160px !important;
+    height:42px !important;
+    max-width:none !important;
+    flex:0 0 auto !important;
+  }
 
-    .site-header .brand{
-      flex:0 0 auto !important;
-    }
+  /* =========================================================
+     DESKTOP NAVIGATION
+     ========================================================= */
 
-    .site-header .brand-logo{
-      display:block;
-      flex:0 0 auto;
-    }
+  @media (min-width:921px){
 
-    .site-header .site-nav{
+    .site-header .vx-header-shell .site-nav{
+      display:block !important;
       flex:1 1 auto !important;
       min-width:0 !important;
-    }
-
-    .site-header .site-nav > .menu{
-      display:flex !important;
-      align-items:center !important;
-      justify-content:center !important;
-      flex-wrap:nowrap !important;
-      gap:18px !important;
-      margin:0 !important;
+      margin-left:auto !important;
       padding:0 !important;
     }
 
-    .site-header .site-nav > .menu > li{
+    .site-header .vx-header-shell .vx-menu{
+      display:flex !important;
+      flex-direction:row !important;
+      align-items:center !important;
+      justify-content:center !important;
+      flex-wrap:nowrap !important;
+
+      gap:18px !important;
+
+      margin:0 !important;
+      padding:0 !important;
+
+      list-style:none !important;
+    }
+
+    .site-header .vx-header-shell .vx-menu > li{
+      position:relative !important;
+      display:block !important;
+
       flex:0 0 auto !important;
+      width:auto !important;
+      min-width:0 !important;
+
+      margin:0 !important;
+      padding:0 !important;
+
+      white-space:nowrap !important;
+      list-style:none !important;
+    }
+
+    /*
+     * All top-level navigation links use this unique class.
+     * Label and arrow remain on exactly one line.
+     */
+    .site-header .vx-header-shell .vx-top-link{
+      display:inline-flex !important;
+      flex-direction:row !important;
+      align-items:center !important;
+      justify-content:center !important;
+      flex-wrap:nowrap !important;
+
+      gap:4px !important;
+
+      width:auto !important;
+      min-width:max-content !important;
+      height:auto !important;
+
+      margin:0 !important;
+      padding:0 !important;
+
+      color:#1B427A !important;
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif !important;
+      font-size:15px !important;
+      font-weight:700 !important;
+      line-height:1.25 !important;
+      letter-spacing:.2px !important;
+
+      text-decoration:none !important;
       white-space:nowrap !important;
     }
 
-    .site-header .site-nav > .menu > li > a,
-    .site-header .dropdown-link,
-    .site-header .submenu-link{
-      display:inline-flex;
-      align-items:center;
+    .site-header .vx-header-shell .vx-top-link:hover{
+      text-decoration:underline !important;
+    }
+
+    .site-header .vx-header-shell .vx-nav-label{
+      display:inline-block !important;
+      flex:0 0 auto !important;
+      width:auto !important;
+      line-height:1.25 !important;
       white-space:nowrap !important;
     }
 
-    .site-header .vx-fab-desktop{
+    .site-header .vx-header-shell .vx-nav-caret{
+      display:inline-block !important;
       flex:0 0 auto !important;
+
+      width:auto !important;
+      height:auto !important;
+
+      margin:0 !important;
+      padding:0 !important;
+
+      font-size:10px !important;
+      font-weight:800 !important;
+      line-height:1 !important;
+
+      transform:translateY(1px) !important;
+      white-space:nowrap !important;
+    }
+
+    /*
+     * Ask Vaxonyx AI button must remain on one line.
+     */
+    .site-header .vx-header-shell .vx-fab-desktop{
+      display:inline-flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+
+      flex:0 0 auto !important;
+      width:auto !important;
+      min-width:max-content !important;
+
+      margin:0 !important;
+      padding:10px 16px !important;
+
+      font-size:13px !important;
+      line-height:1 !important;
+
+      white-space:nowrap !important;
+    }
+  }
+
+
+  /* =========================================================
+     DROPDOWNS
+
+     All dropdowns use the same font, spacing, width,
+     border, shadow and hover behavior.
+     ========================================================= */
+
+  @media (min-width:921px){
+
+    .site-header .vx-header-shell .dropdown-menu{
+      position:absolute !important;
+      top:calc(100% + 12px) !important;
+      left:0 !important;
+
+      display:none;
+      min-width:260px !important;
+
+      margin:0 !important;
+      padding:8px !important;
+
+      border:1px solid #e6ebf4 !important;
+      border-radius:12px !important;
+      background:#ffffff !important;
+      box-shadow:0 12px 28px rgba(0,0,0,.12) !important;
+
+      list-style:none !important;
+      z-index:3100 !important;
+    }
+
+    .site-header .vx-header-shell .dropdown:hover > .dropdown-menu,
+    .site-header .vx-header-shell .dropdown:focus-within > .dropdown-menu{
+      display:block !important;
+    }
+
+    .site-header .vx-header-shell .dropdown-menu > li{
+      position:relative !important;
+      display:block !important;
+
+      width:100% !important;
+
+      margin:0 !important;
+      padding:0 !important;
+
+      list-style:none !important;
+    }
+
+    .site-header .vx-header-shell .dropdown-menu > li + li{
+      margin-top:6px !important;
+    }
+
+    .site-header .vx-header-shell .dropdown-menu a{
+      display:block !important;
+
+      width:100% !important;
+      margin:0 !important;
+      padding:7px 10px !important;
+
+      border-radius:8px !important;
+
+      color:#1B427A !important;
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif !important;
+      font-size:15px !important;
+      font-weight:700 !important;
+      line-height:1.25 !important;
+      letter-spacing:.2px !important;
+
+      text-decoration:none !important;
+      white-space:nowrap !important;
+      box-sizing:border-box !important;
+    }
+
+    .site-header .vx-header-shell .dropdown-menu a:hover{
+      background:rgba(27,66,122,.08) !important;
+      text-decoration:none !important;
+    }
+
+    /* Nested Services submenus */
+    .site-header .vx-header-shell .has-sub{
+      position:relative !important;
+    }
+
+    .site-header .vx-header-shell .submenu{
+      position:absolute !important;
+      top:-1px !important;
+      left:100% !important;
+
+      display:none;
+      min-width:240px !important;
+
+      margin:0 !important;
+      padding:8px !important;
+
+      border:1px solid #e6ebf4 !important;
+      border-radius:12px !important;
+      background:#ffffff !important;
+      box-shadow:0 12px 28px rgba(0,0,0,.12) !important;
+
+      list-style:none !important;
+      z-index:3200 !important;
+    }
+
+    .site-header .vx-header-shell .has-sub:hover > .submenu,
+    .site-header .vx-header-shell .has-sub:focus-within > .submenu{
+      display:block !important;
+    }
+
+    .site-header .vx-header-shell .submenu > li{
+      margin:0 !important;
+      padding:0 !important;
+      list-style:none !important;
+    }
+
+    .site-header .vx-header-shell .submenu > li + li{
+      margin-top:6px !important;
+    }
+
+    .site-header .vx-header-shell .submenu a{
+      display:block !important;
+
+      width:100% !important;
+      margin:0 !important;
+      padding:7px 10px !important;
+
+      border-radius:8px !important;
+
+      color:#1B427A !important;
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif !important;
+      font-size:15px !important;
+      font-weight:700 !important;
+      line-height:1.25 !important;
+
+      text-decoration:none !important;
+      white-space:nowrap !important;
+    }
+
+    .site-header .vx-header-shell .submenu a:hover{
+      background:rgba(27,66,122,.08) !important;
+      text-decoration:none !important;
+    }
+  }
+
+
+  /* =========================================================
+     MOBILE
+     Existing site.js continues to control the mobile menu.
+     ========================================================= */
+
+  @media (max-width:920px){
+
+    .site-header .vx-header-shell{
+      width:calc(100% - 28px) !important;
+      height:64px !important;
+      gap:12px !important;
+    }
+
+    .site-header .vx-header-shell .brand-logo{
+      width:auto !important;
+      height:36px !important;
+    }
+
+    .site-header .vx-header-shell .menu-toggle{
+      margin-left:auto !important;
+    }
+
+    .site-header .vx-header-shell .vx-top-link{
+      display:flex !important;
+      flex-direction:row !important;
+      align-items:center !important;
+      justify-content:space-between !important;
+
+      width:100% !important;
+      gap:8px !important;
+
+      white-space:nowrap !important;
+    }
+
+    .site-header .vx-header-shell .vx-nav-label,
+    .site-header .vx-header-shell .vx-nav-caret{
+      display:inline-block !important;
       white-space:nowrap !important;
     }
   }
@@ -69,9 +376,18 @@
 
 
 <header class="site-header" role="banner">
-  <div class="container header-row">
 
-    <!-- Logo -->
+  <!--
+    Important:
+    This intentionally does NOT use class="container".
+  -->
+  <div class="vx-header-shell header-row">
+
+
+    <!-- =====================================================
+         LOGO
+         ===================================================== -->
+
     <a
       class="brand"
       href="{{ '/' | relative_url }}"
@@ -87,7 +403,10 @@
     </a>
 
 
-    <!-- Mobile menu toggle -->
+    <!-- =====================================================
+         MOBILE MENU BUTTON
+         ===================================================== -->
+
     <button
       class="menu-toggle"
       aria-controls="primary-nav"
@@ -113,19 +432,26 @@
     </button>
 
 
-    <!-- Main navigation -->
+    <!-- =====================================================
+         MAIN NAVIGATION
+         ===================================================== -->
+
     <nav
       id="primary-nav"
       class="site-nav"
       aria-label="Main"
       role="navigation"
     >
-      <ul class="menu" role="list">
+      <ul class="menu vx-menu" role="list">
+
 
         <!-- Home -->
         <li>
-          <a href="{{ '/' | relative_url }}">
-            Home
+          <a
+            class="vx-top-link"
+            href="{{ '/' | relative_url }}"
+          >
+            <span class="vx-nav-label">Home</span>
           </a>
         </li>
 
@@ -135,11 +461,12 @@
 
           <a
             href="{{ '/about/' | relative_url }}"
-            class="dropdown-link"
+            class="dropdown-link vx-top-link"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            About ▾
+            <span class="vx-nav-label">About</span>
+            <span class="vx-nav-caret" aria-hidden="true">▼</span>
           </a>
 
           <ul class="dropdown-menu" role="menu">
@@ -163,6 +490,7 @@
             </li>
 
           </ul>
+
         </li>
 
 
@@ -171,11 +499,12 @@
 
           <a
             href="{{ '/services/' | relative_url }}"
-            class="dropdown-link"
+            class="dropdown-link vx-top-link"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Services ▾
+            <span class="vx-nav-label">Services</span>
+            <span class="vx-nav-caret" aria-hidden="true">▼</span>
           </a>
 
           <ul class="dropdown-menu" role="menu">
@@ -187,7 +516,7 @@
             </li>
 
 
-            <!-- Protein Production submenu -->
+            <!-- Protein production submenu -->
             <li class="has-sub">
 
               <a
@@ -214,6 +543,7 @@
                 </li>
 
               </ul>
+
             </li>
 
 
@@ -244,6 +574,7 @@
                 </li>
 
               </ul>
+
             </li>
 
 
@@ -254,20 +585,21 @@
             </li>
 
           </ul>
+
         </li>
 
 
         <!-- AI Platforms -->
-        <!-- Uses exactly the same dropdown structure as Services -->
         <li class="dropdown">
 
           <a
             href="https://ai.vaxonyx.com/"
-            class="dropdown-link"
+            class="dropdown-link vx-top-link"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            AI Platforms ▾
+            <span class="vx-nav-label">AI Platforms</span>
+            <span class="vx-nav-caret" aria-hidden="true">▼</span>
           </a>
 
           <ul class="dropdown-menu" role="menu">
@@ -318,6 +650,7 @@
             </li>
 
           </ul>
+
         </li>
 
 
@@ -326,11 +659,12 @@
 
           <a
             href="{{ '/innovation/' | relative_url }}"
-            class="dropdown-link"
+            class="dropdown-link vx-top-link"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Innovation ▾
+            <span class="vx-nav-label">Innovation</span>
+            <span class="vx-nav-caret" aria-hidden="true">▼</span>
           </a>
 
           <ul class="dropdown-menu" role="menu">
@@ -354,13 +688,17 @@
             </li>
 
           </ul>
+
         </li>
 
 
         <!-- Partners -->
         <li>
-          <a href="{{ '/partners/' | relative_url }}">
-            Partners
+          <a
+            class="vx-top-link"
+            href="{{ '/partners/' | relative_url }}"
+          >
+            <span class="vx-nav-label">Partners</span>
           </a>
         </li>
 
@@ -370,11 +708,12 @@
 
           <a
             href="{{ '/news/' | relative_url }}"
-            class="dropdown-link"
+            class="dropdown-link vx-top-link"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            News &amp; Investors ▾
+            <span class="vx-nav-label">News &amp; Investors</span>
+            <span class="vx-nav-caret" aria-hidden="true">▼</span>
           </a>
 
           <ul class="dropdown-menu" role="menu">
@@ -392,18 +731,22 @@
             </li>
 
           </ul>
+
         </li>
 
 
         <!-- Contact -->
         <li>
-          <a href="{{ '/contact/' | relative_url }}">
-            Contact
+          <a
+            class="vx-top-link"
+            href="{{ '/contact/' | relative_url }}"
+          >
+            <span class="vx-nav-label">Contact</span>
           </a>
         </li>
 
 
-        <!-- Mobile-only Ask Vaxonyx AI button -->
+        <!-- Mobile-only Ask Vaxonyx AI -->
         <li class="ai-inline">
 
           <button
@@ -417,10 +760,14 @@
         </li>
 
       </ul>
+
     </nav>
 
 
-    <!-- Desktop Ask Vaxonyx AI button -->
+    <!-- =====================================================
+         DESKTOP ASK VAXONYX AI
+         ===================================================== -->
+
     <button
       class="vx-fab vx-fab-desktop"
       id="vx-fab"
@@ -432,7 +779,10 @@
   </div>
 
 
-  <!-- Ask Vaxonyx AI button binder -->
+  <!-- =======================================================
+       ASK VAXONYX AI BUTTON BINDER
+       ======================================================= -->
+
   <script>
   (function(){
 
@@ -447,6 +797,7 @@
         typeof window.VX_WIDGET.open === 'function'
       ){
         window.VX_WIDGET.open();
+
       }else{
         console.warn('VX_WIDGET not ready');
       }
@@ -487,9 +838,7 @@
       );
 
     }else{
-
       bind();
-
     }
 
   })();
