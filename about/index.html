@@ -88,7 +88,7 @@ title: About
     scroll-margin-top:96px;
   }
 
-  /* Bio section */
+  /* Bio cards */
   .bio-card{
     padding:18px;
     border:1px solid var(--vx-line);
@@ -120,16 +120,23 @@ title: About
   }
 
   /*
-    Shivakumar image only:
-    Keeps the circular crop and moves the photograph
-    slightly farther toward the right edge on desktop.
+    SHIVAKUMAR CARD ONLY
+
+    The text receives the flexible area.
+    The photo receives a controlled 330px column.
+    The photo is centered in that column and then
+    moved slightly to the right.
   */
+  .shivakumar-card .bio-split{
+    grid-template-columns:minmax(0,1fr) 330px;
+  }
+
   .bio-media.shivakumar-photo{
     width:260px;
     height:260px;
     max-width:none;
-    justify-self:end;
-    transform:translateX(12px);
+    justify-self:center;
+    transform:translateX(18px);
     background:#f3f7fd;
   }
 
@@ -225,9 +232,10 @@ title: About
     outline-offset:2px;
   }
 
-  /* Mobile layout */
+  /* Tablet and mobile layout */
   @media (max-width:860px){
-    .bio-split{
+    .bio-split,
+    .shivakumar-card .bio-split{
       grid-template-columns:1fr;
     }
 
@@ -235,10 +243,6 @@ title: About
       justify-self:center;
     }
 
-    /*
-      Centers only the Shivakumar image on tablets
-      and mobile devices.
-    */
     .bio-media.shivakumar-photo{
       justify-self:center;
       transform:none;
@@ -274,9 +278,14 @@ title: About
       <h1>About Vaxonyx</h1>
 
       <div class="feature">
-        <span class="eyebrow">Overview</span>
 
-        <h3>Biotechnology built for impact</h3>
+        <span class="eyebrow">
+          Overview
+        </span>
+
+        <h3>
+          Biotechnology built for impact
+        </h3>
 
         <p>
           <strong>Vaxonyx</strong> is a biotechnology company focused on
@@ -287,6 +296,7 @@ title: About
           development, with a commitment to translating scientific
           discovery into real-world health impact.
         </p>
+
       </div>
 
     </div>
@@ -300,9 +310,12 @@ title: About
     aria-labelledby="mission-title"
     style="margin-top:20px"
   >
+
     <div class="feature">
 
-      <span class="eyebrow">Our Mission</span>
+      <span class="eyebrow">
+        Our Mission
+      </span>
 
       <h3 id="mission-title">
         To develop innovative, accessible &amp; affordable platforms
@@ -318,6 +331,7 @@ title: About
       </p>
 
     </div>
+
   </section>
 
 
@@ -328,9 +342,12 @@ title: About
     aria-labelledby="vision-title"
     style="margin-top:10px"
   >
+
     <div class="feature">
 
-      <span class="eyebrow">Our Vision</span>
+      <span class="eyebrow">
+        Our Vision
+      </span>
 
       <h3 id="vision-title">
         Lead globally in AI-driven biotechnology
@@ -345,6 +362,7 @@ title: About
       </p>
 
     </div>
+
   </section>
 
 
@@ -398,7 +416,9 @@ title: About
 
           <details class="team-details">
 
-            <summary>Full bio</summary>
+            <summary>
+              Full bio
+            </summary>
 
             <p class="team-blurb">
               Kempaiah Rayavara, PhD, is the Founder and President of
@@ -461,7 +481,7 @@ title: About
     <!-- ===================================================== -->
     <!-- CO-FOUNDER: SHIVAKUMAR                                -->
     <!-- ===================================================== -->
-    <div class="bio-card">
+    <div class="bio-card shivakumar-card">
 
       <div class="bio-split">
 
@@ -482,7 +502,9 @@ title: About
 
           <details class="team-details">
 
-            <summary>Full bio</summary>
+            <summary>
+              Full bio
+            </summary>
 
             <p class="team-blurb">
               Dr. Shivakumar Rayavara Veerabhadraiah, Co-Founder of
@@ -600,7 +622,9 @@ title: About
 
           <details class="team-details">
 
-            <summary>Full bio</summary>
+            <summary>
+              Full bio
+            </summary>
 
             <p class="team-blurb">
               Subash C. Das, DVM, MVS, Ph.D., PMP, is an advisor to
