@@ -1,388 +1,714 @@
-<header class="site-header" role="banner">
-  <div class="container header-row">
+---
+layout: default
+title: About
+---
 
-    <!-- Logo -->
-    <a
-      class="brand"
-      href="{{ '/' | relative_url }}"
-      aria-label="Vaxonyx home"
-    >
-      <img
-        class="brand-logo"
-        src="{{ '/assets/Vaxonyx.svg' | relative_url }}"
-        alt="Vaxonyx"
-        width="160"
-        height="42"
-      >
-    </a>
+<style>
+  :root{
+    --vx-primary:#007C91;
+    --vx-accent:#3FA9F5;
+    --vx-ink:#0b1220;
+    --vx-line:rgba(12,18,32,.12);
+    --vx-soft-blue-1:#F1F8FF;
+    --vx-soft-blue-2:#E9F5FF;
+    --vx-soft-blue-border:#B9E3FF;
+  }
 
-    <!-- Mobile menu toggle -->
-    <button
-      class="menu-toggle"
-      aria-controls="primary-nav"
-      aria-expanded="false"
-      aria-label="Open menu"
-      title="Menu"
-      type="button"
-    >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          d="M3 6h18M3 12h18M3 18h18"
-          fill="none"
-          stroke="#1B427A"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </svg>
-    </button>
+  html{
+    scroll-behavior:smooth;
+  }
 
-    <!-- Main navigation -->
-    <nav
-      id="primary-nav"
-      class="site-nav"
-      aria-label="Main"
-      role="navigation"
-    >
-      <ul class="menu" role="list">
+  .container{
+    width:min(1120px,92%);
+    margin-inline:auto;
+  }
 
-        <!-- Home -->
-        <li>
-          <a href="{{ '/' | relative_url }}">
-            Home
-          </a>
-        </li>
+  /* Hero */
+  .svc-hero{
+    padding:70px 0 28px;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(63,169,245,.14),
+        rgba(0,124,145,.06) 40%,
+        transparent 60%
+      ),
+      linear-gradient(180deg,#ffffff,#ffffff);
+  }
 
-        <!-- About -->
-        <li class="dropdown">
-          <a
-            href="{{ '/about/' | relative_url }}"
-            class="dropdown-link"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            About ▾
-          </a>
+  .svc-hero h1{
+    margin:0 0 10px;
+    color:var(--vx-ink);
+    font:800 clamp(30px,4.8vw,54px)/1.05
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  }
 
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="{{ '/about/#mission' | relative_url }}">
-                Mission &amp; Vision
-              </a>
-            </li>
+  .svc-h2{
+    margin:0 0 10px;
+    color:var(--vx-ink);
+    font:800 clamp(28px,4vw,40px)/1.15
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  }
 
-            <li>
-              <a href="{{ '/about/#team' | relative_url }}">
-                Team
-              </a>
-            </li>
+  /* Overview, Mission and Vision cards */
+  .feature{
+    margin:18px 0;
+    padding:22px 22px 20px;
+    border:1px solid var(--vx-soft-blue-border);
+    border-radius:16px;
+    background:linear-gradient(
+      180deg,
+      var(--vx-soft-blue-1),
+      var(--vx-soft-blue-2)
+    );
+    box-shadow:0 8px 18px rgba(12,18,32,.08);
+    color:#122033;
+  }
 
-            <li>
-              <a href="{{ '/careers/' | relative_url }}">
-                Careers
-              </a>
-            </li>
-          </ul>
-        </li>
+  .feature .eyebrow{
+    display:inline-block;
+    margin-bottom:10px;
+    padding:6px 10px;
+    border:1px solid rgba(0,124,145,.25);
+    border-radius:999px;
+    background:rgba(255,255,255,.6);
+    color:#045B6B;
+    font:800 12px/1 system-ui;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+  }
 
-        <!-- Services -->
-        <li class="dropdown">
-          <a
-            href="{{ '/services/' | relative_url }}"
-            class="dropdown-link"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Services ▾
-          </a>
+  .feature h3{
+    margin:0 0 10px;
+    color:#0A7C93;
+    font:800 clamp(22px,3.2vw,34px)/1.12
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  }
 
-          <ul class="dropdown-menu" role="menu">
+  .feature p{
+    margin:0;
+    color:#142033;
+    font:400 17px/1.75 system-ui;
+  }
 
-            <li>
-              <a href="{{ '/services/cell-lines/' | relative_url }}">
-                Cell line services
-              </a>
-            </li>
+  .about-section{
+    scroll-margin-top:96px;
+  }
 
-            <li class="has-sub">
-              <a
-                href="{{ '/services/protein-production/' | relative_url }}"
-                class="submenu-link"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Protein production ▸
-              </a>
+  /* Team biography cards */
+  .bio-card{
+    padding:18px;
+    border:1px solid var(--vx-line);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 4px 18px rgba(12,18,32,.06);
+  }
 
-              <ul class="submenu" role="menu">
-                <li>
-                  <a href="{{ '/services/protein-production/antibody-production/' | relative_url }}">
-                    Antibody production
-                  </a>
-                </li>
+  .bio-split{
+    display:grid;
+    grid-template-columns:1.25fr .9fr;
+    gap:22px;
+    align-items:start;
+  }
 
-                <li>
-                  <a href="{{ '/services/protein-production/antigen/' | relative_url }}">
-                    Antigen production
-                  </a>
-                </li>
-              </ul>
-            </li>
+  .bio-media{
+    max-width:260px;
+    margin:0;
+    overflow:hidden;
+    justify-self:end;
+    border-radius:50%;
+    box-shadow:0 4px 10px rgba(12,18,32,.15);
+  }
 
-            <li class="has-sub">
-              <a
-                href="{{ '/services/assays/' | relative_url }}"
-                class="submenu-link"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Assays ▸
-              </a>
+  .bio-media img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
 
-              <ul class="submenu" role="menu">
-                <li>
-                  <a href="{{ '/services/assays/biochemical/' | relative_url }}">
-                    Biochemical assays
-                  </a>
-                </li>
+  /*
+    Shivakumar photograph only:
+    circular frame stays in the right column;
+    portrait inside the frame is shifted right.
+  */
+  .bio-media.shivakumar-photo{
+    width:260px;
+    height:260px;
+    max-width:none;
+    margin:0;
+    justify-self:end;
+    overflow:hidden;
+    border-radius:50%;
+    background:#f3f7fd;
+  }
 
-                <li>
-                  <a href="{{ '/services/assays/virology/' | relative_url }}">
-                    Virology-Based assays
-                  </a>
-                </li>
-              </ul>
-            </li>
+  .bio-media.shivakumar-photo img{
+    width:100%;
+    height:100%;
+    max-width:none;
+    object-fit:cover;
+    object-position:center top;
+    transform:translateX(22px) scale(1.10);
+    transform-origin:center top;
+  }
 
-            <li>
-              <a href="{{ '/services/molecular-biology/' | relative_url }}">
-                Molecular biology
-              </a>
-            </li>
+  .team-name{
+    margin:0 0 6px;
+    color:var(--vx-ink);
+    font:800 24px/1.25 system-ui;
+  }
 
-          </ul>
-        </li>
+  .team-title{
+    margin:0 0 8px;
+    color:#334;
+    font:600 14px/1.4 system-ui;
+  }
 
-        <!-- AI Platforms -->
-        <!-- Uses exactly the same dropdown structure as Services -->
-        <li class="dropdown">
-          <a
-            href="https://ai.vaxonyx.com/"
-            class="dropdown-link"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            AI Platforms ▾
-          </a>
+  .team-blurb{
+    margin:0 0 10px;
+    color:#223;
+    font:400 15px/1.7 system-ui;
+  }
 
-          <ul class="dropdown-menu" role="menu">
+  details.team-details{
+    margin-top:6px;
+    padding-top:10px;
+    border-top:1px dashed var(--vx-line);
+  }
 
-            <li>
-              <a href="https://ai.vaxonyx.com/bulkmind/#/">
-                Bulk RNA-Seq Analysis
-              </a>
-            </li>
+  details.team-details summary{
+    cursor:pointer;
+    color:var(--vx-primary);
+    font:700 14px/1.4 system-ui;
+  }
 
-            <li>
-              <a
-                href="#"
-                aria-disabled="true"
-                tabindex="-1"
-                onclick="return false;"
-                style="cursor:default;"
-              >
-                Neoantigen Discovery — Under Development
-              </a>
-            </li>
+  details.team-details summary:hover{
+    color:#045B6B;
+  }
 
-            <li>
-              <a
-                href="#"
-                aria-disabled="true"
-                tabindex="-1"
-                onclick="return false;"
-                style="cursor:default;"
-              >
-                HLA Typing — Under Development
-              </a>
-            </li>
+  details.team-details[open] summary{
+    margin-bottom:10px;
+  }
 
-            <li>
-              <a
-                href="#"
-                aria-disabled="true"
-                tabindex="-1"
-                onclick="return false;"
-                style="cursor:default;"
-              >
-                Variant Calling — Under Development
-              </a>
-            </li>
+  /* Advisor links */
+  .link-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+    margin-top:10px;
+  }
 
-          </ul>
-        </li>
+  .learn-more{
+    margin:8px 10px 0 0;
+    color:#223;
+    font:700 14px/1.4 system-ui;
+  }
 
-        <!-- Innovation -->
-        <li class="dropdown">
-          <a
-            href="{{ '/innovation/' | relative_url }}"
-            class="dropdown-link"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Innovation ▾
-          </a>
+  .pill-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 12px;
+    border:1px solid rgba(0,124,145,.28);
+    border-radius:999px;
+    background:linear-gradient(
+      180deg,
+      rgba(63,169,245,.14),
+      rgba(0,124,145,.06)
+    );
+    box-shadow:0 6px 14px rgba(12,18,32,.06);
+    color:var(--vx-primary);
+    font:700 13px/1 system-ui;
+    text-decoration:none;
+    transition:
+      transform .15s ease,
+      box-shadow .15s ease;
+  }
 
-          <ul class="dropdown-menu" role="menu">
+  .pill-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 10px 18px rgba(12,18,32,.10);
+  }
 
-            <li>
-              <a href="{{ '/innovation/platforms/delivery/' | relative_url }}">
-                DNA Delivery Platform
-              </a>
-            </li>
+  .pill-btn:focus{
+    outline:2px solid rgba(63,169,245,.45);
+    outline-offset:2px;
+  }
 
-            <li>
-              <a href="{{ '/innovation/pipeline/' | relative_url }}">
-                Pipeline
-              </a>
-            </li>
-
-            <li>
-              <a href="{{ '/innovation/products/' | relative_url }}">
-                Products
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
-        <!-- Partners -->
-        <li>
-          <a href="{{ '/partners/' | relative_url }}">
-            Partners
-          </a>
-        </li>
-
-        <!-- News & Investors -->
-        <li class="dropdown">
-          <a
-            href="{{ '/news/' | relative_url }}"
-            class="dropdown-link"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            News &amp; Investors ▾
-          </a>
-
-          <ul class="dropdown-menu" role="menu">
-
-            <li>
-              <a href="{{ '/news/#press' | relative_url }}">
-                Press &amp; updates
-              </a>
-            </li>
-
-            <li>
-              <a href="{{ '/investors/' | relative_url }}">
-                Investor materials
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
-        <!-- Contact -->
-        <li>
-          <a href="{{ '/contact/' | relative_url }}">
-            Contact
-          </a>
-        </li>
-
-        <!-- Mobile-only AI button -->
-        <li class="ai-inline">
-          <button
-            class="vx-fab"
-            id="vx-fab-mobile"
-            type="button"
-          >
-            Ask Vaxonyx AI
-          </button>
-        </li>
-
-      </ul>
-    </nav>
-
-    <!-- Desktop AI button -->
-    <button
-      class="vx-fab vx-fab-desktop"
-      id="vx-fab"
-      type="button"
-    >
-      Ask Vaxonyx AI
-    </button>
-
-  </div>
-
-  <!-- Ask Vaxonyx AI button binder -->
-  <script>
-  (function(){
-
-    function openAI(e){
-      if(e){
-        e.preventDefault();
-      }
-
-      if(
-        window.VX_WIDGET &&
-        typeof window.VX_WIDGET.open === 'function'
-      ){
-        window.VX_WIDGET.open();
-      }else{
-        console.warn('VX_WIDGET not ready');
-      }
+  /* Tablet */
+  @media (max-width:860px){
+    .bio-split{
+      grid-template-columns:1fr;
     }
 
-    function bind(){
-
-      ['vx-fab','vx-fab-mobile'].forEach(function(id){
-
-        var el = document.getElementById(id);
-
-        if(el && !el.dataset.vxBound){
-
-          el.dataset.vxBound = '1';
-
-          el.addEventListener(
-            'click',
-            openAI,
-            {passive:false}
-          );
-
-          el.style.cursor = 'pointer';
-          el.style.position = 'relative';
-          el.style.zIndex = '2147483001';
-        }
-
-      });
+    .bio-media{
+      justify-self:center;
     }
 
-    if(document.readyState === 'loading'){
-
-      document.addEventListener(
-        'DOMContentLoaded',
-        bind,
-        {once:true}
-      );
-
-    }else{
-      bind();
+    .bio-media.shivakumar-photo{
+      justify-self:center;
+      margin:0;
     }
 
-  })();
-  </script>
+    .bio-media.shivakumar-photo img{
+      transform:translateX(12px) scale(1.08);
+    }
+  }
 
-</header>
+  /* Mobile */
+  @media (max-width:560px){
+    .svc-hero{
+      padding:52px 0 20px;
+    }
+
+    .feature{
+      padding:18px;
+    }
+
+    .bio-card{
+      padding:16px;
+    }
+
+    .bio-media.shivakumar-photo{
+      width:220px;
+      height:220px;
+    }
+
+    .bio-media.shivakumar-photo img{
+      transform:translateX(10px) scale(1.08);
+    }
+  }
+</style>
+
+<main id="main">
+
+  <!-- Hero and Overview -->
+  <section class="svc-hero">
+    <div class="container">
+
+      <h1>About Vaxonyx</h1>
+
+      <div class="feature">
+
+        <span class="eyebrow">
+          Overview
+        </span>
+
+        <h3>
+          Biotechnology built for impact
+        </h3>
+
+        <p>
+          <strong>Vaxonyx</strong> is a biotechnology company focused on
+          developing innovative, accessible, and affordable genetic,
+          vaccine, and immunotherapy solutions powered by AI and molecular
+          biology. Our multidisciplinary expertise spans preclinical
+          R&amp;D, IND-enabling studies, and therapeutic platform
+          development, with a commitment to translating scientific
+          discovery into real-world health impact.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Mission -->
+  <section
+    id="mission"
+    class="container about-section"
+    aria-labelledby="mission-title"
+    style="margin-top:20px"
+  >
+    <div class="feature">
+
+      <span class="eyebrow">
+        Our Mission
+      </span>
+
+      <h3 id="mission-title">
+        To develop innovative, accessible &amp; affordable platforms
+      </h3>
+
+      <p>
+        At <strong>Vaxonyx</strong>, our mission is to develop innovative,
+        accessible, and affordable genetic, vaccine, and immunotherapy
+        platforms using AI and molecular biology to tackle infectious
+        diseases, cancer, and immune disorders. We strive to turn scientific
+        breakthroughs into real-world health solutions for everyone,
+        everywhere.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- Vision -->
+  <section
+    id="vision"
+    class="container about-section"
+    aria-labelledby="vision-title"
+    style="margin-top:10px"
+  >
+    <div class="feature">
+
+      <span class="eyebrow">
+        Our Vision
+      </span>
+
+      <h3 id="vision-title">
+        Lead globally in AI-driven biotechnology
+      </h3>
+
+      <p>
+        <strong>Vaxonyx’s vision</strong> is to lead globally in AI-driven
+        biotechnology by creating advanced DNA platforms that revolutionize
+        vaccine and gene therapy development. The company aims to set new
+        standards for precision and effectiveness, making personalized
+        therapies accessible and affordable for all.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- Team -->
+  <section
+    id="team"
+    class="container about-section"
+    aria-labelledby="team-title"
+    style="margin-top:26px"
+  >
+
+    <h2 id="team-title" class="svc-h2">
+      Team
+    </h2>
+
+    <p>
+      We are scientists, engineers, and builders advancing computational
+      immunology and translational biology.
+    </p>
+
+    <p class="team-blurb">
+      We are building a dynamic and multidisciplinary team under the
+      leadership of <strong>Dr. Kempaiah Rayavara</strong>, an accomplished
+      scientist and biotech executive with over two decades of experience
+      in molecular biology, infectious diseases, and preclinical research
+      and development.
+    </p>
+
+
+    <!-- Founder -->
+    <div class="bio-card">
+
+      <div class="bio-split">
+
+        <div>
+
+          <h3 class="team-name">
+            Kempaiah Rayavara, PhD
+          </h3>
+
+          <div class="team-title">
+            Founder &amp; President
+          </div>
+
+          <p class="team-blurb">
+            Transforming global health with AI-guided genetic, vaccine,
+            and immunotherapy platforms.
+          </p>
+
+          <details class="team-details">
+
+            <summary>
+              Full bio
+            </summary>
+
+            <p class="team-blurb">
+              Kempaiah Rayavara, PhD, is the Founder and President of
+              Vaxonyx. With 20+ years leading interdisciplinary research,
+              he specializes in harnessing artificial intelligence and
+              molecular biology to address infectious diseases, cancer,
+              and immune disorders. He has guided programs from discovery
+              through IND submission and FDA approval, including preclinical
+              GLP safety and efficacy studies in rodent and non-human primate
+              models.
+            </p>
+
+            <p class="team-blurb">
+              Previously, as Director of Preclinical R&amp;D at Imunon Inc.,
+              he led the design and development of a plasmid DNA vaccine,
+              overseeing IND-enabling efficacy, biodistribution, and
+              toxicology studies that resulted in Phase I clinical approval.
+              Earlier, at NIAID/NIH, he contributed to the identification
+              of the malaria parasite gene responsible for the PSAC nutrient
+              acquisition channel. His experience spans drug-mechanism
+              research for tissue repair at Chrysalis BioTherapeutics and
+              development of models for respiratory viruses, including RSV,
+              COVID-19, and influenza, at UTMB and Southern Research—playing
+              a key role in establishing COVID-19 models during the pandemic.
+            </p>
+
+            <p class="team-blurb">
+              He earned his PhD in Biochemistry studying the pharmaceutical
+              potential of nutraceuticals against diet-induced obesity. This
+              broad expertise underpins Vaxonyx’s commitment to rigorous,
+              high-quality solutions that bridge cutting-edge biotechnology
+              with real-world impact worldwide.
+            </p>
+
+          </details>
+
+        </div>
+
+        <figure class="bio-media">
+
+          <img
+            src="{{ '/assets/team/kempaiah-rayavara.JPEG' | relative_url }}"
+            alt="Dr. Kempaiah Rayavara portrait"
+            width="1200"
+            height="1600"
+            loading="lazy"
+          >
+
+        </figure>
+
+      </div>
+
+    </div>
+    <!-- End Founder -->
+
+
+    <div style="height:16px"></div>
+
+
+    <!-- Co-Founder: Shivakumar -->
+    <div class="bio-card">
+
+      <div class="bio-split">
+
+        <div>
+
+          <h3 class="team-name">
+            Shivakumar Rayavara Veerabhadraiah, M.S., Ph.D., CORe
+          </h3>
+
+          <div class="team-title">
+            Co-Founder
+          </div>
+
+          <p class="team-blurb">
+            Advancing AI-guided genomics, translational research, and
+            precision-medicine platforms.
+          </p>
+
+          <details class="team-details">
+
+            <summary>
+              Full bio
+            </summary>
+
+            <p class="team-blurb">
+              Dr. Shivakumar Rayavara Veerabhadraiah, Co-Founder of
+              Vaxonyx, brings 15+ years of integrated experience across
+              academia, industry, and clinical research.
+            </p>
+
+            <p class="team-blurb">
+              Dr. Veerabhadraiah earned his Master’s and Ph.D. in
+              Biomolecular Sciences from
+              <strong>Boise State University, USA</strong>, focusing on
+              the molecular drivers of liver fibrosis.
+            </p>
+
+            <p class="team-blurb">
+              Dr. Veerabhadraiah then completed 5+ years of postdoctoral
+              research at the
+              <strong>University of Utah, USA</strong>, where he uncovered
+              WNK2 variants associated with osteoarthritis and led the
+              development of a novel therapeutic that received
+              <strong>U.S. patent protection</strong>.
+            </p>
+
+            <p class="team-blurb">
+              Dr. Veerabhadraiah has authored
+              <strong>15+ peer-reviewed publications</strong>, received
+              numerous national and international awards, and was twice
+              named a finalist for the prestigious
+              <strong>New Investigator Recognition Award (NIRA)</strong>
+              by the Orthopaedic Research Society.
+            </p>
+
+            <p class="team-blurb">
+              In parallel, Dr. Veerabhadraiah served as a university
+              instructor in the USA for two years, sharpening his ability
+              to communicate complex science with clarity and impact.
+            </p>
+
+            <p class="team-blurb">
+              Dr. Veerabhadraiah’s core strengths include high-throughput
+              genomics, AI-guided drug discovery, immunogenetics, and
+              workflow automation.
+            </p>
+
+            <p class="team-blurb">
+              Complementing his scientific credentials, Dr. Veerabhadraiah
+              completed the CORe business program at
+              <strong>Harvard Business School Online</strong>, equipping
+              him with the strategic insight to scale innovation.
+            </p>
+
+            <p class="team-blurb">
+              His early career in India included work in a GCLP-certified
+              bioanalytical lab, where he gained hands-on experience in
+              regulatory-grade assay development—laying the foundation for
+              his precision-focused approach.
+            </p>
+
+            <p class="team-blurb">
+              At Vaxonyx, Dr. Veerabhadraiah helps lead the vision to bridge
+              cutting-edge science and technology, delivering transformative
+              immunogenomic solutions for the future of personalized
+              medicine.
+            </p>
+
+          </details>
+
+        </div>
+
+        <figure class="bio-media shivakumar-photo">
+
+          <img
+            src="{{ '/assets/team/Shivakumar_Headshot.jpg' | relative_url }}"
+            alt="Dr. Shivakumar Rayavara Veerabhadraiah portrait"
+            width="1200"
+            height="1200"
+            loading="lazy"
+          >
+
+        </figure>
+
+      </div>
+
+    </div>
+    <!-- End Co-Founder -->
+
+
+    <div style="height:16px"></div>
+
+
+    <!-- Advisory Committee -->
+    <h3
+      class="team-name"
+      style="font-size:22px;margin:18px 0 10px"
+    >
+      Advisory Committee
+    </h3>
+
+
+    <!-- Advisor: Subash C. Das -->
+    <div class="bio-card">
+
+      <div class="bio-split">
+
+        <div>
+
+          <h3 class="team-name">
+            Subash C. Das, DVM, MVS, Ph.D., PMP
+          </h3>
+
+          <div class="team-title">
+            Scientific Advisor and Consultant
+          </div>
+
+          <details class="team-details">
+
+            <summary>
+              Full bio
+            </summary>
+
+            <p class="team-blurb">
+              Subash C. Das, DVM, MVS, Ph.D., PMP, is an advisor to
+              Vaxonyx and a biotech-focused scientific leader with deep
+              expertise in viral vaccines and therapeutic antibodies. He
+              is recognized for building R&amp;D capabilities, driving
+              proof-of-concept work, and advancing early programs toward
+              IND through hands-on leadership and cross-functional
+              collaboration.
+            </p>
+
+            <p class="team-blurb">
+              He most recently led Infectious Disease Research at Southern
+              Research Institute from 2021 to 2023, managing a 17-member
+              team and directing preclinical efficacy and immunology studies
+              across COVID-19, influenza, and emerging pathogens, including
+              development of non-human-primate, ferret, and mouse models.
+              Previously, at Takeda/Inviragen from 2011 to 2020, he supported
+              HFMD and dengue vaccine programs, leading animal efficacy
+              studies, establishing GLP assays, and managing key external
+              collaborations for GMP and antigen production.
+            </p>
+
+            <p class="team-blurb">
+              He earned a Ph.D. in Molecular Virology from the University
+              of London, an MVS in Immunology, and a DVM. He holds a
+              PMP&reg; credential and has more than 50 publications and
+              three patents.
+            </p>
+
+            <div
+              class="link-pills"
+              aria-label="Learn more about Dr. Subash C. Das"
+            >
+
+              <span class="learn-more">
+                Learn more:
+              </span>
+
+              <a
+                class="pill-btn"
+                href="https://www.linkedin.com/in/subash-das-vet/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                class="pill-btn"
+                href="https://www.ncbi.nlm.nih.gov/myncbi/subash.das.1/bibliography/public/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Publications
+              </a>
+
+            </div>
+
+          </details>
+
+        </div>
+
+        <figure class="bio-media">
+
+          <img
+            src="{{ '/assets/team/subash-c-das.jpeg' | relative_url }}"
+            alt="Dr. Subash C. Das portrait"
+            width="1200"
+            height="1600"
+            loading="lazy"
+          >
+
+        </figure>
+
+      </div>
+
+    </div>
+    <!-- End Advisor -->
+
+  </section>
+  <!-- End Team -->
+
+</main>
