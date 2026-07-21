@@ -1,3 +1,73 @@
+<style>
+  /*
+   * Prevent page-specific .container rules from changing
+   * the width and layout of the shared header.
+   */
+  .site-header > .container.header-row{
+    width:min(1180px,94%) !important;
+    max-width:1180px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    box-sizing:border-box !important;
+  }
+
+  /*
+   * Keep desktop navigation on one line.
+   */
+  @media (min-width:901px){
+
+    .site-header .header-row{
+      display:flex !important;
+      align-items:center !important;
+      flex-wrap:nowrap !important;
+      gap:18px !important;
+    }
+
+    .site-header .brand{
+      flex:0 0 auto !important;
+    }
+
+    .site-header .brand-logo{
+      display:block;
+      flex:0 0 auto;
+    }
+
+    .site-header .site-nav{
+      flex:1 1 auto !important;
+      min-width:0 !important;
+    }
+
+    .site-header .site-nav > .menu{
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      flex-wrap:nowrap !important;
+      gap:18px !important;
+      margin:0 !important;
+      padding:0 !important;
+    }
+
+    .site-header .site-nav > .menu > li{
+      flex:0 0 auto !important;
+      white-space:nowrap !important;
+    }
+
+    .site-header .site-nav > .menu > li > a,
+    .site-header .dropdown-link,
+    .site-header .submenu-link{
+      display:inline-flex;
+      align-items:center;
+      white-space:nowrap !important;
+    }
+
+    .site-header .vx-fab-desktop{
+      flex:0 0 auto !important;
+      white-space:nowrap !important;
+    }
+  }
+</style>
+
+
 <header class="site-header" role="banner">
   <div class="container header-row">
 
@@ -15,6 +85,7 @@
         height="42"
       >
     </a>
+
 
     <!-- Mobile menu toggle -->
     <button
@@ -41,6 +112,7 @@
       </svg>
     </button>
 
+
     <!-- Main navigation -->
     <nav
       id="primary-nav"
@@ -57,8 +129,10 @@
           </a>
         </li>
 
+
         <!-- About -->
         <li class="dropdown">
+
           <a
             href="{{ '/about/' | relative_url }}"
             class="dropdown-link"
@@ -69,6 +143,7 @@
           </a>
 
           <ul class="dropdown-menu" role="menu">
+
             <li>
               <a href="{{ '/about/#mission' | relative_url }}">
                 Mission &amp; Vision
@@ -86,11 +161,14 @@
                 Careers
               </a>
             </li>
+
           </ul>
         </li>
 
+
         <!-- Services -->
         <li class="dropdown">
+
           <a
             href="{{ '/services/' | relative_url }}"
             class="dropdown-link"
@@ -108,7 +186,10 @@
               </a>
             </li>
 
+
+            <!-- Protein Production submenu -->
             <li class="has-sub">
+
               <a
                 href="{{ '/services/protein-production/' | relative_url }}"
                 class="submenu-link"
@@ -119,6 +200,7 @@
               </a>
 
               <ul class="submenu" role="menu">
+
                 <li>
                   <a href="{{ '/services/protein-production/antibody-production/' | relative_url }}">
                     Antibody production
@@ -130,10 +212,14 @@
                     Antigen production
                   </a>
                 </li>
+
               </ul>
             </li>
 
+
+            <!-- Assays submenu -->
             <li class="has-sub">
+
               <a
                 href="{{ '/services/assays/' | relative_url }}"
                 class="submenu-link"
@@ -144,6 +230,7 @@
               </a>
 
               <ul class="submenu" role="menu">
+
                 <li>
                   <a href="{{ '/services/assays/biochemical/' | relative_url }}">
                     Biochemical assays
@@ -155,8 +242,10 @@
                     Virology-Based assays
                   </a>
                 </li>
+
               </ul>
             </li>
+
 
             <li>
               <a href="{{ '/services/molecular-biology/' | relative_url }}">
@@ -167,9 +256,11 @@
           </ul>
         </li>
 
+
         <!-- AI Platforms -->
-        <!-- Same dropdown classes and styling as Services -->
+        <!-- Uses exactly the same dropdown structure as Services -->
         <li class="dropdown">
+
           <a
             href="https://ai.vaxonyx.com/"
             class="dropdown-link"
@@ -193,6 +284,7 @@
                 aria-disabled="true"
                 tabindex="-1"
                 onclick="return false;"
+                title="Under Development"
                 style="cursor:default;"
               >
                 Neoantigen Discovery
@@ -205,6 +297,7 @@
                 aria-disabled="true"
                 tabindex="-1"
                 onclick="return false;"
+                title="Under Development"
                 style="cursor:default;"
               >
                 HLA Typing
@@ -217,6 +310,7 @@
                 aria-disabled="true"
                 tabindex="-1"
                 onclick="return false;"
+                title="Under Development"
                 style="cursor:default;"
               >
                 Variant Calling
@@ -226,8 +320,10 @@
           </ul>
         </li>
 
+
         <!-- Innovation -->
         <li class="dropdown">
+
           <a
             href="{{ '/innovation/' | relative_url }}"
             class="dropdown-link"
@@ -260,6 +356,7 @@
           </ul>
         </li>
 
+
         <!-- Partners -->
         <li>
           <a href="{{ '/partners/' | relative_url }}">
@@ -267,8 +364,10 @@
           </a>
         </li>
 
+
         <!-- News and Investors -->
         <li class="dropdown">
+
           <a
             href="{{ '/news/' | relative_url }}"
             class="dropdown-link"
@@ -295,6 +394,7 @@
           </ul>
         </li>
 
+
         <!-- Contact -->
         <li>
           <a href="{{ '/contact/' | relative_url }}">
@@ -302,8 +402,10 @@
           </a>
         </li>
 
-        <!-- Mobile-only AI button -->
+
+        <!-- Mobile-only Ask Vaxonyx AI button -->
         <li class="ai-inline">
+
           <button
             class="vx-fab"
             id="vx-fab-mobile"
@@ -311,12 +413,14 @@
           >
             Ask Vaxonyx AI
           </button>
+
         </li>
 
       </ul>
     </nav>
 
-    <!-- Desktop AI button -->
+
+    <!-- Desktop Ask Vaxonyx AI button -->
     <button
       class="vx-fab vx-fab-desktop"
       id="vx-fab"
@@ -327,11 +431,13 @@
 
   </div>
 
+
   <!-- Ask Vaxonyx AI button binder -->
   <script>
   (function(){
 
     function openAI(e){
+
       if(e){
         e.preventDefault();
       }
@@ -345,6 +451,7 @@
         console.warn('VX_WIDGET not ready');
       }
     }
+
 
     function bind(){
 
@@ -370,6 +477,7 @@
       });
     }
 
+
     if(document.readyState === 'loading'){
 
       document.addEventListener(
@@ -379,7 +487,9 @@
       );
 
     }else{
+
       bind();
+
     }
 
   })();
