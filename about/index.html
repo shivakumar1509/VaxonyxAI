@@ -12,14 +12,13 @@ permalink: /about/
     --vx-ink:#0b1220;
     --vx-text:#223047;
     --vx-line:rgba(12,18,32,.12);
-    --vx-ring:rgba(63,169,245,.45);
-    --vx-bg:
-      conic-gradient(
-        from 210deg at 30% -10%,
-        rgba(0,124,145,.10),
-        rgba(63,169,245,.12),
-        transparent 50%
-      );
+    --vx-soft-blue-1:#F1F8FF;
+    --vx-soft-blue-2:#E9F5FF;
+    --vx-soft-blue-border:#B9E3FF;
+  }
+
+  html{
+    scroll-behavior:smooth;
   }
 
   .container{
@@ -221,11 +220,8 @@ permalink: /about/
       "Segoe UI",Roboto,Arial,sans-serif;
   }
 
-  .partner-mini-card p{
-    max-width:62ch;
-    margin:0 auto;
-    color:#243045;
-    font:400 15px/1.6 system-ui;
+  details.team-details summary:hover{
+    color:#045B6B;
   }
 
   details.team-details[open] summary{
@@ -285,14 +281,9 @@ permalink: /about/
     text-decoration:none;
   }
 
-  .partner-mini-card img{
-    display:block;
-    width:100%;
-    max-width:360px;
-    height:auto;
-    margin:10px auto 0;
-    border:1px solid var(--vx-line);
-    border-radius:12px;
+  .pill-btn:focus{
+    outline:2px solid rgba(63,169,245,.45);
+    outline-offset:2px;
   }
 
   /* =========================================================
@@ -319,8 +310,8 @@ permalink: /about/
       padding:52px 0 22px;
     }
 
-    .partner-mini-card{
-      padding:18px 14px 20px;
+    .feature{
+      padding:18px;
     }
 
     .bio-card{
@@ -338,7 +329,7 @@ permalink: /about/
   }
 </style>
 
-<main id="main" class="page-services">
+<main id="main">
 
   <!-- =======================================================
        ABOUT OVERVIEW
@@ -347,9 +338,7 @@ permalink: /about/
   <section class="about-hero">
     <div class="container">
 
-      <h1>
-        Partners
-      </h1>
+      <h1>About Vaxonyx</h1>
 
       <div class="feature">
 
@@ -373,14 +362,9 @@ permalink: /about/
 
       </div>
 
-        <span class="svc-badge">
-          Healthcare
-        </span>
+    </div>
+  </section>
 
-        <span class="svc-badge">
-          Technology
-        </span>
-      </div>
 
   <!-- =======================================================
        MISSION
@@ -402,7 +386,14 @@ permalink: /about/
         To develop innovative, accessible &amp; affordable platforms
       </h2>
 
-      </div>
+      <p>
+        At <strong>Vaxonyx</strong>, our mission is to develop innovative,
+        accessible, and affordable genetic, vaccine, and immunotherapy
+        platforms using AI and molecular biology to tackle infectious
+        diseases, cancer, and immune disorders. We strive to turn scientific
+        breakthroughs into real-world health solutions for everyone,
+        everywhere.
+      </p>
 
     </div>
   </section>
@@ -413,10 +404,12 @@ permalink: /about/
        ======================================================= -->
 
   <section
-    id="partners"
-    class="partners"
+    id="vision"
+    class="container about-section"
+    aria-labelledby="vision-title"
+    style="margin-top:10px"
   >
-    <div class="container partners-inner">
+    <div class="feature">
 
       <span class="eyebrow">
         Our Vision
@@ -427,16 +420,16 @@ permalink: /about/
       </h2>
 
       <p>
-        At <strong>Vaxonyx</strong>, we believe that innovation
-        accelerates through collaboration. We partner with academic
-        institutions, biotechnology companies, healthcare organizations,
-        and technology innovators to advance the frontiers of genetic
-        medicine, vaccines, and translational immunology.
+        <strong>Vaxonyx’s vision</strong> is to lead globally in AI-driven
+        biotechnology by creating advanced DNA platforms that revolutionize
+        vaccine and gene therapy development. The company aims to set new
+        standards for precision and effectiveness, making personalized
+        therapies accessible and affordable for all.
       </p>
 
+    </div>
+  </section>
 
-      <!-- Atlas Medicals -->
-      <article class="partner-mini-card">
 
   <!-- =======================================================
        TEAM
@@ -466,7 +459,6 @@ permalink: /about/
       research and development.
     </p>
 
-      </article>
 
     <!-- =====================================================
          KEMPAIAH RAYAVARA
