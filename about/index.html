@@ -13,223 +13,688 @@ title: About
     --vx-soft-blue-2:#E9F5FF;
     --vx-soft-blue-border:#B9E3FF;
   }
-  html { scroll-behavior: smooth; }
-  .container{width:min(1120px,92%);margin-inline:auto}
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  .container{
+    width:min(1120px,92%);
+    margin-inline:auto;
+  }
 
   /* Hero with integrated Overview */
   .svc-hero{
     padding:70px 0 28px;
     background:
-      linear-gradient(135deg, rgba(63,169,245,.14), rgba(0,124,145,.06) 40%, transparent 60%),
-      linear-gradient(180deg, #ffffff, #ffffff);
+      linear-gradient(
+        135deg,
+        rgba(63,169,245,.14),
+        rgba(0,124,145,.06) 40%,
+        transparent 60%
+      ),
+      linear-gradient(180deg,#ffffff,#ffffff);
   }
-  .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;margin:0 0 10px;color:var(--vx-ink)}
+
+  .svc-hero h1{
+    margin:0 0 10px;
+    color:var(--vx-ink);
+    font:800 clamp(30px,4.8vw,54px)/1.05
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  }
+
+  /* Section heading */
+  .svc-h2{
+    margin:0 0 10px;
+    color:var(--vx-ink);
+    font:800 clamp(28px,4vw,40px)/1.15
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  }
 
   /* Overview feature card */
   .feature{
-    border-radius:16px;
-    padding:22px 22px 20px;
-    background:linear-gradient(180deg,var(--vx-soft-blue-1),var(--vx-soft-blue-2));
-    border:1px solid var(--vx-soft-blue-border);
-    box-shadow:0 8px 18px rgba(12,18,32,.08);
     margin:18px 0;
+    padding:22px 22px 20px;
+    border:1px solid var(--vx-soft-blue-border);
+    border-radius:16px;
+    background:linear-gradient(
+      180deg,
+      var(--vx-soft-blue-1),
+      var(--vx-soft-blue-2)
+    );
+    box-shadow:0 8px 18px rgba(12,18,32,.08);
     color:#122033;
   }
+
   .feature .eyebrow{
     display:inline-block;
-    font:800 12px/1 system-ui;
-    color:#045B6B;
+    margin-bottom:10px;
+    padding:6px 10px;
     border:1px solid rgba(0,124,145,.25);
     border-radius:999px;
-    padding:6px 10px;
-    margin-bottom:10px;
     background:rgba(255,255,255,.6);
+    color:#045B6B;
+    font:800 12px/1 system-ui;
     letter-spacing:.05em;
     text-transform:uppercase;
   }
+
   .feature h3{
     margin:0 0 10px;
-    font:800 clamp(22px,3.2vw,34px)/1.12 system-ui,Segoe UI,Roboto,Helvetica,Arial;
     color:#0A7C93;
+    font:800 clamp(22px,3.2vw,34px)/1.12
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
   }
-  .feature p{margin:0;font:400 17px/1.75 system-ui;color:#142033}
 
-  .about-section { scroll-margin-top: 96px; }
+  .feature p{
+    margin:0;
+    color:#142033;
+    font:400 17px/1.75 system-ui;
+  }
+
+  .about-section{
+    scroll-margin-top:96px;
+  }
 
   /* Bio section */
-  .bio-card{border:1px solid var(--vx-line);border-radius:18px;background:#fff;box-shadow:0 4px 18px rgba(12,18,32,.06);padding:18px}
-  .bio-split{display:grid;grid-template-columns:1.25fr .9fr;gap:22px;align-items:start}
-  @media (max-width: 860px){.bio-split{grid-template-columns:1fr}}
-  .bio-media{border-radius:50%;overflow:hidden;justify-self:end;max-width:260px;box-shadow:0 4px 10px rgba(12,18,32,.15)}
-  .bio-media img{width:100%;height:auto;display:block}
-  .team-name{font:800 24px/1.25 system-ui;color:var(--vx-ink);margin:0 0 6px}
-  .team-title{font:600 14px/1.4 system-ui;color:#334;margin:0 0 8px}
-  .team-blurb{font:400 15px/1.7 system-ui;color:#223;margin:0 0 10px}
-  details.team-details{margin-top:6px;border-top:1px dashed var(--vx-line);padding-top:10px}
-  details.team-details summary{cursor:pointer;font:700 14px/1.4 system-ui;color:var(--vx-primary)}
+  .bio-card{
+    padding:18px;
+    border:1px solid var(--vx-line);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 4px 18px rgba(12,18,32,.06);
+  }
+
+  .bio-split{
+    display:grid;
+    grid-template-columns:1.25fr .9fr;
+    gap:22px;
+    align-items:start;
+  }
+
+  .bio-media{
+    max-width:260px;
+    margin:0;
+    overflow:hidden;
+    justify-self:end;
+    border-radius:50%;
+    background:#f3f7fd;
+    box-shadow:0 4px 10px rgba(12,18,32,.15);
+  }
+
+  .bio-media img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+
+  /*
+    This class gives Shivakumar's headshot a clean circular crop,
+    even when the original image is rectangular.
+  */
+  .bio-media.shivakumar-photo{
+    width:260px;
+    height:260px;
+  }
+
+  .bio-media.shivakumar-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+  }
+
+  .team-name{
+    margin:0 0 6px;
+    color:var(--vx-ink);
+    font:800 24px/1.25 system-ui;
+  }
+
+  .team-name-long{
+    font-size:clamp(20px,2.5vw,24px);
+  }
+
+  .team-title{
+    margin:0 0 8px;
+    color:#334;
+    font:600 14px/1.4 system-ui;
+  }
+
+  .team-blurb{
+    margin:0 0 10px;
+    color:#223;
+    font:400 15px/1.7 system-ui;
+  }
+
+  details.team-details{
+    margin-top:6px;
+    padding-top:10px;
+    border-top:1px dashed var(--vx-line);
+  }
+
+  details.team-details summary{
+    cursor:pointer;
+    color:var(--vx-primary);
+    font:700 14px/1.4 system-ui;
+  }
+
+  details.team-details summary:hover{
+    color:#045B6B;
+  }
+
+  details.team-details[open] summary{
+    margin-bottom:10px;
+  }
+
+  .team-card-gap{
+    height:16px;
+  }
 
   /* Advisor link pills */
-  .link-pills{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
-  .learn-more{font:700 14px/1.4 system-ui;color:#223;margin:8px 10px 0 0}
+  .link-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+    margin-top:10px;
+  }
+
+  .learn-more{
+    margin:8px 10px 0 0;
+    color:#223;
+    font:700 14px/1.4 system-ui;
+  }
+
   .pill-btn{
-    display:inline-flex;align-items:center;justify-content:center;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
     padding:8px 12px;
-    border-radius:999px;
     border:1px solid rgba(0,124,145,.28);
-    background:linear-gradient(180deg, rgba(63,169,245,.14), rgba(0,124,145,.06));
+    border-radius:999px;
+    background:linear-gradient(
+      180deg,
+      rgba(63,169,245,.14),
+      rgba(0,124,145,.06)
+    );
+    box-shadow:0 6px 14px rgba(12,18,32,.06);
     color:var(--vx-primary);
     font:700 13px/1 system-ui;
     text-decoration:none;
-    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-    box-shadow:0 6px 14px rgba(12,18,32,.06);
+    transition:
+      transform .15s ease,
+      box-shadow .15s ease,
+      background .15s ease;
   }
-  .pill-btn:hover{transform:translateY(-1px);box-shadow:0 10px 18px rgba(12,18,32,.10)}
-  .pill-btn:focus{outline:2px solid rgba(63,169,245,.45);outline-offset:2px}
+
+  .pill-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 10px 18px rgba(12,18,32,.10);
+  }
+
+  .pill-btn:focus{
+    outline:2px solid rgba(63,169,245,.45);
+    outline-offset:2px;
+  }
+
+  /* Mobile layout */
+  @media (max-width:860px){
+    .bio-split{
+      grid-template-columns:1fr;
+    }
+
+    .bio-media{
+      justify-self:center;
+      order:-1;
+    }
+  }
+
+  @media (max-width:560px){
+    .svc-hero{
+      padding:52px 0 20px;
+    }
+
+    .feature{
+      padding:18px;
+    }
+
+    .bio-card{
+      padding:16px;
+    }
+
+    .bio-media.shivakumar-photo{
+      width:220px;
+      height:220px;
+    }
+
+    .team-name,
+    .team-title{
+      text-align:center;
+    }
+
+    details.team-details summary{
+      text-align:center;
+    }
+  }
 </style>
 
 <main id="main">
+
   <!-- ===== Hero with Overview ===== -->
   <section class="svc-hero">
     <div class="container">
+
       <h1>About Vaxonyx</h1>
 
       <div class="feature">
         <span class="eyebrow">Overview</span>
+
         <h3>Biotechnology built for impact</h3>
+
         <p>
-          <strong>Vaxonyx</strong> is a biotechnology company focused on developing innovative,
-          accessible, and affordable genetic, vaccine, and immunotherapy solutions powered by AI and
-          molecular biology. Our multidisciplinary expertise spans preclinical R&amp;D, IND-enabling studies,
-          and therapeutic platform development, with a commitment to translating scientific discovery
-          into real-world health impact.
+          <strong>Vaxonyx</strong> is a biotechnology company focused on
+          developing innovative, accessible, and affordable genetic,
+          vaccine, and immunotherapy solutions powered by AI and molecular
+          biology. Our multidisciplinary expertise spans preclinical
+          R&amp;D, IND-enabling studies, and therapeutic platform
+          development, with a commitment to translating scientific
+          discovery into real-world health impact.
         </p>
       </div>
+
     </div>
   </section>
+
 
   <!-- ===== Mission ===== -->
-  <section id="mission" class="container about-section" aria-labelledby="mission-title" style="margin-top:20px">
+  <section
+    id="mission"
+    class="container about-section"
+    aria-labelledby="mission-title"
+    style="margin-top:20px"
+  >
     <div class="feature">
+
       <span class="eyebrow">Our Mission</span>
-      <h3 id="mission-title">To develop innovative, accessible &amp; affordable platforms</h3>
+
+      <h3 id="mission-title">
+        To develop innovative, accessible &amp; affordable platforms
+      </h3>
+
       <p>
-        At <strong>Vaxonyx</strong>, our mission is to develop innovative, accessible, and affordable genetic,
-        vaccine, and immunotherapy platforms using AI and molecular biology to tackle infectious diseases,
-        cancer, and immune disorders. We strive to turn scientific breakthroughs into real-world health
-        solutions for everyone, everywhere.
+        At <strong>Vaxonyx</strong>, our mission is to develop innovative,
+        accessible, and affordable genetic, vaccine, and immunotherapy
+        platforms using AI and molecular biology to tackle infectious
+        diseases, cancer, and immune disorders. We strive to turn scientific
+        breakthroughs into real-world health solutions for everyone,
+        everywhere.
       </p>
+
     </div>
   </section>
+
 
   <!-- ===== Vision ===== -->
-  <section id="vision" class="container about-section" aria-labelledby="vision-title" style="margin-top:10px">
+  <section
+    id="vision"
+    class="container about-section"
+    aria-labelledby="vision-title"
+    style="margin-top:10px"
+  >
     <div class="feature">
+
       <span class="eyebrow">Our Vision</span>
-      <h3 id="vision-title">Lead globally in AI-driven biotechnology</h3>
+
+      <h3 id="vision-title">
+        Lead globally in AI-driven biotechnology
+      </h3>
+
       <p>
-        <strong>Vaxonyx’s vision</strong> is to lead globally in AI-driven biotechnology by creating advanced DNA
-        platforms that revolutionize vaccine and gene therapy development. The company aims to set new
-        standards for precision and effectiveness, making personalized therapies accessible and affordable
-        for all.
+        <strong>Vaxonyx’s vision</strong> is to lead globally in AI-driven
+        biotechnology by creating advanced DNA platforms that revolutionize
+        vaccine and gene therapy development. The company aims to set new
+        standards for precision and effectiveness, making personalized
+        therapies accessible and affordable for all.
       </p>
+
     </div>
   </section>
 
-  <!-- ===== Team ===== -->
-  <section id="team" class="container about-section" aria-labelledby="team-title" style="margin-top:26px">
-    <h2 id="team-title" class="svc-h2">Team</h2>
-    <p>We are scientists, engineers, and builders advancing computational immunology and translational biology.</p>
 
-    <p class="team-blurb">
-      We are building a dynamic and multidisciplinary team under the leadership of
-      <strong>Dr. Kempaiah Rayavara</strong>, an accomplished scientist and biotech executive with over two decades of
-      experience in molecular biology, infectious diseases, and preclinical research and development.
+  <!-- ===== Team ===== -->
+  <section
+    id="team"
+    class="container about-section"
+    aria-labelledby="team-title"
+    style="margin-top:26px"
+  >
+
+    <h2 id="team-title" class="svc-h2">
+      Team
+    </h2>
+
+    <p>
+      We are scientists, engineers, and builders advancing computational
+      immunology and translational biology.
     </p>
 
-    <!-- ===== Founder ===== -->
+    <p class="team-blurb">
+      We are building a dynamic and multidisciplinary team under the
+      leadership of <strong>Dr. Kempaiah Rayavara</strong>, an accomplished
+      scientist and biotech executive with over two decades of experience
+      in molecular biology, infectious diseases, and preclinical research
+      and development.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- FOUNDER                                               -->
+    <!-- ===================================================== -->
     <div class="bio-card">
+
       <div class="bio-split">
+
         <div>
-          <h3 class="team-name">Kempaiah Rayavara, PhD</h3>
-          <div class="team-title">Founder &amp; President</div>
-          <p class="team-blurb">Transforming global health with AI-guided genetic, vaccine, and immunotherapy platforms.</p>
+
+          <h3 class="team-name">
+            Kempaiah Rayavara, PhD
+          </h3>
+
+          <div class="team-title">
+            Founder &amp; President
+          </div>
+
+          <p class="team-blurb">
+            Transforming global health with AI-guided genetic, vaccine,
+            and immunotherapy platforms.
+          </p>
 
           <details class="team-details">
+
             <summary>Full bio</summary>
+
             <p class="team-blurb">
-              Kempaiah Rayavara, PhD, is the Founder and President of Vaxonyx. With 20+ years leading
-              interdisciplinary research, he specializes in harnessing artificial intelligence and molecular
-              biology to address infectious diseases, cancer, and immune disorders. He has guided programs
-              from discovery through IND submission and FDA approval, including preclinical GLP safety and
-              efficacy studies in rodent and non-human primate models.
+              Kempaiah Rayavara, PhD, is the Founder and President of
+              Vaxonyx. With 20+ years leading interdisciplinary research,
+              he specializes in harnessing artificial intelligence and
+              molecular biology to address infectious diseases, cancer,
+              and immune disorders. He has guided programs from discovery
+              through IND submission and FDA approval, including preclinical
+              GLP safety and efficacy studies in rodent and non-human primate
+              models.
             </p>
+
             <p class="team-blurb">
-              Previously, as Director of Preclinical R&amp;D at Imunon Inc., he led the design and development
-              of a plasmid DNA vaccine, overseeing IND-enabling efficacy, biodistribution, and toxicology
-              studies that resulted in Phase I clinical approval. Earlier, at NIAID/NIH, he contributed to
-              the identification of the malaria parasite gene responsible for the PSAC nutrient acquisition
-              channel. His experience spans drug-mechanism research for tissue repair (Chrysalis BioTherapeutics)
-              and development of models for respiratory viruses (RSV, COVID-19, influenza) at UTMB and Southern Research—
-              playing a key role in establishing COVID-19 models during the pandemic.
+              Previously, as Director of Preclinical R&amp;D at Imunon Inc.,
+              he led the design and development of a plasmid DNA vaccine,
+              overseeing IND-enabling efficacy, biodistribution, and
+              toxicology studies that resulted in Phase I clinical approval.
+              Earlier, at NIAID/NIH, he contributed to the identification
+              of the malaria parasite gene responsible for the PSAC nutrient
+              acquisition channel. His experience spans drug-mechanism
+              research for tissue repair at Chrysalis BioTherapeutics and
+              development of models for respiratory viruses, including RSV,
+              COVID-19, and influenza, at UTMB and Southern Research—playing
+              a key role in establishing COVID-19 models during the pandemic.
             </p>
+
             <p class="team-blurb">
-              He earned his PhD in Biochemistry studying the pharmaceutical potential of nutraceuticals against
-              diet-induced obesity. This broad expertise underpins Vaxonyx’s commitment to rigorous, high-quality
-              solutions that bridge cutting-edge biotechnology with real-world impact worldwide.
+              He earned his PhD in Biochemistry studying the pharmaceutical
+              potential of nutraceuticals against diet-induced obesity. This
+              broad expertise underpins Vaxonyx’s commitment to rigorous,
+              high-quality solutions that bridge cutting-edge biotechnology
+              with real-world impact worldwide.
             </p>
+
           </details>
+
         </div>
 
         <figure class="bio-media">
-          <img src="{{ '/assets/team/kempaiah-rayavara.JPEG' | relative_url }}"
-               alt="Dr. Kempaiah Rayavara portrait"
-               width="1200" height="1600" loading="lazy">
-        </figure>
-      </div>
-    </div>
 
-    <!-- ===== Advisory Committee ===== -->
+          <img
+            src="{{ '/assets/team/kempaiah-rayavara.JPEG' | relative_url }}"
+            alt="Dr. Kempaiah Rayavara portrait"
+            width="1200"
+            height="1600"
+            loading="lazy"
+          >
+
+        </figure>
+
+      </div>
+
+    </div>
+    <!-- END FOUNDER -->
+
+
+    <div class="team-card-gap"></div>
+
+
+    <!-- ===================================================== -->
+    <!-- CO-FOUNDER: SHIVAKUMAR                                -->
+    <!-- ===================================================== -->
+    <div class="bio-card">
+
+      <div class="bio-split">
+
+        <div>
+
+          <h3 class="team-name team-name-long">
+            Shivakumar Rayavara Veerabhadraiah, M.S., Ph.D., CORe
+          </h3>
+
+          <div class="team-title">
+            Co-Founder
+          </div>
+
+          <p class="team-blurb">
+            Advancing AI-guided genomics, translational research, and
+            precision-medicine platforms.
+          </p>
+
+          <details class="team-details">
+
+            <summary>Full bio</summary>
+
+            <p class="team-blurb">
+              Dr. Shivakumar Rayavara Veerabhadraiah is a Co-Founder of
+              Vaxonyx and brings more than 15 years of integrated experience
+              across academia, industry, and clinical research.
+            </p>
+
+            <p class="team-blurb">
+              Dr. Veerabhadraiah earned his Master’s and Ph.D. in Biomolecular
+              Sciences from Boise State University in the United States,
+              where his research focused on the molecular drivers of liver
+              fibrosis.
+            </p>
+
+            <p class="team-blurb">
+              He subsequently completed five years of postdoctoral research
+              at the University of Utah, where he identified WNK2 variants
+              associated with osteoarthritis and led the development of a
+              novel therapeutic currently under U.S. patent review.
+            </p>
+
+            <p class="team-blurb">
+              Dr. Veerabhadraiah has authored more than 15 peer-reviewed
+              publications, received numerous national and international
+              awards, and was twice named a finalist for the prestigious
+              New Investigator Recognition Award presented by the
+              Orthopaedic Research Society.
+            </p>
+
+            <p class="team-blurb">
+              In parallel, he served as a university instructor in the
+              United States for two years, strengthening his ability to
+              communicate complex scientific concepts with clarity and
+              impact.
+            </p>
+
+            <p class="team-blurb">
+              His core areas of expertise include high-throughput genomics,
+              AI-guided drug discovery, immunogenetics, translational
+              research, and scientific workflow automation.
+            </p>
+
+            <p class="team-blurb">
+              Complementing his scientific credentials, Dr. Veerabhadraiah
+              completed the Credential of Readiness, or CORe, business
+              program through Harvard Business School Online. This training
+              provided strategic knowledge in business analytics, economics,
+              and financial accounting.
+            </p>
+
+            <p class="team-blurb">
+              Earlier in his career, he worked in a GCLP-certified
+              bioanalytical laboratory in India, where he gained hands-on
+              experience in regulatory-grade assay development. This
+              experience established the foundation for his rigorous and
+              precision-focused approach to scientific innovation.
+            </p>
+
+            <p class="team-blurb">
+              At Vaxonyx, Dr. Veerabhadraiah works to bridge advanced
+              biology, artificial intelligence, and translational innovation
+              to develop accessible immunogenomic and precision-medicine
+              solutions.
+            </p>
+
+          </details>
+
+        </div>
+
+        <figure class="bio-media shivakumar-photo">
+
+          <img
+            src="{{ '/assets/team/Shivakumar_Headshot.jpg' | relative_url }}"
+            alt="Dr. Shivakumar Rayavara Veerabhadraiah portrait"
+            width="1200"
+            height="1200"
+            loading="lazy"
+          >
+
+        </figure>
+
+      </div>
+
+    </div>
+    <!-- END CO-FOUNDER -->
+
+
+    <!-- ===================================================== -->
+    <!-- ADVISORY COMMITTEE                                    -->
+    <!-- ===================================================== -->
     <div style="height:16px"></div>
-    <h3 class="team-name" style="font-size:22px;margin:18px 0 10px">Advisory Committee</h3>
+
+    <h3
+      class="team-name"
+      style="font-size:22px;margin:18px 0 10px"
+    >
+      Advisory Committee
+    </h3>
+
 
     <!-- ===== Advisor: Subash C. Das ===== -->
     <div class="bio-card">
+
       <div class="bio-split">
+
         <div>
-          <h3 class="team-name">Subash C. Das, DVM, MVS, Ph.D., PMP</h3>
-          <div class="team-title">Scientific advisor and Consultant</div>
+
+          <h3 class="team-name">
+            Subash C. Das, DVM, MVS, Ph.D., PMP
+          </h3>
+
+          <div class="team-title">
+            Scientific Advisor and Consultant
+          </div>
 
           <details class="team-details">
+
             <summary>Full bio</summary>
 
             <p class="team-blurb">
-              Subash C. Das, DVM, MVS, Ph.D., PMP, is an advisor to Vaxonyx and a biotech-focused scientific leader with deep expertise in viral vaccines and therapeutic antibodies. He is recognized for building R&amp;D capabilities, driving proof-of-concept work, and advancing early programs toward IND through hands-on leadership and cross-functional collaboration.
+              Subash C. Das, DVM, MVS, Ph.D., PMP, is an advisor to
+              Vaxonyx and a biotech-focused scientific leader with deep
+              expertise in viral vaccines and therapeutic antibodies. He
+              is recognized for building R&amp;D capabilities, driving
+              proof-of-concept work, and advancing early programs toward
+              IND through hands-on leadership and cross-functional
+              collaboration.
             </p>
 
             <p class="team-blurb">
-              He most recently led Infectious Disease Research at Southern Research Institute (2021–2023), managing a 17-member team and directing preclinical efficacy/immunology studies across COVID-19, influenza, and emerging pathogens, including development of NHP, ferret, and mouse models. Previously at Takeda/Inviragen (2011–2020), he supported HFMD and dengue vaccine programs, leading animal efficacy studies, establishing GLP assays, and managing key external collaborations for GMP/antigen production.
+              He most recently led Infectious Disease Research at Southern
+              Research Institute from 2021 to 2023, managing a 17-member
+              team and directing preclinical efficacy and immunology studies
+              across COVID-19, influenza, and emerging pathogens, including
+              development of non-human-primate, ferret, and mouse models.
+              Previously, at Takeda/Inviragen from 2011 to 2020, he supported
+              HFMD and dengue vaccine programs, leading animal efficacy
+              studies, establishing GLP assays, and managing key external
+              collaborations for GMP and antigen production.
             </p>
 
             <p class="team-blurb">
-              He earned a Ph.D. in Molecular Virology (University of London), an MVS in Immunology, and a DVM, holds a PMP&reg; credential, and has 50+ publications and 3 patents.
+              He earned a Ph.D. in Molecular Virology from the University
+              of London, an MVS in Immunology, and a DVM. He holds a
+              PMP&reg; credential and has more than 50 publications and
+              three patents.
             </p>
 
-            <div class="link-pills" aria-label="Learn more about Dr. Subash C. Das">
-              <span class="learn-more">Learn more:</span>
-              <a class="pill-btn" href="https://www.linkedin.com/in/subash-das-vet/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a class="pill-btn" href="https://www.ncbi.nlm.nih.gov/myncbi/subash.das.1/bibliography/public/" target="_blank" rel="noopener noreferrer">Publications</a>
+            <div
+              class="link-pills"
+              aria-label="Learn more about Dr. Subash C. Das"
+            >
+
+              <span class="learn-more">
+                Learn more:
+              </span>
+
+              <a
+                class="pill-btn"
+                href="https://www.linkedin.com/in/subash-das-vet/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                class="pill-btn"
+                href="https://www.ncbi.nlm.nih.gov/myncbi/subash.das.1/bibliography/public/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Publications
+              </a>
+
             </div>
 
           </details>
+
         </div>
 
         <figure class="bio-media">
-          <img src="{{ '/assets/team/subash-c-das.jpeg' | relative_url }}"
-               alt="Dr. Subash C. Das portrait"
-               width="1200" height="1600" loading="lazy">
+
+          <img
+            src="{{ '/assets/team/subash-c-das.jpeg' | relative_url }}"
+            alt="Dr. Subash C. Das portrait"
+            width="1200"
+            height="1600"
+            loading="lazy"
+          >
+
         </figure>
+
       </div>
+
     </div>
+    <!-- END ADVISOR -->
 
   </section>
+  <!-- END TEAM SECTION -->
+
 </main>
