@@ -43,14 +43,6 @@ title: About
       system-ui,Segoe UI,Roboto,Helvetica,Arial;
   }
 
-  /* Section heading */
-  .svc-h2{
-    margin:0 0 10px;
-    color:var(--vx-ink);
-    font:800 clamp(28px,4vw,40px)/1.15
-      system-ui,Segoe UI,Roboto,Helvetica,Arial;
-  }
-
   /* Overview feature card */
   .feature{
     margin:18px 0;
@@ -118,7 +110,6 @@ title: About
     overflow:hidden;
     justify-self:end;
     border-radius:50%;
-    background:#f3f7fd;
     box-shadow:0 4px 10px rgba(12,18,32,.15);
   }
 
@@ -129,12 +120,17 @@ title: About
   }
 
   /*
-    This class gives Shivakumar's headshot a clean circular crop,
-    even when the original image is rectangular.
+    Shivakumar image only:
+    Keeps the circular crop and moves the photograph
+    slightly farther toward the right edge on desktop.
   */
   .bio-media.shivakumar-photo{
     width:260px;
     height:260px;
+    max-width:none;
+    justify-self:end;
+    transform:translateX(12px);
+    background:#f3f7fd;
   }
 
   .bio-media.shivakumar-photo img{
@@ -148,10 +144,6 @@ title: About
     margin:0 0 6px;
     color:var(--vx-ink);
     font:800 24px/1.25 system-ui;
-  }
-
-  .team-name-long{
-    font-size:clamp(20px,2.5vw,24px);
   }
 
   .team-title{
@@ -184,10 +176,6 @@ title: About
 
   details.team-details[open] summary{
     margin-bottom:10px;
-  }
-
-  .team-card-gap{
-    height:16px;
   }
 
   /* Advisor link pills */
@@ -245,7 +233,15 @@ title: About
 
     .bio-media{
       justify-self:center;
-      order:-1;
+    }
+
+    /*
+      Centers only the Shivakumar image on tablets
+      and mobile devices.
+    */
+    .bio-media.shivakumar-photo{
+      justify-self:center;
+      transform:none;
     }
   }
 
@@ -265,15 +261,6 @@ title: About
     .bio-media.shivakumar-photo{
       width:220px;
       height:220px;
-    }
-
-    .team-name,
-    .team-title{
-      text-align:center;
-    }
-
-    details.team-details summary{
-      text-align:center;
     }
   }
 </style>
@@ -468,7 +455,7 @@ title: About
     <!-- END FOUNDER -->
 
 
-    <div class="team-card-gap"></div>
+    <div style="height:16px"></div>
 
 
     <!-- ===================================================== -->
@@ -480,7 +467,7 @@ title: About
 
         <div>
 
-          <h3 class="team-name team-name-long">
+          <h3 class="team-name">
             Shivakumar Rayavara Veerabhadraiah, M.S., Ph.D., CORe
           </h3>
 
@@ -498,67 +485,64 @@ title: About
             <summary>Full bio</summary>
 
             <p class="team-blurb">
-              Dr. Shivakumar Rayavara Veerabhadraiah is a Co-Founder of
-              Vaxonyx and brings more than 15 years of integrated experience
-              across academia, industry, and clinical research.
+              Dr. Shivakumar Rayavara Veerabhadraiah, Co-Founder of
+              Vaxonyx, brings 15+ years of integrated experience across
+              academia, industry, and clinical research.
             </p>
 
             <p class="team-blurb">
-              Dr. Veerabhadraiah earned his Master’s and Ph.D. in Biomolecular
-              Sciences from Boise State University in the United States,
-              where his research focused on the molecular drivers of liver
-              fibrosis.
+              Dr. Veerabhadraiah earned his Master’s and Ph.D. in
+              Biomolecular Sciences from Boise State University, USA,
+              focusing on the molecular drivers of liver fibrosis.
             </p>
 
             <p class="team-blurb">
-              He subsequently completed five years of postdoctoral research
-              at the University of Utah, where he identified WNK2 variants
-              associated with osteoarthritis and led the development of a
-              novel therapeutic currently under U.S. patent review.
+              Dr. Veerabhadraiah then completed 5+ years of postdoctoral
+              research at the University of Utah, USA, where he uncovered
+              WNK2 variants associated with osteoarthritis and led the
+              development of a novel therapeutic currently under U.S.
+              patent review.
             </p>
 
             <p class="team-blurb">
-              Dr. Veerabhadraiah has authored more than 15 peer-reviewed
+              Dr. Veerabhadraiah has authored 15+ peer-reviewed
               publications, received numerous national and international
               awards, and was twice named a finalist for the prestigious
-              New Investigator Recognition Award presented by the
-              Orthopaedic Research Society.
+              New Investigator Recognition Award (NIRA) by the Orthopaedic
+              Research Society.
             </p>
 
             <p class="team-blurb">
-              In parallel, he served as a university instructor in the
-              United States for two years, strengthening his ability to
-              communicate complex scientific concepts with clarity and
-              impact.
+              In parallel, Dr. Veerabhadraiah served as a university
+              instructor in the USA for two years, sharpening his ability
+              to communicate complex science with clarity and impact.
             </p>
 
             <p class="team-blurb">
-              His core areas of expertise include high-throughput genomics,
-              AI-guided drug discovery, immunogenetics, translational
-              research, and scientific workflow automation.
+              Dr. Veerabhadraiah’s core strengths include high-throughput
+              genomics, AI-guided drug discovery, immunogenetics, and
+              workflow automation.
             </p>
 
             <p class="team-blurb">
               Complementing his scientific credentials, Dr. Veerabhadraiah
-              completed the Credential of Readiness, or CORe, business
-              program through Harvard Business School Online. This training
-              provided strategic knowledge in business analytics, economics,
-              and financial accounting.
+              completed the CORe business program at Harvard Business School
+              Online, equipping him with the strategic insight to scale
+              innovation.
             </p>
 
             <p class="team-blurb">
-              Earlier in his career, he worked in a GCLP-certified
-              bioanalytical laboratory in India, where he gained hands-on
-              experience in regulatory-grade assay development. This
-              experience established the foundation for his rigorous and
-              precision-focused approach to scientific innovation.
+              His early career in India included work in a GCLP-certified
+              bioanalytical lab, where he gained hands-on experience in
+              regulatory-grade assay development—laying the foundation for
+              his precision-focused approach.
             </p>
 
             <p class="team-blurb">
-              At Vaxonyx, Dr. Veerabhadraiah works to bridge advanced
-              biology, artificial intelligence, and translational innovation
-              to develop accessible immunogenomic and precision-medicine
-              solutions.
+              At Vaxonyx, Dr. Veerabhadraiah helps lead the vision to bridge
+              cutting-edge science and technology, delivering transformative
+              immunogenomic solutions for the future of personalized
+              medicine.
             </p>
 
           </details>
