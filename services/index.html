@@ -6,14 +6,14 @@ description: From engineered cell lines to scalable protein production and valid
 
 <style>
   :root{
-    --vx-primary:#007C91;
+    --vx-primary:#167fd8;
     --vx-accent:#3FA9F5;
     --vx-ink:#0b1220;
     --vx-line:rgba(12,18,32,.12);
     --vx-bg:conic-gradient(
       from 210deg at 30% -10%,
-      rgba(0,124,145,.10),
       rgba(63,169,245,.12),
+      rgba(22,127,216,.11),
       transparent 50%
     );
   }
@@ -33,8 +33,7 @@ description: From engineered cell lines to scalable protein production and valid
   .svc-hero h1{
     margin:0 0 10px;
     color:var(--vx-ink);
-    font:800 clamp(30px,4.8vw,54px)/1.05
-      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;
   }
 
   .svc-hero p{
@@ -75,9 +74,7 @@ description: From engineered cell lines to scalable protein production and valid
     border:1px solid var(--vx-line);
     border-radius:16px;
     background:#fff;
-    transition:
-      transform .2s ease,
-      box-shadow .2s ease;
+    transition:transform .2s ease,box-shadow .2s ease;
   }
 
   .card:hover{
@@ -121,84 +118,71 @@ description: From engineered cell lines to scalable protein production and valid
     gap:10px;
   }
 
-  /* =========================================================
-     BOTTOM CTA
+  /* Service-page buttons
+     Matches the blue button treatment used on the Innovation page.
+     Scoped to this page so it does not change buttons elsewhere.
+  */
+  .page-services .btn,
+  .page-services .svc-cta-link{
+    --bg:linear-gradient(180deg,#3FA9F5,#167fd8);
+    --fg:#fff;
 
-     Left and right margins remain auto, keeping this section
-     aligned with the service cards.
-     ========================================================= */
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
+    min-height:38px;
+    padding:.7rem 1rem;
+    box-sizing:border-box;
+
+    border:none;
+    border-radius:14px;
+
+    background:var(--bg);
+    color:var(--fg) !important;
+
+    font:600 14px/1 system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    text-decoration:none !important;
+    white-space:nowrap;
+
+    box-shadow:0 8px 22px -10px rgba(63,169,245,.45);
+
+    transition:
+      transform .18s ease,
+      filter .18s ease,
+      box-shadow .18s ease;
+  }
+
+  .page-services .btn:hover,
+  .page-services .svc-cta-link:hover{
+    transform:translateY(-1px);
+    filter:brightness(.97);
+    color:#fff !important;
+    text-decoration:none !important;
+    box-shadow:0 11px 24px -10px rgba(22,127,216,.52);
+  }
+
+  .page-services .btn:focus-visible,
+  .page-services .svc-cta-link:focus-visible{
+    outline:3px solid rgba(63,169,245,.34);
+    outline-offset:3px;
+  }
+
+  /* Bottom CTA
+     Important: horizontal margins remain auto, so this block stays aligned
+     with the service cards instead of moving to the far-left of the page.
+  */
   .svc-cta{
     display:flex;
     align-items:center;
     flex-wrap:wrap;
     gap:10px;
-
     margin:24px auto 42px;
     padding-top:18px;
-
     border-top:1px solid var(--vx-line);
   }
 
-  .svc-cta-link{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    min-height:42px;
-    padding:10px 16px;
-    box-sizing:border-box;
-
-    border:1px solid rgba(0,124,145,.24);
-    border-radius:999px;
-
-    background:#fff;
-    color:var(--vx-primary);
-
-    font:700 14px/1
-      system-ui,Segoe UI,Roboto,Helvetica,Arial;
-
-    text-decoration:none;
-    white-space:nowrap;
-
-    transition:
-      transform .18s ease,
-      background-color .18s ease,
-      border-color .18s ease,
-      box-shadow .18s ease;
-  }
-
-  .svc-cta-link:hover{
-    transform:translateY(-1px);
-
-    border-color:rgba(0,124,145,.48);
-    background:rgba(0,124,145,.05);
-
-    box-shadow:
-      0 8px 18px -12px rgba(0,0,0,.38);
-
-    text-decoration:none;
-  }
-
-  .svc-cta-link:focus-visible{
-    outline:3px solid rgba(63,169,245,.32);
-    outline-offset:3px;
-  }
-
-  .svc-cta-link.primary{
-    border-color:var(--vx-primary);
-    background:var(--vx-primary);
-    color:#fff;
-
-    box-shadow:
-      0 8px 20px -12px rgba(0,124,145,.9);
-  }
-
-  .svc-cta-link.primary:hover{
-    border-color:#006b7d;
-    background:#006b7d;
-    color:#fff;
-  }
+  /* CTA links use the same blue button style as all service-card actions. */
 
   @media(max-width:560px){
     .svc-cta{
@@ -214,12 +198,14 @@ description: From engineered cell lines to scalable protein production and valid
 
   @media(prefers-reduced-motion:reduce){
     .card,
-    .svc-cta-link{
+    .page-services .btn,
+    .page-services .svc-cta-link{
       transition:none;
     }
 
     .card:hover,
-    .svc-cta-link:hover{
+    .page-services .btn:hover,
+    .page-services .svc-cta-link:hover{
       transform:none;
     }
   }
@@ -230,44 +216,28 @@ description: From engineered cell lines to scalable protein production and valid
   <!-- Hero -->
   <section class="svc-hero">
     <div class="container">
-
       <h1>Services</h1>
-
       <p>
-        From engineered cell lines to scalable protein production
-        and validated assays, Vaxonyx delivers reliable,
-        documentation-ready results for translational research
-        and product development.
+        From engineered cell lines to scalable protein production and validated assays,
+        Vaxonyx delivers reliable, documentation-ready results for translational
+        research and product development.
       </p>
-
     </div>
   </section>
 
   <!-- Services Grid -->
-  <section
-    class="container"
-    aria-labelledby="svc-overview"
-  >
-
-    <h2
-      id="svc-overview"
-      class="svc-h2"
-    >
-      What we offer
-    </h2>
+  <section class="container" aria-labelledby="svc-overview">
+    <h2 id="svc-overview" class="svc-h2">What we offer</h2>
 
     <div class="cards">
 
       <!-- Cell Lines -->
       <article class="card">
-
         <h3>Cell line services</h3>
 
         <p>
-          Stable &amp; transient mammalian lines
-          (CHO, HEK293). Vector design, single-cell
-          cloning, characterization, and release-ready
-          documentation.
+          Stable &amp; transient mammalian lines (CHO, HEK293). Vector design,
+          single-cell cloning, characterization, and release-ready documentation.
         </p>
 
         <div class="pillrow">
@@ -276,11 +246,7 @@ description: From engineered cell lines to scalable protein production and valid
           <span class="pill">Stability &amp; CoA</span>
         </div>
 
-        <div
-          class="links"
-          style="margin-top:12px"
-        >
-
+        <div class="links" style="margin-top:12px">
           <a
             class="btn primary"
             href="{{ '/services/cell-lines/' | relative_url }}"
@@ -294,20 +260,16 @@ description: From engineered cell lines to scalable protein production and valid
           >
             Get a quote
           </a>
-
         </div>
-
       </article>
 
       <!-- Protein Production -->
       <article class="card">
-
         <h3>Protein production</h3>
 
         <p>
-          Mammalian, insect, yeast, and bacterial
-          expression with fit-for-purpose purification.
-          Options for antibodies and antigens.
+          Mammalian, insect, yeast, and bacterial expression with fit-for-purpose
+          purification. Options for antibodies and antigens.
         </p>
 
         <div class="pillrow">
@@ -316,11 +278,7 @@ description: From engineered cell lines to scalable protein production and valid
           <span class="pill">QC &amp; documentation</span>
         </div>
 
-        <div
-          class="links"
-          style="margin-top:12px"
-        >
-
+        <div class="links" style="margin-top:12px">
           <a
             class="btn primary"
             href="{{ '/services/protein-production/' | relative_url }}"
@@ -341,20 +299,16 @@ description: From engineered cell lines to scalable protein production and valid
           >
             Antigen
           </a>
-
         </div>
-
       </article>
 
       <!-- Assays -->
       <article class="card">
-
         <h3>Assays</h3>
 
         <p>
-          Fit-for-purpose analytical assays to de-risk
-          development: identity, purity, stability,
-          and functional testing.
+          Fit-for-purpose analytical assays to de-risk development: identity,
+          purity, stability, and functional testing.
         </p>
 
         <div class="pillrow">
@@ -363,11 +317,7 @@ description: From engineered cell lines to scalable protein production and valid
           <span class="pill">Function</span>
         </div>
 
-        <div
-          class="links"
-          style="margin-top:12px"
-        >
-
+        <div class="links" style="margin-top:12px">
           <a
             class="btn primary"
             href="{{ '/services/assays/' | relative_url }}"
@@ -381,20 +331,16 @@ description: From engineered cell lines to scalable protein production and valid
           >
             Talk to BD
           </a>
-
         </div>
-
       </article>
 
       <!-- Molecular Biology -->
       <article class="card">
-
         <h3>Molecular biology</h3>
 
         <p>
-          Core cloning and construct engineering to
-          accelerate discovery: vector design, synthesis,
-          and validation with rapid turnaround.
+          Core cloning and construct engineering to accelerate discovery:
+          vector design, synthesis, and validation with rapid turnaround.
         </p>
 
         <div class="pillrow">
@@ -403,11 +349,7 @@ description: From engineered cell lines to scalable protein production and valid
           <span class="pill">Site-directed mutagenesis</span>
         </div>
 
-        <div
-          class="links"
-          style="margin-top:12px"
-        >
-
+        <div class="links" style="margin-top:12px">
           <a
             class="btn primary"
             href="{{ '/services/molecular-biology/' | relative_url }}"
@@ -421,20 +363,14 @@ description: From engineered cell lines to scalable protein production and valid
           >
             Request scope
           </a>
-
         </div>
-
       </article>
 
     </div>
   </section>
 
-  <!-- Bottom CTA -->
-  <section
-    class="container svc-cta"
-    aria-label="Services actions"
-  >
-
+  <!-- CTA -->
+  <section class="container svc-cta" aria-label="Services actions">
     <a
       class="svc-cta-link"
       href="{{ '/contact/' | relative_url }}"
@@ -448,7 +384,6 @@ description: From engineered cell lines to scalable protein production and valid
     >
       See updates
     </a>
-
   </section>
 
 </main>
