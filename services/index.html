@@ -106,7 +106,7 @@ description: From engineered cell lines to scalable protein production and valid
     display:flex;
     flex-wrap:wrap;
     gap:7px;
-    margin:0 0 26px;
+    margin:0;
   }
 
   .pill{
@@ -122,7 +122,7 @@ description: From engineered cell lines to scalable protein production and valid
 
   /* Keep every card's buttons on one clean row and align
      all action rows at the bottom of their cards. */
-  .links{
+  .page-services .links{
     display:grid;
     grid-auto-flow:column;
     grid-auto-columns:minmax(0,1fr);
@@ -134,7 +134,7 @@ description: From engineered cell lines to scalable protein production and valid
 
     /* Extra breathing room between the pills and buttons.
        This is especially helpful for the Molecular biology card. */
-    padding-top:0px;
+    padding-top:30px;
   }
 
   /* Service-page buttons
@@ -211,7 +211,7 @@ description: From engineered cell lines to scalable protein production and valid
   }
 
   @media(max-width:560px){
-    .links{
+    .page-services .links{
       grid-auto-flow:row;
       grid-template-columns:1fr;
     }
