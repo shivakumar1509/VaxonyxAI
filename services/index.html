@@ -10,113 +10,445 @@ description: From engineered cell lines to scalable protein production and valid
     --vx-accent:#3FA9F5;
     --vx-ink:#0b1220;
     --vx-line:rgba(12,18,32,.12);
-    --vx-bg: conic-gradient(from 210deg at 30% -10%, rgba(0,124,145,.10), rgba(63,169,245,.12), transparent 50%);
+    --vx-bg:conic-gradient(
+      from 210deg at 30% -10%,
+      rgba(0,124,145,.10),
+      rgba(63,169,245,.12),
+      transparent 50%
+    );
   }
 
-  .container{width:min(1120px,92%);margin-inline:auto}
+  .container{
+    width:min(1120px,92%);
+    margin-inline:auto;
+  }
 
   /* Hero */
-  .svc-hero{position:relative;padding:88px 0 42px;background:var(--vx-bg)}
-  .svc-hero h1{font:800 clamp(30px,4.8vw,54px)/1.05 system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--vx-ink);margin:0 0 10px}
-  .svc-hero p{font:400 16px/1.65 system-ui;color:#213;max-width:70ch;margin:0}
+  .svc-hero{
+    position:relative;
+    padding:88px 0 42px;
+    background:var(--vx-bg);
+  }
 
-  .svc-h2{font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;margin:34px 0 14px;color:var(--vx-ink)}
+  .svc-hero h1{
+    margin:0 0 10px;
+    color:var(--vx-ink);
+    font:800 clamp(30px,4.8vw,54px)/1.05
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  }
+
+  .svc-hero p{
+    max-width:70ch;
+    margin:0;
+    color:#213;
+    font:400 16px/1.65 system-ui;
+  }
+
+  .svc-h2{
+    margin:34px 0 14px;
+    color:var(--vx-ink);
+    font:700 clamp(20px,2.6vw,28px)/1.2 system-ui;
+  }
 
   /* Cards */
-  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0 8px}
-  @media(max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.cards{grid-template-columns:1fr}}
-  .card{background:#fff;border:1px solid var(--vx-line);border-radius:16px;padding:18px 16px;transition:transform .2s ease, box-shadow .2s ease}
-  .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.25)}
-  .card h3{margin:.2rem 0 .35rem;font:700 16px/1.3 system-ui;color:#0f1a2a}
-  .card p{margin:0 0 10px;font:400 14px/1.6 system-ui;color:#2a3040}
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin:24px 0 8px;
+  }
 
-  .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
-  .pill{display:inline-flex;align-items:center;border:1px solid var(--vx-line);border-radius:999px;padding:.35rem .7rem;font:600 12px/1.1 system-ui;background:#fff;color:#243045}
+  @media(max-width:1100px){
+    .cards{
+      grid-template-columns:repeat(2,1fr);
+    }
+  }
 
-  .links{display:flex;gap:10px;flex-wrap:wrap}
+  @media(max-width:560px){
+    .cards{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .card{
+    padding:18px 16px;
+    border:1px solid var(--vx-line);
+    border-radius:16px;
+    background:#fff;
+    transition:
+      transform .2s ease,
+      box-shadow .2s ease;
+  }
+
+  .card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px -12px rgba(0,0,0,.25);
+  }
+
+  .card h3{
+    margin:.2rem 0 .35rem;
+    color:#0f1a2a;
+    font:700 16px/1.3 system-ui;
+  }
+
+  .card p{
+    margin:0 0 10px;
+    color:#2a3040;
+    font:400 14px/1.6 system-ui;
+  }
+
+  .pillrow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:10px 0 0;
+  }
+
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    padding:.35rem .7rem;
+    border:1px solid var(--vx-line);
+    border-radius:999px;
+    background:#fff;
+    color:#243045;
+    font:600 12px/1.1 system-ui;
+  }
+
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  /* =========================================================
+     BOTTOM CTA
+
+     Left and right margins remain auto, keeping this section
+     aligned with the service cards.
+     ========================================================= */
+
+  .svc-cta{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+
+    margin:24px auto 42px;
+    padding-top:18px;
+
+    border-top:1px solid var(--vx-line);
+  }
+
+  .svc-cta-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:42px;
+    padding:10px 16px;
+    box-sizing:border-box;
+
+    border:1px solid rgba(0,124,145,.24);
+    border-radius:999px;
+
+    background:#fff;
+    color:var(--vx-primary);
+
+    font:700 14px/1
+      system-ui,Segoe UI,Roboto,Helvetica,Arial;
+
+    text-decoration:none;
+    white-space:nowrap;
+
+    transition:
+      transform .18s ease,
+      background-color .18s ease,
+      border-color .18s ease,
+      box-shadow .18s ease;
+  }
+
+  .svc-cta-link:hover{
+    transform:translateY(-1px);
+
+    border-color:rgba(0,124,145,.48);
+    background:rgba(0,124,145,.05);
+
+    box-shadow:
+      0 8px 18px -12px rgba(0,0,0,.38);
+
+    text-decoration:none;
+  }
+
+  .svc-cta-link:focus-visible{
+    outline:3px solid rgba(63,169,245,.32);
+    outline-offset:3px;
+  }
+
+  .svc-cta-link.primary{
+    border-color:var(--vx-primary);
+    background:var(--vx-primary);
+    color:#fff;
+
+    box-shadow:
+      0 8px 20px -12px rgba(0,124,145,.9);
+  }
+
+  .svc-cta-link.primary:hover{
+    border-color:#006b7d;
+    background:#006b7d;
+    color:#fff;
+  }
+
+  @media(max-width:560px){
+    .svc-cta{
+      align-items:stretch;
+      flex-direction:column;
+      margin-top:20px;
+    }
+
+    .svc-cta-link{
+      width:100%;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .card,
+    .svc-cta-link{
+      transition:none;
+    }
+
+    .card:hover,
+    .svc-cta-link:hover{
+      transform:none;
+    }
+  }
 </style>
 
 <main id="main" class="page-services">
+
   <!-- Hero -->
   <section class="svc-hero">
     <div class="container">
+
       <h1>Services</h1>
-      <p>From engineered cell lines to scalable protein production and validated assays, Vaxonyx delivers reliable, documentation-ready results for translational research and product development.</p>
+
+      <p>
+        From engineered cell lines to scalable protein production
+        and validated assays, Vaxonyx delivers reliable,
+        documentation-ready results for translational research
+        and product development.
+      </p>
+
     </div>
   </section>
 
   <!-- Services Grid -->
-  <section class="container" aria-labelledby="svc-overview">
-    <h2 id="svc-overview" class="svc-h2">What we offer</h2>
+  <section
+    class="container"
+    aria-labelledby="svc-overview"
+  >
+
+    <h2
+      id="svc-overview"
+      class="svc-h2"
+    >
+      What we offer
+    </h2>
+
     <div class="cards">
 
       <!-- Cell Lines -->
       <article class="card">
+
         <h3>Cell line services</h3>
-        <p>Stable &amp; transient mammalian lines (CHO, HEK293). Vector design, single-cell cloning, characterization, and release-ready documentation.</p>
+
+        <p>
+          Stable &amp; transient mammalian lines
+          (CHO, HEK293). Vector design, single-cell
+          cloning, characterization, and release-ready
+          documentation.
+        </p>
+
         <div class="pillrow">
           <span class="pill">CHO &amp; HEK293</span>
           <span class="pill">Single-cell cloning</span>
           <span class="pill">Stability &amp; CoA</span>
         </div>
-        <div class="links" style="margin-top:12px">
-          <a class="btn primary" href="{{ '/services/cell-lines/' | relative_url }}">Explore cell lines</a>
-          <a class="btn" href="{{ '/contact/' | relative_url }}">Get a quote</a>
+
+        <div
+          class="links"
+          style="margin-top:12px"
+        >
+
+          <a
+            class="btn primary"
+            href="{{ '/services/cell-lines/' | relative_url }}"
+          >
+            Explore cell lines
+          </a>
+
+          <a
+            class="btn"
+            href="{{ '/contact/' | relative_url }}"
+          >
+            Get a quote
+          </a>
+
         </div>
+
       </article>
 
       <!-- Protein Production -->
       <article class="card">
+
         <h3>Protein production</h3>
-        <p>Mammalian, insect, yeast, and bacterial expression with fit-for-purpose purification. Options for antibodies and antigens.</p>
+
+        <p>
+          Mammalian, insect, yeast, and bacterial
+          expression with fit-for-purpose purification.
+          Options for antibodies and antigens.
+        </p>
+
         <div class="pillrow">
           <span class="pill">Antibody production</span>
           <span class="pill">Antigen production</span>
           <span class="pill">QC &amp; documentation</span>
         </div>
-        <div class="links" style="margin-top:12px">
-          <a class="btn primary" href="{{ '/services/protein-production/' | relative_url }}">Overview</a>
-          <a class="btn" href="{{ '/services/protein-production/antibody-production/' | relative_url }}">Antibody</a>
-          <a class="btn" href="{{ '/services/protein-production/antigen/' | relative_url }}">Antigen</a>
+
+        <div
+          class="links"
+          style="margin-top:12px"
+        >
+
+          <a
+            class="btn primary"
+            href="{{ '/services/protein-production/' | relative_url }}"
+          >
+            Overview
+          </a>
+
+          <a
+            class="btn"
+            href="{{ '/services/protein-production/antibody-production/' | relative_url }}"
+          >
+            Antibody
+          </a>
+
+          <a
+            class="btn"
+            href="{{ '/services/protein-production/antigen/' | relative_url }}"
+          >
+            Antigen
+          </a>
+
         </div>
+
       </article>
 
       <!-- Assays -->
       <article class="card">
+
         <h3>Assays</h3>
-        <p>Fit-for-purpose analytical assays to de-risk development: identity, purity, stability, and functional testing.</p>
+
+        <p>
+          Fit-for-purpose analytical assays to de-risk
+          development: identity, purity, stability,
+          and functional testing.
+        </p>
+
         <div class="pillrow">
           <span class="pill">Identity &amp; purity</span>
           <span class="pill">Stability</span>
           <span class="pill">Function</span>
         </div>
-        <div class="links" style="margin-top:12px">
-          <a class="btn primary" href="{{ '/services/assays/' | relative_url }}">Explore assays</a>
-          <a class="btn" href="{{ '/contact/' | relative_url }}">Talk to BD</a>
+
+        <div
+          class="links"
+          style="margin-top:12px"
+        >
+
+          <a
+            class="btn primary"
+            href="{{ '/services/assays/' | relative_url }}"
+          >
+            Explore assays
+          </a>
+
+          <a
+            class="btn"
+            href="{{ '/contact/' | relative_url }}"
+          >
+            Talk to BD
+          </a>
+
         </div>
+
       </article>
 
       <!-- Molecular Biology -->
       <article class="card">
+
         <h3>Molecular biology</h3>
-        <p>Core cloning and construct engineering to accelerate discovery: vector design, synthesis, and validation with rapid turnaround.</p>
+
+        <p>
+          Core cloning and construct engineering to
+          accelerate discovery: vector design, synthesis,
+          and validation with rapid turnaround.
+        </p>
+
         <div class="pillrow">
           <span class="pill">Cloning &amp; subcloning</span>
           <span class="pill">Codon optimization</span>
           <span class="pill">Site-directed mutagenesis</span>
         </div>
-        <div class="links" style="margin-top:12px">
-          <a class="btn primary" href="{{ '/services/molecular-biology/' | relative_url }}">Overview</a>
-          <a class="btn" href="{{ '/contact/' | relative_url }}">Request scope</a>
+
+        <div
+          class="links"
+          style="margin-top:12px"
+        >
+
+          <a
+            class="btn primary"
+            href="{{ '/services/molecular-biology/' | relative_url }}"
+          >
+            Overview
+          </a>
+
+          <a
+            class="btn"
+            href="{{ '/contact/' | relative_url }}"
+          >
+            Request scope
+          </a>
+
         </div>
+
       </article>
+
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="container" style="margin:10px 0 34px; border-top:1px solid var(--vx-line); padding-top:14px">
-    <a class="btn" href="{{ '/contact/' | relative_url }}">Start a project</a>
-    <a class="btn primary" href="{{ '/news/#press' | relative_url }}" style="margin-left:8px">See updates</a>
+  <!-- Bottom CTA -->
+  <section
+    class="container svc-cta"
+    aria-label="Services actions"
+  >
+
+    <a
+      class="svc-cta-link"
+      href="{{ '/contact/' | relative_url }}"
+    >
+      Start a project
+    </a>
+
+    <a
+      class="svc-cta-link primary"
+      href="{{ '/news/#press' | relative_url }}"
+    >
+      See updates
+    </a>
+
   </section>
+
 </main>
