@@ -1,0 +1,640 @@
+<style>
+  /*
+   * BulkMind AI homepage promotion
+   * This styling is isolated and will not alter the existing homepage.
+   */
+
+  .vx-promo-slot{
+    width:min(960px,100%);
+    margin:46px auto 0;
+    padding:0;
+  }
+
+  .vx-promo-card{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:center;
+    gap:28px;
+
+    width:100%;
+    padding:25px 27px;
+
+    color:#fff;
+    text-align:left;
+    text-decoration:none;
+
+    border:1px solid rgba(255,255,255,.38);
+    border-radius:24px;
+
+    background:
+      radial-gradient(
+        circle at 90% 20%,
+        rgba(109,210,255,.22),
+        transparent 31%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(255,255,255,.20),
+        rgba(255,255,255,.075)
+      );
+
+    box-shadow:
+      0 26px 62px rgba(0,15,42,.32),
+      inset 0 1px 0 rgba(255,255,255,.28),
+      inset 0 -1px 0 rgba(255,255,255,.07);
+
+    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px);
+
+    transform:translateZ(0);
+
+    transition:
+      transform .28s ease,
+      border-color .28s ease,
+      box-shadow .28s ease;
+  }
+
+  /*
+   * Top illumination line
+   */
+  .vx-promo-card::after{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:10%;
+    width:80%;
+    height:1px;
+
+    background:linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.92),
+      transparent
+    );
+
+    opacity:.68;
+  }
+
+  /*
+   * Slow premium shimmer
+   */
+  .vx-promo-card::before{
+    content:"";
+    position:absolute;
+    z-index:0;
+
+    top:-100%;
+    left:-38%;
+
+    width:24%;
+    height:300%;
+
+    pointer-events:none;
+
+    transform:rotate(18deg);
+
+    background:linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.18),
+      transparent
+    );
+
+    animation:vx-promo-shimmer 7.5s ease-in-out infinite;
+  }
+
+  .vx-promo-card:hover{
+    color:#fff;
+    text-decoration:none;
+
+    transform:translateY(-5px);
+
+    border-color:rgba(255,255,255,.62);
+
+    box-shadow:
+      0 34px 78px rgba(0,15,42,.40),
+      inset 0 1px 0 rgba(255,255,255,.32),
+      inset 0 -1px 0 rgba(255,255,255,.08);
+  }
+
+  .vx-promo-card:focus-visible{
+    outline:3px solid rgba(255,255,255,.95);
+    outline-offset:5px;
+  }
+
+  .vx-promo-content{
+    position:relative;
+    z-index:2;
+    min-width:0;
+  }
+
+  .vx-promo-meta{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+
+    margin:0 0 10px;
+  }
+
+  .vx-promo-new{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:7px 12px;
+
+    border:1px solid rgba(255,255,255,.44);
+    border-radius:999px;
+
+    background:rgba(0,28,57,.43);
+
+    color:#fff;
+
+    font:
+      800 11px/1
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Inter,
+      Arial,
+      sans-serif;
+
+    letter-spacing:.11em;
+    text-transform:uppercase;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.13);
+  }
+
+  .vx-promo-dot{
+    width:8px;
+    height:8px;
+    flex:0 0 auto;
+
+    border-radius:50%;
+
+    background:#70f0ae;
+
+    box-shadow:
+      0 0 0 5px rgba(112,240,174,.12),
+      0 0 16px rgba(112,240,174,.62);
+
+    animation:vx-promo-pulse 2.7s ease-in-out infinite;
+  }
+
+  .vx-promo-platform{
+    color:rgba(255,255,255,.78);
+
+    font:
+      800 11px/1.2
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Inter,
+      Arial,
+      sans-serif;
+
+    letter-spacing:.13em;
+    text-transform:uppercase;
+  }
+
+  .vx-promo-title{
+    margin:0;
+
+    color:#fff;
+
+    font:
+      850 clamp(26px,3vw,38px)/1.12
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Inter,
+      Arial,
+      sans-serif;
+
+    letter-spacing:-.025em;
+  }
+
+  .vx-promo-title-highlight{
+    position:relative;
+
+    color:#b5e5ff;
+
+    text-shadow:
+      0 0 24px rgba(181,229,255,.20);
+  }
+
+  .vx-promo-description{
+    max-width:680px;
+
+    margin:11px 0 0;
+
+    color:rgba(255,255,255,.90);
+
+    font:
+      500 15px/1.62
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Inter,
+      Arial,
+      sans-serif;
+  }
+
+  .vx-promo-features{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+
+    margin-top:15px;
+  }
+
+  .vx-promo-feature{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    padding:7px 11px;
+
+    border:1px solid rgba(255,255,255,.20);
+    border-radius:999px;
+
+    background:rgba(0,28,57,.23);
+
+    color:rgba(255,255,255,.92);
+
+    font:
+      700 12px/1
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Inter,
+      Arial,
+      sans-serif;
+  }
+
+  .vx-promo-feature::before{
+    content:"";
+
+    width:6px;
+    height:6px;
+    flex:0 0 auto;
+
+    border-radius:50%;
+
+    background:#7cddff;
+
+    box-shadow:0 0 9px rgba(124,221,255,.65);
+  }
+
+  .vx-promo-action{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:11px;
+
+    min-width:210px;
+  }
+
+  .vx-promo-orbit{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:58px;
+    height:58px;
+
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:50%;
+
+    background:rgba(255,255,255,.10);
+
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.20),
+      0 12px 26px rgba(0,18,48,.20);
+  }
+
+  .vx-promo-orbit::before{
+    content:"";
+
+    position:absolute;
+    inset:-6px;
+
+    border:1px dashed rgba(148,224,255,.50);
+    border-radius:50%;
+
+    animation:vx-promo-orbit 14s linear infinite;
+  }
+
+  .vx-promo-orbit svg{
+    width:29px;
+    height:29px;
+
+    fill:none;
+    stroke:#fff;
+    stroke-width:1.9;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+
+    filter:drop-shadow(0 0 8px rgba(255,255,255,.25));
+  }
+
+  .vx-promo-button{
+    position:relative;
+    overflow:hidden;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    min-width:205px;
+    padding:15px 20px;
+
+    border:1px solid rgba(255,255,255,.36);
+    border-radius:15px;
+
+    background:linear-gradient(
+      135deg,
+      #ff7a48,
+      #ef552e
+    );
+
+    color:#fff;
+
+    font:
+      800 14px/1.2
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Inter,
+      Arial,
+      sans-serif;
+
+    box-shadow:
+      0 15px 30px rgba(185,50,21,.35),
+      inset 0 1px 0 rgba(255,255,255,.28);
+
+    transition:
+      transform .25s ease,
+      box-shadow .25s ease,
+      filter .25s ease;
+  }
+
+  .vx-promo-button::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    background:linear-gradient(
+      110deg,
+      transparent 22%,
+      rgba(255,255,255,.26) 48%,
+      transparent 73%
+    );
+
+    transform:translateX(-125%);
+
+    transition:transform .7s ease;
+  }
+
+  .vx-promo-card:hover .vx-promo-button{
+    transform:translateY(-2px);
+    filter:saturate(1.08);
+
+    box-shadow:
+      0 20px 38px rgba(185,50,21,.44),
+      inset 0 1px 0 rgba(255,255,255,.32);
+  }
+
+  .vx-promo-card:hover .vx-promo-button::before{
+    transform:translateX(125%);
+  }
+
+  .vx-promo-arrow{
+    display:inline-block;
+
+    font-size:18px;
+    line-height:1;
+
+    transition:transform .25s ease;
+  }
+
+  .vx-promo-card:hover .vx-promo-arrow{
+    transform:translateX(4px);
+  }
+
+  @keyframes vx-promo-shimmer{
+    0%,
+    57%{
+      left:-38%;
+      opacity:0;
+    }
+
+    65%{
+      opacity:1;
+    }
+
+    84%,
+    100%{
+      left:125%;
+      opacity:0;
+    }
+  }
+
+  @keyframes vx-promo-pulse{
+    0%,
+    100%{
+      transform:scale(1);
+
+      box-shadow:
+        0 0 0 5px rgba(112,240,174,.12),
+        0 0 14px rgba(112,240,174,.48);
+    }
+
+    50%{
+      transform:scale(1.14);
+
+      box-shadow:
+        0 0 0 8px rgba(112,240,174,.05),
+        0 0 20px rgba(112,240,174,.72);
+    }
+  }
+
+  @keyframes vx-promo-orbit{
+    from{
+      transform:rotate(0deg);
+    }
+
+    to{
+      transform:rotate(360deg);
+    }
+  }
+
+  @media (max-width:820px){
+    .vx-promo-card{
+      grid-template-columns:1fr;
+      gap:24px;
+
+      padding:25px 22px;
+
+      text-align:center;
+    }
+
+    .vx-promo-meta,
+    .vx-promo-features{
+      justify-content:center;
+    }
+
+    .vx-promo-description{
+      margin-inline:auto;
+    }
+
+    .vx-promo-action{
+      width:100%;
+    }
+
+    .vx-promo-button{
+      width:min(100%,330px);
+    }
+  }
+
+  @media (max-width:720px){
+    .vx-promo-slot{
+      margin-top:36px;
+    }
+
+    .vx-promo-card{
+      border-radius:20px;
+    }
+
+    .vx-promo-title{
+      font-size:clamp(25px,8vw,34px);
+    }
+
+    .vx-promo-description{
+      font-size:14px;
+    }
+  }
+
+  @media (max-width:480px){
+    .vx-promo-card{
+      padding:22px 17px;
+    }
+
+    .vx-promo-meta{
+      flex-direction:column;
+    }
+
+    .vx-promo-feature{
+      font-size:11px;
+    }
+
+    .vx-promo-orbit{
+      width:52px;
+      height:52px;
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .vx-promo-card::before,
+    .vx-promo-dot,
+    .vx-promo-orbit::before{
+      animation:none;
+    }
+
+    .vx-promo-card,
+    .vx-promo-button,
+    .vx-promo-button::before,
+    .vx-promo-arrow{
+      transition:none;
+    }
+  }
+</style>
+
+<div class="vx-promo-slot">
+  <a
+    class="vx-promo-card"
+    href="https://ai.vaxonyx.com/bulkmind/#/"
+    aria-label="Explore the newly launched BulkMind AI platform"
+  >
+    <div class="vx-promo-content">
+      <div class="vx-promo-meta">
+        <span class="vx-promo-new">
+          <span class="vx-promo-dot" aria-hidden="true"></span>
+          New Launch
+        </span>
+
+        <span class="vx-promo-platform">
+          Vaxonyx AI Platform
+        </span>
+      </div>
+
+      <h2 class="vx-promo-title">
+        Introducing
+        <span class="vx-promo-title-highlight">BulkMind AI</span>
+      </h2>
+
+      <p class="vx-promo-description">
+        Transform bulk RNA-seq data into differential-expression results,
+        transcription-factor activity, prioritized pathways, and
+        publication-ready visualizations—all within one integrated
+        AI-powered platform.
+      </p>
+
+      <div
+        class="vx-promo-features"
+        aria-label="BulkMind AI platform benefits"
+      >
+        <span class="vx-promo-feature">No coding</span>
+        <span class="vx-promo-feature">No server setup</span>
+        <span class="vx-promo-feature">Biology-ready insights</span>
+      </div>
+    </div>
+
+    <div class="vx-promo-action" aria-hidden="true">
+      <span class="vx-promo-orbit">
+        <svg viewBox="0 0 32 32">
+          <path d="M8 23.5c4-1.5 5.2-5.5 7-10.2 1.2-3.1 2.8-5.6 5.8-6.8"></path>
+          <path d="M7.5 11.5c4.3.4 7.8 2.1 10.6 5.1 2.1 2.2 4.2 3.5 6.4 3.9"></path>
+          <circle cx="7" cy="23.8" r="2"></circle>
+          <circle cx="21.4" cy="6.4" r="2"></circle>
+          <circle cx="25" cy="20.7" r="2"></circle>
+          <circle cx="7.2" cy="11.4" r="2"></circle>
+        </svg>
+      </span>
+
+      <span class="vx-promo-button">
+        Explore BulkMind AI
+        <span class="vx-promo-arrow">→</span>
+      </span>
+    </div>
+  </a>
+</div>
