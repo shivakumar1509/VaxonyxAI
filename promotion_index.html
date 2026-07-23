@@ -1,15 +1,16 @@
 <style>
   /*
-   * Compact BulkMind AI launch ribbon
-   * Replace the entire promotion_index.html with this file.
+   * BulkMind AI homepage promotion
+   * Balanced medium-size version
    */
 
-  .vx-mini-promo-wrap{
-    width:min(590px,88%);
-    margin:24px auto 0;
+  .vx-bm-promo-wrap{
+    width:min(760px,92%);
+    margin:30px auto 0;
+    padding:0;
   }
 
-  .vx-mini-promo{
+  .vx-bm-promo{
     position:relative;
     isolation:isolate;
     overflow:hidden;
@@ -17,35 +18,40 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:18px;
+    gap:24px;
 
     width:100%;
-    padding:12px 14px 12px 16px;
+    box-sizing:border-box;
+    padding:18px 20px;
 
-    border:1px solid rgba(255,255,255,.36);
-    border-radius:16px;
+    color:#fff;
+    text-align:left;
+    text-decoration:none;
+
+    border:1px solid rgba(255,255,255,.40);
+    border-radius:19px;
 
     background:
       radial-gradient(
-        circle at 90% 20%,
-        rgba(106,211,255,.20),
+        circle at 91% 18%,
+        rgba(111,211,255,.23),
         transparent 34%
       ),
       linear-gradient(
         135deg,
-        rgba(255,255,255,.17),
-        rgba(255,255,255,.07)
+        rgba(255,255,255,.19),
+        rgba(255,255,255,.075)
       );
 
     box-shadow:
-      0 14px 32px rgba(0,15,42,.26),
-      inset 0 1px 0 rgba(255,255,255,.24);
+      0 19px 42px rgba(0,15,42,.30),
+      inset 0 1px 0 rgba(255,255,255,.28),
+      inset 0 -1px 0 rgba(255,255,255,.06);
 
-    -webkit-backdrop-filter:blur(14px);
-    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(15px);
+    backdrop-filter:blur(15px);
 
-    color:#fff;
-    text-decoration:none;
+    transform:translateZ(0);
 
     transition:
       transform .25s ease,
@@ -53,34 +59,44 @@
       box-shadow .25s ease;
   }
 
-  .vx-mini-promo:hover{
-    color:#fff;
-    text-decoration:none;
+  /*
+   * Fine illuminated border along the top
+   */
+  .vx-bm-promo::after{
+    content:"";
+    position:absolute;
+    z-index:0;
 
-    transform:translateY(-3px);
+    top:0;
+    left:10%;
 
-    border-color:rgba(255,255,255,.60);
+    width:80%;
+    height:1px;
 
-    box-shadow:
-      0 20px 42px rgba(0,15,42,.34),
-      inset 0 1px 0 rgba(255,255,255,.28);
+    pointer-events:none;
+
+    background:linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.90),
+      transparent
+    );
+
+    opacity:.70;
   }
 
-  .vx-mini-promo:focus-visible{
-    outline:3px solid #fff;
-    outline-offset:4px;
-  }
-
-  /* Subtle animated shimmer */
-  .vx-mini-promo::before{
+  /*
+   * Slow professional shimmer
+   */
+  .vx-bm-promo::before{
     content:"";
     position:absolute;
     z-index:0;
 
     top:-120%;
-    left:-35%;
+    left:-34%;
 
-    width:20%;
+    width:21%;
     height:350%;
 
     pointer-events:none;
@@ -90,102 +106,65 @@
     background:linear-gradient(
       90deg,
       transparent,
-      rgba(255,255,255,.17),
+      rgba(255,255,255,.18),
       transparent
     );
 
-    animation:vx-mini-shimmer 7s ease-in-out infinite;
+    animation:vx-bm-shimmer 7.2s ease-in-out infinite;
   }
 
-  /* Fine illuminated line */
-  .vx-mini-promo::after{
-    content:"";
-    position:absolute;
-    z-index:0;
+  .vx-bm-promo:hover{
+    color:#fff;
+    text-decoration:none;
 
-    top:0;
-    left:12%;
+    transform:translateY(-4px);
 
-    width:76%;
-    height:1px;
+    border-color:rgba(255,255,255,.65);
 
-    pointer-events:none;
-
-    background:linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.80),
-      transparent
-    );
+    box-shadow:
+      0 27px 56px rgba(0,15,42,.38),
+      inset 0 1px 0 rgba(255,255,255,.32),
+      inset 0 -1px 0 rgba(255,255,255,.07);
   }
 
-  .vx-mini-promo-copy{
+  .vx-bm-promo:focus-visible{
+    outline:3px solid rgba(255,255,255,.96);
+    outline-offset:5px;
+  }
+
+  .vx-bm-promo-copy{
     position:relative;
     z-index:2;
 
     min-width:0;
-    text-align:left;
+    flex:1 1 auto;
   }
 
-  .vx-mini-promo-topline{
+  .vx-bm-promo-meta{
     display:flex;
     align-items:center;
     flex-wrap:wrap;
     gap:8px;
 
-    margin-bottom:4px;
+    margin:0 0 6px;
   }
 
-  .vx-mini-promo-badge{
+  .vx-bm-promo-badge{
     display:inline-flex;
     align-items:center;
-    gap:5px;
+    gap:6px;
 
-    padding:4px 7px;
+    padding:5px 9px;
 
-    border:1px solid rgba(255,255,255,.38);
+    border:1px solid rgba(255,255,255,.42);
     border-radius:999px;
 
-    background:rgba(0,28,57,.40);
+    background:rgba(0,28,57,.42);
 
     color:#fff;
 
     font:
-      800 8px/1
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Inter,
-      Arial,
-      sans-serif;
-
-    letter-spacing:.09em;
-    text-transform:uppercase;
-  }
-
-  .vx-mini-promo-dot{
-    width:5px;
-    height:5px;
-    flex:0 0 auto;
-
-    border-radius:50%;
-
-    background:#70f0ae;
-
-    box-shadow:
-      0 0 0 3px rgba(112,240,174,.10),
-      0 0 9px rgba(112,240,174,.60);
-
-    animation:vx-mini-pulse 2.8s ease-in-out infinite;
-  }
-
-  .vx-mini-promo-platform{
-    color:rgba(255,255,255,.72);
-
-    font:
-      800 8px/1.1
+      800 9px/1
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -197,15 +176,51 @@
 
     letter-spacing:.10em;
     text-transform:uppercase;
+
+    box-shadow:0 6px 16px rgba(0,0,0,.13);
   }
 
-  .vx-mini-promo-title{
+  .vx-bm-promo-dot{
+    width:6px;
+    height:6px;
+    flex:0 0 auto;
+
+    border-radius:50%;
+
+    background:#70f0ae;
+
+    box-shadow:
+      0 0 0 4px rgba(112,240,174,.11),
+      0 0 13px rgba(112,240,174,.65);
+
+    animation:vx-bm-pulse 2.8s ease-in-out infinite;
+  }
+
+  .vx-bm-promo-platform{
+    color:rgba(255,255,255,.76);
+
+    font:
+      800 9px/1.2
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Inter,
+      Arial,
+      sans-serif;
+
+    letter-spacing:.11em;
+    text-transform:uppercase;
+  }
+
+  .vx-bm-promo-title{
     margin:0;
 
     color:#fff;
 
     font:
-      850 18px/1.12
+      850 24px/1.12
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -215,23 +230,25 @@
       Arial,
       sans-serif;
 
-    letter-spacing:-.02em;
+    letter-spacing:-.025em;
   }
 
-  .vx-mini-promo-title span{
-    color:#b6e5ff;
+  .vx-bm-promo-title span{
+    color:#b7e6ff;
 
     text-shadow:
-      0 0 15px rgba(182,229,255,.22);
+      0 0 19px rgba(183,230,255,.24);
   }
 
-  .vx-mini-promo-text{
-    margin:4px 0 0;
+  .vx-bm-promo-description{
+    max-width:540px;
 
-    color:rgba(255,255,255,.86);
+    margin:6px 0 0;
+
+    color:rgba(255,255,255,.89);
 
     font:
-      500 10.5px/1.35
+      500 12.5px/1.45
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -242,22 +259,33 @@
       sans-serif;
   }
 
-  .vx-mini-promo-button{
+  .vx-bm-promo-action{
     position:relative;
     z-index:2;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex:0 0 auto;
+  }
+
+  .vx-bm-promo-button{
+    position:relative;
     overflow:hidden;
 
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:6px;
-    flex:0 0 auto;
+    gap:8px;
 
-    min-width:130px;
-    padding:10px 12px;
+    min-width:165px;
+    padding:13px 16px;
 
-    border:1px solid rgba(255,255,255,.34);
-    border-radius:11px;
+    box-sizing:border-box;
+
+    border:1px solid rgba(255,255,255,.36);
+    border-radius:13px;
 
     background:linear-gradient(
       135deg,
@@ -268,7 +296,7 @@
     color:#fff;
 
     font:
-      800 10px/1.1
+      800 12px/1.15
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -278,16 +306,19 @@
       Arial,
       sans-serif;
 
+    white-space:nowrap;
+
     box-shadow:
-      0 9px 20px rgba(185,50,21,.30),
-      inset 0 1px 0 rgba(255,255,255,.26);
+      0 12px 25px rgba(185,50,21,.34),
+      inset 0 1px 0 rgba(255,255,255,.28);
 
     transition:
       transform .25s ease,
-      box-shadow .25s ease;
+      box-shadow .25s ease,
+      filter .25s ease;
   }
 
-  .vx-mini-promo-button::before{
+  .vx-bm-promo-button::before{
     content:"";
 
     position:absolute;
@@ -298,41 +329,45 @@
     background:linear-gradient(
       110deg,
       transparent 22%,
-      rgba(255,255,255,.25) 48%,
+      rgba(255,255,255,.27) 48%,
       transparent 73%
     );
 
     transform:translateX(-125%);
-    transition:transform .65s ease;
+
+    transition:transform .7s ease;
   }
 
-  .vx-mini-promo:hover .vx-mini-promo-button{
-    transform:translateY(-1px);
+  .vx-bm-promo:hover .vx-bm-promo-button{
+    transform:translateY(-2px);
+    filter:saturate(1.08);
 
     box-shadow:
-      0 13px 25px rgba(185,50,21,.38),
-      inset 0 1px 0 rgba(255,255,255,.30);
+      0 17px 32px rgba(185,50,21,.43),
+      inset 0 1px 0 rgba(255,255,255,.32);
   }
 
-  .vx-mini-promo:hover .vx-mini-promo-button::before{
+  .vx-bm-promo:hover .vx-bm-promo-button::before{
     transform:translateX(125%);
   }
 
-  .vx-mini-promo-arrow{
-    font-size:13px;
+  .vx-bm-promo-arrow{
+    display:inline-block;
+
+    font-size:15px;
     line-height:1;
 
     transition:transform .25s ease;
   }
 
-  .vx-mini-promo:hover .vx-mini-promo-arrow{
-    transform:translateX(3px);
+  .vx-bm-promo:hover .vx-bm-promo-arrow{
+    transform:translateX(4px);
   }
 
-  @keyframes vx-mini-shimmer{
+  @keyframes vx-bm-shimmer{
     0%,
     58%{
-      left:-35%;
+      left:-34%;
       opacity:0;
     }
 
@@ -347,112 +382,161 @@
     }
   }
 
-  @keyframes vx-mini-pulse{
+  @keyframes vx-bm-pulse{
     0%,
     100%{
       transform:scale(1);
+
+      box-shadow:
+        0 0 0 4px rgba(112,240,174,.11),
+        0 0 12px rgba(112,240,174,.55);
     }
 
     50%{
-      transform:scale(1.18);
+      transform:scale(1.16);
+
+      box-shadow:
+        0 0 0 7px rgba(112,240,174,.04),
+        0 0 18px rgba(112,240,174,.76);
     }
   }
 
-  @media (max-width:700px){
-    .vx-mini-promo-wrap{
-      width:min(500px,92%);
-      margin-top:22px;
+  @media (max-width:800px){
+    .vx-bm-promo-wrap{
+      width:min(650px,92%);
+      margin-top:28px;
     }
 
-    .vx-mini-promo{
-      gap:12px;
-      padding:12px;
+    .vx-bm-promo{
+      gap:18px;
+      padding:17px 18px;
     }
 
-    .vx-mini-promo-title{
-      font-size:17px;
+    .vx-bm-promo-title{
+      font-size:22px;
     }
 
-    .vx-mini-promo-text{
-      font-size:10px;
+    .vx-bm-promo-description{
+      font-size:12px;
     }
 
-    .vx-mini-promo-button{
-      min-width:115px;
-      padding:9px 10px;
-      font-size:9.5px;
+    .vx-bm-promo-button{
+      min-width:150px;
+      padding:12px 14px;
+      font-size:11px;
     }
   }
 
-  @media (max-width:520px){
-    .vx-mini-promo{
+  @media (max-width:620px){
+    .vx-bm-promo-wrap{
+      width:92%;
+      margin-top:25px;
+    }
+
+    .vx-bm-promo{
       flex-direction:column;
       align-items:stretch;
+      gap:15px;
 
-      padding:13px;
+      padding:17px;
 
       text-align:center;
     }
 
-    .vx-mini-promo-copy{
+    .vx-bm-promo-copy{
       text-align:center;
     }
 
-    .vx-mini-promo-topline{
+    .vx-bm-promo-meta{
       justify-content:center;
     }
 
-    .vx-mini-promo-button{
-      align-self:center;
-      min-width:155px;
+    .vx-bm-promo-description{
+      margin-inline:auto;
+    }
+
+    .vx-bm-promo-action{
+      width:100%;
+    }
+
+    .vx-bm-promo-button{
+      min-width:175px;
+    }
+  }
+
+  @media (max-width:420px){
+    .vx-bm-promo-wrap{
+      width:94%;
+      margin-top:22px;
+    }
+
+    .vx-bm-promo{
+      padding:15px 13px;
+      border-radius:17px;
+    }
+
+    .vx-bm-promo-title{
+      font-size:20px;
+    }
+
+    .vx-bm-promo-description{
+      font-size:11.5px;
+    }
+
+    .vx-bm-promo-button{
+      padding:11px 14px;
+      font-size:11px;
     }
   }
 
   @media (prefers-reduced-motion:reduce){
-    .vx-mini-promo::before,
-    .vx-mini-promo-dot{
+    .vx-bm-promo::before,
+    .vx-bm-promo-dot{
       animation:none;
     }
 
-    .vx-mini-promo,
-    .vx-mini-promo-button,
-    .vx-mini-promo-button::before,
-    .vx-mini-promo-arrow{
+    .vx-bm-promo,
+    .vx-bm-promo-button,
+    .vx-bm-promo-button::before,
+    .vx-bm-promo-arrow{
       transition:none;
     }
   }
 </style>
 
-<div class="vx-mini-promo-wrap">
+<div class="vx-bm-promo-wrap">
   <a
-    class="vx-mini-promo"
+    class="vx-bm-promo"
     href="https://ai.vaxonyx.com/bulkmind/#/"
-    aria-label="Explore the BulkMind AI platform"
+    aria-label="Explore the newly launched BulkMind AI platform"
   >
-    <div class="vx-mini-promo-copy">
-      <div class="vx-mini-promo-topline">
-        <span class="vx-mini-promo-badge">
-          <span class="vx-mini-promo-dot" aria-hidden="true"></span>
+    <div class="vx-bm-promo-copy">
+      <div class="vx-bm-promo-meta">
+        <span class="vx-bm-promo-badge">
+          <span class="vx-bm-promo-dot" aria-hidden="true"></span>
           New Launch
         </span>
 
-        <span class="vx-mini-promo-platform">
+        <span class="vx-bm-promo-platform">
           Vaxonyx AI Platform
         </span>
       </div>
 
-      <h2 class="vx-mini-promo-title">
+      <h2 class="vx-bm-promo-title">
         Introducing <span>BulkMind AI</span>
       </h2>
 
-      <p class="vx-mini-promo-text">
-        AI-powered bulk RNA-seq analysis and biological interpretation.
+      <p class="vx-bm-promo-description">
+        AI-powered bulk RNA-seq analysis, pathway prioritization,
+        transcription-factor activity, and biological interpretation.
       </p>
     </div>
 
-    <span class="vx-mini-promo-button" aria-hidden="true">
-      Explore Platform
-      <span class="vx-mini-promo-arrow">→</span>
-    </span>
+    <div class="vx-bm-promo-action" aria-hidden="true">
+      <span class="vx-bm-promo-button">
+        Explore BulkMind AI
+        <span class="vx-bm-promo-arrow">→</span>
+      </span>
+    </div>
   </a>
 </div>
