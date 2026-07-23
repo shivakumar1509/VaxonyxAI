@@ -37,6 +37,11 @@ description: Vaxonyx builds AI-powered platforms for neoantigen discovery, vacci
     <h1>Vaxonyx</h1>
     <p class="vx-line">Science for All — Affordable, Accessible, Advanced.</p>
     <p class="vx-line">AI-Driven Solutions for Next-Gen Therapeutics.</p>
+    {% capture vx_promotion_content %}{% include_relative promotion_index.html %}{% endcapture %}
+    {% assign vx_promotion_clean = vx_promotion_content | strip %}
+    {% unless vx_promotion_clean == "" %}
+      {{ vx_promotion_content }}
+    {% endunless %}
   </div>
 </section>
 
