@@ -1,12 +1,12 @@
 <style>
   /*
    * BulkMind AI homepage promotion
-   * Balanced medium-size version
+   * Medium-plus version: approximately 20% larger
    */
 
   .vx-bm-promo-wrap{
-    width:min(760px,92%);
-    margin:30px auto 0;
+    width:min(910px,94%);
+    margin:34px auto 0;
     padding:0;
   }
 
@@ -18,38 +18,38 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:24px;
+    gap:29px;
 
     width:100%;
     box-sizing:border-box;
-    padding:18px 20px;
+    padding:22px 24px;
 
     color:#fff;
     text-align:left;
     text-decoration:none;
 
-    border:1px solid rgba(255,255,255,.40);
-    border-radius:19px;
+    border:1px solid rgba(255,255,255,.42);
+    border-radius:22px;
 
     background:
       radial-gradient(
         circle at 91% 18%,
-        rgba(111,211,255,.23),
+        rgba(111,211,255,.24),
         transparent 34%
       ),
       linear-gradient(
         135deg,
-        rgba(255,255,255,.19),
-        rgba(255,255,255,.075)
+        rgba(255,255,255,.20),
+        rgba(255,255,255,.08)
       );
 
     box-shadow:
-      0 19px 42px rgba(0,15,42,.30),
-      inset 0 1px 0 rgba(255,255,255,.28),
-      inset 0 -1px 0 rgba(255,255,255,.06);
+      0 23px 50px rgba(0,15,42,.31),
+      inset 0 1px 0 rgba(255,255,255,.29),
+      inset 0 -1px 0 rgba(255,255,255,.07);
 
-    -webkit-backdrop-filter:blur(15px);
-    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px);
 
     transform:translateZ(0);
 
@@ -59,9 +59,7 @@
       box-shadow .25s ease;
   }
 
-  /*
-   * Fine illuminated border along the top
-   */
+  /* Fine illuminated line across the top */
   .vx-bm-promo::after{
     content:"";
     position:absolute;
@@ -78,16 +76,14 @@
     background:linear-gradient(
       90deg,
       transparent,
-      rgba(255,255,255,.90),
+      rgba(255,255,255,.92),
       transparent
     );
 
-    opacity:.70;
+    opacity:.72;
   }
 
-  /*
-   * Slow professional shimmer
-   */
+  /* Slow premium shimmer */
   .vx-bm-promo::before{
     content:"";
     position:absolute;
@@ -106,7 +102,7 @@
     background:linear-gradient(
       90deg,
       transparent,
-      rgba(255,255,255,.18),
+      rgba(255,255,255,.19),
       transparent
     );
 
@@ -119,12 +115,12 @@
 
     transform:translateY(-4px);
 
-    border-color:rgba(255,255,255,.65);
+    border-color:rgba(255,255,255,.67);
 
     box-shadow:
-      0 27px 56px rgba(0,15,42,.38),
-      inset 0 1px 0 rgba(255,255,255,.32),
-      inset 0 -1px 0 rgba(255,255,255,.07);
+      0 31px 64px rgba(0,15,42,.39),
+      inset 0 1px 0 rgba(255,255,255,.33),
+      inset 0 -1px 0 rgba(255,255,255,.08);
   }
 
   .vx-bm-promo:focus-visible{
@@ -144,27 +140,27 @@
     display:flex;
     align-items:center;
     flex-wrap:wrap;
-    gap:8px;
+    gap:10px;
 
-    margin:0 0 6px;
+    margin:0 0 8px;
   }
 
   .vx-bm-promo-badge{
     display:inline-flex;
     align-items:center;
-    gap:6px;
+    gap:7px;
 
-    padding:5px 9px;
+    padding:6px 10px;
 
-    border:1px solid rgba(255,255,255,.42);
+    border:1px solid rgba(255,255,255,.44);
     border-radius:999px;
 
-    background:rgba(0,28,57,.42);
+    background:rgba(0,28,57,.43);
 
     color:#fff;
 
     font:
-      800 9px/1
+      800 10px/1
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -177,12 +173,12 @@
     letter-spacing:.10em;
     text-transform:uppercase;
 
-    box-shadow:0 6px 16px rgba(0,0,0,.13);
+    box-shadow:0 7px 18px rgba(0,0,0,.14);
   }
 
   .vx-bm-promo-dot{
-    width:6px;
-    height:6px;
+    width:7px;
+    height:7px;
     flex:0 0 auto;
 
     border-radius:50%;
@@ -190,17 +186,17 @@
     background:#70f0ae;
 
     box-shadow:
-      0 0 0 4px rgba(112,240,174,.11),
-      0 0 13px rgba(112,240,174,.65);
+      0 0 0 5px rgba(112,240,174,.11),
+      0 0 15px rgba(112,240,174,.66);
 
     animation:vx-bm-pulse 2.8s ease-in-out infinite;
   }
 
   .vx-bm-promo-platform{
-    color:rgba(255,255,255,.76);
+    color:rgba(255,255,255,.78);
 
     font:
-      800 9px/1.2
+      800 10px/1.2
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -210,7 +206,7 @@
       Arial,
       sans-serif;
 
-    letter-spacing:.11em;
+    letter-spacing:.12em;
     text-transform:uppercase;
   }
 
@@ -220,7 +216,7 @@
     color:#fff;
 
     font:
-      850 24px/1.12
+      850 29px/1.12
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -237,18 +233,18 @@
     color:#b7e6ff;
 
     text-shadow:
-      0 0 19px rgba(183,230,255,.24);
+      0 0 22px rgba(183,230,255,.25);
   }
 
   .vx-bm-promo-description{
-    max-width:540px;
+    max-width:640px;
 
-    margin:6px 0 0;
+    margin:8px 0 0;
 
-    color:rgba(255,255,255,.89);
+    color:rgba(255,255,255,.90);
 
     font:
-      500 12.5px/1.45
+      500 14.5px/1.48
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -277,15 +273,15 @@
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
+    gap:9px;
 
-    min-width:165px;
-    padding:13px 16px;
+    min-width:198px;
+    padding:15px 19px;
 
     box-sizing:border-box;
 
-    border:1px solid rgba(255,255,255,.36);
-    border-radius:13px;
+    border:1px solid rgba(255,255,255,.38);
+    border-radius:15px;
 
     background:linear-gradient(
       135deg,
@@ -296,7 +292,7 @@
     color:#fff;
 
     font:
-      800 12px/1.15
+      800 14px/1.15
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -309,8 +305,8 @@
     white-space:nowrap;
 
     box-shadow:
-      0 12px 25px rgba(185,50,21,.34),
-      inset 0 1px 0 rgba(255,255,255,.28);
+      0 15px 30px rgba(185,50,21,.35),
+      inset 0 1px 0 rgba(255,255,255,.29);
 
     transition:
       transform .25s ease,
@@ -329,12 +325,11 @@
     background:linear-gradient(
       110deg,
       transparent 22%,
-      rgba(255,255,255,.27) 48%,
+      rgba(255,255,255,.28) 48%,
       transparent 73%
     );
 
     transform:translateX(-125%);
-
     transition:transform .7s ease;
   }
 
@@ -343,8 +338,8 @@
     filter:saturate(1.08);
 
     box-shadow:
-      0 17px 32px rgba(185,50,21,.43),
-      inset 0 1px 0 rgba(255,255,255,.32);
+      0 20px 38px rgba(185,50,21,.44),
+      inset 0 1px 0 rgba(255,255,255,.33);
   }
 
   .vx-bm-promo:hover .vx-bm-promo-button::before{
@@ -354,7 +349,7 @@
   .vx-bm-promo-arrow{
     display:inline-block;
 
-    font-size:15px;
+    font-size:18px;
     line-height:1;
 
     transition:transform .25s ease;
@@ -388,57 +383,57 @@
       transform:scale(1);
 
       box-shadow:
-        0 0 0 4px rgba(112,240,174,.11),
-        0 0 12px rgba(112,240,174,.55);
+        0 0 0 5px rgba(112,240,174,.11),
+        0 0 14px rgba(112,240,174,.56);
     }
 
     50%{
       transform:scale(1.16);
 
       box-shadow:
-        0 0 0 7px rgba(112,240,174,.04),
-        0 0 18px rgba(112,240,174,.76);
+        0 0 0 8px rgba(112,240,174,.04),
+        0 0 20px rgba(112,240,174,.78);
     }
   }
 
-  @media (max-width:800px){
+  @media (max-width:900px){
     .vx-bm-promo-wrap{
-      width:min(650px,92%);
-      margin-top:28px;
+      width:min(760px,92%);
+      margin-top:30px;
     }
 
     .vx-bm-promo{
-      gap:18px;
-      padding:17px 18px;
+      gap:21px;
+      padding:19px 21px;
     }
 
     .vx-bm-promo-title{
-      font-size:22px;
+      font-size:25px;
     }
 
     .vx-bm-promo-description{
-      font-size:12px;
+      font-size:13px;
     }
 
     .vx-bm-promo-button{
-      min-width:150px;
-      padding:12px 14px;
-      font-size:11px;
+      min-width:170px;
+      padding:13px 15px;
+      font-size:12px;
     }
   }
 
-  @media (max-width:620px){
+  @media (max-width:680px){
     .vx-bm-promo-wrap{
       width:92%;
-      margin-top:25px;
+      margin-top:26px;
     }
 
     .vx-bm-promo{
       flex-direction:column;
       align-items:stretch;
-      gap:15px;
+      gap:17px;
 
-      padding:17px;
+      padding:18px;
 
       text-align:center;
     }
@@ -460,32 +455,32 @@
     }
 
     .vx-bm-promo-button{
-      min-width:175px;
+      min-width:190px;
     }
   }
 
   @media (max-width:420px){
     .vx-bm-promo-wrap{
       width:94%;
-      margin-top:22px;
+      margin-top:23px;
     }
 
     .vx-bm-promo{
-      padding:15px 13px;
-      border-radius:17px;
+      padding:16px 14px;
+      border-radius:18px;
     }
 
     .vx-bm-promo-title{
-      font-size:20px;
+      font-size:22px;
     }
 
     .vx-bm-promo-description{
-      font-size:11.5px;
+      font-size:12px;
     }
 
     .vx-bm-promo-button{
-      padding:11px 14px;
-      font-size:11px;
+      padding:12px 15px;
+      font-size:11.5px;
     }
   }
 
