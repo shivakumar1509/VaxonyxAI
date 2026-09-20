@@ -1,946 +1,1008 @@
 ---
 layout: default
-title: AI Platforms
-description: Explore Vaxonyx AI-powered platforms for bulk RNA-seq analysis, neoantigen discovery, HLA typing, variant calling, and translational research.
-permalink: /AI_Platforms/
+title: Home
+description: Vaxogene advances biotechnology research, genomics, bioinformatics, molecular biology, and translational innovation from India.
 ---
 
 <style>
   :root{
-    --aip-navy:#0b2344;
-    --aip-blue:#167fd8;
-    --aip-blue-light:#3FA9F5;
-    --aip-teal:#007C91;
-    --aip-orange:#ff6a3d;
-    --aip-ink:#0b1220;
-    --aip-text:#334155;
-    --aip-muted:#64748b;
-    --aip-line:rgba(15,23,42,.12);
-    --aip-soft:#f4f9ff;
-    --aip-soft-2:#eaf5ff;
-    --aip-white:#ffffff;
+    --vx-blue:#1b427a;
+    --vx-blue-light:#2196f3;
+    --vx-blue-dark:#001c39;
+    --vx-sky:#3fa9f5;
+    --vx-teal:#007c91;
+    --vx-orange:#ff633c;
+    --vx-ink:#0b172a;
+    --vx-muted:#536174;
+    --vx-line:rgba(27,66,122,.15);
+    --vx-soft:#f3f7fd;
   }
 
-  html{
-    scroll-behavior:smooth;
+  *{
+    box-sizing:border-box;
   }
 
-  .aip-container{
+  .vx-container{
     width:min(1120px,92%);
     margin-inline:auto;
   }
 
-  /* =========================================================
+  /* =====================================================
      HERO
-     ========================================================= */
+     ===================================================== */
 
-  .aip-hero{
+  .vx-hero{
     position:relative;
     overflow:hidden;
-    padding:92px 0 78px;
+    min-height:700px;
+    display:flex;
+    align-items:center;
+    padding:68px 20px 54px;
+    color:#fff;
+    text-align:center;
+
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(0,20,48,.19) 0%,
+        rgba(0,31,69,.40) 34%,
+        rgba(0,31,69,.44) 66%,
+        rgba(0,20,48,.19) 100%
+      ),
+      url("{{ '/assets/global-innovation-network.webp' | relative_url }}");
+
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+
+  .vx-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(0,20,48,.03) 0%,
+        rgba(0,27,60,.08) 55%,
+        rgba(0,16,40,.28) 100%
+      );
+  }
+
+  .vx-hero-inner{
+    position:relative;
+    z-index:1;
+    width:min(1120px,92%);
+    margin-inline:auto;
+  }
+
+  .vx-hero h1{
+    position:absolute;
+    left:-9999px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+
+  .vx-hero-line{
+    margin:0;
+    color:#fff;
+    text-shadow:0 3px 20px rgba(0,13,38,.58);
+    font:800 clamp(27px,3.25vw,43px)/1.16
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    letter-spacing:-.025em;
+  }
+
+  .vx-hero-line + .vx-hero-line{
+    margin-top:34px;
+  }
+
+  /* =====================================================
+     BUTTONS
+     ===================================================== */
+
+  .vx-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:44px;
+    padding:.82rem 1.3rem;
+    border:1px solid var(--vx-line);
+    border-radius:12px;
+    color:var(--vx-blue);
+    background:#fff;
+    text-decoration:none;
+    white-space:nowrap;
+    font:750 14px/1.2
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+    transition:
+      transform .2s ease,
+      box-shadow .2s ease,
+      background .2s ease;
+  }
+
+  .vx-btn:hover{
+    transform:translateY(-2px);
+  }
+
+  .vx-btn-orange{
+    min-width:190px;
+    border:none;
+    color:#fff;
+    background:linear-gradient(180deg,#ff784f,#f2552e);
+    box-shadow:0 15px 32px -14px rgba(255,91,45,.95);
+  }
+
+  .vx-btn-orange:hover{
+    box-shadow:0 18px 38px -14px rgba(255,91,45,1);
+  }
+
+  .vx-btn-blue{
+    border:none;
+    color:#fff;
+    background:linear-gradient(180deg,#3fa9f5,#167fd8);
+    box-shadow:0 13px 28px -16px rgba(63,169,245,.9);
+  }
+
+  .vx-btn-outline{
+    min-width:178px;
+    border:1px solid rgba(143,214,255,.74);
+    color:#fff;
+    background:rgba(14,103,173,.48);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.15),
+      0 12px 25px -18px rgba(79,190,255,.9);
+  }
+
+  .vx-btn-outline:hover{
+    background:rgba(25,131,210,.68);
+    box-shadow:0 14px 30px -16px rgba(79,190,255,.95);
+  }
+
+  /* =====================================================
+     BOX 1: BULKMIND AI
+     ===================================================== */
+
+  .vx-launch{
+    max-width:960px;
+    margin:40px auto 0;
+    padding:25px 27px;
+    border:1px solid rgba(180,226,255,.55);
+    border-radius:21px;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(25,103,167,.78),
+        rgba(4,42,84,.80)
+      );
+    box-shadow:
+      0 28px 60px -32px rgba(0,0,0,.95),
+      inset 0 1px 0 rgba(255,255,255,.24);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+
+  .vx-launch-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:30px;
+    align-items:center;
+    text-align:left;
+  }
+
+  .vx-launch-label{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:10px;
+    color:#fff;
+    font:800 11px/1.2
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .vx-launch-dot{
+    width:9px;
+    height:9px;
+    flex:0 0 9px;
+    border-radius:50%;
+    background:#4be0aa;
+    box-shadow:
+      0 0 0 6px rgba(75,224,170,.14),
+      0 0 15px rgba(75,224,170,.9);
+  }
+
+  .vx-launch h2{
+    margin:0 0 8px;
+    color:#fff;
+    text-shadow:0 2px 12px rgba(0,15,38,.3);
+    font:800 clamp(23px,2.7vw,34px)/1.15
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+    letter-spacing:-.02em;
+  }
+
+  .vx-launch h2 span{
+    color:#a8d8ff;
+  }
+
+  .vx-launch-description{
+    max-width:680px;
+    margin:0;
+    color:rgba(255,255,255,.94);
+    font:500 14px/1.58
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  .vx-launch-disclosure{
+    max-width:730px;
+    margin:9px 0 0;
+    color:rgba(255,255,255,.72);
+    font:600 11px/1.5
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  /* =====================================================
+     BOX 2: VAXONYX USA
+     ===================================================== */
+
+  .vx-vaxonyx-box{
+    max-width:960px;
+    margin:14px auto 0;
+    padding:17px 20px;
+    border:1px solid rgba(150,217,255,.50);
+    border-radius:15px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0,46,91,.84),
+        rgba(4,72,130,.78),
+        rgba(0,46,91,.84)
+      );
+    box-shadow:
+      0 20px 42px -29px rgba(0,0,0,.95),
+      inset 0 1px 0 rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+
+  .vx-vaxonyx-grid{
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr) auto;
+    gap:19px;
+    align-items:center;
+    text-align:left;
+  }
+
+  .vx-vaxonyx-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding-right:19px;
+    border-right:1px solid rgba(178,225,255,.36);
+    white-space:nowrap;
+  }
+
+  .vx-vaxonyx-marker{
+    width:9px;
+    height:9px;
+    flex:0 0 9px;
+    border-radius:50%;
+    background:#69ccff;
+    box-shadow:
+      0 0 0 5px rgba(105,204,255,.11),
+      0 0 13px rgba(105,204,255,.9);
+  }
+
+  .vx-vaxonyx-brand strong{
+    color:#fff;
+    font:800 14px/1.2
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  .vx-vaxonyx-copy{
+    margin:0;
+    color:rgba(255,255,255,.84);
+    font:500 12px/1.55
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  /* =====================================================
+     WELCOME
+     ===================================================== */
+
+  .vx-intro{
+    padding:62px 0;
+    text-align:center;
+    background:#fff;
+  }
+
+  .vx-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    color:var(--vx-teal);
+    font:800 11px/1.2
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .vx-eyebrow::before{
+    content:"";
+    width:20px;
+    height:2px;
+    border-radius:999px;
+    background:var(--vx-sky);
+  }
+
+  .vx-title{
+    margin:0 0 15px;
+    color:var(--vx-blue);
+    font:800 clamp(25px,3vw,35px)/1.2
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+    letter-spacing:-.02em;
+  }
+
+  .vx-lead{
+    max-width:820px;
+    margin:0 auto;
+    color:#35435b;
+    font:400 16px/1.75
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  /* =====================================================
+     EXPLORE VAXOGENE
+     ===================================================== */
+
+  .vx-explore{
+    padding:68px 0;
+    background:var(--vx-soft);
+  }
+
+  .vx-section-heading{
+    max-width:780px;
+    margin:0 auto 34px;
+    text-align:center;
+  }
+
+  .vx-section-heading p{
+    margin:0;
+    color:var(--vx-muted);
+    font:400 15px/1.7
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  .vx-card-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+  }
+
+  .vx-card{
+    position:relative;
+    overflow:hidden;
+    min-height:255px;
+    padding:25px 23px;
+    border:1px solid var(--vx-line);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 16px 40px -32px rgba(0,52,100,.6);
+    transition:
+      transform .2s ease,
+      border-color .2s ease,
+      box-shadow .2s ease;
+  }
+
+  .vx-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:linear-gradient(
+      90deg,
+      var(--vx-teal),
+      var(--vx-sky)
+    );
+  }
+
+  .vx-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(63,169,245,.42);
+    box-shadow:0 23px 50px -31px rgba(0,61,116,.6);
+  }
+
+  .vx-card-number{
+    display:grid;
+    place-items:center;
+    width:47px;
+    height:47px;
+    margin-bottom:18px;
+    border-radius:14px;
+    color:var(--vx-blue);
+    background:
+      linear-gradient(
+        145deg,
+        rgba(63,169,245,.18),
+        rgba(0,124,145,.08)
+      );
+    font:800 15px/1
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  .vx-card h3{
+    margin:0 0 9px;
+    color:var(--vx-ink);
+    font:750 18px/1.3
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  .vx-card p{
+    margin:0;
+    color:var(--vx-muted);
+    font:400 14px/1.67
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  .vx-text-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-top:18px;
+    color:var(--vx-teal);
+    text-decoration:none;
+    font:750 13px/1.2
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  .vx-text-link:hover{
+    color:var(--vx-blue);
+  }
+
+  /* =====================================================
+     INNOVATION CTA
+     ===================================================== */
+
+  .vx-innovation{
+    padding:64px 0;
+    background:#fff;
+  }
+
+  .vx-innovation-panel{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:30px;
+    align-items:center;
+    padding:34px 36px;
+    border:1px solid var(--vx-line);
+    border-radius:21px;
+    background:
+      radial-gradient(
+        circle at 0% 100%,
+        rgba(63,169,245,.15),
+        transparent 38%
+      ),
+      #fff;
+    box-shadow:0 23px 55px -40px rgba(0,48,95,.65);
+  }
+
+  .vx-innovation-panel h2{
+    margin:0 0 8px;
+    color:var(--vx-blue);
+    font:800 clamp(22px,2.8vw,31px)/1.2
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  .vx-innovation-panel p{
+    max-width:720px;
+    margin:0;
+    color:var(--vx-muted);
+    font:400 15px/1.65
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
+  }
+
+  /* =====================================================
+     CONTACT CTA
+     ===================================================== */
+
+  .vx-contact{
+    padding:64px 0;
+    color:#fff;
     background:
       radial-gradient(
         circle at 12% 20%,
         rgba(63,169,245,.24),
-        transparent 34%
-      ),
-      radial-gradient(
-        circle at 88% 18%,
-        rgba(0,124,145,.16),
-        transparent 30%
+        transparent 28%
       ),
       linear-gradient(
         135deg,
-        #f7fbff 0%,
-        #eef7ff 46%,
-        #ffffff 100%
-      );
-    border-bottom:1px solid rgba(63,169,245,.18);
-  }
-
-  .aip-hero::before{
-    content:"";
-    position:absolute;
-    width:420px;
-    height:420px;
-    top:-220px;
-    right:-120px;
-    border-radius:50%;
-    background:rgba(63,169,245,.10);
-    filter:blur(2px);
-    pointer-events:none;
-  }
-
-  .aip-hero::after{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    left:-130px;
-    bottom:-180px;
-    border-radius:50%;
-    background:rgba(0,124,145,.08);
-    pointer-events:none;
-  }
-
-  .aip-hero-inner{
-    position:relative;
-    z-index:1;
-    max-width:900px;
-  }
-
-  .aip-eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-bottom:18px;
-    padding:8px 14px;
-    border:1px solid rgba(0,124,145,.22);
-    border-radius:999px;
-    background:rgba(255,255,255,.78);
-    color:var(--aip-teal);
-    font:800 12px/1 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    letter-spacing:.10em;
-    text-transform:uppercase;
-    box-shadow:0 8px 24px rgba(15,23,42,.06);
-  }
-
-  .aip-eyebrow-dot{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:linear-gradient(
-      180deg,
-      var(--aip-blue-light),
-      var(--aip-teal)
-    );
-    box-shadow:0 0 0 4px rgba(63,169,245,.12);
-  }
-
-  .aip-hero h1{
-    max-width:850px;
-    margin:0;
-    color:var(--aip-ink);
-    font:850 clamp(42px,6vw,72px)/1.02
-      system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    letter-spacing:-.035em;
-  }
-
-  .aip-hero h1 span{
-    color:var(--aip-teal);
-  }
-
-  .aip-hero-copy{
-    max-width:780px;
-    margin:24px 0 0;
-    color:var(--aip-text);
-    font:400 clamp(17px,2vw,20px)/1.75
-      system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-  }
-
-  .aip-hero-note{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:30px;
-  }
-
-  .aip-note-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 14px;
-    border:1px solid rgba(22,127,216,.18);
-    border-radius:999px;
-    background:#fff;
-    color:#24415f;
-    font:700 13px/1.2 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    box-shadow:0 8px 22px rgba(15,23,42,.06);
-  }
-
-  .aip-note-check{
-    display:inline-grid;
-    place-items:center;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    background:rgba(0,124,145,.12);
-    color:var(--aip-teal);
-    font-size:13px;
-    font-weight:900;
-  }
-
-  /* =========================================================
-     INTRODUCTION
-     ========================================================= */
-
-  .aip-intro{
-    padding:72px 0 30px;
-    background:#fff;
-  }
-
-  .aip-section-heading{
-    max-width:820px;
-    margin-bottom:42px;
-  }
-
-  .aip-section-kicker{
-    margin:0 0 10px;
-    color:var(--aip-teal);
-    font:850 13px/1.2 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    letter-spacing:.11em;
-    text-transform:uppercase;
-  }
-
-  .aip-section-heading h2{
-    margin:0;
-    color:var(--aip-ink);
-    font:850 clamp(31px,4vw,48px)/1.12
-      system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    letter-spacing:-.025em;
-  }
-
-  .aip-section-heading p{
-    max-width:760px;
-    margin:16px 0 0;
-    color:var(--aip-text);
-    font:400 17px/1.75 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-  }
-
-  /* =========================================================
-     PLATFORM CARDS
-     ========================================================= */
-
-  .aip-platforms{
-    padding:0 0 86px;
-    background:#fff;
-  }
-
-  .aip-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:24px;
-  }
-
-  .aip-card{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    min-height:100%;
-    padding:30px;
-    overflow:hidden;
-    border:1px solid var(--aip-line);
-    border-radius:22px;
-    background:#fff;
-    box-shadow:0 14px 42px rgba(15,23,42,.07);
-    transition:
-      transform .20s ease,
-      box-shadow .20s ease,
-      border-color .20s ease;
-  }
-
-  .aip-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 22px 54px rgba(15,23,42,.12);
-  }
-
-  .aip-card-live{
-    border-color:rgba(63,169,245,.38);
-    background:
-      linear-gradient(
-        145deg,
-        rgba(241,248,255,.96),
-        rgba(255,255,255,1) 58%
+        #031d38,
+        #07538a
       );
   }
 
-  .aip-card-live::before{
-    content:"";
-    position:absolute;
-    width:220px;
-    height:220px;
-    right:-95px;
-    top:-100px;
-    border-radius:50%;
-    background:rgba(63,169,245,.11);
-    pointer-events:none;
+  .vx-contact-inner{
+    max-width:800px;
+    margin-inline:auto;
+    text-align:center;
   }
 
-  .aip-card-development{
-    background:
-      linear-gradient(
-        145deg,
-        #ffffff,
-        #fafcff
-      );
-  }
-
-  .aip-card-top{
-    position:relative;
-    z-index:1;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-    margin-bottom:24px;
-  }
-
-  .aip-status{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    width:max-content;
-    padding:8px 12px;
-    border-radius:999px;
-    font:850 11px/1 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    letter-spacing:.07em;
-    text-transform:uppercase;
-  }
-
-  .aip-status-live{
-    border:1px solid rgba(0,124,145,.22);
-    background:rgba(0,124,145,.10);
-    color:#006579;
-  }
-
-  .aip-status-live::before{
-    content:"";
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#16a36a;
-    box-shadow:0 0 0 4px rgba(22,163,106,.12);
-  }
-
-  .aip-status-development{
-    border:1px solid rgba(100,116,139,.18);
-    background:#f1f5f9;
-    color:#526071;
-  }
-
-  .aip-status-development::before{
-    content:"";
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#94a3b8;
-  }
-
-  .aip-icon{
-    display:grid;
-    place-items:center;
-    flex:0 0 auto;
-    width:54px;
-    height:54px;
-    border-radius:16px;
-    background:linear-gradient(
-      145deg,
-      rgba(63,169,245,.16),
-      rgba(0,124,145,.10)
-    );
-    color:var(--aip-teal);
-    font-size:27px;
-    box-shadow:inset 0 0 0 1px rgba(63,169,245,.15);
-  }
-
-  .aip-card-development .aip-icon{
-    background:#f1f5f9;
-    color:#64748b;
-    box-shadow:inset 0 0 0 1px rgba(100,116,139,.10);
-  }
-
-  .aip-card-content{
-    position:relative;
-    z-index:1;
-    flex:1 1 auto;
-  }
-
-  .aip-card h3{
-    margin:0;
-    color:var(--aip-ink);
-    font:850 clamp(24px,3vw,32px)/1.18
-      system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    letter-spacing:-.02em;
-  }
-
-  .aip-card-subtitle{
-    margin:9px 0 0;
-    color:var(--aip-teal);
-    font:750 14px/1.4 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-  }
-
-  .aip-card-development .aip-card-subtitle{
-    color:var(--aip-muted);
-  }
-
-  .aip-card-description{
-    margin:18px 0 0;
-    color:var(--aip-text);
-    font:400 16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-  }
-
-  .aip-feature-list{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px 18px;
-    margin:24px 0 0;
-    padding:0;
-    list-style:none;
-  }
-
-  .aip-feature-list li{
-    position:relative;
-    padding-left:20px;
-    color:#334155;
-    font:650 14px/1.45 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-  }
-
-  .aip-feature-list li::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:.48em;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:linear-gradient(
-      180deg,
-      var(--aip-blue-light),
-      var(--aip-teal)
-    );
-  }
-
-  .aip-card-actions{
-    position:relative;
-    z-index:1;
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:12px;
-    margin-top:28px;
-  }
-
-  .aip-button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
-    min-height:46px;
-    padding:0 18px;
-    border:0;
-    border-radius:13px;
-    background:linear-gradient(
-      180deg,
-      var(--aip-blue-light),
-      var(--aip-blue)
-    );
+  .vx-contact h2{
+    margin:0 0 11px;
     color:#fff;
-    font:800 14px/1.2 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    text-decoration:none;
-    box-shadow:0 12px 26px -12px rgba(22,127,216,.70);
-    transition:
-      transform .18s ease,
-      box-shadow .18s ease;
-  }
-
-  .aip-button:hover{
-    color:#fff;
-    text-decoration:none;
-    transform:translateY(-2px);
-    box-shadow:0 16px 30px -12px rgba(22,127,216,.80);
-  }
-
-  .aip-button-arrow{
-    font-size:17px;
-    line-height:1;
-  }
-
-  .aip-disabled{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:43px;
-    padding:0 16px;
-    border:1px solid rgba(100,116,139,.16);
-    border-radius:12px;
-    background:#f1f5f9;
-    color:#64748b;
-    font:750 13px/1.2 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    cursor:not-allowed;
-  }
-
-  /* =========================================================
-     SEPARATION FROM INNOVATION PIPELINES
-     ========================================================= */
-
-  .aip-pipeline-cta{
-    padding:0 0 90px;
-    background:#fff;
-  }
-
-  .aip-pipeline-box{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) auto;
-    gap:28px;
-    align-items:center;
-    padding:34px 36px;
-    border:1px solid rgba(63,169,245,.25);
-    border-radius:22px;
-    background:
-      linear-gradient(
-        135deg,
-        rgba(241,248,255,1),
-        rgba(233,245,255,.80)
-      );
-    box-shadow:0 14px 38px rgba(15,23,42,.07);
-  }
-
-  .aip-pipeline-box h2{
-    margin:0;
-    color:var(--aip-ink);
-    font:850 clamp(25px,3vw,34px)/1.2
+    font:800 clamp(25px,3vw,35px)/1.2
       system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
+      "Segoe UI",sans-serif;
   }
 
-  .aip-pipeline-box p{
-    max-width:760px;
-    margin:10px 0 0;
-    color:var(--aip-text);
-    font:400 16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
+  .vx-contact p{
+    margin:0 auto 24px;
+    color:rgba(255,255,255,.82);
+    font:400 15px/1.7
+      system-ui,-apple-system,BlinkMacSystemFont,
+      "Segoe UI",sans-serif;
   }
 
-  .aip-secondary-button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:46px;
-    padding:0 18px;
-    border:1px solid rgba(0,124,145,.28);
-    border-radius:13px;
-    background:#fff;
-    color:var(--aip-teal);
-    font:800 14px/1.2 system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI",Roboto,Arial,sans-serif;
-    text-decoration:none;
-    white-space:nowrap;
-    box-shadow:0 8px 22px rgba(15,23,42,.06);
-    transition:
-      transform .18s ease,
-      box-shadow .18s ease;
-  }
-
-  .aip-secondary-button:hover{
-    color:var(--aip-teal);
-    text-decoration:none;
-    transform:translateY(-2px);
-    box-shadow:0 12px 28px rgba(15,23,42,.10);
-  }
-
-  /* =========================================================
+  /* =====================================================
      RESPONSIVE
-     ========================================================= */
+     ===================================================== */
 
   @media (max-width:900px){
-    .aip-grid{
+    .vx-card-grid{
       grid-template-columns:1fr;
-    }
-
-    .aip-pipeline-box{
-      grid-template-columns:1fr;
-    }
-
-    .aip-secondary-button{
-      width:max-content;
     }
   }
 
-  @media (max-width:640px){
-    .aip-hero{
-      padding:70px 0 60px;
+  @media (max-width:720px){
+    .vx-hero{
+      min-height:auto;
+      padding:58px 16px 46px;
+      background-position:center center;
     }
 
-    .aip-intro{
-      padding:58px 0 26px;
+    .vx-hero-line{
+      font-size:clamp(23px,7vw,30px);
+      line-height:1.24;
     }
 
-    .aip-platforms{
-      padding-bottom:68px;
+    .vx-hero-line + .vx-hero-line{
+      margin-top:24px;
     }
 
-    .aip-card{
-      padding:24px;
+    .vx-launch{
+      margin-top:33px;
+      padding:22px 19px;
       border-radius:18px;
     }
 
-    .aip-feature-list{
+    .vx-launch-grid{
       grid-template-columns:1fr;
+      gap:20px;
+      text-align:center;
     }
 
-    .aip-pipeline-box{
-      padding:26px 24px;
-      border-radius:18px;
+    .vx-launch-label{
+      justify-content:center;
     }
 
-    .aip-secondary-button,
-    .aip-button{
+    .vx-launch-description,
+    .vx-launch-disclosure{
+      margin-inline:auto;
+    }
+
+    .vx-btn-orange{
       width:100%;
+    }
+
+    .vx-vaxonyx-box{
+      margin-top:14px;
+      padding:19px;
+    }
+
+    .vx-vaxonyx-grid{
+      grid-template-columns:1fr;
+      gap:12px;
+      text-align:center;
+    }
+
+    .vx-vaxonyx-brand{
+      justify-content:center;
+      padding:0;
+      border-right:none;
+    }
+
+    .vx-btn-outline{
+      width:100%;
+    }
+
+    .vx-intro,
+    .vx-explore,
+    .vx-innovation,
+    .vx-contact{
+      padding:52px 0;
+    }
+
+    .vx-innovation-panel{
+      grid-template-columns:1fr;
+      padding:27px 22px;
+      text-align:center;
+    }
+
+    .vx-innovation-panel .vx-btn{
+      width:100%;
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .vx-btn,
+    .vx-card{
+      transition:none;
+    }
+
+    .vx-btn:hover,
+    .vx-card:hover{
+      transform:none;
     }
   }
 </style>
 
 <main id="main">
 
-  <!-- =======================================================
+  <!-- ===================================================
        HERO
-       ======================================================= -->
-  <section class="aip-hero">
-    <div class="aip-container">
+       =================================================== -->
 
-      <div class="aip-hero-inner">
+  <section class="vx-hero">
 
-        <div class="aip-eyebrow">
-          <span class="aip-eyebrow-dot"></span>
-          Vaxonyx AI
-        </div>
+    <div class="vx-hero-inner">
 
-        <h1>
-          AI Platforms for
-          <span>Biomedical Discovery</span>
-        </h1>
+      <h1>Vaxogene</h1>
 
-        <p class="aip-hero-copy">
-          Vaxonyx develops intelligent bioinformatics platforms that help
-          researchers move from complex biological data to meaningful,
-          actionable insights. Our platforms are designed to make advanced
-          analysis more accessible, efficient, and reproducible.
-        </p>
+      <p class="vx-hero-line">
+        Science for All — Affordable, Accessible, Advanced.
+      </p>
 
-        <div class="aip-hero-note">
+      <p class="vx-hero-line">
+        AI-Driven Solutions for Next-Gen Therapeutics.
+      </p>
 
-          <span class="aip-note-pill">
-            <span class="aip-note-check">✓</span>
-            Built for researchers
-          </span>
+      <!-- ===============================================
+           BOX 1: BULKMIND AI
+           =============================================== -->
 
-          <span class="aip-note-pill">
-            <span class="aip-note-check">✓</span>
-            Secure cloud workflows
-          </span>
+      <article class="vx-launch">
 
-          <span class="aip-note-pill">
-            <span class="aip-note-check">✓</span>
-            No server setup required
-          </span>
+        <div class="vx-launch-grid">
 
-        </div>
+          <div>
 
-      </div>
+            <div class="vx-launch-label">
 
-    </div>
-  </section>
+              <span class="vx-launch-dot"></span>
 
+              New Launch &nbsp;•&nbsp; From Vaxonyx USA
 
-  <!-- =======================================================
-       PLATFORM INTRODUCTION
-       ======================================================= -->
-  <section class="aip-intro">
-    <div class="aip-container">
-
-      <div class="aip-section-heading">
-
-        <p class="aip-section-kicker">
-          AI Platforms
-        </p>
-
-        <h2>
-          Available and upcoming scientific platforms
-        </h2>
-
-        <p>
-          Begin with our available Bulk RNA-Seq Analysis platform.
-          Additional Vaxonyx AI platforms for immunogenomics, therapeutic
-          discovery, and precision medicine are currently under development.
-        </p>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =======================================================
-       PLATFORM GRID
-       ======================================================= -->
-  <section class="aip-platforms">
-    <div class="aip-container">
-
-      <div class="aip-grid">
-
-        <!-- =================================================
-             BULK RNA-SEQ ANALYSIS — AVAILABLE
-             ================================================= -->
-        <article class="aip-card aip-card-live">
-
-          <div class="aip-card-top">
-
-            <span class="aip-status aip-status-live">
-              Available Now
-            </span>
-
-            <div class="aip-icon" aria-hidden="true">
-              🧬
             </div>
 
-          </div>
+            <h2>
+              Introducing <span>BulkMind AI</span>
+            </h2>
 
-          <div class="aip-card-content">
-
-            <h3>
-              Bulk RNA-Seq Analysis
-            </h3>
-
-            <p class="aip-card-subtitle">
-              AI-enhanced end-to-end transcriptomic analysis
+            <p class="vx-launch-description">
+              AI-powered bulk RNA-seq analysis, pathway
+              prioritization, transcription-factor activity,
+              and biological interpretation.
             </p>
 
-            <p class="aip-card-description">
-              Upload raw sequencing data and move through automated
-              processing, quality assessment, differential expression,
-              pathway discovery, biological interpretation, and
-              publication-ready visualization.
+            <p class="vx-launch-disclosure">
+              Developed, operated, and supported by
+              <strong>Vaxonyx USA</strong>, a separate U.S.-based
+              biotechnology company with shared founding leadership.
             </p>
-
-            <ul class="aip-feature-list">
-              <li>FASTQ file upload</li>
-              <li>Quality assessment</li>
-              <li>Alignment and normalization</li>
-              <li>Differential expression</li>
-              <li>AI-assisted outlier detection</li>
-              <li>Pathway analysis</li>
-              <li>Gene and TF analysis</li>
-              <li>Publication-ready plots</li>
-            </ul>
 
           </div>
 
-          <div class="aip-card-actions">
+          <div>
 
             <a
-              class="aip-button"
-              href="https://ai.vaxonyx.com/bulkmind/#/"
+              class="vx-btn vx-btn-orange"
+              href="https://ai.vaxonyx.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open Bulk RNA-Seq Platform
-              <span class="aip-button-arrow" aria-hidden="true">→</span>
+              Explore BulkMind AI
+              <span aria-hidden="true">→</span>
             </a>
 
           </div>
 
+        </div>
+
+      </article>
+
+      <!-- ===============================================
+           BOX 2: VAXONYX USA
+           =============================================== -->
+
+      <aside
+        class="vx-vaxonyx-box"
+        aria-label="Learn more about Vaxonyx USA"
+      >
+
+        <div class="vx-vaxonyx-grid">
+
+          <div class="vx-vaxonyx-brand">
+
+            <span class="vx-vaxonyx-marker"></span>
+
+            <strong>
+              Vaxonyx USA
+            </strong>
+
+          </div>
+
+          <p class="vx-vaxonyx-copy">
+            A separate U.S.-based biotechnology company connected
+            to Vaxogene through shared founding leadership. Explore
+            its AI-powered bioinformatics platforms and
+            next-generation therapeutic innovation.
+          </p>
+
+          <a
+            class="vx-btn vx-btn-outline"
+            href="https://vaxonyx.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Vaxonyx USA
+            <span aria-hidden="true">↗</span>
+          </a>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================
+       WELCOME
+       =================================================== -->
+
+  <section class="vx-intro">
+
+    <div class="vx-container">
+
+      <div class="vx-eyebrow">
+        About Vaxogene
+      </div>
+
+      <h2 class="vx-title">
+        Welcome to Vaxogene
+      </h2>
+
+      <p class="vx-lead">
+        Vaxogene advances biotechnology research, scientific
+        collaboration, and translational innovation from India.
+        We apply genomics, bioinformatics, molecular biology,
+        and AI-guided approaches to support the development of
+        next-generation therapeutics for global health challenges.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================
+       EXPLORE VAXOGENE
+       =================================================== -->
+
+  <section class="vx-explore">
+
+    <div class="vx-container">
+
+      <header class="vx-section-heading">
+
+        <div class="vx-eyebrow">
+          Our capabilities
+        </div>
+
+        <h2 class="vx-title">
+          Explore Vaxogene
+        </h2>
+
+        <p>
+          Integrated capabilities supporting biological discovery,
+          scientific collaboration, and translational development.
+        </p>
+
+      </header>
+
+      <div class="vx-card-grid">
+
+        <article class="vx-card">
+
+          <div class="vx-card-number">
+            01
+          </div>
+
+          <h3>
+            Genomics &amp; Bioinformatics
+          </h3>
+
+          <p>
+            Computational approaches for transcriptomics,
+            metagenomics, genomic variation, immune genetics,
+            biomarker research, and biological interpretation.
+          </p>
+
+          <a
+            class="vx-text-link"
+            href="{{ '/AI_Platforms/' | relative_url }}"
+          >
+            Explore platforms
+            <span aria-hidden="true">→</span>
+          </a>
+
         </article>
 
+        <article class="vx-card">
 
-        <!-- =================================================
-             NEOANTIGEN DISCOVERY
-             ================================================= -->
-        <article class="aip-card aip-card-development">
-
-          <div class="aip-card-top">
-
-            <span class="aip-status aip-status-development">
-              Under Development
-            </span>
-
-            <div class="aip-icon" aria-hidden="true">
-              💉
-            </div>
-
+          <div class="vx-card-number">
+            02
           </div>
 
-          <div class="aip-card-content">
+          <h3>
+            Scientific Services
+          </h3>
 
-            <h3>
-              Neoantigen Discovery
-            </h3>
+          <p>
+            Molecular biology, biochemical assays, virology-based
+            research, experimental planning, and analytical
+            support for biotechnology programs.
+          </p>
 
-            <p class="aip-card-subtitle">
-              Personalized immunogenomic discovery workflows
-            </p>
-
-            <p class="aip-card-description">
-              An AI-assisted platform for identifying, prioritizing, and
-              interpreting candidate neoantigens for cancer immunology,
-              personalized vaccine research, and translational studies.
-            </p>
-
-          </div>
-
-          <div class="aip-card-actions">
-
-            <span
-              class="aip-disabled"
-              aria-disabled="true"
-            >
-              Under Development
-            </span>
-
-          </div>
+          <a
+            class="vx-text-link"
+            href="{{ '/services/' | relative_url }}"
+          >
+            Explore services
+            <span aria-hidden="true">→</span>
+          </a>
 
         </article>
 
+        <article class="vx-card">
 
-        <!-- =================================================
-             HLA TYPING
-             ================================================= -->
-        <article class="aip-card aip-card-development">
-
-          <div class="aip-card-top">
-
-            <span class="aip-status aip-status-development">
-              Under Development
-            </span>
-
-            <div class="aip-icon" aria-hidden="true">
-              🧫
-            </div>
-
+          <div class="vx-card-number">
+            03
           </div>
 
-          <div class="aip-card-content">
+          <h3>
+            Translational Innovation
+          </h3>
 
-            <h3>
-              HLA Typing
-            </h3>
+          <p>
+            Collaborative research supporting vaccines,
+            therapeutic targets, regenerative medicine,
+            preclinical development, and precision biotechnology.
+          </p>
 
-            <p class="aip-card-subtitle">
-              AI-assisted immunogenomic characterization
-            </p>
-
-            <p class="aip-card-description">
-              A planned platform supporting HLA typing and interpretation
-              for immunogenomics, transplant research, neoantigen analysis,
-              vaccine development, and personalized medicine.
-            </p>
-
-          </div>
-
-          <div class="aip-card-actions">
-
-            <span
-              class="aip-disabled"
-              aria-disabled="true"
-            >
-              Under Development
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- =================================================
-             VARIANT CALLING
-             ================================================= -->
-        <article class="aip-card aip-card-development">
-
-          <div class="aip-card-top">
-
-            <span class="aip-status aip-status-development">
-              Under Development
-            </span>
-
-            <div class="aip-icon" aria-hidden="true">
-              🔬
-            </div>
-
-          </div>
-
-          <div class="aip-card-content">
-
-            <h3>
-              Variant Calling
-            </h3>
-
-            <p class="aip-card-subtitle">
-              Genomic variant identification and prioritization
-            </p>
-
-            <p class="aip-card-description">
-              A planned AI-assisted workflow for genomic variant calling,
-              annotation, prioritization, interpretation, and structured
-              reporting for research and translational applications.
-            </p>
-
-          </div>
-
-          <div class="aip-card-actions">
-
-            <span
-              class="aip-disabled"
-              aria-disabled="true"
-            >
-              Under Development
-            </span>
-
-          </div>
+          <a
+            class="vx-text-link"
+            href="{{ '/innovation/' | relative_url }}"
+          >
+            View innovation
+            <span aria-hidden="true">→</span>
+          </a>
 
         </article>
 
       </div>
 
     </div>
+
   </section>
 
+  <!-- ===================================================
+       INNOVATION CTA
+       =================================================== -->
 
-  <!-- =======================================================
-       INNOVATION PIPELINE LINK
-       ======================================================= -->
-  <section class="aip-pipeline-cta">
-    <div class="aip-container">
+  <section class="vx-innovation">
 
-      <div class="aip-pipeline-box">
+    <div class="vx-container">
+
+      <div class="vx-innovation-panel">
 
         <div>
 
           <h2>
-            Looking for our therapeutic and vaccine pipelines?
+            Explore Our Innovation
           </h2>
 
           <p>
-            Vaxonyx AI Platforms are focused on computational and
-            bioinformatics products. Our vaccine, therapeutic, delivery,
-            and translational development pipelines remain under the
-            Innovation section.
+            From biological discovery to translational strategy,
+            Vaxogene brings together genomics, molecular biology,
+            scientific services, and collaborative research.
           </p>
 
         </div>
 
+        <div>
+
+          <a
+            class="vx-btn vx-btn-blue"
+            href="{{ '/innovation/' | relative_url }}"
+          >
+            Learn More
+            <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================
+       CONTACT CTA
+       =================================================== -->
+
+  <section class="vx-contact">
+
+    <div class="vx-container">
+
+      <div class="vx-contact-inner">
+
+        <h2>
+          Interested in scientific collaboration?
+        </h2>
+
+        <p>
+          Tell us about your scientific question, research model,
+          technology requirements, and translational goals. We can
+          help identify a practical route forward.
+        </p>
+
         <a
-          class="aip-secondary-button"
-          href="{{ '/innovation/' | relative_url }}"
+          class="vx-btn vx-btn-orange"
+          href="{{ '/contact/' | relative_url }}"
         >
-          Explore Innovation
+          Discuss a Project
+          <span aria-hidden="true">→</span>
         </a>
 
       </div>
 
     </div>
+
   </section>
 
 </main>
