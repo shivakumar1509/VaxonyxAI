@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <title>{% if page.seo_title %}{{ page.seo_title | escape }}{% elsif page.title %}{{ page.title | escape }} · {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
 
   {% if site.url %}
@@ -20,6 +20,18 @@
   <script>window.VX_QA = window.VX_QA || window.OSX_QA;</script>
   <script defer src="{{ '/assets/osx_widget.js?v=2' | relative_url }}"></script>
   <!-- ✅ End Vaxonyx AI widget scripts -->
+  {% if page.url == '/' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://vaxonyx.com/#organization",
+    "name": "Vaxonyx",
+    "url": "https://vaxonyx.com/",
+    "description": {{ page.description | jsonify }}
+  }
+  </script>
+  {% endif %}
 </head>
 
 <body>

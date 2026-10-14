@@ -4,3 +4,7 @@ vendor/
 .DS_Store
 node_modules/
 Gemfile.lock
+
+public/
+site.zip
+site.zip.old.zip

@@ -2,7 +2,8 @@
 title: Vaxonyx
 markdown: kramdown
 theme: null
-plugins: []
+plugins:
+  - jekyll-sitemap
 permalink: pretty
 
 # GitHub Pages project URL
@@ -22,3 +23,18 @@ exclude:
   - .github
   - amplify.yml
   - _config_aws.yml
+
+# Sitemap exclusions for non-landing-page files
+defaults:
+  - scope:
+      path: "assets/antigen.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "assets/team/index.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "promotion_index.html"
+    values:
+      sitemap: false
